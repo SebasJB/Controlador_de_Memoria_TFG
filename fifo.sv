@@ -127,7 +127,7 @@ module fifo_flops #(parameter depth = 16,parameter bits = 32)(
   reg [$clog2(depth):0] count;
   reg [bits-1:0] aux_mux [depth-1:0];
   reg [bits-1:0] aux_mux_or [depth-2:0];
-
+  
   genvar i;
   generate
     for(i=0;i<depth;i=i+1)begin:_dp_
