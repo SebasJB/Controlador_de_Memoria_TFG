@@ -284,6 +284,7 @@ module tb_sram_bank_controller;
             errors = errors + 1;
             $display("[ERROR T%0d] %s", test_num, msg);
         end
+    end
     endtask
 
     // ============================================================
