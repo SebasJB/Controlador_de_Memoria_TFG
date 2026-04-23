@@ -314,26 +314,35 @@ endmodule
 
 // ============================================================
 // 5. RD_RESP_ASSEMBLER
-//    Captura sram_dout cuando rd_capture_en=1 (COMPLETE&&is_rd).
-//    En ese ciclo sram_dout está estable gracias a la
-//    liberación conservadora del FSM.
-//
-//    Salidas:
+//    Presenta los tres campos de respuesta de lectura:
 //      rd_resp_data  : dato leído de la SRAM
-//      rd_resp_tag   : tag de orden (del capture reg, no SRAM)
-//      rd_resp_valid : pulso de 1 ciclo — activo en COMPLETE
+//      rd_resp_tag   : tag de orden (del capture reg)
+//      rd_resp_valid : activo en COMPLETE&&is_rd
 //
-//    rd_resp_valid es combinacional desde rd_capture_en para
-//    minimizar latencia. El RD Resp Mux lo ve en el mismo
-//    ciclo y lo pasa al Reorder Buffer.
+//    DISEÑO COMBINACIONAL — las tres salidas son wires:
+//
+//    rd_resp_data = sram_dout (combinacional directo).
+//      La liberación conservadora del FSM garantiza que
+//      sram_dout está estable durante todo el estado COMPLETE:
+//        · sram_en = issue_en, que es 0 en COMPLETE → la SRAM
+//          no recibe nuevo comando y mantiene su salida.
+//        · sram_addr sigue apuntando a lat_addr (registro
+//          del capture reg, no cambia hasta IDLE siguiente).
+//      Por eso rd_resp_data = sram_dout es válido exactamente
+//      cuando rd_resp_valid = 1. El RD Resp Mux y el ROB ven
+//      dato y valid alineados en el mismo ciclo de COMPLETE.
+//
+//    Nota de diseño: registrar rd_resp_data introduce un
+//    desfase de 1 ciclo con rd_resp_valid (el registro captura
+//    en el posedge de COMPLETE, pero valid ya baja en ese mismo
+//    posedge al transitar a IDLE). El paso combinacional elimina
+//    ese desfase sin coste en timing, ya que el path crítico
+//    es sram_dout → mux → ROB, no sram_dout → FF.
 // ============================================================
 module rd_resp_assembler #(
     parameter AXI_DATA_WIDTH = 32,
     parameter N_BANKS        = 4
 )(
-    input  wire clk,
-    input  wire rst_n,
-
     // Del FSM
     input  wire rd_capture_en,
 
@@ -344,24 +353,19 @@ module rd_resp_assembler #(
     input  wire [$clog2(N_BANKS)-1:0] lat_tag,
 
     // Hacia RD Resp Mux
-    output reg  [AXI_DATA_WIDTH-1:0]  rd_resp_data,
+    output wire [AXI_DATA_WIDTH-1:0]  rd_resp_data,
     output wire [$clog2(N_BANKS)-1:0] rd_resp_tag,
     output wire                       rd_resp_valid
 );
-    // Captura el dato cuando el FSM indica COMPLETE&&is_rd
-    always @(posedge clk) begin
-        if (!rst_n)
-            rd_resp_data <= {AXI_DATA_WIDTH{1'b0}};
-        else if (rd_capture_en)
-            rd_resp_data <= sram_dout;
-    end
+    // Dato: combinacional desde sram_dout.
+    // Válido solo cuando rd_resp_valid=1 (COMPLETE&&is_rd);
+    // el consumidor (ROB) solo muestrea en ese ciclo.
+    assign rd_resp_data  = sram_dout;
 
     // Tag: combinacional directo desde capture reg
     assign rd_resp_tag   = lat_tag;
 
     // Valid: combinacional desde rd_capture_en
-    // Sube en el mismo ciclo de COMPLETE para que el mux
-    // lo capte sin latencia adicional
     assign rd_resp_valid = rd_capture_en;
 endmodule
 
@@ -498,8 +502,6 @@ module sram_bank_controller #(
         .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
         .N_BANKS       (N_BANKS)
     ) u_rd_resp (
-        .clk          (clk),
-        .rst_n        (rst_n),
         .rd_capture_en(rd_capture_en),
         .sram_dout    (sram_dout),
         .lat_tag      (lat_tag),
