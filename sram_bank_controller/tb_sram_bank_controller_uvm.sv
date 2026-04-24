@@ -281,18 +281,33 @@ class bank_ctrl_monitor extends uvm_monitor;
         trans.tag       = vif.mon_cb.bank_req_tag;
         trans.req_cycle = cycle_cnt;
 
-        `uvm_info("MON",
-            $sformatf("[C=%0d] REQ capturado — %s addr=0x%03h tag=%0d",
-                cycle_cnt,
-                trans.is_write ? "WR" : "RD",
-                trans.addr,
-                trans.tag),
-            UVM_HIGH)
+        `uvm_info("MON", $sformatf(
+            "[C=%0d] ► REQ  %s  addr=0x%03h  tag=%0d  wdata=0x%08h  wstrb=%04b",
+            cycle_cnt,
+            trans.is_write ? "WR" : "RD",
+            trans.addr, trans.tag,
+            trans.wdata, trans.wstrb),
+            UVM_MEDIUM)
 
-        // ── Fase 2: esperar respuesta ────────────────────
+        // ── Fase 2: monitorear bank_busy y esperar respuesta ─
         @(vif.mon_cb);
-        while (!vif.mon_cb.wr_resp_valid && !vif.mon_cb.rd_resp_valid)
-            @(vif.mon_cb);
+        begin
+            int unsigned busy_cycles;
+            busy_cycles = 0;
+            while (!vif.mon_cb.wr_resp_valid && !vif.mon_cb.rd_resp_valid) begin
+                if (vif.mon_cb.bank_busy) begin
+                    busy_cycles++;
+                    `uvm_info("MON", $sformatf(
+                        "[C=%0d]   │  BUSY ciclo %0d — sram_en=%b sram_we=%b sram_addr=0x%03h",
+                        cycle_cnt, busy_cycles,
+                        vif.mon_cb.sram_en,
+                        vif.mon_cb.sram_we,
+                        vif.mon_cb.sram_addr),
+                        UVM_HIGH)
+                end
+                @(vif.mon_cb);
+            end
+        end
 
         trans.resp_cycle = cycle_cnt;
         trans.latency    = trans.resp_cycle - trans.req_cycle;
@@ -308,9 +323,23 @@ class bank_ctrl_monitor extends uvm_monitor;
         else                total_reads++;
         total_latency += trans.latency;
 
-        // Imprimir transacción completa en MEDIUM para verla siempre
-        `uvm_info("MON", $sformatf("[C=%0d] TRANS completa — %s",
-            cycle_cnt, trans.convert2string()), UVM_MEDIUM)
+        // Print resultado de la transacción
+        if (trans.is_write) begin
+            `uvm_info("MON", $sformatf(
+                "[C=%0d] ◄ RESP WR  addr=0x%03h  tag=%0d  latencia=%0d ciclos  ✓",
+                cycle_cnt, trans.addr, trans.tag, trans.latency),
+                UVM_MEDIUM)
+        end else begin
+            `uvm_info("MON", $sformatf(
+                "[C=%0d] ◄ RESP RD  addr=0x%03h  tag_req=%0d → tag_resp=%0d  rdata=0x%08h  latencia=%0d ciclos  %s",
+                cycle_cnt, trans.addr, trans.tag, trans.rd_tag,
+                trans.rd_data, trans.latency,
+                (trans.rd_tag == trans.tag) ? "✓" : "✗ TAG MISMATCH"),
+                UVM_MEDIUM)
+        end
+
+        // Separador visual entre transacciones
+        `uvm_info("MON", "         ·  ·  ·", UVM_MEDIUM)
 
         // Alerta si latencia es mayor a la esperada
         if (trans.latency > `READ_LATENCY + 4)
@@ -323,14 +352,32 @@ class bank_ctrl_monitor extends uvm_monitor;
     // Reporte de estadísticas al final
     function void report_phase(uvm_phase phase);
         int unsigned avg_lat;
-        avg_lat = (total_writes + total_reads > 0) ?
-                  total_latency / (total_writes + total_reads) : 0;
-        `uvm_info("MON", "─────────────────────────────────────────", UVM_NONE)
-        `uvm_info("MON", $sformatf("  Total writes      : %0d", total_writes),  UVM_NONE)
-        `uvm_info("MON", $sformatf("  Total reads       : %0d", total_reads),   UVM_NONE)
-        `uvm_info("MON", $sformatf("  Latencia promedio : %0d ciclos", avg_lat),UVM_NONE)
-        `uvm_info("MON", $sformatf("  READ_LATENCY param: %0d", `READ_LATENCY), UVM_NONE)
-        `uvm_info("MON", "─────────────────────────────────────────", UVM_NONE)
+        int unsigned total_trans;
+        total_trans = total_writes + total_reads;
+        avg_lat = (total_trans > 0) ? total_latency / total_trans : 0;
+
+        `uvm_info("MON", "", UVM_NONE)
+        `uvm_info("MON", "╔══════════════════════════════════════════╗", UVM_NONE)
+        `uvm_info("MON", "║       REPORTE MONITOR — SESIÓN           ║", UVM_NONE)
+        `uvm_info("MON", "╠══════════════════════════════════════════╣", UVM_NONE)
+        `uvm_info("MON", $sformatf("║  READ_LATENCY param  : %-3d               ║",
+            `READ_LATENCY), UVM_NONE)
+        `uvm_info("MON", "╠══════════════════════════════════════════╣", UVM_NONE)
+        `uvm_info("MON", $sformatf("║  Total transacciones : %-3d               ║",
+            total_trans),   UVM_NONE)
+        `uvm_info("MON", $sformatf("║    Writes            : %-3d               ║",
+            total_writes),  UVM_NONE)
+        `uvm_info("MON", $sformatf("║    Reads             : %-3d               ║",
+            total_reads),   UVM_NONE)
+        `uvm_info("MON", "╠══════════════════════════════════════════╣", UVM_NONE)
+        `uvm_info("MON", $sformatf("║  Latencia total      : %-3d ciclos        ║",
+            total_latency), UVM_NONE)
+        `uvm_info("MON", $sformatf("║  Latencia promedio   : %-3d ciclos        ║",
+            avg_lat),       UVM_NONE)
+        `uvm_info("MON", $sformatf("║  Latencia mínima     : %-3d ciclos        ║",
+            `READ_LATENCY + 1), UVM_NONE)
+        `uvm_info("MON", "╚══════════════════════════════════════════╝", UVM_NONE)
+        `uvm_info("MON", "", UVM_NONE)
     endfunction
 
 endclass
@@ -905,7 +952,7 @@ module tb_sram_bank_controller_uvm;
             .AXI_DATA_WIDTH (`AXI_DATA_WIDTH),
             .BANK_ADDR_WIDTH(`BANK_ADDR_WIDTH),
             .N_BANKS        (`N_BANKS)
-        ))::set(null, "uvm_test_top.*", "vif", bif);
+        ))::set(null, "uvm_test_top*", "vif", bif);
 
         // Lanzar el test (nombre vía +UVM_TESTNAME o hardcodeado)
         run_test("bank_ctrl_test");
