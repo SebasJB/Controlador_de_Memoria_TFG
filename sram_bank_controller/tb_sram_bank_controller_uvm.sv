@@ -790,7 +790,6 @@ class bank_ctrl_test extends uvm_test;
     endfunction
 
     task run_phase(uvm_phase phase);
-        task run_phase(uvm_phase phase);
         seq_t1_write      t1;
         seq_t2_read       t2;
         seq_t3_strobes    t3;
