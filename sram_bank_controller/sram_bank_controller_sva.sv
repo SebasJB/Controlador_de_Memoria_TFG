@@ -21,8 +21,6 @@
 //  Reset     : disable iff (!rst_n) — síncrono activo en bajo
 // ============================================================
 
-`timescale 1ns/1ps
-
 module sram_bank_controller_sva #(
     parameter N_BANKS         = 4,
     parameter READ_LATENCY    = 1,
