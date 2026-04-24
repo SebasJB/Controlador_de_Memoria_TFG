@@ -790,16 +790,24 @@ class bank_ctrl_test extends uvm_test;
     endfunction
 
     task run_phase(uvm_phase phase);
-        // Macros para crear y lanzar cada secuencia
-        seq_t1_write    t1;
-        seq_t2_read     t2;
-        seq_t3_strobes  t3;
+        task run_phase(uvm_phase phase);
+        seq_t1_write      t1;
+        seq_t2_read       t2;
+        seq_t3_strobes    t3;
         seq_t4_btb_writes t4;
-        seq_t5_war      t5;
-        seq_t6_latency  t6;
-        seq_t7_tag      t7;
+        seq_t5_war        t5;
+        seq_t6_latency    t6;
+        seq_t7_tag        t7;
 
         phase.raise_objection(this);
+
+        // Esperar a que el reset se libere antes de lanzar secuencias.
+        // run_phase arranca en tiempo 0 y el reset inicial tarda ~7 ciclos
+        // en liberar rst_n. Sin esta espera las secuencias manejan el DUT
+        // mientras sigue en reset — el FSM ignora bank_req_valid y
+        // wait_idle() retorna inmediatamente porque bank_busy=0 en reset.
+        @(posedge vif.rst_n);
+        repeat (3) @(posedge vif.clk);  // margen de estabilización
 
         `uvm_info("TEST", $sformatf(
             "=== Inicio UVM — READ_LATENCY=%0d ===", `READ_LATENCY), UVM_NONE)
