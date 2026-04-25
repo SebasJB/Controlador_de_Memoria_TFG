@@ -8,12 +8,13 @@
 //    Propiedades SVA para el módulo scheduler. Se conecta
 //    mediante `bind` sin tocar el RTL cerrado. Cubre:
 //      1. Mutex ok/discard por canal
-//      2. One-hot del dispatch bus
+//      2. Dispatch válido (máx 2 bancos, 2-hot distintos)
 //      3. No-silent-pop (principio rector)
 //      4. Grant implica precondiciones satisfechas
 //      5. Política WRITE-FIRST
 //      6. Coherencia dispatch ↔ grant
 //      7. Monotonicidad de contadores de error M5
+//      8. Backpressure canal B (wr_resp_full congela WR path)
 //
 //  Uso VCS:
 //    vcs -sverilog +lint=all scheduler.sv scheduler_sva.sv ...
@@ -40,6 +41,7 @@ module scheduler_sva #(
     input wire rd_req_pndng,
     input wire rob_tag_free,
     input wire bank_busy [0:N_BANKS-1],
+    input wire wr_resp_full,
 
     // ── Señales internas del scheduler (wires entre submódulos) ──
     input wire wr_ok,
@@ -104,19 +106,55 @@ module scheduler_sva #(
     ) else $error("[SVA FAIL] a_rd_ok_discard_mutex: rd_ok && rd_discard activos simultaneamente");
 
     // ================================================================
-    // CATEGORÍA 2 — One-hot del dispatch bus
-    //   Invariante: como máximo un banco recibe req_valid=1 por ciclo.
-    //   El Scheduler garantiza despacho one-hot; múltiples bancos
-    //   activos simultáneamente violaría la exclusión de recursos.
+    // CATEGORÍA 2 — Dispatch válido del bus
+    //
+    //   El scheduler tiene DOS modos legítimos de dispatch:
+    //     a) Un solo banco activo   → WR-only, RD-only, o conflicto
+    //        same_bank (WRITE-FIRST pospone RD).
+    //     b) Exactamente dos bancos → both_no_conflict: grant_wr y
+    //        grant_rd a bancos DISTINTOS en el mismo ciclo.
+    //
+    //   Invariante 2a — Máximo 2 bits activos en bank_req_valid.
+    //     $countones(packed) <= 2 en todo momento.
+    //     Más de 2 activos indica un bug en unified_dispatch_logic.
+    //
+    //   Invariante 2b — Si hay 2 activos, deben ser exactamente
+    //     wr_bank_id y rd_bank_id, y esos IDs deben ser distintos
+    //     (condición both_no_conflict). No puede haber 2-hot con
+    //     bancos iguales (eso sería same_bank, que produce 1-hot).
+    //
+    //   Invariante 2c — Si grant_wr y grant_rd activos simultáneos
+    //     entonces wr_bank_id != rd_bank_id (bancos distintos).
+    //     Un double-grant sobre el mismo banco viola WRITE-FIRST.
     // ================================================================
 
-    // [CRÍTICA] Como máximo un elemento de bank_req_valid es 1 por ciclo.
-    // Protege: el unified_dispatch_logic no puede activar más de un banco
-    // en el mismo ciclo; hacerlo causaría conflicto de datos en la SRAM.
-    a_bank_req_valid_onehot: assert property (
+    // [CRÍTICA] Como máximo 2 bancos activos simultáneamente.
+    // Protege: unified_dispatch_logic solo puede activar 1 banco
+    // (casos WR-only / RD-only / conflicto) o 2 bancos distintos
+    // (both_no_conflict). Más de 2 implica un bug en el demux.
+    a_bank_req_valid_max2: assert property (
         @(posedge clk) disable iff (!rst_n)
-        $onehot0(bank_req_valid_packed)
-    ) else $error("[SVA FAIL] a_bank_req_valid_onehot: mas de un bank_req_valid activo");
+        $countones(bank_req_valid_packed) <= 2
+    ) else $error("[SVA FAIL] a_bank_req_valid_max2: mas de 2 bank_req_valid activos");
+
+    // [CRÍTICA] Si hay 2 bancos activos, los IDs WR y RD son distintos.
+    // Protege: el caso 2-hot solo ocurre en both_no_conflict;
+    // 2-hot con wr_bank_id == rd_bank_id es imposible por diseño y
+    // señalaría una corrupción en bank_conflict_check o el resolver.
+    a_bank_req_valid_2hot_distinct: assert property (
+        @(posedge clk) disable iff (!rst_n)
+        ($countones(bank_req_valid_packed) == 2)
+        |-> (wr_bank_id != rd_bank_id)
+    ) else $error("[SVA FAIL] a_bank_req_valid_2hot_distinct: 2 bancos activos con mismo ID");
+
+    // [CRÍTICA] Double-grant solo ocurre con bancos distintos.
+    // Protege: si el resolver emite grant_wr y grant_rd a la vez,
+    // deben apuntar a bancos físicamente distintos; lo contrario
+    // violaría la exclusión de recursos de la SRAM.
+    a_double_grant_distinct_banks: assert property (
+        @(posedge clk) disable iff (!rst_n)
+        (grant_wr && grant_rd) |-> (wr_bank_id != rd_bank_id)
+    ) else $error("[SVA FAIL] a_double_grant_distinct_banks: double-grant sobre mismo banco");
 
     // ================================================================
     // CATEGORÍA 3 — No-silent-pop (principio rector del diseño)
@@ -231,6 +269,25 @@ module scheduler_sva #(
         rd_err_cnt >= $past(rd_err_cnt)
     ) else $error("[SVA FAIL] a_rd_err_monotonic: rd_err_cnt decreció");
 
+    // ================================================================
+    // CATEGORÍA 8 — Backpressure del canal B (wr_resp_full)
+    //   Invariante: cuando el contador de respuestas WR está lleno,
+    //   el Scheduler no puede emitir grant_wr ni wr_discard.
+    //   Versión A del diseño: wr_resp_full congela TODO el WR path
+    //   (ni dispatch ni discard) hasta que el master consuma respuestas.
+    //   Protege: evitar overflow del pending_counter y pérdida silenciosa
+    //   de respuestas B cuando el master mantiene bready=0.
+    // ================================================================
+
+    // [CRÍTICA] Cuando wr_resp_full=1, no hay grant_wr ni wr_discard.
+    // Protege: el WR path queda congelado con backpressure alta;
+    // cualquier pop de la WR REQ FIFO en ese estado sería un descarte
+    // silencioso porque la respuesta no tendría adónde ir.
+    a_no_wr_activity_when_resp_full: assert property (
+        @(posedge clk) disable iff (!rst_n)
+        wr_resp_full |-> (!grant_wr && !wr_discard)
+    ) else $error("[SVA FAIL] a_no_wr_activity_when_resp_full: grant_wr o wr_discard activo con wr_resp_full=1");
+
 endmodule
 
 
@@ -266,6 +323,7 @@ bind scheduler scheduler_sva #(
     .rd_req_pndng     (rd_req_pndng),
     .rob_tag_free     (rob_tag_free),
     .bank_busy        (bank_busy),
+    .wr_resp_full     (wr_resp_full),
 
     // Señales internas (wires entre submódulos, accesibles por bind)
     .wr_ok            (wr_ok),

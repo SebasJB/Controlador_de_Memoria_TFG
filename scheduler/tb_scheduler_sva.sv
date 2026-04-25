@@ -62,6 +62,7 @@ module tb_scheduler_sva;
     reg [WR_BUS_MSB:0]        wr_req_data;
     reg                       bank_busy [0:N_BANKS-1];
     reg                       rob_tag_free;
+    reg                       wr_resp_full;
 
     // ── Salidas del DUT ────────────────────────────────────
     wire                       wr_req_pop;
