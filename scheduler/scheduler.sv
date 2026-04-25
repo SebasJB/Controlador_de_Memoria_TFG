@@ -31,11 +31,12 @@
 module wr_req_valid_check (
     input  wire wr_req_pndng,
     input  wire wr_addr_valid,
+    input  wire wr_resp_full,
     output wire wr_ok,
     output wire wr_discard
 );
-    assign wr_ok      = wr_req_pndng & wr_addr_valid;
-    assign wr_discard = wr_req_pndng & !wr_addr_valid;
+    assign wr_ok      = wr_req_pndng & wr_addr_valid & !wr_resp_full;
+    assign wr_discard = wr_req_pndng & !wr_addr_valid & !wr_resp_full;
 endmodule
 
 
@@ -218,7 +219,7 @@ module unified_dispatch_logic #(
     reg wr_hit;
     reg rd_hit;
 
-    always @(*) begin
+    always_comb begin
         for (i = 0; i < N_BANKS; i = i + 1) begin
             bank_req_valid[i] = 1'b0;
             bank_req_op[i]    = 1'b0;
@@ -354,6 +355,9 @@ module scheduler #(
     // ── Desde ROB ────────────────────────────────────
     input  wire rob_tag_free,
 
+    // ── Desde WR Response Path (backpressure canal B) ──
+    input  wire wr_resp_full,
+
     // ── Hacia WR/RD REQ FIFOs (pop) ─────────────────
     output wire wr_req_pop,
     output wire rd_req_pop,
@@ -390,6 +394,7 @@ module scheduler #(
     wr_req_valid_check u_wr_req_valid_check (
         .wr_req_pndng (wr_req_pndng),
         .wr_addr_valid(wr_addr_valid),
+        .wr_resp_full (wr_resp_full),
         .wr_ok        (wr_ok),
         .wr_discard   (wr_discard)
     );
