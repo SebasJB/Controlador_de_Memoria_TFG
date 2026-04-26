@@ -253,7 +253,7 @@ module tb_scheduler_sva;
         wr_req_data       = {1'b1, 32'h0000_0000, 32'hDEAD_BEEF, 4'hF};
         bank_busy[0]      = 1'b0;
         #1;
-        $display("DEBUG TC02 @%0t: wr_req_pop=%b brv=%b bank_busy=%b wr_req_pndng=%b wr_addr_valid=%b", $time, wr_req_pop, brv, bank_busy, wr_req_pndng, wr_addr_valid)
+        $display("DEBUG TC02 @%0t: wr_req_pop=%b brv=%b bank_busy=%b wr_req_pndng=%b wr_addr_valid=%b", $time, wr_req_pop, brv, bank_busy, wr_req_pndng, wr_addr_valid);
         chk(wr_req_pop == 1'b1,           2, "wr_req_pop = 1 (WR grant)");
         chk(rd_req_pop == 1'b0,           2, "rd_req_pop = 0 (sin RD)");
         chk(bank_req_valid[0] == 1'b1,    2, "banco 0 activo");
