@@ -231,7 +231,7 @@ module tb_scheduler_sva;
         rob_tag_free      = 1'b1;
         wr_resp_full      = 1'b0;
         bank_busy         = {N_BANKS{1'b0}};
-    /   / ───────────────────────────────────────────────────
+        // ───────────────────────────────────────────────────
 
         $display("=====================================================");
         $display("  TB_SCHEDULER_SVA — Inicio de simulación");
