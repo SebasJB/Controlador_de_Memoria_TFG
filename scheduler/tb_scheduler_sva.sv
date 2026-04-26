@@ -3,26 +3,24 @@
 //  Project : Banked Memory Controller — TFG ITCR
 //  Block   : Testbench para Scheduler + SVA bind
 //
-//  Propósito:
-//    Estimular el módulo scheduler con 20 casos de prueba que
-//    ejercen colectivamente las 12 aserciones de scheduler_sva.sv.
-//    El bind de scheduler_sva se activa automáticamente al
-//    instanciar scheduler; no se necesita instanciarlo aquí.
-//
 //  Compilar en VCS:
-//    vcs -sverilog +lint=all \
+//    vcs -sverilog -timescale=1ns/1ps \
 //        scheduler.sv scheduler_sva.sv tb_scheduler_sva.sv \
 //        -o simv && ./simv
 //
 //  Parámetros del sistema (deben coincidir con el DUT):
 //    N_BANKS=4  ADDR_W=32  AXI_DATA_WIDTH=32  BANK_SIZE_BYTES=1024
 //
-//  Convenciones de tiempo:
-//    – Estímulos se aplican entre flancos positivos del reloj.
-//    – #1 tras aplicar entradas permite que la lógica
-//      combinacional se propague antes de verificar.
-//    – @(posedge clk) + #1 avanza al siguiente ciclo para
-//      verificar registros (error counters, etc.).
+//  Convención de tiempo:
+//    Los estímulos se aplican en la mitad negativa del ciclo.
+//    Las verificaciones ocurren #1 DESPUÉS del siguiente posedge,
+//    cuando toda la cadena combinacional ya propagó en VCS.
+//
+//    Patrón de cada TC:
+//      idle_inputs;           // limpia entradas
+//      <aplica estímulos>;    // señales del caso
+//      @(posedge clk); #1;   // avanza al flanco y espera 1ns
+//      chk(...);              // verifica aquí — señales estables
 //
 //  Clocking : flanco positivo (clk), período = 10 ns
 //  Reset    : síncrono activo en bajo (rst_n)
@@ -38,13 +36,12 @@ module tb_scheduler_sva;
     localparam N_BANKS         = 4;
     localparam BANK_SIZE_BYTES = 1024;
     localparam ERR_CNT_W       = 16;
-    localparam CLK_HALF        = 5;    // 5 ns → período 10 ns
+    localparam CLK_HALF        = 5;
 
     // ── Parámetros derivados ───────────────────────────────
-    localparam BANK_BITS       = 2;    // $clog2(4)
-    localparam BANK_ADDR_WIDTH = 8;    // $clog2(1024/(32/8)) = $clog2(256)
-    // Bus WR: {op[0], addr[31:0], data[31:0], strb[3:0]} = 69 bits → [68:0]
-    localparam WR_BUS_MSB      = ADDR_W + AXI_DATA_WIDTH + AXI_DATA_WIDTH/8; // 68
+    localparam BANK_BITS       = 2;
+    localparam BANK_ADDR_WIDTH = 8;
+    localparam WR_BUS_MSB      = ADDR_W + AXI_DATA_WIDTH + AXI_DATA_WIDTH/8;
 
     // ── Reloj y reset ──────────────────────────────────────
     reg clk;
@@ -60,10 +57,16 @@ module tb_scheduler_sva;
     reg                       wr_req_pndng;
     reg                       rd_req_pndng;
     reg [WR_BUS_MSB:0]        wr_req_data;
-    reg  [N_BANKS-1:0]        bank_busy;
+    reg  [N_BANKS-1:0]        bank_busy;        // packed → propagación inmediata
     wire                      bank_busy_arr [0:N_BANKS-1];
     reg                       rob_tag_free;
     reg                       wr_resp_full;
+
+    // ── Wire array para conectar bank_busy packed al DUT ──
+    assign bank_busy_arr[0] = bank_busy[0];
+    assign bank_busy_arr[1] = bank_busy[1];
+    assign bank_busy_arr[2] = bank_busy[2];
+    assign bank_busy_arr[3] = bank_busy[3];
 
     // ── Salidas del DUT ────────────────────────────────────
     wire                       wr_req_pop;
@@ -78,24 +81,18 @@ module tb_scheduler_sva;
     wire [ERR_CNT_W-1:0]       wr_err_cnt;
     wire [ERR_CNT_W-1:0]       rd_err_cnt;
 
-    // ── Vector packed de bank_req_valid (para $onehot0 TB) ─
+    // ── Vector packed de bank_req_valid para verificación ─
     wire [N_BANKS-1:0] brv;
     assign brv[0] = bank_req_valid[0];
     assign brv[1] = bank_req_valid[1];
     assign brv[2] = bank_req_valid[2];
     assign brv[3] = bank_req_valid[3];
 
-    assign bank_busy_arr[0] = bank_busy[0];
-    assign bank_busy_arr[1] = bank_busy[1];
-    assign bank_busy_arr[2] = bank_busy[2];
-    assign bank_busy_arr[3] = bank_busy[3];
-
     // ── Contadores globales ────────────────────────────────
     integer pass_cnt;
     integer fail_cnt;
 
     // ── Instancia DUT ─────────────────────────────────────
-    //    El bind de scheduler_sva se activa automáticamente.
     scheduler #(
         .ADDR_W         (ADDR_W),
         .AXI_DATA_WIDTH (AXI_DATA_WIDTH),
@@ -116,6 +113,7 @@ module tb_scheduler_sva;
         .wr_req_data      (wr_req_data),
         .bank_busy        (bank_busy_arr),
         .rob_tag_free     (rob_tag_free),
+        .wr_resp_full     (wr_resp_full),
         .wr_req_pop       (wr_req_pop),
         .rd_req_pop       (rd_req_pop),
         .bank_req_valid   (bank_req_valid),
@@ -134,7 +132,7 @@ module tb_scheduler_sva;
     always #CLK_HALF clk = ~clk;
 
     // ============================================================
-    // TASK: chk — verifica una condición y actualiza contadores
+    // TASK: chk
     // ============================================================
     task chk;
         input        cond;
@@ -152,7 +150,7 @@ module tb_scheduler_sva;
     endtask
 
     // ============================================================
-    // TASK: all_banks_idle — pone todos los bank_busy a 0
+    // TASK: all_banks_idle
     // ============================================================
     task all_banks_idle;
         begin
@@ -161,7 +159,7 @@ module tb_scheduler_sva;
     endtask
 
     // ============================================================
-    // TASK: all_banks_busy — pone todos los bank_busy a 1
+    // TASK: all_banks_busy
     // ============================================================
     task all_banks_busy;
         begin
@@ -186,15 +184,13 @@ module tb_scheduler_sva;
             rob_tag_free      = 1'b1;
             wr_resp_full      = 1'b0;
             all_banks_idle;
-            #1;   // permite que bank_busy[] (array unpacked) propague
         end
     endtask
 
     // ============================================================
-    // TASK: apply_reset — reset síncrono de 2 ciclos
+    // TASK: apply_reset
     // ============================================================
     task apply_reset;
-        integer k;
         begin
             rst_n = 1'b0;
             idle_inputs;
@@ -206,7 +202,7 @@ module tb_scheduler_sva;
     endtask
 
     // ============================================================
-    // MAIN — Secuencia de 20 casos de prueba
+    // MAIN — Secuencia de 23 casos de prueba
     // ============================================================
     integer       i;
     reg [ERR_CNT_W-1:0] prev_wr_err;
@@ -217,7 +213,7 @@ module tb_scheduler_sva;
         pass_cnt = 0;
         fail_cnt = 0;
 
-        // ── Inicialización explícita de todas las entradas ──
+        // ── Inicialización explícita — evita X en tiempo 0 ──
         rst_n             = 1'b0;
         wr_req_pndng      = 1'b0;
         rd_req_pndng      = 1'b0;
@@ -231,34 +227,29 @@ module tb_scheduler_sva;
         rob_tag_free      = 1'b1;
         wr_resp_full      = 1'b0;
         bank_busy         = {N_BANKS{1'b0}};
-        // ───────────────────────────────────────────────────
 
         $display("=====================================================");
-        $display("  TB_SCHEDULER_SVA — Inicio de simulación");
+        $display("  TB_SCHEDULER_SVA — Inicio de simulacion");
         $display("=====================================================");
 
         apply_reset;
 
         // ==========================================================
         // TC01 — Estado post-reset
-        //  Verifica que todos los outputs comienzan en 0 tras rst_n.
-        //  SVA cubierta: precondición de todas las aserciones.
         // ==========================================================
         $display("\n[TC01] Estado post-reset");
         idle_inputs;
-        #1;
+        @(posedge clk); #1;
         chk(!wr_req_pop,          1, "wr_req_pop = 0 tras reset");
         chk(!rd_req_pop,          1, "rd_req_pop = 0 tras reset");
         chk(brv == 4'b0000,       1, "ningun banco activo tras reset");
         chk(wr_err_cnt == 16'd0,  1, "wr_err_cnt = 0 tras reset");
         chk(rd_err_cnt == 16'd0,  1, "rd_err_cnt = 0 tras reset");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC02 — WR-only, banco 0
-        //  Solo WR pendiente, dirección válida, banco libre.
-        //  SVA: a_grant_wr_valid, a_dispatch_wr_coherent,
-        //       a_wr_pop_reason, a_bank_req_valid_onehot
+        // SVA: a_grant_wr_valid, a_dispatch_wr_coherent,
+        //      a_wr_pop_reason, a_bank_req_valid_max2
         // ==========================================================
         $display("\n[TC02] WR-only dispatch — banco 0");
         idle_inputs;
@@ -268,20 +259,17 @@ module tb_scheduler_sva;
         wr_bank_word_addr = 8'hAA;
         wr_req_data       = {1'b1, 32'h0000_0000, 32'hDEAD_BEEF, 4'hF};
         bank_busy[0]      = 1'b0;
-        #1;
-        $display("DEBUG TC02 @%0t: wr_req_pop=%b brv=%b bank_busy=%b wr_req_pndng=%b wr_addr_valid=%b", $time, wr_req_pop, brv, bank_busy, wr_req_pndng, wr_addr_valid);
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b1,           2, "wr_req_pop = 1 (WR grant)");
         chk(rd_req_pop == 1'b0,           2, "rd_req_pop = 0 (sin RD)");
         chk(bank_req_valid[0] == 1'b1,    2, "banco 0 activo");
         chk(bank_req_op[0]    == 1'b1,    2, "op = WR en banco 0");
         chk(brv == 4'b0001,               2, "one-hot: solo banco 0");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC03 — RD-only, banco 2
-        //  Solo RD pendiente, dirección válida, banco libre, ROB free.
-        //  SVA: a_grant_rd_valid, a_dispatch_rd_coherent,
-        //       a_rd_pop_reason, a_bank_req_valid_onehot
+        // SVA: a_grant_rd_valid, a_dispatch_rd_coherent,
+        //      a_rd_pop_reason, a_bank_req_valid_max2
         // ==========================================================
         $display("\n[TC03] RD-only dispatch — banco 2");
         idle_inputs;
@@ -291,20 +279,17 @@ module tb_scheduler_sva;
         rd_bank_word_addr = 8'h55;
         bank_busy[2]      = 1'b0;
         rob_tag_free      = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(rd_req_pop == 1'b1,           3, "rd_req_pop = 1 (RD grant)");
         chk(wr_req_pop == 1'b0,           3, "wr_req_pop = 0 (sin WR)");
         chk(bank_req_valid[2] == 1'b1,    3, "banco 2 activo");
         chk(bank_req_op[2]    == 1'b0,    3, "op = RD en banco 2");
         chk(brv == 4'b0100,               3, "one-hot: solo banco 2");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC04 — WR banco 1 + RD banco 3 (bancos distintos)
-        //  Ambos candidatos válidos, bancos distintos → ambos grants.
-        //  Resultado esperado: brv = 4'b1010 (bancos 1 y 3 activos).
-        //  SVA: both_no_conflict path, a_bank_req_valid_onehot
-        //       (la aserción admite $onehot0 → 2-hot sigue siendo ≤2)
+        // SVA: both_no_conflict, a_bank_req_valid_2hot_distinct,
+        //      a_double_grant_distinct_banks
         // ==========================================================
         $display("\n[TC04] WR banco 1 + RD banco 3 (bancos distintos)");
         idle_inputs;
@@ -320,7 +305,7 @@ module tb_scheduler_sva;
         rd_bank_word_addr = 8'h20;
         bank_busy[3]      = 1'b0;
         rob_tag_free      = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b1,           4, "wr_req_pop = 1 (WR grant dual)");
         chk(rd_req_pop == 1'b1,           4, "rd_req_pop = 1 (RD grant dual)");
         chk(bank_req_valid[1] == 1'b1,    4, "banco 1 activo (WR)");
@@ -330,13 +315,10 @@ module tb_scheduler_sva;
         chk(bank_req_valid[0] == 1'b0,    4, "banco 0 inactivo");
         chk(bank_req_valid[2] == 1'b0,    4, "banco 2 inactivo");
         chk(brv == 4'b1010,               4, "exactamente bancos 1 y 3 activos");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC05 — WRITE-FIRST: conflicto banco 0
-        //  WR y RD apuntan al mismo banco 0, ambos válidos y libres.
-        //  Política WRITE-FIRST: solo WR gana, RD se pospone.
-        //  SVA: a_write_first (CRÍTICA para política de arbitraje)
+        // SVA: a_write_first
         // ==========================================================
         $display("\n[TC05] WRITE-FIRST — conflicto banco 0");
         idle_inputs;
@@ -348,31 +330,31 @@ module tb_scheduler_sva;
         bank_busy[0]      = 1'b0;
         rd_req_pndng      = 1'b1;
         rd_addr_valid     = 1'b1;
-        rd_bank_id        = 2'd0;   // mismo banco → conflicto
+        rd_bank_id        = 2'd0;
         rd_bank_word_addr = 8'h01;
         rob_tag_free      = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b1,           5, "wr_req_pop = 1 (WR gana conflicto)");
         chk(rd_req_pop == 1'b0,           5, "rd_req_pop = 0 (RD pospuesto)");
         chk(bank_req_valid[0] == 1'b1,    5, "banco 0 activo con WR");
         chk(bank_req_op[0]    == 1'b1,    5, "op = WR en conflicto");
         chk(brv == 4'b0001,               5, "one-hot: solo banco 0 en conflicto");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC06 — WR con dirección inválida → wr_discard
-        //  Pendiente WR pero addr_valid=0 → discard sin grant.
-        //  El pop ocurre por discard (no por grant).
-        //  SVA: a_wr_ok_discard_mutex, a_wr_pop_reason,
-        //       a_wr_err_monotonic (registro secuencial)
+        // SVA: a_wr_ok_discard_mutex, a_wr_pop_reason,
+        //      a_wr_err_monotonic
+        // Nota: prev_wr_err se lee DESPUÉS del posedge porque
+        //       wr_err_cnt es secuencial — su valor post-ciclo
+        //       es el que corresponde verificar en el ciclo siguiente.
         // ==========================================================
         $display("\n[TC06] WR addr invalida — discard");
         idle_inputs;
-        prev_wr_err   = wr_err_cnt;
         wr_req_pndng  = 1'b1;
-        wr_addr_valid = 1'b0;   // invalida → discard
+        wr_addr_valid = 1'b0;
         wr_bank_id    = 2'd1;
-        #1;
+        @(posedge clk); #1;
+        prev_wr_err = wr_err_cnt;
         chk(wr_req_pop == 1'b1,           6, "wr_req_pop = 1 (pop por discard)");
         chk(rd_req_pop == 1'b0,           6, "rd_req_pop = 0 (sin RD)");
         chk(brv == 4'b0000,               6, "ningun banco activo en discard WR");
@@ -381,18 +363,17 @@ module tb_scheduler_sva;
 
         // ==========================================================
         // TC07 — RD con dirección inválida → rd_discard
-        //  Análogo a TC06 para el canal de lectura.
-        //  SVA: a_rd_ok_discard_mutex, a_rd_pop_reason,
-        //       a_rd_err_monotonic
+        // SVA: a_rd_ok_discard_mutex, a_rd_pop_reason,
+        //      a_rd_err_monotonic
         // ==========================================================
         $display("\n[TC07] RD addr invalida — discard");
         idle_inputs;
-        prev_rd_err   = rd_err_cnt;
         rd_req_pndng  = 1'b1;
-        rd_addr_valid = 1'b0;   // invalida → discard
+        rd_addr_valid = 1'b0;
         rd_bank_id    = 2'd2;
         rob_tag_free  = 1'b1;
-        #1;
+        @(posedge clk); #1;
+        prev_rd_err = rd_err_cnt;
         chk(rd_req_pop == 1'b1,           7, "rd_req_pop = 1 (pop por discard)");
         chk(wr_req_pop == 1'b0,           7, "wr_req_pop = 0 (sin WR)");
         chk(brv == 4'b0000,               7, "ningun banco activo en discard RD");
@@ -401,24 +382,21 @@ module tb_scheduler_sva;
 
         // ==========================================================
         // TC08 — WR banco ocupado → sin grant ni pop
-        //  bank_busy bloquea al candidato WR.
-        //  SVA: a_grant_wr_valid (precondición wr_bank_free)
+        // SVA: a_grant_wr_valid (precondición wr_bank_free)
         // ==========================================================
         $display("\n[TC08] WR banco ocupado — sin despacho");
         idle_inputs;
         wr_req_pndng  = 1'b1;
         wr_addr_valid = 1'b1;
         wr_bank_id    = 2'd2;
-        bank_busy[2]  = 1'b1;   // banco ocupado
-        #1;
+        bank_busy[2]  = 1'b1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b0,           8, "wr_req_pop = 0 (banco busy)");
         chk(brv == 4'b0000,               8, "ningun banco activo con banco busy");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC09 — RD sin rob_tag_free → sin grant ni pop
-        //  ROB lleno bloquea a rd_candidate.
-        //  SVA: a_grant_rd_valid (precondición rob_tag_free)
+        // SVA: a_grant_rd_valid (precondición rob_tag_free)
         // ==========================================================
         $display("\n[TC09] RD con ROB lleno — sin despacho");
         idle_inputs;
@@ -426,16 +404,13 @@ module tb_scheduler_sva;
         rd_addr_valid = 1'b1;
         rd_bank_id    = 2'd1;
         bank_busy[1]  = 1'b0;
-        rob_tag_free  = 1'b0;   // ROB lleno
-        #1;
+        rob_tag_free  = 1'b0;
+        @(posedge clk); #1;
         chk(rd_req_pop == 1'b0,           9, "rd_req_pop = 0 (ROB lleno)");
         chk(brv == 4'b0000,               9, "ningun banco activo con ROB lleno");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC10 — WR+RD mismo banco, banco ocupado → ninguno
-        //  Conflicto + busy: ni wr_candidate ni rd_candidate válidos.
-        //  SVA: ambas precondiciones fallan a la vez
+        // TC10 — WR+RD mismo banco ocupado → ninguno despacha
         // ==========================================================
         $display("\n[TC10] WR+RD mismo banco ocupado — ninguno despacha");
         idle_inputs;
@@ -445,46 +420,39 @@ module tb_scheduler_sva;
         bank_busy[3]  = 1'b1;
         rd_req_pndng  = 1'b1;
         rd_addr_valid = 1'b1;
-        rd_bank_id    = 2'd3;   // mismo banco
+        rd_bank_id    = 2'd3;
         rob_tag_free  = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b0,           10, "wr_req_pop = 0 (ambos busy)");
         chk(rd_req_pop == 1'b0,           10, "rd_req_pop = 0 (ambos busy)");
         chk(brv == 4'b0000,               10, "ningun banco activo");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC11 — Ningún request pendiente → todo inactivo
-        //  Baseline idle: sin requests, sin pops, sin bancos activos.
+        // TC11 — Sin requests pendientes → idle total
         // ==========================================================
         $display("\n[TC11] Sin requests pendientes — idle total");
         idle_inputs;
-        wr_req_pndng = 1'b0;
-        rd_req_pndng = 1'b0;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b0,           11, "wr_req_pop = 0 en idle");
         chk(rd_req_pop == 1'b0,           11, "rd_req_pop = 0 en idle");
         chk(brv == 4'b0000,               11, "ningun banco activo en idle");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC12 — WR discard simultáneo con RD grant
-        //  WR addr inválida (discard) al mismo tiempo que RD válida.
-        //  Ambos pops ocurren pero por causas distintas.
-        //  SVA: a_wr_pop_reason(discard) + a_rd_pop_reason(grant)
+        // TC12 — WR discard + RD grant simultáneos
+        // SVA: a_wr_pop_reason(discard) + a_rd_pop_reason(grant)
         // ==========================================================
         $display("\n[TC12] WR discard + RD grant simultaneos");
         idle_inputs;
-        prev_wr_err   = wr_err_cnt;
         wr_req_pndng  = 1'b1;
-        wr_addr_valid = 1'b0;   // discard
+        wr_addr_valid = 1'b0;
         wr_bank_id    = 2'd0;
         rd_req_pndng  = 1'b1;
         rd_addr_valid = 1'b1;
         rd_bank_id    = 2'd1;
         bank_busy[1]  = 1'b0;
         rob_tag_free  = 1'b1;
-        #1;
+        @(posedge clk); #1;
+        prev_wr_err = wr_err_cnt;
         chk(wr_req_pop == 1'b1,           12, "wr_req_pop = 1 (discard)");
         chk(rd_req_pop == 1'b1,           12, "rd_req_pop = 1 (grant RD)");
         chk(bank_req_valid[1] == 1'b1,    12, "banco 1 activo (RD grant)");
@@ -494,24 +462,23 @@ module tb_scheduler_sva;
         chk(wr_err_cnt == prev_wr_err + 1, 12, "wr_err_cnt incremento (discard sim.)");
 
         // ==========================================================
-        // TC13 — WR grant simultáneo con RD discard
-        //  WR válida (banco libre) al mismo tiempo que RD addr inválida.
-        //  SVA: a_wr_pop_reason(grant) + a_rd_pop_reason(discard)
+        // TC13 — WR grant + RD discard simultáneos
+        // SVA: a_wr_pop_reason(grant) + a_rd_pop_reason(discard)
         // ==========================================================
         $display("\n[TC13] WR grant + RD discard simultaneos");
         idle_inputs;
-        prev_rd_err   = rd_err_cnt;
-        wr_req_pndng  = 1'b1;
-        wr_addr_valid = 1'b1;
-        wr_bank_id    = 2'd2;
+        wr_req_pndng      = 1'b1;
+        wr_addr_valid     = 1'b1;
+        wr_bank_id        = 2'd2;
         wr_bank_word_addr = 8'h30;
-        wr_req_data   = {1'b1, 32'h8, 32'h1234_5678, 4'hA};
-        bank_busy[2]  = 1'b0;
-        rd_req_pndng  = 1'b1;
-        rd_addr_valid = 1'b0;   // discard
-        rd_bank_id    = 2'd3;
-        rob_tag_free  = 1'b1;
-        #1;
+        wr_req_data       = {1'b1, 32'h8, 32'h1234_5678, 4'hA};
+        bank_busy[2]      = 1'b0;
+        rd_req_pndng      = 1'b1;
+        rd_addr_valid     = 1'b0;
+        rd_bank_id        = 2'd3;
+        rob_tag_free      = 1'b1;
+        @(posedge clk); #1;
+        prev_rd_err = rd_err_cnt;
         chk(wr_req_pop == 1'b1,           13, "wr_req_pop = 1 (WR grant)");
         chk(rd_req_pop == 1'b1,           13, "rd_req_pop = 1 (RD discard)");
         chk(bank_req_valid[2] == 1'b1,    13, "banco 2 activo (WR)");
@@ -522,27 +489,27 @@ module tb_scheduler_sva;
 
         // ==========================================================
         // TC14 — Monotonicidad: ráfaga de 8 discards WR+RD
-        //  Ambos contadores deben crecer monotónicamente cada ciclo.
-        //  SVA: a_wr_err_monotonic + a_rd_err_monotonic en continuo
+        // SVA: a_wr_err_monotonic + a_rd_err_monotonic
         // ==========================================================
         $display("\n[TC14] Monotonicity — rafaga de 8 discards WR+RD");
         mono_ok = 1'b1;
         for (i = 0; i < 8; i = i + 1) begin
             idle_inputs;
-            prev_wr_err   = wr_err_cnt;
-            prev_rd_err   = rd_err_cnt;
             wr_req_pndng  = 1'b1;
             wr_addr_valid = 1'b0;
             rd_req_pndng  = 1'b1;
             rd_addr_valid = 1'b0;
             @(posedge clk); #1;
+            prev_wr_err = wr_err_cnt;
+            prev_rd_err = rd_err_cnt;
+            @(posedge clk); #1;
             if (wr_err_cnt < prev_wr_err) begin
                 mono_ok = 1'b0;
-                $display("  [FAIL] TC14 iter %0d: wr_err_cnt decreció %0d→%0d", i, prev_wr_err, wr_err_cnt);
+                $display("  [FAIL] TC14 iter %0d: wr_err_cnt decrecio", i);
             end
             if (rd_err_cnt < prev_rd_err) begin
                 mono_ok = 1'b0;
-                $display("  [FAIL] TC14 iter %0d: rd_err_cnt decreció %0d→%0d", i, prev_rd_err, rd_err_cnt);
+                $display("  [FAIL] TC14 iter %0d: rd_err_cnt decrecio", i);
             end
         end
         chk(mono_ok, 14, "wr_err_cnt y rd_err_cnt monotonicos en 8 ciclos");
@@ -550,9 +517,8 @@ module tb_scheduler_sva;
                  wr_err_cnt, rd_err_cnt);
 
         // ==========================================================
-        // TC15 — WRITE-FIRST: conflicto banco 3 (variante banco != 0)
-        //  Mismo escenario que TC05 pero en banco 3 para cobertura.
-        //  SVA: a_write_first con banco de mayor índice
+        // TC15 — WRITE-FIRST: conflicto banco 3
+        // SVA: a_write_first con banco de mayor índice
         // ==========================================================
         $display("\n[TC15] WRITE-FIRST — conflicto banco 3");
         idle_inputs;
@@ -564,20 +530,17 @@ module tb_scheduler_sva;
         bank_busy[3]      = 1'b0;
         rd_req_pndng      = 1'b1;
         rd_addr_valid     = 1'b1;
-        rd_bank_id        = 2'd3;   // mismo banco → conflicto
+        rd_bank_id        = 2'd3;
         rd_bank_word_addr = 8'hFF;
         rob_tag_free      = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b1,           15, "wr_req_pop = 1 (WR gana banco 3)");
         chk(rd_req_pop == 1'b0,           15, "rd_req_pop = 0 (RD pospuesto banco 3)");
         chk(bank_req_valid[3] == 1'b1,    15, "banco 3 activo WR");
         chk(bank_req_op[3]    == 1'b1,    15, "op = WR en banco 3");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC16 — WR libre + RD banco ocupado → solo WR despacha
-        //  RD candidate falla por bank_busy; WR despacha solo.
-        //  SVA: a_grant_rd_valid desde perspectiva negativa
+        // TC16 — WR libre + RD banco ocupado → solo WR
         // ==========================================================
         $display("\n[TC16] WR libre + RD banco ocupado — solo WR");
         idle_inputs;
@@ -588,42 +551,37 @@ module tb_scheduler_sva;
         rd_req_pndng  = 1'b1;
         rd_addr_valid = 1'b1;
         rd_bank_id    = 2'd2;
-        bank_busy[2]  = 1'b1;   // banco RD ocupado
+        bank_busy[2]  = 1'b1;
         rob_tag_free  = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b1,           16, "wr_req_pop = 1 (WR libre)");
         chk(rd_req_pop == 1'b0,           16, "rd_req_pop = 0 (RD banco busy)");
         chk(bank_req_valid[0] == 1'b1,    16, "banco 0 activo (WR)");
         chk(bank_req_valid[2] == 1'b0,    16, "banco 2 inactivo (busy)");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC17 — WR banco ocupado + RD libre → solo RD despacha
-        //  WR candidate falla por bank_busy; RD despacha solo.
-        //  SVA: a_grant_wr_valid desde perspectiva negativa
+        // TC17 — WR banco ocupado + RD libre → solo RD
         // ==========================================================
         $display("\n[TC17] WR banco ocupado + RD libre — solo RD");
         idle_inputs;
         wr_req_pndng  = 1'b1;
         wr_addr_valid = 1'b1;
         wr_bank_id    = 2'd1;
-        bank_busy[1]  = 1'b1;   // banco WR ocupado
+        bank_busy[1]  = 1'b1;
         rd_req_pndng  = 1'b1;
         rd_addr_valid = 1'b1;
         rd_bank_id    = 2'd3;
         bank_busy[3]  = 1'b0;
         rob_tag_free  = 1'b1;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b0,           17, "wr_req_pop = 0 (WR banco busy)");
         chk(rd_req_pop == 1'b1,           17, "rd_req_pop = 1 (RD libre)");
         chk(bank_req_valid[3] == 1'b1,    17, "banco 3 activo (RD)");
         chk(bank_req_op[3]    == 1'b0,    17, "op = RD en banco 3");
         chk(bank_req_valid[1] == 1'b0,    17, "banco 1 inactivo (busy)");
-        @(posedge clk); #1;
 
         // ==========================================================
         // TC18 — Todos los bancos ocupados
-        //  Sin grants posibles aunque ambos requests sean válidos.
         // ==========================================================
         $display("\n[TC18] Todos los bancos ocupados — ningun despacho");
         idle_inputs;
@@ -635,16 +593,14 @@ module tb_scheduler_sva;
         rd_bank_id    = 2'd1;
         rob_tag_free  = 1'b1;
         all_banks_busy;
-        #1;
+        @(posedge clk); #1;
         chk(wr_req_pop == 1'b0,           18, "wr_req_pop = 0 (todos busy)");
         chk(rd_req_pop == 1'b0,           18, "rd_req_pop = 0 (todos busy)");
         chk(brv == 4'b0000,               18, "ningun banco activo");
-        @(posedge clk); #1;
 
         // ==========================================================
-        // TC19 — Secuencia de 4 WR, uno por banco (0→1→2→3)
-        //  Verifica que el dispatch llega correctamente a cada banco.
-        //  SVA: a_dispatch_wr_coherent para todos los bancos
+        // TC19 — Secuencia WR bancos 0→1→2→3
+        // SVA: a_dispatch_wr_coherent para todos los bancos
         // ==========================================================
         $display("\n[TC19] Secuencia WR bancos 0-1-2-3");
         begin
@@ -659,7 +615,7 @@ module tb_scheduler_sva;
                 wr_bank_word_addr = 8'(b * 8);
                 wr_req_data       = {1'b1, 32'(b), 32'hDEAD_0000 | 32'(b), 4'hF};
                 bank_busy[b]      = 1'b0;
-                #1;
+                @(posedge clk); #1;
                 if (!wr_req_pop || !bank_req_valid[b] || !bank_req_op[b]) begin
                     seq_ok = 1'b0;
                     $display("  [FAIL] TC19 banco %0d: pop=%b valid=%b op=%b",
@@ -667,15 +623,13 @@ module tb_scheduler_sva;
                 end else begin
                     $display("  [PASS] TC19 banco %0d: WR despacho correcto", b);
                 end
-                @(posedge clk); #1;
             end
             chk(seq_ok, 19, "Secuencia WR 0-3 completada sin errores");
         end
 
         // ==========================================================
-        // TC20 — Secuencia de 4 RD, uno por banco (0→1→2→3)
-        //  Verifica dispatch correcto de lecturas a cada banco.
-        //  SVA: a_dispatch_rd_coherent para todos los bancos
+        // TC20 — Secuencia RD bancos 0→1→2→3
+        // SVA: a_dispatch_rd_coherent para todos los bancos
         // ==========================================================
         $display("\n[TC20] Secuencia RD bancos 0-1-2-3");
         begin
@@ -690,7 +644,7 @@ module tb_scheduler_sva;
                 rd_bank_word_addr = 8'(b * 4);
                 bank_busy[b]      = 1'b0;
                 rob_tag_free      = 1'b1;
-                #1;
+                @(posedge clk); #1;
                 if (!rd_req_pop || !bank_req_valid[b] || bank_req_op[b]) begin
                     seq_ok = 1'b0;
                     $display("  [FAIL] TC20 banco %0d: pop=%b valid=%b op=%b",
@@ -698,10 +652,55 @@ module tb_scheduler_sva;
                 end else begin
                     $display("  [PASS] TC20 banco %0d: RD despacho correcto", b);
                 end
-                @(posedge clk); #1;
             end
             chk(seq_ok, 20, "Secuencia RD 0-3 completada sin errores");
         end
+
+        // ==========================================================
+        // TC21 — wr_resp_full=1 congela WR path (Versión A)
+        // SVA: a_no_wr_activity_when_resp_full
+        // ==========================================================
+        $display("\n[TC21] wr_resp_full=1 — WR path congelado");
+        idle_inputs;
+        wr_req_pndng  = 1'b1;
+        wr_addr_valid = 1'b1;
+        wr_bank_id    = 2'd0;
+        bank_busy[0]  = 1'b0;
+        wr_resp_full  = 1'b1;
+        @(posedge clk); #1;
+        chk(wr_req_pop == 1'b0,        21, "wr_req_pop = 0 (WR congelado por resp_full)");
+        chk(brv        == 4'b0000,     21, "ningun banco activo con resp_full=1");
+
+        // ==========================================================
+        // TC22 — wr_resp_full=1 + addr invalida: sin discard
+        // SVA: a_no_wr_activity_when_resp_full (cubre wr_discard)
+        // ==========================================================
+        $display("\n[TC22] wr_resp_full=1 + addr invalida — sin discard");
+        idle_inputs;
+        wr_req_pndng  = 1'b1;
+        wr_addr_valid = 1'b0;
+        wr_bank_id    = 2'd1;
+        wr_resp_full  = 1'b1;
+        @(posedge clk); #1;
+        prev_wr_err = wr_err_cnt;
+        chk(wr_req_pop == 1'b0,        22, "wr_req_pop = 0 (discard bloqueado por resp_full)");
+        @(posedge clk); #1;
+        chk(wr_err_cnt == prev_wr_err, 22, "wr_err_cnt no incrementa con resp_full=1");
+
+        // ==========================================================
+        // TC23 — wr_resp_full baja: WR path se desbloquea
+        // ==========================================================
+        $display("\n[TC23] wr_resp_full baja — WR path se desbloquea");
+        idle_inputs;
+        wr_req_pndng  = 1'b1;
+        wr_addr_valid = 1'b1;
+        wr_bank_id    = 2'd0;
+        bank_busy[0]  = 1'b0;
+        wr_resp_full  = 1'b0;
+        @(posedge clk); #1;
+        chk(wr_req_pop == 1'b1,           23, "wr_req_pop = 1 tras liberar resp_full");
+        chk(bank_req_valid[0] == 1'b1,    23, "banco 0 activo tras liberar resp_full");
+        chk(bank_req_op[0]    == 1'b1,    23, "op = WR tras liberar resp_full");
 
         // ============================================================
         // RESUMEN FINAL
@@ -722,10 +721,10 @@ module tb_scheduler_sva;
         $finish;
     end
 
-    // ── Guardia de timeout — evita simulacion infinita ────
+    // ── Guardia de timeout ────────────────────────────────
     initial begin
         #100_000;
-        $display("[TIMEOUT] Simulacion excedio el limite de tiempo seguro");
+        $display("[TIMEOUT] Simulacion excedio el limite de tiempo");
         $finish;
     end
 
