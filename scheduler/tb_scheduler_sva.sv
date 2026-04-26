@@ -60,7 +60,8 @@ module tb_scheduler_sva;
     reg                       wr_req_pndng;
     reg                       rd_req_pndng;
     reg [WR_BUS_MSB:0]        wr_req_data;
-    reg [N_BANKS-1:0]         bank_busy;
+    reg  [N_BANKS-1:0]        bank_busy;
+    wire                      bank_busy_arr [0:N_BANKS-1];
     reg                       rob_tag_free;
     reg                       wr_resp_full;
 
@@ -83,6 +84,11 @@ module tb_scheduler_sva;
     assign brv[1] = bank_req_valid[1];
     assign brv[2] = bank_req_valid[2];
     assign brv[3] = bank_req_valid[3];
+
+    assign bank_busy_arr[0] = bank_busy[0];
+    assign bank_busy_arr[1] = bank_busy[1];
+    assign bank_busy_arr[2] = bank_busy[2];
+    assign bank_busy_arr[3] = bank_busy[3];
 
     // ── Contadores globales ────────────────────────────────
     integer pass_cnt;
@@ -108,7 +114,7 @@ module tb_scheduler_sva;
         .wr_req_pndng     (wr_req_pndng),
         .rd_req_pndng     (rd_req_pndng),
         .wr_req_data      (wr_req_data),
-        .bank_busy        (bank_busy),
+        .bank_busy        (bank_busy_arr),
         .rob_tag_free     (rob_tag_free),
         .wr_req_pop       (wr_req_pop),
         .rd_req_pop       (rd_req_pop),
