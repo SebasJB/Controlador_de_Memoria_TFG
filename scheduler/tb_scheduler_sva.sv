@@ -60,7 +60,7 @@ module tb_scheduler_sva;
     reg                       wr_req_pndng;
     reg                       rd_req_pndng;
     reg [WR_BUS_MSB:0]        wr_req_data;
-    reg                       bank_busy [0:N_BANKS-1];
+    reg [N_BANKS-1:0]         bank_busy;
     reg                       rob_tag_free;
     reg                       wr_resp_full;
 
@@ -149,10 +149,8 @@ module tb_scheduler_sva;
     // TASK: all_banks_idle — pone todos los bank_busy a 0
     // ============================================================
     task all_banks_idle;
-        integer k;
         begin
-            for (k = 0; k < N_BANKS; k = k + 1)
-                bank_busy[k] = 1'b0;
+            bank_busy = {N_BANKS{1'b0}};
         end
     endtask
 
@@ -160,10 +158,8 @@ module tb_scheduler_sva;
     // TASK: all_banks_busy — pone todos los bank_busy a 1
     // ============================================================
     task all_banks_busy;
-        integer k;
         begin
-            for (k = 0; k < N_BANKS; k = k + 1)
-                bank_busy[k] = 1'b1;
+            bank_busy = {N_BANKS{1'b1}};
         end
     endtask
 
