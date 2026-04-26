@@ -217,6 +217,22 @@ module tb_scheduler_sva;
         pass_cnt = 0;
         fail_cnt = 0;
 
+        // ── Inicialización explícita de todas las entradas ──
+        rst_n             = 1'b0;
+        wr_req_pndng      = 1'b0;
+        rd_req_pndng      = 1'b0;
+        wr_addr_valid     = 1'b0;
+        rd_addr_valid     = 1'b0;
+        wr_bank_id        = 2'b00;
+        rd_bank_id        = 2'b00;
+        wr_bank_word_addr = 8'h00;
+        rd_bank_word_addr = 8'h00;
+        wr_req_data       = {(WR_BUS_MSB+1){1'b0}};
+        rob_tag_free      = 1'b1;
+        wr_resp_full      = 1'b0;
+        bank_busy         = {N_BANKS{1'b0}};
+    /   / ───────────────────────────────────────────────────
+
         $display("=====================================================");
         $display("  TB_SCHEDULER_SVA — Inicio de simulación");
         $display("=====================================================");
