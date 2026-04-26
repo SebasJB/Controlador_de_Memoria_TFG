@@ -182,7 +182,9 @@ module tb_scheduler_sva;
             rd_bank_word_addr = {BANK_ADDR_WIDTH{1'b0}};
             wr_req_data       = {(WR_BUS_MSB+1){1'b0}};
             rob_tag_free      = 1'b1;
+            wr_resp_full      = 1'b0;
             all_banks_idle;
+            #1;   // permite que bank_busy[] (array unpacked) propague
         end
     endtask
 
