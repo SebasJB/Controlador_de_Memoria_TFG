@@ -36,13 +36,13 @@
 
 `timescale 1ns/1ps
 
-`include "./Controlador_de_Memoria_TFG/fifo.sv"
-`include "./Controlador_de_Memoria_TFG/addr_decoder/addr_decoder.sv"
-`include "./Controlador_de_Memoria_TFG/axi4_lite_front_end/axi4_lite_front_end.sv"
-`include "./Controlador_de_Memoria_TFG/scheduler/scheduler.sv"
-`include "./Controlador_de_Memoria_TFG/sram_bank_controller/sram_bank_controller.sv"
-`include "./Controlador_de_Memoria_TFG/wr_response_path/wr_response_path.sv"
-`include "./Controlador_de_Memoria_TFG/rd_response_path/rd_response_path.sv"
+`include "fifo.sv"
+`include "addr_decoder/addr_decoder.sv"
+`include "axi4_lite_front_end/axi4_lite_front_end.sv"
+`include "scheduler/scheduler.sv"
+`include "sram_bank_controller/sram_bank_controller.sv"
+`include "wr_response_path/wr_response_path.sv"
+`include "rd_response_path/rd_response_path.sv"
 
 
 // ============================================================
