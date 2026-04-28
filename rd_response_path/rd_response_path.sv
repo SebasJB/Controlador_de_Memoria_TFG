@@ -44,7 +44,7 @@ module rd_resp_mux #(
 
     integer i;
     reg mux_valid_r;
-    always @(*) begin
+    always_comb begin
         mux_valid_r = 1'b0;
         mux_data    = {AXI_DATA_WIDTH{1'b0}};
         mux_tag     = {BANK_BITS{1'b0}};
@@ -305,7 +305,7 @@ module rd_response_path #(
     //    Interfaz fija: Din, Dout, push, pop, clk,
     //    full, pndng, rst (activo en ALTO)
     //    bits = AXI_DATA_WIDTH (solo data)
-    fifo #(
+    fifo_flops #(
         .bits(AXI_DATA_WIDTH)
     ) u_rd_resp_fifo (
         .Din  (rob_data_out),
