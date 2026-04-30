@@ -57,7 +57,6 @@ module request_capture_reg #(
     input  wire fsm_idle,
 
     // Registros latched
-    output reg                        lat_op,
     output reg  [BANK_ADDR_WIDTH-1:0] lat_addr,
     output reg  [AXI_DATA_WIDTH-1:0]  lat_wdata,
     output reg  [AXI_DATA_WIDTH/8-1:0]lat_wstrb,
@@ -67,6 +66,8 @@ module request_capture_reg #(
     output wire is_wr,
     output wire is_rd
 );
+    
+    reg lat_op;
     wire capture_en;
     assign capture_en = bank_req_valid & fsm_idle;
 
@@ -424,7 +425,6 @@ module sram_bank_controller #(
     wire [AXI_DATA_WIDTH-1:0]   lat_wdata;
     wire [AXI_DATA_WIDTH/8-1:0] lat_wstrb;
     wire [$clog2(N_BANKS)-1:0]  lat_tag;
-    wire                        lat_op;
 
     // ── 1. Request Capture Reg ────────────────────────────
     request_capture_reg #(
@@ -441,7 +441,6 @@ module sram_bank_controller #(
         .bank_req_wstrb(bank_req_wstrb),
         .bank_req_tag  (bank_req_tag),
         .fsm_idle      (fsm_idle),
-        .lat_op        (lat_op),
         .lat_addr      (lat_addr),
         .lat_wdata     (lat_wdata),
         .lat_wstrb     (lat_wstrb),
