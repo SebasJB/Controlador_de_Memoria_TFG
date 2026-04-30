@@ -42,22 +42,31 @@ module rd_resp_mux #(
 
     localparam BANK_BITS = $clog2(N_BANKS);
 
+    reg [N_BANKS-1:0]                    valid_flat;
+    reg [N_BANKS*AXI_DATA_WIDTH-1:0]     data_flat;
+    reg [N_BANKS*BANK_BITS-1:0]          tag_flat;
     integer i;
-    reg mux_valid_r;
+
     always_comb begin
-        mux_valid_r = 1'b0;
-        mux_data    = {AXI_DATA_WIDTH{1'b0}};
-        mux_tag     = {BANK_BITS{1'b0}};
         for (i = 0; i < N_BANKS; i = i + 1) begin
-            if (rd_resp_valid[i]) begin
-                mux_valid_r = 1'b1;
-                mux_data    = rd_resp_data[i];
-                mux_tag     = rd_resp_tag[i];
+            valid_flat[i]                              = rd_resp_valid[i];
+            data_flat[i*AXI_DATA_WIDTH +: AXI_DATA_WIDTH] = rd_resp_data[i];
+            tag_flat [i*BANK_BITS      +: BANK_BITS]      = rd_resp_tag[i];
+        end
+    end
+    assign mux_valid = |valid_flat;
+
+    integer j;
+    always_comb begin
+    mux_data = {AXI_DATA_WIDTH{1'b0}};
+    mux_tag  = {BANK_BITS{1'b0}};
+        for (j = 0; j < N_BANKS; j = j + 1) begin
+            if (valid_flat[j]) begin
+                mux_data = data_flat[j*AXI_DATA_WIDTH +: AXI_DATA_WIDTH];
+                mux_tag  = tag_flat [j*BANK_BITS      +: BANK_BITS];
             end
         end
     end
-    assign mux_valid = mux_valid_r;
-
 endmodule
 
 
