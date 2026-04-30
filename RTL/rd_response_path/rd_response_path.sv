@@ -36,8 +36,8 @@ module rd_resp_mux #(
     input  wire [$clog2(N_BANKS)-1:0] rd_resp_tag  [0:N_BANKS-1],
 
     output wire                                    mux_valid,
-    output reg  [AXI_DATA_WIDTH-1:0]               mux_data,
-    output reg  [$clog2(N_BANKS)-1:0]              mux_tag
+    output wire  [AXI_DATA_WIDTH-1:0]               mux_data,
+    output wire  [$clog2(N_BANKS)-1:0]              mux_tag
 );
 
     localparam BANK_BITS = $clog2(N_BANKS);
@@ -56,17 +56,24 @@ module rd_resp_mux #(
     end
     assign mux_valid = |valid_flat;
 
-    integer j;
-    always_comb begin
-    mux_data = {AXI_DATA_WIDTH{1'b0}};
-    mux_tag  = {BANK_BITS{1'b0}};
-        for (j = 0; j < N_BANKS; j = j + 1) begin
-            if (valid_flat[j]) begin
-                mux_data = data_flat[j*AXI_DATA_WIDTH +: AXI_DATA_WIDTH];
-                mux_tag  = tag_flat [j*BANK_BITS      +: BANK_BITS];
-            end
+    genvar g;
+    wire [AXI_DATA_WIDTH-1:0] mux_data_chain [0:N_BANKS];
+    wire [BANK_BITS-1:0]      mux_tag_chain  [0:N_BANKS];
+
+    assign mux_data_chain[0] = {AXI_DATA_WIDTH{1'b0}};
+    assign mux_tag_chain[0]  = {BANK_BITS{1'b0}};
+
+    generate
+        for (g = 0; g < N_BANKS; g = g + 1) begin : gen_mux
+            assign mux_data_chain[g+1] = valid_flat[g] ? 
+                data_flat[g*AXI_DATA_WIDTH +: AXI_DATA_WIDTH] : mux_data_chain[g];
+            assign mux_tag_chain[g+1]  = valid_flat[g] ? 
+                tag_flat[g*BANK_BITS +: BANK_BITS] : mux_tag_chain[g];
         end
-    end
+    endgenerate
+
+    assign mux_tag  = mux_tag_chain[N_BANKS];
+    assign mux_data = mux_data_chain[N_BANKS];
 endmodule
 
 
