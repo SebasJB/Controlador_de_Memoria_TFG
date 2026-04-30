@@ -216,8 +216,8 @@ module unified_dispatch_logic #(
     localparam BANK_BITS = $clog2(N_BANKS);
 
     integer i;
-    reg wr_hit;
-    reg rd_hit;
+    reg wr_hit [0:N_BANKS-1];
+    reg rd_hit [0:N_BANKS-1];
 
     always_comb begin
         for (i = 0; i < N_BANKS; i = i + 1) begin
@@ -228,15 +228,15 @@ module unified_dispatch_logic #(
 
         for (i = 0; i < N_BANKS; i = i + 1) begin
             // Valid Generator
-            wr_hit = grant_wr & (wr_bank_id == BANK_BITS'(i));
-            rd_hit = grant_rd & (rd_bank_id == BANK_BITS'(i));
-            bank_req_valid[i] = wr_hit | rd_hit;
+            wr_hit[i] = grant_wr & (wr_bank_id == BANK_BITS'(i));
+            rd_hit[i] = grant_rd & (rd_bank_id == BANK_BITS'(i));
+            bank_req_valid[i] = wr_hit[i] | rd_hit[i];
 
             // Op MUX: WR = 1'b1, RD = 1'b0
-            bank_req_op[i] = wr_hit;
+            bank_req_op[i] = wr_hit[i] ? 1'b1 : 1'b0;
 
             // Addr MUX
-            bank_req_addr[i] = wr_hit ? wr_bank_word_addr : rd_bank_word_addr;
+            bank_req_addr[i] = wr_hit[i] ? wr_bank_word_addr : rd_bank_word_addr;
         end
     end
 endmodule
