@@ -42,14 +42,15 @@ module wr_resp_collector #(
     input  wire wr_resp_valid [0:N_BANKS-1],
     output wire               wr_resp_push
 );
-    integer i;
-    reg push_r;
-    always @(*) begin
-        push_r = 1'b0;
-        for (i = 0; i < N_BANKS; i = i + 1)
-            push_r = push_r | wr_resp_valid[i];
-    end
-    assign wr_resp_push = push_r;
+    wire [N_BANKS-1:0] valid_flat;
+    genvar i;
+    generate
+        for (i = 0; i < N_BANKS; i = i + 1) begin : gen_flat
+            assign valid_flat[i] = wr_resp_valid[i];
+        end
+    endgenerate
+
+    assign wr_resp_push = |valid_flat;
 
 endmodule
 
