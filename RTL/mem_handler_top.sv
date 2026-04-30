@@ -36,14 +36,6 @@
 
 `timescale 1ns/1ps
 
-`include "fifo.sv"
-`include "addr_decoder/addr_decoder.sv"
-`include "axi4_lite_front_end/axi4_lite_front_end.sv"
-`include "scheduler/scheduler.sv"
-`include "sram_bank_controller/sram_bank_controller.sv"
-`include "wr_response_path/wr_response_path.sv"
-`include "rd_response_path/rd_response_path.sv"
-
 
 // ============================================================
 // SRAM_SYNC — Modelo behavioral de SRAM síncrona parametrizable
