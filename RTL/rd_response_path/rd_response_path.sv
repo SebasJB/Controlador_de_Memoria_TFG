@@ -127,8 +127,6 @@ module reorder_buffer #(
     reg [BANK_BITS-1:0] rd_ptr_addr;
     reg rd_ptr_wrap;
 
-    wire [PTR_W-1:0] rd_ptr_ext;
-    assign rd_ptr_ext = {rd_ptr_wrap, rd_ptr_addr};
 
     // ── In-order drain: rd_ptr selecciona slot ───────
     assign rob_data_out = rob_data[rd_ptr_addr];
