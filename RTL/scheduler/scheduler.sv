@@ -267,7 +267,6 @@ module read_tag_generator #(
     localparam BANK_BITS = $clog2(N_BANKS);
     localparam PTR_W     = BANK_BITS + 1;
     localparam [BANK_BITS-1:0] ADDR_MAX = N_BANKS - 1;
-    logic [BANK_BITS-1:0] count = ADDR_MAX;
 
     reg [BANK_BITS-1:0] cnt_addr;
     reg cnt_wrap;
@@ -278,7 +277,7 @@ module read_tag_generator #(
             cnt_wrap <= 1'b0;
         end else begin
             if (grant_rd) begin
-                if (cnt_addr == count) begin
+                if (cnt_addr == 3) begin
                     // Reiniciar dirección a 0, invertir wrap bit
                     cnt_addr <= {BANK_BITS{1'b0}};
                     cnt_wrap <= !cnt_wrap;

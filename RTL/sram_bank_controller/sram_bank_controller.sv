@@ -157,6 +157,8 @@ module bank_fsm #(
                 IDLE : begin
                     if (bank_req_valid)
                         state <= ISSUE;
+                    else
+                        state <= IDLE;
                 end
                 ISSUE : begin
                     if (is_wr)
