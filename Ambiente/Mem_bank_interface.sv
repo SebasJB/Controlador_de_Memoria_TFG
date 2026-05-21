@@ -69,6 +69,7 @@ interface mem_bank_interface #(
     // ========================================================
     // Clocking blocks
     //
+    //
     // Convención:
     //   - input  #1step → muestreo justo antes del posedge
     //                     (valor estable del ciclo anterior)
