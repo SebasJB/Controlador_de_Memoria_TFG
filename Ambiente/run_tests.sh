@@ -12,10 +12,10 @@
 set -e
 
 # ── Directorios (ajustar según layout local) ───────────────
-export RTL_DIR=${RTL_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria/RTL}
-export SVA_DIR=${SVA_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria/RTL/SVA}
-export TB_DIR=${TB_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria/Ambiente}
-export RUN_DIR=${RUN_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria/Ambiente/Simulaciones}
+export RTL_DIR=${RTL_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL}
+export SVA_DIR=${SVA_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA}
+export TB_DIR=${TB_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente}
+export RUN_DIR=${RUN_DIR:/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones}
 
 mkdir -p ${RUN_DIR}
 
