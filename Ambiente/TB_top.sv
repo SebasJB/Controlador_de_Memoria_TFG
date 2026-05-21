@@ -17,7 +17,7 @@
 
 `timescale 1ns/1ps
 
-`include "mem_bank_interface.sv"
+`include "Mem_bank_interface.sv"
 
 module tb_top;
 
