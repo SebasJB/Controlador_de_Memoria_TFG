@@ -124,6 +124,7 @@ module tb_top;
     initial begin
         $dumpfile("tb_mem_ctrl.vcd");
         $dumpvars(0, tb_top);
+        $dumpvars(0, tb_top.dut.u_rd_response_path.u_reorder_buffer);
     end
 
 endmodule
