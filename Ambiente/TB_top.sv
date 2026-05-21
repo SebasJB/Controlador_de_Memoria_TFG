@@ -15,9 +15,7 @@
 //  uvm_config_db. Cambiar acá impacta interfaz e instancias.
 // ============================================================
 
-`timescale 1ns/1ps
-
-`include "Mem_bank_interface.sv"
+`timescale 1ns/1ps 
 
 module tb_top;
 
