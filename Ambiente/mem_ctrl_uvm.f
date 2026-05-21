@@ -38,7 +38,6 @@ ${TB_DIR}/tb_top.sv
 
 // ── Flags VCS ──────────────────────────────────────────────
 -sverilog
--ntb_opts uvm-1.2
 +define+UVM_NO_DEPRECATED
 -timescale=1ns/1ps
 -debug_access+all
