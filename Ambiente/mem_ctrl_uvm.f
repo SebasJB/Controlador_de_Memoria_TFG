@@ -28,7 +28,7 @@ ${SVA_DIR}/rd_response_path_sva.sv
 ${SVA_DIR}/axi4_lite_front_end_sva.sv
 
 // ── Verification interfaces ────────────────────────────────
-${TB_DIR}/mem_bank_interface.sv
+${TB_DIR}/Mem_bank_interface.sv
 ${TB_DIR}/probe_interfaces.sv
 
 // ── UVM package + tb_top ───────────────────────────────────
