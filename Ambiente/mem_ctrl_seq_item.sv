@@ -62,6 +62,19 @@ class mem_ctrl_seq_item #(
     function new(string name = "mem_ctrl_seq_item");
         super.new(name);
         txn_id = id_counter++;
+
+        // ── FIX: garantizar estado inicial limpio ──
+        // Todas las c_force_* arrancan OFF; los defaults ON.
+        // Esto evita conflictos cuando do_write() / do_read()
+        // randomizan sin pasar por set_phase() primero.
+        c_default_addr_valid.constraint_mode(1);
+        c_default_wstrb.constraint_mode(1);
+        c_force_invalid.constraint_mode(0);
+        c_force_bank.constraint_mode(0);
+        c_force_op_wr.constraint_mode(0);
+        c_force_op_rd.constraint_mode(0);
+        c_force_addr_lo.constraint_mode(0);
+        c_force_wstrb_partial.constraint_mode(0);
     endfunction
 
 
