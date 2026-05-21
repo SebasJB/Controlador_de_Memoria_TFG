@@ -34,7 +34,7 @@ ${TB_DIR}/probe_interfaces.sv
 // ── UVM package + tb_top ───────────────────────────────────
 +incdir+${TB_DIR}
 ${TB_DIR}/mem_ctrl_pkg.sv
-${TB_DIR}/tb_top.sv
+${TB_DIR}/TB_top.sv
 
 // ── Flags VCS ──────────────────────────────────────────────
 -sverilog
