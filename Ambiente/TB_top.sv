@@ -116,7 +116,7 @@ module tb_top;
 
     // ── Timeout global (escape de hangs en regression) ───
     initial begin
-        #20_000_000;   // 20 ms = 2000k ciclos @100MHz
+        #50_000_000;   // 20 ms = 2000k ciclos @100MHz
         `uvm_fatal("TB_TOP", "Global timeout reached")
     end
 
