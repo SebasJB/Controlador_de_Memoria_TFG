@@ -319,7 +319,7 @@ module rd_response_path #(
     //    Interfaz fija: Din, Dout, push, pop, clk,
     //    full, pndng, rst (activo en ALTO)
     //    bits = AXI_DATA_WIDTH (solo data)
-    fifo_flops #(
+    fifo_generic #(
         .bits(AXI_DATA_WIDTH)
     ) u_rd_resp_fifo (
         .Din  (rob_data_out),

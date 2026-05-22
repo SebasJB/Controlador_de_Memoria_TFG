@@ -295,7 +295,7 @@ module mem_handler_top #(
     // ── 2. WR REQ FIFO ───────────────────────────────────────
     // Bus packed: {op(1), addr(ADDR_W), data(DATA_W), strb(STRB_W)}
     // rst = ~rst_n (la IP FIFO usa reset activo en alto)
-    fifo_flops #(
+    fifo_generic #(
         .bits (WR_REQ_BUS_W),
         .depth(WR_REQ_FIFO_DEPTH)
     ) u_wr_req_fifo (
@@ -313,7 +313,7 @@ module mem_handler_top #(
     // ── 3. RD REQ FIFO ───────────────────────────────────────
     // Bus packed: {op(1), addr(ADDR_W)}
     // rst = ~rst_n (la IP FIFO usa reset activo en alto)
-    fifo_flops #(
+    fifo_generic #(
         .bits (RD_REQ_BUS_W),
         .depth(RD_REQ_FIFO_DEPTH)
     ) u_rd_req_fifo (
