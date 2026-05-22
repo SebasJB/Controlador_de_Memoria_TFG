@@ -61,7 +61,7 @@ class write_driver #(
             item_t req;
             seq_item_port.get_next_item(req);
             `uvm_info("WR_DRV_REQ", $sformatf("got seq_item txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h", req.txn_id, req.addr, req.data, req.wstrb),UVM_HIGH)
-            repeat (req.delay_cycles) @(vif.master_write_cb.clk);
+            repeat (req.delay_cycles) @(vif.master_write_cb);
             drive_aw_w(req);
             seq_item_port.item_done();
         end

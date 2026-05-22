@@ -54,7 +54,7 @@ class read_driver #(
                 $sformatf("got seq_item txn_id=%0d addr=0x%08h",
                           req.txn_id, req.addr),
                 UVM_HIGH)
-            repeat (req.delay_cycles) @(vif.master_read_cb.clk);
+            repeat (req.delay_cycles) @(vif.master_read_cb);
             drive_ar(req);
             seq_item_port.item_done();
         end
