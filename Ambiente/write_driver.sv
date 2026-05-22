@@ -107,27 +107,29 @@ class write_driver #(
     endtask
 
     task accept_b_responses();
-        int b_idx = 0;
-        forever begin
-            @(vif.master_write_cb);
-            if (vif.master_write_cb.bvalid === 1'b1) begin
-                if (b_backpressure_cycles > 0) begin
-                    `uvm_info("WR_DRV_B",
-                        $sformatf("B stall %0d cycles before accepting @ %0t",
-                                  b_backpressure_cycles, $time),
-                        UVM_HIGH)
-                    repeat (b_backpressure_cycles) @(vif.master_write_cb);
-                end
-                vif.master_write_cb.bready <= 1'b1;
-                @(vif.master_write_cb);
-                vif.master_write_cb.bready <= 1'b0;
-                `uvm_info("WR_DRV_B",
-                    $sformatf("B accepted #%0d bresp=%0b @ %0t",
-                              b_idx, vif.master_write_cb.bresp, $time),
-                    UVM_HIGH)
-                b_idx++;
-            end
+    int b_idx = 0;
+    forever begin
+        @(vif.master_write_cb);
+        if (vif.master_write_cb.bvalid !== 1'b1) continue;
+
+        if (b_backpressure_cycles > 0) begin
+            `uvm_info("WR_DRV_B",
+                $sformatf("B stall %0d cycles before accepting @ %0t",
+                          b_backpressure_cycles, $time),
+                UVM_HIGH)
+            repeat (b_backpressure_cycles) @(vif.master_write_cb);
         end
-    endtask
+
+        vif.master_write_cb.bready <= 1'b1;
+        @(vif.master_write_cb);
+        vif.master_write_cb.bready <= 1'b0;
+
+        `uvm_info("WR_DRV_B",
+            $sformatf("B accepted #%0d bresp=%0b @ %0t",
+                      b_idx, vif.master_write_cb.bresp, $time),
+            UVM_HIGH)
+        b_idx++;
+    end
+endtask
 
 endclass

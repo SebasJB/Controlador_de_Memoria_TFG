@@ -73,28 +73,37 @@ class read_driver #(
     endtask
 
     task accept_r_responses();
-        int r_idx = 0;
-        forever begin
-            @(vif.master_read_cb);
-            if (vif.master_read_cb.rvalid === 1'b1) begin
-                if (r_backpressure_cycles > 0) begin
-                    `uvm_info("RD_DRV_R",
-                        $sformatf("R stall %0d cycles before accepting @ %0t",
-                                  r_backpressure_cycles, $time),
-                        UVM_HIGH)
-                    repeat (r_backpressure_cycles) @(vif.master_read_cb);
-                end
-                vif.master_read_cb.rready <= 1'b1;
-                @(vif.master_read_cb);
-                vif.master_read_cb.rready <= 1'b0;
-                `uvm_info("RD_DRV_R",
-                    $sformatf("R accepted #%0d rdata=0x%08h rresp=%0b @ %0t",
-                              r_idx, vif.master_read_cb.rdata,
-                              vif.master_read_cb.rresp, $time),
-                    UVM_HIGH)
-                r_idx++;
-            end
+    int r_idx = 0;
+    forever begin
+        // Esperar a que rvalid sea visible
+        @(vif.master_read_cb);
+        if (vif.master_read_cb.rvalid !== 1'b1) continue;
+
+        // Backpressure opcional: stall con rready=0 mientras
+        // rvalid se mantiene alto (master no acepta todavía)
+        if (r_backpressure_cycles > 0) begin
+            `uvm_info("RD_DRV_R",
+                $sformatf("R stall %0d cycles before accepting @ %0t",
+                          r_backpressure_cycles, $time),
+                UVM_HIGH)
+            repeat (r_backpressure_cycles) @(vif.master_read_cb);
         end
-    endtask
+
+        // Aceptar: rready=1 por exactamente 1 ciclo.
+        // Sample rdata/rresp ANTES del flanco para evitar
+        // que el DUT cambie el dato cuando ve rready=1.
+        vif.master_read_cb.rready <= 1'b1;
+        @(vif.master_read_cb);
+        // En este punto el handshake fire ocurrió. Bajar rready.
+        vif.master_read_cb.rready <= 1'b0;
+
+        `uvm_info("RD_DRV_R",
+            $sformatf("R accepted #%0d rdata=0x%08h rresp=%0b @ %0t",
+                      r_idx, vif.master_read_cb.rdata,
+                      vif.master_read_cb.rresp, $time),
+            UVM_HIGH)
+        r_idx++;
+    end
+endtask
 
 endclass
