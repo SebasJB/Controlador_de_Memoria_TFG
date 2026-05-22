@@ -1,14 +1,8 @@
 // ============================================================
 //  File    : read_monitor.sv
 //  Project : Banked Memory Controller — TFG ITCR
-//  Block   : UVM Read Monitor — observa AR, R (passive)
 //
-//  Analysis ports:
-//    - ap_ar : dispara en AR fire (captura addr esperada)
-//    - ap_r  : dispara en R fire (captura rdata, rresp)
-//
-//  Correlación AR ↔ R: orden FIFO. AXI4-Lite garantiza que
-//  las respuestas R llegan en el mismo orden que los AR.
+//  Verbosity: avisos UVM_HIGH para AR y R fires.
 // ============================================================
 
 class read_monitor #(
@@ -44,6 +38,7 @@ class read_monitor #(
     task run_phase(uvm_phase phase);
         wait (vif.rst_n === 1'b1);
         @(vif.monitor_cb);
+        `uvm_info("RD_MON", "Reset released — monitor ready", UVM_HIGH)
         fork
             monitor_ar();
             monitor_r();
@@ -51,6 +46,7 @@ class read_monitor #(
     endtask
 
     task monitor_ar();
+        int ar_idx = 0;
         forever begin
             @(vif.monitor_cb);
             if (vif.monitor_cb.arvalid === 1'b1 &&
@@ -60,13 +56,19 @@ class read_monitor #(
                 item.is_write   = 1'b0;
                 item.addr       = vif.monitor_cb.araddr;
                 item.t_req_fire = $time;
+                `uvm_info("RD_MON_AR",
+                    $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t",
+                              ar_idx, item.txn_id, item.addr, $time),
+                    UVM_HIGH)
                 ap_ar.write(item);
                 pending_r.push_back(item);
+                ar_idx++;
             end
         end
     endtask
 
     task monitor_r();
+        int r_idx = 0;
         forever begin
             @(vif.monitor_cb);
             if (vif.monitor_cb.rvalid === 1'b1 &&
@@ -80,7 +82,14 @@ class read_monitor #(
                     r_item.data        = vif.monitor_cb.rdata;
                     r_item.resp        = vif.monitor_cb.rresp;
                     r_item.t_resp_fire = $time;
+                    `uvm_info("RD_MON_R",
+                        $sformatf("R fire #%0d txn_id=%0d rdata=0x%08h rresp=%0b lat=%0t @ %0t",
+                                  r_idx, r_item.txn_id, r_item.data,
+                                  r_item.resp,
+                                  r_item.t_resp_fire - r_item.t_req_fire, $time),
+                        UVM_HIGH)
                     ap_r.write(r_item);
+                    r_idx++;
                 end
             end
         end

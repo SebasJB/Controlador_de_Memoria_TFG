@@ -1,20 +1,8 @@
 // ============================================================
 //  File    : write_monitor.sv
 //  Project : Banked Memory Controller — TFG ITCR
-//  Block   : UVM Write Monitor — observa AW, W, B (passive)
 //
-//  Analysis ports:
-//    - ap_wr : dispara en AW+W fire (ambos handshakes completos)
-//    - ap_b  : dispara en B fire
-//
-//  Implementación:
-//    - Tres hilos paralelos observan los handshakes AW, W, B.
-//    - Cuando AW fire ocurre, captura {addr}. Cuando W fire
-//      ocurre, captura {data, wstrb}. Cuando ambos ya fueron
-//      capturados, emite el item por ap_wr.
-//    - El monitor mantiene un pequeño buffer de items en vuelo
-//      para correlacionar AW con su B correspondiente vía
-//      orden de llegada (FIFO).
+//  Verbosity: avisos UVM_HIGH para AW/W/B fires y emisión.
 // ============================================================
 
 class write_monitor #(
@@ -30,7 +18,6 @@ class write_monitor #(
     uvm_analysis_port #(item_t) ap_wr;
     uvm_analysis_port #(item_t) ap_b;
 
-    // Cola FIFO de items pendientes de B
     item_t pending_b[$];
 
     `uvm_component_param_utils(write_monitor #(ADDR_W, DATA_W, N_BANKS))
@@ -48,23 +35,23 @@ class write_monitor #(
             `uvm_fatal("WR_MON", "axi_vif not set")
     endfunction
 
-    // ── Run phase ────────────────────────────────────────
     task run_phase(uvm_phase phase);
         wait (vif.rst_n === 1'b1);
         @(vif.monitor_cb);
+        `uvm_info("WR_MON", "Reset released — monitor ready", UVM_HIGH)
         fork
             monitor_aw_w();
             monitor_b();
         join
     endtask
 
-    // ── Observa AW+W fire en paralelo ────────────────────
-    // AW y W pueden hacer fire en distinto ciclo; correlaciona-
-    // mos por orden (FIFO): el primer AW va con el primer W.
     task monitor_aw_w();
         bit [ADDR_W-1:0]    aw_q[$];
         bit [DATA_W-1:0]    wd_q[$];
         bit [DATA_W/8-1:0]  ws_q[$];
+        int                 aw_idx = 0;
+        int                 w_idx  = 0;
+        int                 wr_idx = 0;
 
         fork
             // Captura AW fire
@@ -73,6 +60,11 @@ class write_monitor #(
                 if (vif.monitor_cb.awvalid === 1'b1 &&
                     vif.monitor_cb.awready === 1'b1) begin
                     aw_q.push_back(vif.monitor_cb.awaddr);
+                    `uvm_info("WR_MON_AW",
+                        $sformatf("AW fire #%0d addr=0x%08h @ %0t",
+                                  aw_idx, vif.monitor_cb.awaddr, $time),
+                        UVM_HIGH)
+                    aw_idx++;
                 end
             end
             // Captura W fire
@@ -82,6 +74,12 @@ class write_monitor #(
                     vif.monitor_cb.wready === 1'b1) begin
                     wd_q.push_back(vif.monitor_cb.wdata);
                     ws_q.push_back(vif.monitor_cb.wstrb);
+                    `uvm_info("WR_MON_W",
+                        $sformatf("W fire #%0d data=0x%08h wstrb=0x%h @ %0t",
+                                  w_idx, vif.monitor_cb.wdata,
+                                  vif.monitor_cb.wstrb, $time),
+                        UVM_HIGH)
+                    w_idx++;
                 end
             end
             // Emite item cuando ambas colas tienen al menos 1
@@ -94,15 +92,21 @@ class write_monitor #(
                     item.data       = wd_q.pop_front();
                     item.wstrb      = ws_q.pop_front();
                     item.t_req_fire = $time;
+                    `uvm_info("WR_MON_TXN",
+                        $sformatf("emit txn #%0d txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h",
+                                  wr_idx, item.txn_id, item.addr,
+                                  item.data, item.wstrb),
+                        UVM_HIGH)
                     ap_wr.write(item);
                     pending_b.push_back(item);
+                    wr_idx++;
                 end
             end
         join
     endtask
 
-    // ── Observa B fire ───────────────────────────────────
     task monitor_b();
+        int b_idx = 0;
         forever begin
             @(vif.monitor_cb);
             if (vif.monitor_cb.bvalid === 1'b1 &&
@@ -115,7 +119,13 @@ class write_monitor #(
                     b_item = pending_b.pop_front();
                     b_item.resp        = vif.monitor_cb.bresp;
                     b_item.t_resp_fire = $time;
+                    `uvm_info("WR_MON_B",
+                        $sformatf("B fire #%0d txn_id=%0d bresp=%0b lat=%0t @ %0t",
+                                  b_idx, b_item.txn_id, b_item.resp,
+                                  b_item.t_resp_fire - b_item.t_req_fire, $time),
+                        UVM_HIGH)
                     ap_b.write(b_item);
+                    b_idx++;
                 end
             end
         end

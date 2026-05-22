@@ -3,15 +3,12 @@
 //  Project : Banked Memory Controller — TFG ITCR
 //  Block   : UVM Write Driver
 //
-//  Responsabilidades:
-//    - Recibir seq_item del write_sequencer
-//    - Drive AW + W en paralelo (fork) hasta handshake fire
-//    - Aceptar B con knob de throttling (b_backpressure_cycles)
-//    - Devolver el item completado al sequencer
+//  Knobs:
+//    - b_backpressure_cycles : stall en bready antes de aceptar B.
 //
-//  Knobs configurables vía uvm_config_db:
-//    - b_backpressure_cycles : ciclos con bready=0 antes de
-//                              aceptar B. Default 0 = sin stall.
+//  Verbosity:
+//    Avisos UVM_HIGH para debug detallado del handshake.
+//    Activar con +UVM_VERBOSITY=UVM_HIGH
 // ============================================================
 
 class write_driver #(
@@ -24,7 +21,6 @@ class write_driver #(
 
     virtual mem_bank_interface #(ADDR_W, DATA_W) vif;
 
-    // Knob de backpressure
     int b_backpressure_cycles = 0;
 
     `uvm_component_param_utils(write_driver #(ADDR_W, DATA_W, N_BANKS))
@@ -40,11 +36,12 @@ class write_driver #(
             `uvm_fatal("WR_DRV", "axi_vif not set")
         void'(uvm_config_db#(int)::get(this, "", "b_backpressure_cycles",
                                        b_backpressure_cycles));
+        `uvm_info("WR_DRV", $sformatf("build_phase: b_backpressure_cycles=%0d",
+                                       b_backpressure_cycles), UVM_HIGH)
     endfunction
 
-    // ── Run phase ────────────────────────────────────────
     task run_phase(uvm_phase phase);
-        // Inicializar salidas a 0
+        // Inicializar salidas
         vif.master_write_cb.awvalid <= 1'b0;
         vif.master_write_cb.wvalid  <= 1'b0;
         vif.master_write_cb.bready  <= 1'b0;
@@ -54,8 +51,8 @@ class write_driver #(
 
         wait (vif.rst_n === 1'b1);
         @(vif.master_write_cb);
+        `uvm_info("WR_DRV", "Reset released — driver ready", UVM_HIGH)
 
-        // Hilo paralelo para aceptar B en background
         fork
             accept_b_responses();
         join_none
@@ -63,47 +60,72 @@ class write_driver #(
         forever begin
             item_t req;
             seq_item_port.get_next_item(req);
+            `uvm_info("WR_DRV_REQ",
+                $sformatf("got seq_item txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h",
+                          req.txn_id, req.addr, req.data, req.wstrb),
+                UVM_HIGH)
             drive_aw_w(req);
             seq_item_port.item_done();
         end
     endtask
 
-    // ── Drive AW y W en paralelo ─────────────────────────
     task drive_aw_w(item_t item);
         fork
             drive_aw(item);
             drive_w(item);
         join
         item.t_req_fire = $time;
+        `uvm_info("WR_DRV",
+            $sformatf("AW+W complete txn_id=%0d @ %0t",
+                      item.txn_id, item.t_req_fire),
+            UVM_HIGH)
     endtask
 
     task drive_aw(item_t item);
+        @(vif.master_write_cb);
         vif.master_write_cb.awvalid <= 1'b1;
         vif.master_write_cb.awaddr  <= item.addr;
         do @(vif.master_write_cb); while (vif.master_write_cb.awready !== 1'b1);
         vif.master_write_cb.awvalid <= 1'b0;
+        `uvm_info("WR_DRV_AW",
+            $sformatf("AW fire txn_id=%0d addr=0x%08h @ %0t",
+                      item.txn_id, item.addr, $time),
+            UVM_HIGH)
     endtask
 
     task drive_w(item_t item);
+        @(vif.master_write_cb);
         vif.master_write_cb.wvalid <= 1'b1;
         vif.master_write_cb.wdata  <= item.data;
         vif.master_write_cb.wstrb  <= item.wstrb;
         do @(vif.master_write_cb); while (vif.master_write_cb.wready !== 1'b1);
         vif.master_write_cb.wvalid <= 1'b0;
+        `uvm_info("WR_DRV_W",
+            $sformatf("W fire txn_id=%0d data=0x%08h wstrb=0x%h @ %0t",
+                      item.txn_id, item.data, item.wstrb, $time),
+            UVM_HIGH)
     endtask
 
-    // ── Acepta B (background) ────────────────────────────
-    // El monitor es quien observa la transacción; el driver
-    // solo se encarga del handshake bready.
     task accept_b_responses();
+        int b_idx = 0;
         forever begin
             @(vif.master_write_cb);
             if (vif.master_write_cb.bvalid === 1'b1) begin
-                if (b_backpressure_cycles > 0)
+                if (b_backpressure_cycles > 0) begin
+                    `uvm_info("WR_DRV_B",
+                        $sformatf("B stall %0d cycles before accepting @ %0t",
+                                  b_backpressure_cycles, $time),
+                        UVM_HIGH)
                     repeat (b_backpressure_cycles) @(vif.master_write_cb);
+                end
                 vif.master_write_cb.bready <= 1'b1;
                 @(vif.master_write_cb);
                 vif.master_write_cb.bready <= 1'b0;
+                `uvm_info("WR_DRV_B",
+                    $sformatf("B accepted #%0d bresp=%0b @ %0t",
+                              b_idx, vif.master_write_cb.bresp, $time),
+                    UVM_HIGH)
+                b_idx++;
             end
         end
     endtask
