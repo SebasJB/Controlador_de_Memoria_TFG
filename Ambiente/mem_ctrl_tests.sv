@@ -98,10 +98,10 @@ class mem_full_test extends mem_base_test;
         phase.raise_objection(this);
         m_wr = mem_master_wr_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_wr");
         m_rd = mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_rd");
-        fork
-            m_wr.start(env.wr_agent.sequencer);
-            m_rd.start(env.rd_agent.sequencer);
-        join
+        // SERIALIZADO: writes primero, drain, luego reads
+        m_wr.start(env.wr_agent.sequencer);
+        drain_responses(500);
+        m_rd.start(env.rd_agent.sequencer);
         drain_responses(2000);
         phase.drop_objection(this);
     endtask
