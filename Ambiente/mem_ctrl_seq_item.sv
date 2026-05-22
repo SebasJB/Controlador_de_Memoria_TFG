@@ -31,6 +31,8 @@ class mem_ctrl_seq_item #(
     rand bit [ADDR_W-1:0]    addr;
     rand bit [DATA_W-1:0]    data;
     rand bit [DATA_W/8-1:0]  wstrb;
+    rand int delay_cycles;   // para secuencias con backpressure
+
 
     // ── Configurables para fases (no random) ─────────────
     int  cfg_target_bank   = 0;
@@ -119,6 +121,8 @@ class mem_ctrl_seq_item #(
                                           4'b0011, 4'b1100, 4'b1010, 4'b0101,
                                           4'b0111, 4'b1110};
     }
+
+    constraint c_delay_cycles_ { delay_cycles >= 0; } in [0:10]
 
 
     // ========================================================
