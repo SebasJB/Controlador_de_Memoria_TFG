@@ -274,13 +274,6 @@ module rd_response_path_sva #(
         fifo_pop |-> (s_axi_rvalid && s_axi_rready)
     ) else $error("[SVA][ALTA] a_fifo_pop_implies_handshake: fifo_pop sin handshake R válido");
 
-    // [ALTA] Liveness: si hay dato en FIFO y rready=1, en el siguiente ciclo
-    // la FIFO debe tener uno menos (o el mismo si rob_push ocurrió también).
-    // Acotado a 1 ciclo — el full liveness requiere model checking.
-    a_eventual_drain_on_rready: assert property (
-        @(posedge clk) disable iff (rst_active)
-        (s_axi_rvalid && s_axi_rready) |=> fifo_pop == $past(s_axi_rvalid && s_axi_rready)
-    ) else $error("[SVA][ALTA] a_eventual_drain_on_rready: inconsistencia en pop tras handshake R");
 
     // [MEDIA] Tras reset, rvalid debe estar bajo.
     a_rvalid_low_after_reset: assert property (

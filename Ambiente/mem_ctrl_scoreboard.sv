@@ -69,8 +69,8 @@ class mem_ctrl_scoreboard #(
     int unsigned addr_invalid_writes;   // M5 esperado
     int unsigned addr_invalid_reads;    // M5 esperado
     int unsigned slverr_count;
-    time         sum_lat_wr;
-    time         sum_lat_rd;
+    real         sum_lat_wr_ns;
+    real         sum_lat_rd_ns;
 
     `uvm_component_param_utils(mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
@@ -119,8 +119,11 @@ class mem_ctrl_scoreboard #(
     // write_b — B fire (verifica BRESP, métrica latencia)
     // ========================================================
     function void write_b(item_t item);
+        real lat_ns;
         b_count++;
-        sum_lat_wr += (item.t_resp_fire - item.t_req_fire);
+        lat_ns = real'(item.t_resp_fire - item.t_req_fire);
+        sum_lat_wr_ns += lat_ns;
+
 
         case (item.resp)
             AXI_RESP_OKAY:   /* OK */ ;
@@ -175,11 +178,13 @@ class mem_ctrl_scoreboard #(
     // write_r — R fire (order check + data check)
     // ========================================================
     function void write_r(item_t item);
+        real lat_ns;
         ar_entry_t  head_ar;
         int         match_idx;
         exp_entry_t matched_exp;
         r_count++;
-        sum_lat_rd += (item.t_resp_fire - item.t_req_fire);
+        lat_ns = real'(item.t_resp_fire - item.t_req_fire);
+        sum_lat_rd_ns += lat_ns;
 
         // Tolerancia SLVERR
         if (item.resp == AXI_RESP_SLVERR) begin
@@ -251,8 +256,8 @@ class mem_ctrl_scoreboard #(
         real avg_lat_rd;
         super.report_phase(phase);
 
-        avg_lat_wr = (b_count > 0) ? (real'(sum_lat_wr) / b_count) : 0.0;
-        avg_lat_rd = (r_count > 0) ? (real'(sum_lat_rd) / r_count) : 0.0;
+        avg_lat_wr = (b_count > 0) ? (sum_lat_wr_ns / b_count) : 0.0;
+        avg_lat_rd = (r_count > 0) ? (sum_lat_rd_ns / r_count) : 0.0;
 
         `uvm_info("SB_REPORT", "===== MEM_CTRL SCOREBOARD REPORT =====",  UVM_NONE)
         `uvm_info("SB_REPORT", $sformatf("Writes issued:        %0d", write_count),         UVM_NONE)
