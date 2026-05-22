@@ -122,7 +122,7 @@ class mem_ctrl_seq_item #(
                                           4'b0111, 4'b1110};
     }
 
-    constraint c_delay_cycles {delay_cycles inside [0:10];}
+    constraint c_delay_cycles {delay_cycles inside {0:10};}
 
 
     // ========================================================
