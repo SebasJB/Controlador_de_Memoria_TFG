@@ -320,16 +320,16 @@ module rd_response_path #(
     //    full, pndng, rst (activo en ALTO)
     //    bits = AXI_DATA_WIDTH (solo data)
     fifo_generic #(
-        .bits(AXI_DATA_WIDTH)
+        .DataWidth(AXI_DATA_WIDTH)
     ) u_rd_resp_fifo (
-        .Din  (rob_data_out),
-        .Dout (fifo_dout),
-        .push (rob_push),
-        .pop  (fifo_pop),
-        .clk  (clk),
-        .full (rd_resp_fifo_full),
-        .pndng(fifo_pndng),
-        .rst  (~rst_n)
+        .writeData(rob_data_out),
+        .readData (fifo_dout),
+        .writeEn  (rob_push),
+        .readEn   (fifo_pop),
+        .clk      (clk),
+        .full     (rd_resp_fifo_full),
+        .pndng    (fifo_pndng),
+        .rst      (~rst_n)
     );
 
     // ── 4. R Channel Logic ──────────────────────────

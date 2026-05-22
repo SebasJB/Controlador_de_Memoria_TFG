@@ -296,17 +296,17 @@ module mem_handler_top #(
     // Bus packed: {op(1), addr(ADDR_W), data(DATA_W), strb(STRB_W)}
     // rst = ~rst_n (la IP FIFO usa reset activo en alto)
     fifo_generic #(
-        .bits (WR_REQ_BUS_W),
-        .depth(WR_REQ_FIFO_DEPTH)
+        .DataWidth(WR_REQ_BUS_W),
+        .Depth    (WR_REQ_FIFO_DEPTH)
     ) u_wr_req_fifo (
-        .Din  (wr_req_data),
-        .Dout (wr_req_data_out),
-        .push (wr_req_push),
-        .pop  (wr_req_pop),
-        .clk  (clk),
-        .full (wr_req_full),
-        .pndng(wr_req_pndng),
-        .rst  (~rst_n)
+        .writeData(wr_req_data),
+        .readData (wr_req_data_out),
+        .writeEn  (wr_req_push),
+        .readEn   (wr_req_pop),
+        .clk      (clk),
+        .full     (wr_req_full),
+        .pndng    (wr_req_pndng),
+        .rst      (~rst_n)
     );
 
 
@@ -314,17 +314,17 @@ module mem_handler_top #(
     // Bus packed: {op(1), addr(ADDR_W)}
     // rst = ~rst_n (la IP FIFO usa reset activo en alto)
     fifo_generic #(
-        .bits (RD_REQ_BUS_W),
-        .depth(RD_REQ_FIFO_DEPTH)
+        .DataWidth(RD_REQ_BUS_W),
+        .Depth    (RD_REQ_FIFO_DEPTH)
     ) u_rd_req_fifo (
-        .Din  (rd_req_data),
-        .Dout (rd_req_data_out),
-        .push (rd_req_push),
-        .pop  (rd_req_pop),
-        .clk  (clk),
-        .full (rd_req_full),
-        .pndng(rd_req_pndng),
-        .rst  (~rst_n)
+        .writeData(rd_req_data),
+        .readData (rd_req_data_out),
+        .writeEn  (rd_req_push),
+        .readEn   (rd_req_pop),
+        .clk      (clk),
+        .full     (rd_req_full),
+        .pndng    (rd_req_pndng),
+        .rst      (~rst_n)
     );
 
 
