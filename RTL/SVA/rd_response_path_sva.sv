@@ -295,10 +295,28 @@ module rd_response_path_sva #(
         !$past(rst_n, 1) && rst_n |-> !s_axi_rvalid
     ) else $error("[SVA][MED] a_rvalid_low_after_reset: rvalid alto justo después de salir de reset");
 
+    // En rd_response_path_sva.sv, dentro del module
+    // Detecta cuando dos bancos tienen el mismo tag con valid=1 en cualquier momento (no solo simultáneo)
+    // Esto necesita guardar el tag previo de cada banco
+    // Pero para verificar la hipótesis, basta con:
+    
+    a_two_banks_same_tag: assert property (
+        @(posedge clk) disable iff (rst_active)
+        ($countones(rd_resp_valid_packed) >= 2) |->
+        !((rd_resp_valid[0] && rd_resp_valid[1] && rd_resp_tag[0] == rd_resp_tag[1]) ||
+          (rd_resp_valid[0] && rd_resp_valid[2] && rd_resp_tag[0] == rd_resp_tag[2]) ||
+          (rd_resp_valid[0] && rd_resp_valid[3] && rd_resp_tag[0] == rd_resp_tag[3]) ||
+          (rd_resp_valid[1] && rd_resp_valid[2] && rd_resp_tag[1] == rd_resp_tag[2]) ||
+          (rd_resp_valid[1] && rd_resp_valid[3] && rd_resp_tag[1] == rd_resp_tag[3]) ||
+          (rd_resp_valid[2] && rd_resp_valid[3] && rd_resp_tag[2] == rd_resp_tag[3]))
+    ) else $fatal("[CRITICAL] Two banks have same tag in same cycle!");
+
     // ============================================================
     // COBERTURA — propiedades cover para asegurar que los
     // escenarios importantes son ejercitados en simulación
     // ============================================================
+
+    
 
     // Cubrir: al menos una respuesta de banco ocurrió
     c_any_resp_occurred: cover property (
