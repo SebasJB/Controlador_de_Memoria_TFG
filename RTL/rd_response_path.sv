@@ -4,10 +4,9 @@
 //  Block   : Read Response Path — Canal R (completo)
 //
 //  Módulos:
-//    1. rd_resp_mux         — OR-reduce + priority mux (comb)
-//    2. reorder_buffer      — ROB punteros circulares (reg)
-//    3. r_channel_logic     — AXI4-Lite canal R (comb)
-//    4. rd_response_path    — top que instancia 1, 2, FIFO, 3
+//    1. reorder_buffer      — ROB punteros circulares (reg)
+//    2. r_channel_logic     — AXI4-Lite canal R (comb)
+//    3. rd_response_path    — top que instancia 1, 2, FIFO, 3
 //
 //  Nota: read_tag_generator vive en scheduler.sv.
 //
@@ -19,66 +18,7 @@
 
 
 // ============================================================
-// 1. RD_RESP_MUX
-//    Completamente combinacional — sin registros.
-//    OR-reduce de rd_resp_valid[i] → mux_valid.
-//    Priority mux: selecciona data y tag del primer banco
-//    con valid=1. El Scheduler garantiza one-hot (máximo
-//    1 banco completa por ciclo), el priority encoder es
-//    solo por safety.
-// ============================================================
-module rd_resp_mux #(
-    parameter N_BANKS        = 4,
-    parameter AXI_DATA_WIDTH = 32
-)(
-    input  wire                      rd_resp_valid [0:N_BANKS-1],
-    input  wire [AXI_DATA_WIDTH-1:0] rd_resp_data  [0:N_BANKS-1],
-    input  wire [$clog2(N_BANKS)-1:0] rd_resp_tag  [0:N_BANKS-1],
-
-    output wire                                    mux_valid,
-    output wire  [AXI_DATA_WIDTH-1:0]               mux_data,
-    output wire  [$clog2(N_BANKS)-1:0]              mux_tag
-);
-
-    localparam BANK_BITS = $clog2(N_BANKS);
-
-    reg [N_BANKS-1:0]                    valid_flat;
-    reg [N_BANKS*AXI_DATA_WIDTH-1:0]     data_flat;
-    reg [N_BANKS*BANK_BITS-1:0]          tag_flat;
-    integer i;
-
-    always_comb begin
-        for (i = 0; i < N_BANKS; i = i + 1) begin
-            valid_flat[i]                              = rd_resp_valid[i];
-            data_flat[i*AXI_DATA_WIDTH +: AXI_DATA_WIDTH] = rd_resp_data[i];
-            tag_flat [i*BANK_BITS      +: BANK_BITS]      = rd_resp_tag[i];
-        end
-    end
-    assign mux_valid = |valid_flat;
-
-    genvar g;
-    wire [AXI_DATA_WIDTH-1:0] mux_data_chain [0:N_BANKS];
-    wire [BANK_BITS-1:0]      mux_tag_chain  [0:N_BANKS];
-
-    assign mux_data_chain[0] = {AXI_DATA_WIDTH{1'b0}};
-    assign mux_tag_chain[0]  = {BANK_BITS{1'b0}};
-
-    generate
-        for (g = 0; g < N_BANKS; g = g + 1) begin : gen_mux
-            assign mux_data_chain[g+1] = valid_flat[g] ? 
-                data_flat[g*AXI_DATA_WIDTH +: AXI_DATA_WIDTH] : mux_data_chain[g];
-            assign mux_tag_chain[g+1]  = valid_flat[g] ? 
-                tag_flat[g*BANK_BITS +: BANK_BITS] : mux_tag_chain[g];
-        end
-    endgenerate
-
-    assign mux_tag  = mux_tag_chain[N_BANKS];
-    assign mux_data = mux_data_chain[N_BANKS];
-endmodule
-
-
-// ============================================================
-// 3. REORDER_BUFFER
+// 1. REORDER_BUFFER
 //    Buffer circular de N_BANKS entradas — Opción B
 //    (punteros con wrap bit, sin contador up/down).
 //
@@ -110,10 +50,13 @@ module reorder_buffer #(
     input  wire clk,
     input  wire rst_n,
 
-    // ── Response capture (desde rd_resp_mux) ─────────
-    input  wire                          mux_valid,
-    input  wire [AXI_DATA_WIDTH-1:0]     mux_data,
-    input  wire [$clog2(N_BANKS)-1:0]    mux_tag,
+    // ── Response capture DIRECTA desde N bancos ──────
+    //    Escritura paralela: cada banco escribe a su tag.
+    //    Tags son únicos por construcción del Tag Generator,
+    //    por lo que NO hay conflictos de escritura.
+    input  wire                          rd_resp_valid [0:N_BANKS-1],
+    input  wire [AXI_DATA_WIDTH-1:0]     rd_resp_data  [0:N_BANKS-1],
+    input  wire [$clog2(N_BANKS)-1:0]    rd_resp_tag   [0:N_BANKS-1],
 
     // ── Puntero de escritura extendido (desde Tag Gen) ─
     input  wire [$clog2(N_BANKS):0]      wr_ptr_ext,
@@ -160,10 +103,12 @@ module reorder_buffer #(
 
     assign rob_tag_free = !full;
 
-    // ── Sequential 1: Buffer Array ───────────────────────
-    //    Escrito por Response Capture (mux_valid) y
-    //    limpiado por Commit clear_valid (rob_push)
-    integer k;
+    // ── Sequential 1: Buffer Array (writes paralelos) ───
+    //    Cada banco escribe a SU tag (associative array).
+    //    El Tag Generator garantiza tags únicos por ciclo,
+    //    por lo que distintos bancos escriben a slots distintos.
+    //    Limpieza por Commit (rob_push) del head pointer.
+    integer k, b;
     always @(posedge clk) begin
         if (!rst_n) begin
             for (k = 0; k < N_BANKS; k = k + 1) begin
@@ -171,10 +116,17 @@ module reorder_buffer #(
                 rob_data[k]  <= {AXI_DATA_WIDTH{1'b0}};
             end
         end else begin
-            if (mux_valid) begin
-                rob_valid[mux_tag] <= 1'b1;
-                rob_data[mux_tag]  <= mux_data;
+            // Captura paralela: cada banco escribe a su tag
+            for (b = 0; b < N_BANKS; b = b + 1) begin
+                if (rd_resp_valid[b]) begin
+                    rob_data [rd_resp_tag[b]] <= rd_resp_data[b];
+                    rob_valid[rd_resp_tag[b]] <= 1'b1;
+                end
             end
+            // Commit: limpia el slot del head pointer
+            // NOTA: si hay escritura paralela al mismo slot que se limpia,
+            // la escritura GANA (orden no-bloqueante de SystemVerilog:
+            // last assignment wins en el mismo always_ff).
             if (rob_push)
                 rob_valid[rd_ptr_addr] <= 1'b0;
         end
@@ -201,7 +153,7 @@ endmodule
 
 
 // ============================================================
-// 4. R_CHANNEL_LOGIC
+// 2. R_CHANNEL_LOGIC
 //    Completamente combinacional — sin registros.
 //      rvalid   = pndng (FIFO tiene dato)
 //      data     = Dout
@@ -235,12 +187,12 @@ endmodule
 
 
 // ============================================================
-// 5. RD_RESPONSE_PATH — TOP
+// 3. RD_RESPONSE_PATH — TOP
 //    Instancia y conecta:
-//      2. rd_resp_mux       — combi
-//      3. reorder_buffer    — ROB
+//      1. rd_resp_mux       — combi
+//      2. reorder_buffer    — ROB
 //         FIFO externa      — IP verificada (RD RESP FIFO)
-//      4. r_channel_logic   — combi
+//      3. r_channel_logic   — combi
 //
 //    El read_tag_generator (1) vive en el Scheduler;
 //    este módulo recibe wr_ptr_ext como entrada.
@@ -273,10 +225,6 @@ module rd_response_path #(
     localparam BANK_BITS = $clog2(N_BANKS);
 
     // ── Señales internas ─────────────────────────────
-    wire                      mux_valid;
-    wire [AXI_DATA_WIDTH-1:0] mux_data;
-    wire [BANK_BITS-1:0]      mux_tag;
-
     wire                      rob_push;
     wire [AXI_DATA_WIDTH-1:0] rob_data_out;
 
@@ -285,29 +233,18 @@ module rd_response_path #(
     wire [AXI_DATA_WIDTH-1:0] fifo_dout;
     wire                      fifo_pop;
 
-    // ── 2. RD Resp Mux ──────────────────────────────
-    rd_resp_mux #(
-        .N_BANKS       (N_BANKS),
-        .AXI_DATA_WIDTH(AXI_DATA_WIDTH)
-    ) u_rd_resp_mux (
-        .rd_resp_valid (rd_resp_valid),
-        .rd_resp_data  (rd_resp_data),
-        .rd_resp_tag   (rd_resp_tag),
-        .mux_valid     (mux_valid),
-        .mux_data      (mux_data),
-        .mux_tag       (mux_tag)
-    );
-
-    // ── 3. Reorder Buffer ───────────────────────────
+    // ── Reorder Buffer con captura paralela ─────────
+    //    Recibe directamente de los N bancos.
+    //    Cada banco escribe a su tag asignado por el Tag Generator.
     reorder_buffer #(
         .N_BANKS       (N_BANKS),
         .AXI_DATA_WIDTH(AXI_DATA_WIDTH)
     ) u_reorder_buffer (
         .clk              (clk),
         .rst_n            (rst_n),
-        .mux_valid        (mux_valid),
-        .mux_data         (mux_data),
-        .mux_tag          (mux_tag),
+        .rd_resp_valid    (rd_resp_valid),
+        .rd_resp_data     (rd_resp_data),
+        .rd_resp_tag      (rd_resp_tag),
         .wr_ptr_ext       (wr_ptr_ext),
         .rd_resp_fifo_full(rd_resp_fifo_full),
         .rob_push         (rob_push),
@@ -332,7 +269,7 @@ module rd_response_path #(
         .rst      (~rst_n)
     );
 
-    // ── 4. R Channel Logic ──────────────────────────
+    // ── 2. R Channel Logic ──────────────────────────
     r_channel_logic #(
         .AXI_DATA_WIDTH(AXI_DATA_WIDTH)
     ) u_r_channel_logic (
