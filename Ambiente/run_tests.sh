@@ -44,7 +44,7 @@ vcs -f mem_ctrl_uvm.f \
     -ntb_opts uvm-1.2 \
     ${COVERAGE_FLAG} \
     -l compile.log \
-    -o simv
+    -o simv -debug_access+all -debug_region+cell
 
 # ── Ejecución por test ─────────────────────────────────────
 PASS=0
