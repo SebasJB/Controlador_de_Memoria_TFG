@@ -510,4 +510,12 @@ module sram_bank_controller #(
         .rd_resp_valid(rd_resp_valid)
     );
 
+    // Detección: bank_req_valid sin capture (capture_en) → request perdido
+    property p_no_lost_dispatch;
+        @(posedge clk) disable iff (!rst_n)
+        bank_req_valid |-> (fsm_idle == 1'b1);
+    endproperty
+    a_no_lost_dispatch: assert property (p_no_lost_dispatch)
+        else $fatal(1, "[CRITICAL] bank_req_valid=1 con fsm_idle=0 - read perdido en banco");
+
 endmodule
