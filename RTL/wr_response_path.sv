@@ -73,6 +73,7 @@ module pending_counter #(
     input  wire rst_n,
 
     // Control
+    input  wire dispatch_w, 
     input  wire push,
     input  wire pop,
 
@@ -84,16 +85,21 @@ module pending_counter #(
 
     reg [CNT_WIDTH-1:0] cnt;
 
-    wire push_ok;
+    wire dispatch_ok;
+    wire push_ok;             // KEPT para SVA: refleja "push real" gated por full
     wire pop_ok;
-    assign push_ok = push & !full;
-    assign pop_ok  = pop  & !empty;
+    assign dispatch_ok = dispatch_w & !full;
+    assign push_ok     = push & !full;
+    assign pop_ok      = pop  & !empty;
 
     always @(posedge clk) begin
         if (!rst_n) begin
             cnt <= {CNT_WIDTH{1'b0}};
         end else begin
-            case ({push_ok, pop_ok})
+            // Fix 2: el counter incrementa con dispatch_w (no con push).
+            // Esto reserva el slot al momento del grant, evitando perdida
+            // de wr_resp_valid de bancos que ya estaban en vuelo.
+            case ({dispatch_ok, pop_ok})
                 2'b10 : cnt <= cnt + {{(CNT_WIDTH-1){1'b0}}, 1'b1};
                 2'b01 : cnt <= cnt - {{(CNT_WIDTH-1){1'b0}}, 1'b1};
                 default: cnt <= cnt;
@@ -155,6 +161,9 @@ module wr_response_path #(
     // Desde bank controllers
     input  wire wr_resp_valid [0:N_BANKS-1],
 
+    // Dispatch del Scheduler (= grant_wr)
+    input  wire dispatch_w,
+
     // AXI4-Lite B Channel
     output wire       s_axi_bvalid,
     output wire [1:0] s_axi_bresp,
@@ -181,12 +190,13 @@ module wr_response_path #(
     pending_counter #(
         .WR_FIFO_DEPTH(WR_FIFO_DEPTH)
     ) u_counter (
-        .clk    (clk),
-        .rst_n  (rst_n),
-        .push   (wr_resp_push),
-        .pop    (fire),
-        .full   (wr_resp_full),
-        .empty  (cnt_empty)
+        .clk        (clk),
+        .rst_n      (rst_n),
+        .dispatch_w (dispatch_w),    // NUEVO
+        .push       (wr_resp_push),  // sigue para SVA
+        .pop        (fire),
+        .full       (wr_resp_full),
+        .empty      (cnt_empty)
     );
 
     b_channel_logic u_b_chan (

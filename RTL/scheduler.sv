@@ -357,10 +357,12 @@ module scheduler #(
 
     // ── Desde WR Response Path (backpressure canal B) ──
     input  wire wr_resp_full,
+    output wire dispatch_w,  //grant_wr → dispatch_w (backpressure)
 
     // ── Hacia WR/RD REQ FIFOs (pop) ─────────────────
     output wire wr_req_pop,
     output wire rd_req_pop,
+    
 
     // ── Hacia Bank Controllers (dispatch) ────────────
     output wire                                                                  bank_req_valid [0:N_BANKS-1],
@@ -389,6 +391,8 @@ module scheduler #(
     wire same_bank;
     wire wr_bank_free, rd_bank_free;
     wire grant_wr, grant_rd;
+
+    assign dispatch_w = grant_wr;  // Backpressure: grant_wr → dispatch_w
 
     // ── 1. WR Req Valid Check ────────────────────────
     wr_req_valid_check u_wr_req_valid_check (

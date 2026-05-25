@@ -239,6 +239,7 @@ module mem_handler_top #(
     // ── Backpressure entre bloques de respuesta y scheduler ───
     wire rob_tag_free;   // rd_response_path → scheduler
     wire wr_resp_full;   // wr_response_path → scheduler
+    wire dispatch_w;   // scheduler → wr_response_path (reserva slot pending counter)
 
     // =========================================================
     // Slicing de direcciones desde la salida de las FIFOs REQ
@@ -392,6 +393,7 @@ module mem_handler_top #(
         .rob_tag_free     (rob_tag_free),
         // Backpressure del canal B
         .wr_resp_full     (wr_resp_full),
+        .dispatch_w       (dispatch_w), // Backpressure: reserva slot pending counter
         // Hacia FIFOs REQ (pop)
         .wr_req_pop       (wr_req_pop),
         .rd_req_pop       (rd_req_pop),
@@ -490,6 +492,7 @@ module mem_handler_top #(
         .s_axi_bvalid (s_axi_bvalid),
         .s_axi_bresp  (s_axi_bresp),
         .s_axi_bready (s_axi_bready),
+        .dispatch_w   (dispatch_w),
         .wr_resp_full (wr_resp_full)
     );
 

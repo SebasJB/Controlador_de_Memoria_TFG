@@ -46,7 +46,8 @@ module wr_response_path_sva #(
     // ── Señales internas u_counter ────────────────────────
     // CNT_WIDTH = $clog2(WR_FIFO_DEPTH+1) — se parametriza aquí
     input wire [$clog2(WR_FIFO_DEPTH+1)-1:0] cnt,   // u_counter.cnt
-    input wire push_ok,               // u_counter.push_ok
+    input wire dispatch_ok,           // u_counter.dispatch_ok 
+    input wire push_ok,               // u_counter.push_ok 
     input wire pop_ok,                // u_counter.pop_ok
     input wire cnt_full,              // u_counter.full  (alias local)
     input wire cnt_empty              // u_counter.empty (alias local)
@@ -132,30 +133,16 @@ module wr_response_path_sva #(
     // CATEGORÍA 3 — No-silent-drop (principio rector del diseño)
     // ================================================================
 
-    // [CRÍTICA] a_no_silent_drop_on_push_only
+    // [CRÍTICA]  a_no_silent_drop_on_dispatch_only
     // Invariante: cada push efectivo sin pop simultáneo incrementa el
     // contador exactamente en 1. Si el contador no sube, la respuesta
     // se pierde silenciosamente — violación directa del principio rector.
-    a_no_silent_drop_on_push_only: assert property (
+    // Fix 2: el counter incrementa con dispatch_w, no con push.
+    a_no_silent_drop_on_dispatch_only: assert property (
         @(posedge clk) disable iff (!rst_n)
-        (push_ok && !pop_ok)
+        (dispatch_ok && !pop_ok)
             |=> (cnt == $past(cnt) + CNT_WIDTH'(1))
-    ) else $error("[CRITICA] a_no_silent_drop_on_push_only: push sin pop no incremento el contador");
-
-    // [CRÍTICA] a_push_full_but_valid
-    // Invariante: el Scheduler NUNCA debe generar wr_resp_push cuando
-    // wr_resp_full=1. Si esto ocurre, la respuesta se descarta
-    // silenciosamente porque push_ok=0 (full bloquea). Esta aserción
-    // actúa como trampa de integración: falla siempre que se dispara.
-    //
-    // TODO: depende de integración Scheduler-wr_resp_full.
-    // Activar solo cuando el top-level conecte wr_resp_full al
-    // Scheduler como backpressure real. En un TB de bloque aislado
-    // este test puede dispararse intencionalmente (ver T4 en el TB).
-    a_push_full_but_valid: assert property (
-        @(posedge clk) disable iff (!rst_n)
-        !(wr_resp_push && cnt_full)
-    ) else $warning("[CRITICA-INTEGRACION] a_push_full_but_valid: wr_resp_push=1 con cnt_full=1 — Scheduler ignorando backpressure");
+    ) else $error("[CRITICA] a_no_silent_drop_on_dispatch_only: dispatch sin pop no incremento el contador");
 
 
     // ================================================================
@@ -168,9 +155,9 @@ module wr_response_path_sva #(
     // guards del always @(posedge clk) del pending_counter.
     a_decrement_on_pop_only: assert property (
         @(posedge clk) disable iff (!rst_n)
-        (!push_ok && pop_ok)
+        (!dispatch_ok && pop_ok)
             |=> (cnt == $past(cnt) - CNT_WIDTH'(1))
-    ) else $error("[ALTA] a_decrement_on_pop_only: pop sin push no decremento el contador");
+    ) else $error("[ALTA] a_decrement_on_pop_only: pop sin dispatch no decremento el contador");
 
     // [ALTA] a_no_change_on_cancel
     // Invariante: push y pop simultáneos se cancelan — el contador no
@@ -179,18 +166,18 @@ module wr_response_path_sva #(
     // handshake sin pasar por el estado intermedio del contador.
     a_no_change_on_cancel: assert property (
         @(posedge clk) disable iff (!rst_n)
-        (push_ok && pop_ok)
+        (dispatch_ok && pop_ok)
             |=> (cnt == $past(cnt))
-    ) else $error("[ALTA] a_no_change_on_cancel: push+pop simultaneos cambiaron el contador");
+    ) else $error("[ALTA] a_no_change_on_cancel: dispatch+pop simultaneos cambiaron el contador");
 
     // [MEDIA] a_no_change_on_idle
-    // Invariante: sin actividad (ni push ni pop efectivos), el contador
+    // Invariante: sin actividad (ni dispatch ni pop efectivos), el contador
     // permanece constante. Detecta glitches en la lógica secuencial.
     a_no_change_on_idle: assert property (
         @(posedge clk) disable iff (!rst_n)
-        (!push_ok && !pop_ok)
+        (!dispatch_ok && !pop_ok)
             |=> (cnt == $past(cnt))
-    ) else $error("[MEDIA] a_no_change_on_idle: cnt cambio sin push ni pop");
+    ) else $error("[MEDIA] a_no_change_on_idle: cnt cambio sin dispatch ni pop");
 
 
     // ================================================================
@@ -261,7 +248,7 @@ module wr_response_path_sva #(
     // pop no se propaga correctamente al contador.
     a_eventual_drain: assert property (
         @(posedge clk) disable iff (!rst_n)
-        (s_axi_bvalid && s_axi_bready && !push_ok)
+        (s_axi_bvalid && s_axi_bready && !dispatch_ok)
             |=> (cnt == $past(cnt) - CNT_WIDTH'(1))
     ) else $error("[ALTA] a_eventual_drain: handshake B exitoso no decremento el contador");
 
@@ -297,6 +284,7 @@ bind wr_response_path wr_response_path_sva #(
 
     // Señales internas u_counter
     .cnt            (u_counter.cnt),
+    .dispatch_ok    (u_counter.dispatch_ok),
     .push_ok        (u_counter.push_ok),
     .pop_ok         (u_counter.pop_ok),
     .cnt_full       (u_counter.full),
