@@ -142,7 +142,7 @@ class mem_r_backpressure_test extends mem_base_test;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         uvm_config_db#(int)::set(this, "env.rd_agent.driver",
-                                  "r_backpressure_cycles", 5);
+                                  "r_backpressure_cycles", 30);
     endfunction
 
     task run_phase(uvm_phase phase);

@@ -116,6 +116,14 @@ module reorder_buffer #(
                 rob_data[k]  <= {AXI_DATA_WIDTH{1'b0}};
             end
         end else begin
+            // Commit: limpia el slot del head pointer
+            // NOTA: si hay escritura paralela al mismo slot que se limpia,
+            // la escritura GANA (orden no-bloqueante de SystemVerilog:
+            // last assignment wins en el mismo always_ff).
+            // Primero: commit (clear del slot drenado)
+            if (rob_push)
+                rob_valid[rd_ptr_addr] <= 1'b0;
+
             // Captura paralela: cada banco escribe a su tag
             for (b = 0; b < N_BANKS; b = b + 1) begin
                 if (rd_resp_valid[b]) begin
@@ -123,12 +131,6 @@ module reorder_buffer #(
                     rob_valid[rd_resp_tag[b]] <= 1'b1;
                 end
             end
-            // Commit: limpia el slot del head pointer
-            // NOTA: si hay escritura paralela al mismo slot que se limpia,
-            // la escritura GANA (orden no-bloqueante de SystemVerilog:
-            // last assignment wins en el mismo always_ff).
-            if (rob_push)
-                rob_valid[rd_ptr_addr] <= 1'b0;
         end
     end
 
