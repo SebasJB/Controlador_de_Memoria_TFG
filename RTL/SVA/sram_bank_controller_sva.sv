@@ -107,16 +107,16 @@ module sram_bank_controller_sva #(
     ) else $error("[SVA CRÍTICA] a_fsm_idle_equiv: fsm_idle=%b pero state=%b", u_fsm_fsm_idle, u_fsm_state);
 
     // [CRÍTICA] a_bank_busy_conservative
-    // bank_busy es HIGH en ISSUE y WAIT, pero NO en COMPLETE.
+    // bank_busy es HIGH en ISSUE, WAIT Y COMPLETE.
     // Esto es la "liberación conservadora": el banco se libera
     // solo cuando sram_dout ya está estable (COMPLETE→IDLE),
     // evitando hazards WAR/WAW. Si bank_busy subiera en
     // COMPLETE, el Scheduler podría despachar otro request
     // antes de que el dato esté disponible para el ROB.
-    a_bank_busy_conservative: assert property (
+    a_bank_busy_consistent_with_state: assert property (
         @(posedge clk) disable iff (!rst_n)
-        bank_busy == ((u_fsm_state == ISSUE) || (u_fsm_state == WAIT))
-    ) else $error("[SVA CRÍTICA] a_bank_busy_conservative: bank_busy=%b pero state=%b", bank_busy, u_fsm_state);
+        bank_busy == (u_fsm_state != IDLE)
+    ) else $error("[SVA CRÍTICA] a_bank_busy_consistent_with_state: bank_busy=%b pero state=%b", bank_busy, u_fsm_state);
 
     // [CRÍTICA] a_wr_resp_valid_when
     // wr_resp_valid debe pulsar en COMPLETE si y solo si la
