@@ -56,10 +56,7 @@ class read_monitor #(
                 item.is_write   = 1'b0;
                 item.addr       = vif.monitor_cb.araddr;
                 item.t_req_fire = $time;
-                `uvm_info("RD_MON_AR",
-                    $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t",
-                              ar_idx, item.txn_id, item.addr, $time),
-                    UVM_HIGH)
+                `uvm_info("RD_MON_AR", $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t", ar_idx, item.txn_id, item.addr, $time),UVM_HIGH)
                 ap_ar.write(item);
                 pending_r.push_back(item);
                 ar_idx++;
@@ -74,19 +71,14 @@ class read_monitor #(
             if (vif.monitor_cb.rvalid === 1'b1 &&
                 vif.monitor_cb.rready === 1'b1) begin
                 if (pending_r.size() == 0) begin
-                    `uvm_error("RD_MON",
-                        "R fire without pending AR in queue")
+                    `uvm_error("RD_MON","R fire without pending AR in queue")
                 end else begin
                     item_t r_item;
                     r_item = pending_r.pop_front();
                     r_item.data        = vif.monitor_cb.rdata;
                     r_item.resp        = vif.monitor_cb.rresp;
                     r_item.t_resp_fire = $time;
-                    `uvm_info("RD_MON_R",
-                        $sformatf("R fire #%0d txn_id=%0d rdata=0x%08h rresp=%0b lat=%0t @ %0t",
-                                  r_idx, r_item.txn_id, r_item.data,
-                                  r_item.resp,
-                                  r_item.t_resp_fire - r_item.t_req_fire, $time),
+                    `uvm_info("RD_MON_R", $sformatf("R fire #%0d txn_id=%0d rdata=0x%08h rresp=%0b lat=%0t @ %0t", r_idx, r_item.txn_id, r_item.data, r_item.resp, r_item.t_resp_fire - r_item.t_req_fire, $time),
                         UVM_HIGH)
                     ap_r.write(r_item);
                     r_idx++;

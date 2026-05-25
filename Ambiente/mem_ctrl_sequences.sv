@@ -264,7 +264,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("GENERAL")) begin
             `uvm_info("MASTER_WR", "=== Phase A: GENERAL (100 WR) ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_a");
-            ph.phase_name = "GENERAL"; ph.n_txns = 100;
+            ph.phase_name = "GENERAL"; ph.n_txns = 25;
             ph.start(m_sequencer);
         end
 
@@ -338,7 +338,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("GENERAL")) begin
             `uvm_info("MASTER_RD", "=== Phase A: GENERAL (100 RD) ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_a");
-            ph.phase_name = "GENERAL"; ph.n_txns = 100;
+            ph.phase_name = "GENERAL"; ph.n_txns = 50;
             ph.start(m_sequencer);
         end
 

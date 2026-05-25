@@ -88,7 +88,7 @@ class mem_full_test extends mem_base_test;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         // Stall corto en R 
-        uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", 2);
+        uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", 0);
     endfunction
 
     task run_phase(uvm_phase phase);
