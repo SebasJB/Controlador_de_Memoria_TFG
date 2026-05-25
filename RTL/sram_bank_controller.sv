@@ -205,7 +205,7 @@ module bank_fsm #(
             end
             COMPLETE : begin
                 // Liberación conservadora: bank_busy=0 aquí
-                bank_busy     = 1'b0;
+                bank_busy     = 1'b1;
                 wr_resp_valid = is_wr;
                 rd_capture_en = is_rd;
             end
