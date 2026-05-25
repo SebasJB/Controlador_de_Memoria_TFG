@@ -5,15 +5,13 @@
 //  Type    : SVA bind module
 //
 //  Aserciones formales para verificar:
-//    - Integridad one-hot del mux de respuesta
-//    - Captura correcta en el ROB
+//    - Captura paralela correcta en el ROB (multi-write por tag)
 //    - Drenado en orden estricto
 //    - Corrección de rob_tag_free
 //    - Cumplimiento protocolo AXI4-Lite canal R
 //    - Sin overflow de FIFO
 //    - Liveness básica
 //
-//  Uso: bind rd_response_path rd_response_path_sva #(...) u_sva (...);
 // ============================================================
 `timescale 1ns/1ps
 
@@ -36,11 +34,6 @@ module rd_response_path_sva #(
     input wire [AXI_DATA_WIDTH-1:0]  s_axi_rdata,
     input wire [1:0]                 s_axi_rresp,
     input wire                       s_axi_rready,
-
-    // ── Señales internas: u_rd_resp_mux ──────────────
-    input wire                       mux_valid,
-    input wire [AXI_DATA_WIDTH-1:0]  mux_data,
-    input wire [$clog2(N_BANKS)-1:0] mux_tag,
 
     // ── Señales internas: u_reorder_buffer ───────────
     input wire                       rob_valid    [0:N_BANKS-1],
@@ -65,10 +58,10 @@ module rd_response_path_sva #(
     wire rst_active = !rst_n;
 
     // ============================================================
-    // CATEGORÍA 1 — Mux one-hot (contract del Scheduler)
+    // CATEGORÍA 1 — Captura paralela del ROB (v2)
     // ============================================================
 
-    // Convertir array unpacked a packed para $onehot0
+    // Convertir array unpacked a packed para uso en propiedades
     wire [N_BANKS-1:0] rd_resp_valid_packed;
     genvar gi;
     generate
@@ -77,31 +70,24 @@ module rd_response_path_sva #(
         end
     endgenerate
 
-    // [CRÍTICA] Máximo 1 banco completa RD por ciclo.
-    // El Scheduler despacha one-hot → max 1 wr_resp_valid al tiempo.
-    // Si esto falla, hay un bug grave en el Scheduler.
-    a_rd_resp_onehot: assert property (
-        @(posedge clk) disable iff (rst_active)
-        $onehot0(rd_resp_valid_packed)
-    ) else $error("[SVA][CRIT] a_rd_resp_onehot: más de un banco completó lectura simultáneamente");
+    // Helper: en cualquier ciclo, ¿hay al menos una respuesta?
+    // (En v2 se permiten múltiples — antes era one-hot vía mux)
+    wire any_resp_valid;
+    assign any_resp_valid = |rd_resp_valid_packed;
 
-    // [ALTA] mux_valid debe reflejar la OR-reduce de todos los valids.
-    a_mux_valid_reflects_any: assert property (
-        @(posedge clk) disable iff (rst_active)
-        mux_valid == |rd_resp_valid_packed
-    ) else $error("[SVA][ALTA] a_mux_valid_reflects_any: mux_valid no coincide con OR-reduce de rd_resp_valid");
-
-    // [ALTA] El mux selecciona correctamente: cuando exactamente un banco
-    // tiene valid, los datos y tag del mux corresponden a ese banco.
-    // Se verifica como propiedad genérica por banco.
+    // [CRÍTICA] Tags únicos por ciclo entre bancos válidos.
+    // Como el ROB acepta escritura paralela, es CRÍTICO que dos
+    // bancos NO presenten el mismo tag en el mismo ciclo.
+    // El Tag Generator del Scheduler garantiza esto por construcción (contador monotónico circular).
     generate
-        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_mux_sel
-            a_mux_selects_correctly: assert property (
-                @(posedge clk) disable iff (rst_active)
-                (rd_resp_valid_packed == (N_BANKS'(1) << gi))
-                |->
-                (mux_data == rd_resp_data[gi] && mux_tag == rd_resp_tag[gi])
-            ) else $error("[SVA][ALTA] a_mux_selects_correctly[%0d]: mux no seleccionó el banco correcto", gi);
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_tag_unique
+            for (genvar gj = gi + 1; gj < N_BANKS; gj = gj + 1) begin : gen_tag_pair
+                a_unique_tags_per_cycle: assert property (
+                    @(posedge clk) disable iff (rst_active)
+                    !(rd_resp_valid[gi] && rd_resp_valid[gj] &&
+                      (rd_resp_tag[gi] == rd_resp_tag[gj]))
+                ) else $error("[SVA][CRIT] a_unique_tags_per_cycle: bancos %0d y %0d con mismo tag — bug en Tag Generator", gi, gj);
+            end
         end
     endgenerate
 
@@ -109,29 +95,40 @@ module rd_response_path_sva #(
     // CATEGORÍA 2 — ROB capture integrity
     // ============================================================
 
-    // [CRÍTICA] Cuando llega mux_valid, al siguiente ciclo el slot
-    // rob_valid[mux_tag] queda marcado como 1. Garantiza que ninguna
-    // respuesta se pierde al entrar al ROB.
-    a_rob_capture: assert property (
-        @(posedge clk) disable iff (rst_active)
-        mux_valid |=> rob_valid[$past(mux_tag)]
-    ) else $error("[SVA][CRIT] a_rob_capture: slot ROB no fue marcado como válido tras mux_valid");
+    // [CRÍTICA] Cuando un banco emite rd_resp_valid, al siguiente
+    // ciclo el slot rob_valid[rd_resp_tag] queda marcado como 1.
+    // Garantiza que ninguna respuesta se pierde en captura paralela.
+    generate
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_rob_capture
+            a_rob_capture: assert property (
+                @(posedge clk) disable iff (rst_active)
+                rd_resp_valid[gi] |=> rob_valid[$past(rd_resp_tag[gi])]
+            ) else $error("[SVA][CRIT] a_rob_capture[%0d]: slot ROB no fue marcado tras rd_resp_valid del banco %0d", gi, gi);
+        end
+    endgenerate
 
-    // [CRÍTICA] El dato se captura junto con el valid. Verifica integridad
-    // de datos: lo que entra al ROB es exactamente lo que llegó del banco.
-    a_rob_data_capture: assert property (
-        @(posedge clk) disable iff (rst_active)
-        mux_valid |=>
-            (rob_data[$past(mux_tag)] == $past(mux_data))
-    ) else $error("[SVA][CRIT] a_rob_data_capture: dato capturado en ROB no coincide con mux_data");
+    // [CRÍTICA] El dato se captura junto con el valid en el slot
+    // correcto. Verifica integridad de datos por cada banco.
+    generate
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_rob_data_capture
+            a_rob_data_capture: assert property (
+                @(posedge clk) disable iff (rst_active)
+                rd_resp_valid[gi] |=>
+                    (rob_data[$past(rd_resp_tag[gi])] == $past(rd_resp_data[gi]))
+            ) else $error("[SVA][CRIT] a_rob_data_capture[%0d]: dato capturado en ROB no coincide con banco %0d", gi, gi);
+        end
+    endgenerate
 
-    // [CRÍTICA] Invariante arquitectónico: nunca se escribe sobre un slot
-    // que ya está válido (sin haber sido drenado antes).
-    // Si dispara: bug en Scheduler — asignó un tag a slot aún ocupado.
-    a_no_overwrite_valid_slot: assert property (
-        @(posedge clk) disable iff (rst_active)
-        (mux_valid && rob_valid[mux_tag]) |-> 1'b0
-    ) else $error("[SVA][CRIT] a_no_overwrite_valid_slot: sobreescritura de slot ROB válido — bug en Scheduler/rob_tag_free");
+    // [CRÍTICA] Invariante: ningún banco escribe sobre un slot
+    // que ya está válido. El Scheduler usa rob_tag_free para prevenir.
+    generate
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_no_overwrite
+            a_no_overwrite_valid_slot: assert property (
+                @(posedge clk) disable iff (rst_active)
+                (rd_resp_valid[gi] && rob_valid[rd_resp_tag[gi]]) |-> 1'b0
+            ) else $error("[SVA][CRIT] a_no_overwrite_valid_slot[%0d]: banco %0d sobreescribe slot ROB válido", gi, gi);
+        end
+    endgenerate
 
     // ============================================================
     // CATEGORÍA 3 — Drain in-order (razón de existir del ROB)
@@ -151,11 +148,25 @@ module rd_response_path_sva #(
         rob_push |-> !rd_resp_fifo_full
     ) else $error("[SVA][CRIT] a_drain_not_full_fifo: rob_push hacia FIFO llena — descarte silencioso");
 
-    // [CRÍTICA] Después de rob_push, el slot drenado queda limpio,
-    // salvo que en el mismo ciclo mux_valid escriba de vuelta en él.
+    // [CRÍTICA] Tras rob_push, el slot drenado queda limpio,
+    // salvo que en el mismo ciclo algún banco escriba al mismo slot.
+
+    // Wire per-bank: ¿este banco está escribiendo al slot rd_ptr_addr?
+    wire [N_BANKS-1:0] capture_to_rd_ptr_packed;
+    generate
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_cap_to_rd_ptr
+            assign capture_to_rd_ptr_packed[gi] =
+                rd_resp_valid[gi] & (rd_resp_tag[gi] == rd_ptr_addr);
+        end
+    endgenerate
+
+    // OR-reduce: ¿algún banco está escribiendo al slot rd_ptr_addr?
+    wire any_capture_to_rd_ptr;
+    assign any_capture_to_rd_ptr = |capture_to_rd_ptr_packed;
+
     a_drain_clears_slot: assert property (
         @(posedge clk) disable iff (rst_active)
-        (rob_push && !(mux_valid && (mux_tag == rd_ptr_addr)))
+        (rob_push && !any_capture_to_rd_ptr)
         |=>
         !rob_valid[$past(rd_ptr_addr)]
     ) else $error("[SVA][CRIT] a_drain_clears_slot: slot ROB no fue limpiado tras rob_push");
@@ -189,13 +200,16 @@ module rd_response_path_sva #(
         rob_tag_free == !rob_full
     ) else $error("[SVA][CRIT] a_rob_tag_free_def: rob_tag_free no coincide con !rob_full");
 
-    // [ALTA] Cuando el ROB está full y llega un mux_valid, el tag
-    // apuntado no debe tener su slot ocupado (el Scheduler debió haber
-    // detenido el dispatch antes de este punto).
-    a_no_capture_when_full: assert property (
-        @(posedge clk) disable iff (rst_active)
-        (rob_full && mux_valid) |-> !rob_valid[mux_tag]
-    ) else $error("[SVA][ALTA] a_no_capture_when_full: mux_valid con ROB full y slot colisionando");
+    // [ALTA] Cuando el ROB está full y llega un rd_resp_valid de
+    // cualquier banco, su tag no debe tener slot ocupado.
+    generate
+        for (gi = 0; gi < N_BANKS; gi = gi + 1) begin : gen_no_capture_full
+            a_no_capture_when_full: assert property (
+                @(posedge clk) disable iff (rst_active)
+                (rob_full && rd_resp_valid[gi]) |-> !rob_valid[rd_resp_tag[gi]]
+            ) else $error("[SVA][ALTA] a_no_capture_when_full[%0d]: banco %0d colisiona con slot ocupado en ROB full", gi, gi);
+        end
+    endgenerate
 
     // ============================================================
     // CATEGORÍA 5 — AXI4-Lite R Channel compliance
@@ -286,10 +300,17 @@ module rd_response_path_sva #(
     // escenarios importantes son ejercitados en simulación
     // ============================================================
 
-    // Cubrir: mux_valid ocurrió al menos una vez
-    c_mux_valid_occurred: cover property (
+    // Cubrir: al menos una respuesta de banco ocurrió
+    c_any_resp_occurred: cover property (
         @(posedge clk) disable iff (rst_active)
-        mux_valid
+        any_resp_valid
+    );
+
+    // Cubrir: MÚLTIPLES respuestas simultáneas (el caso que rompió
+    // el diseño anterior — ahora debe funcionar correctamente)
+    c_multi_resp_concurrent: cover property (
+        @(posedge clk) disable iff (rst_active)
+        $countones(rd_resp_valid_packed) >= 2
     );
 
     // Cubrir: rob_push al menos una vez
@@ -360,11 +381,6 @@ bind rd_response_path rd_response_path_sva #(
     .s_axi_rdata        (s_axi_rdata),
     .s_axi_rresp        (s_axi_rresp),
     .s_axi_rready       (s_axi_rready),
-
-    // Señales internas: u_rd_resp_mux
-    .mux_valid          (u_rd_resp_mux.mux_valid),
-    .mux_data           (u_rd_resp_mux.mux_data),
-    .mux_tag            (u_rd_resp_mux.mux_tag),
 
     // Señales internas: u_reorder_buffer
     .rob_valid          (u_reorder_buffer.rob_valid),
