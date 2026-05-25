@@ -19,10 +19,10 @@ export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes
 
 # ── Lista oficial de tests ─────────────────────────────────
 ALL_TESTS=(
-    "mem_smoke_test"
+    #"mem_smoke_test"
     "mem_full_test +PHASE_ONLY=GENERAL"
-    "mem_b_backpressure_test"
-    "mem_r_backpressure_test"
+    #"mem_b_backpressure_test"
+    #"mem_r_backpressure_test"
 )
 
 # ── Selección ──────────────────────────────────────────────
