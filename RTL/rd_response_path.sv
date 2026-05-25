@@ -4,9 +4,9 @@
 //  Block   : Read Response Path — Canal R (completo)
 //
 //  Módulos:
-//    1. reorder_buffer      — ROB punteros circulares (reg)
+//    1. reorder_buffer      — ROB con captura paralela por tag (reg)
 //    2. r_channel_logic     — AXI4-Lite canal R (comb)
-//    3. rd_response_path    — top que instancia 1, 2, FIFO, 3
+//    3. rd_response_path    — top que instancia 1, FIFO, 2
 //
 //  Nota: read_tag_generator vive en scheduler.sv.
 //
