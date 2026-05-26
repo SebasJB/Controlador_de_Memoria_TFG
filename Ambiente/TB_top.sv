@@ -42,9 +42,15 @@ module tb_top;
     always #5 clk = ~clk;   // 100 MHz
 
     initial begin
-        rst_n = 1'b0;
-        repeat (16) @(posedge clk);   // 16 ciclos de reset (margen seguro)
-        rst_n = 1'b1;
+    axi_if.awvalid = 1'b0;
+    axi_if.wvalid  = 1'b0;
+    axi_if.bready  = 1'b0;
+    axi_if.arvalid = 1'b0;
+    axi_if.rready  = 1'b0;
+    
+    rst_n = 1'b0;
+    repeat (16) @(posedge clk);
+    rst_n = 1'b1;
     end
 
     // ── Interfaz AXI4-Lite ───────────────────────────────

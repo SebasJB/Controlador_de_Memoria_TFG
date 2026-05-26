@@ -152,16 +152,15 @@ module axi4_lite_front_end_sva #(
     // precisamente cuando rst_n=0.
     // ============================================================
 
-    // [ALTA] Durante reset activo ningún ready debe estar alto.
-    // Protege: el master no puede completar handshakes mientras el
-    // DUT está en reset — evita que capture regs queden en estado
-    // indeterminado en la primera transacción post-reset.
+    // [ALTA] Durante reset activo ningún handshake debe completarse.
+    // Versión robusta a X: solo dispara si los valores son lógicos 1.
     a_no_handshake_in_reset: assert property (
-    @(posedge clk)
-    !rst_n |-> !(s_axi_awvalid && s_axi_awready) &&
-               !(s_axi_wvalid  && s_axi_wready)  &&
-               !(s_axi_arvalid && s_axi_arready)
-) else $error("[SVA FAIL] handshake durante reset");
+        @(posedge clk)
+        (!rst_n) |-> 
+        !((s_axi_awvalid === 1'b1) && (s_axi_awready === 1'b1)) &&
+        !((s_axi_wvalid  === 1'b1) && (s_axi_wready  === 1'b1)) &&
+        !((s_axi_arvalid === 1'b1) && (s_axi_arready === 1'b1))
+    ) else $error("[SVA FAIL] handshake durante reset");
 
     // ============================================================
     // CATEGORÍA 4 — Backpressure correcto hacia el master
