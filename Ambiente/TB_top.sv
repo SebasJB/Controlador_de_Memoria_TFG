@@ -116,7 +116,7 @@ module tb_top;
         .clk  (clk),
         .rst_n(rst_n)
     );
-    
+
     fifo_probe_if #(
         .WR_DEPTH     (WR_REQ_FIFO_DEPTH),
         .RD_DEPTH     (RD_REQ_FIFO_DEPTH),
@@ -149,8 +149,8 @@ module tb_top;
     endgenerate
 
     // ── Cross-hierarchical assigns a las FIFOs y al pending counter ─
-    assign fifo_probe.wr_req_count  = dut.u_wr_req_fifo.count;
-    assign fifo_probe.rd_req_count  = dut.u_rd_req_fifo.count;
+    //assign fifo_probe.wr_req_count  = dut.u_wr_req_fifo.count;
+    //assign fifo_probe.rd_req_count  = dut.u_rd_req_fifo.count;
     assign fifo_probe.wr_resp_count = dut.u_wr_response_path.u_counter.cnt;
 
     // ── UVM config & run ─────────────────────────────────
