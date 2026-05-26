@@ -104,9 +104,58 @@ module tb_top;
         .rd_err_cnt   ()
     );
 
+    // ── Probe interfaces (bind no-intrusivo al DUT) ──────
+    // Estas 3 interfaces dan acceso pasivo al coverage
+    // subscriber a señales internas del scheduler, los bank
+    // controllers y los contadores de FIFO, sin modificar RTL.
+    scheduler_probe_if sched_probe (.clk(clk), .rst_n(rst_n));
+
+    bank_probe_if #(
+        .N_BANKS(N_BANKS)
+    ) bank_probe (
+        .clk  (clk),
+        .rst_n(rst_n)
+    );
+    
+    fifo_probe_if #(
+        .WR_DEPTH     (WR_REQ_FIFO_DEPTH),
+        .RD_DEPTH     (RD_REQ_FIFO_DEPTH),
+        .WR_RESP_DEPTH(WR_RESP_DEPTH)
+    ) fifo_probe (
+        .clk  (clk),
+        .rst_n(rst_n)
+    );
+
+    // ── Cross-hierarchical assigns al scheduler ──────────
+    assign sched_probe.grant_wr     = dut.u_scheduler.grant_wr;
+    assign sched_probe.grant_rd     = dut.u_scheduler.grant_rd;
+    assign sched_probe.same_bank    = dut.u_scheduler.same_bank;
+    assign sched_probe.wr_req_pndng = dut.wr_req_pndng;
+    assign sched_probe.rd_req_pndng = dut.rd_req_pndng;
+    assign sched_probe.wr_resp_full = dut.wr_resp_full;
+    assign sched_probe.rob_tag_free = dut.rob_tag_free;
+    assign sched_probe.wr_discard   = dut.u_scheduler.wr_discard;
+    assign sched_probe.rd_discard   = dut.u_scheduler.rd_discard;
+    assign sched_probe.wr_err_cnt   = dut.u_scheduler.wr_err_cnt;
+    assign sched_probe.rd_err_cnt   = dut.u_scheduler.rd_err_cnt;
+
+    // ── Cross-hierarchical assigns a los bank controllers ─
+    genvar gb;
+    generate
+        for (gb = 0; gb < N_BANKS; gb = gb + 1) begin : g_bank_probe
+            assign bank_probe.bank_busy[gb]   = dut.bank_busy[gb];
+            assign bank_probe.bank_fsm_st[gb] = dut.gen_bank[gb].u_bank.u_fsm.state;
+        end
+    endgenerate
+
+    // ── Cross-hierarchical assigns a las FIFOs y al pending counter ─
+    assign fifo_probe.wr_req_count  = dut.u_wr_req_fifo.count;
+    assign fifo_probe.rd_req_count  = dut.u_rd_req_fifo.count;
+    assign fifo_probe.wr_resp_count = dut.u_wr_response_path.u_counter.cnt;
+
     // ── UVM config & run ─────────────────────────────────
     initial begin
-        // Publicar la interfaz para que los agentes la encuentren
+        // Publicar la interfaz AXI4-Lite para que los agentes la encuentren
         uvm_config_db#(virtual mem_bank_interface#(ADDR_W, DATA_W))::set(
             null, "uvm_test_top.*", "axi_vif", axi_if
         );
@@ -116,6 +165,22 @@ module tb_top;
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "DATA_W",          DATA_W);
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "N_BANKS",         N_BANKS);
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "BANK_SIZE_BYTES", BANK_SIZE_BYTES);
+
+        // Publicar las probe vifs hacia el coverage subscriber.
+        // Path: "uvm_test_top.env.cov*" — wildcard final por
+        // robustez, alineado con el resto de los set() arriba.
+        // CRÍTICO: los tipos virtuales acá deben coincidir
+        // EXACTAMENTE con los tipos que el subscriber usa en
+        // sus get(). El subscriber instancia:
+        //   virtual fifo_probe_if #(WR_FIFO_DEPTH, RD_FIFO_DEPTH)
+        // con solo 2 parámetros; por eso acá también usamos
+        // 2 parámetros (WR_RESP_DEPTH toma su default).
+        uvm_config_db#(virtual scheduler_probe_if)::set(
+            null, "uvm_test_top.env.cov*", "sched_vif", sched_probe);
+        uvm_config_db#(virtual bank_probe_if #(N_BANKS))::set(
+            null, "uvm_test_top.env.cov*", "bank_vif", bank_probe);
+        uvm_config_db#(virtual fifo_probe_if #(WR_REQ_FIFO_DEPTH, RD_REQ_FIFO_DEPTH))::set(
+            null, "uvm_test_top.env.cov*", "fifo_vif", fifo_probe);
 
         run_test();
     end

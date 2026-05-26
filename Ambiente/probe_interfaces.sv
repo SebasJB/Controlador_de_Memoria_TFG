@@ -47,13 +47,19 @@ endinterface
 
 
 interface fifo_probe_if #(
-    parameter int WR_DEPTH = 8,
-    parameter int RD_DEPTH = 8
+    parameter int WR_DEPTH      = 8,
+    parameter int RD_DEPTH      = 8,
+    // Default = WR_DEPTH para que el subscriber y el env sigan
+    // funcionando sin modificar. El tb_top puede sobreescribirlo
+    // si WR_RESP_DEPTH difiere de WR_REQ_FIFO_DEPTH, pero los
+    // tipos virtuales en uvm_config_db deben usar los 2
+    // parámetros explícitos para que set/get coincidan.
+    parameter int WR_RESP_DEPTH = WR_DEPTH
 )(
     input wire clk,
     input wire rst_n
 );
-    logic [$clog2(WR_DEPTH+1)-1:0] wr_req_count;
-    logic [$clog2(RD_DEPTH+1)-1:0] rd_req_count;
-    logic [$clog2(WR_DEPTH+1)-1:0] wr_resp_count;
+    logic [$clog2(WR_DEPTH+1)-1:0]      wr_req_count;
+    logic [$clog2(RD_DEPTH+1)-1:0]      rd_req_count;
+    logic [$clog2(WR_RESP_DEPTH+1)-1:0] wr_resp_count;
 endinterface
