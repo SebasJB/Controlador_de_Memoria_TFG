@@ -54,21 +54,23 @@ for tst in "${TESTS[@]}"; do
     echo "===== Running ${tst} ====="
     ./simv +UVM_TESTNAME=${tst} \
            +UVM_VERBOSITY=UVM_LOW \
-           ${COVERAGE_FLAG} \
+           -n ${COVERAGE_FLAG} \
            -l ${tst}.log
 
-    if grep -q "UVM_FATAL\|UVM_ERROR" ${tst}.log; then
-        if grep -q "UVM_FATAL" ${tst}.log; then
-            echo "FAIL: ${tst} (UVM_FATAL)"
-            FAIL=$((FAIL+1))
-        else
-            # uvm_errors >0 también es fail; salvo SLVERR que es info
-            ERR_COUNT=$(grep -c "UVM_ERROR" ${tst}.log)
-            if [[ ${ERR_COUNT} -gt 0 ]]; then
-                echo "FAIL: ${tst} (${ERR_COUNT} UVM_ERROR)"
-                FAIL=$((FAIL+1))
-            fi
-        fi
+    # Parsear UVM Report Summary para detectar fails reales
+    FATAL_COUNT=$(grep -E "^UVM_FATAL\s*:" ${tst}.log | awk '{print $NF}')
+    ERROR_COUNT=$(grep -E "^UVM_ERROR\s*:" ${tst}.log | awk '{print $NF}')
+
+    if [[ -z "${FATAL_COUNT}" ]] || [[ -z "${ERROR_COUNT}" ]]; then
+        # El test no generó UVM Report Summary → crash o terminó mal
+        echo "FAIL: ${tst} (no UVM summary — posible crash)"
+        FAIL=$((FAIL+1))
+    elif [[ "${FATAL_COUNT}" != "0" ]]; then
+        echo "FAIL: ${tst} (UVM_FATAL=${FATAL_COUNT})"
+        FAIL=$((FAIL+1))
+    elif [[ "${ERROR_COUNT}" != "0" ]]; then
+        echo "FAIL: ${tst} (UVM_ERROR=${ERROR_COUNT})"
+        FAIL=$((FAIL+1))
     else
         echo "PASS: ${tst}"
         PASS=$((PASS+1))
