@@ -27,7 +27,7 @@ module tb_top;
     localparam int DATA_W            = 32;
     localparam int N_BANKS           = 4;
     localparam int BANK_SIZE_BYTES   = 1024;
-    localparam int READ_LATENCY      = 1;
+    localparam int READ_LATENCY      = 2;
     localparam int LAT_CNT_W         = 8;
     localparam int WR_REQ_FIFO_DEPTH = 8;
     localparam int RD_REQ_FIFO_DEPTH = 8;
