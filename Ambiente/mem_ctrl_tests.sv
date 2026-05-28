@@ -87,8 +87,21 @@ class mem_full_test extends mem_base_test;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        // Stall corto en R 
-        uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", 0);
+        // En build_phase de mem_full_test:
+        string csv_dir_arg;
+        int    b_bp_arg, r_bp_arg;
+        
+        if (!$value$plusargs("CSV_DIR=%s", csv_dir_arg)) csv_dir_arg = ".";
+        if (!$value$plusargs("B_BP=%d", b_bp_arg))       b_bp_arg = 0;
+        if (!$value$plusargs("R_BP=%d", r_bp_arg))       r_bp_arg = 0;
+        
+        uvm_config_db#(string)::set(this, "env.sb*", "csv_dir",     csv_dir_arg);
+        uvm_config_db#(int)::set   (this, "env.sb*", "b_bp_value",  b_bp_arg);
+        uvm_config_db#(int)::set   (this, "env.sb*", "r_bp_value",  r_bp_arg);
+        uvm_config_db#(string)::set(this, "env.sb*", "run_label",   "mem_full_test");
+        
+        uvm_config_db#(int)::set(this, "env.wr_agent.driver", "b_backpressure_cycles", b_bp_arg);
+        uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", r_bp_arg);
     endfunction
 
     task run_phase(uvm_phase phase);
