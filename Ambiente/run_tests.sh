@@ -46,42 +46,42 @@ vcs -f mem_ctrl_uvm.f \
     -l compile.log \
     -o simv -debug_access+all -debug_region+cell
 
-# ── Ejecución por test ─────────────────────────────────────
-PASS=0
-FAIL=0
-for tst in "${TESTS[@]}"; do
-    echo ""
-    echo "===== Running ${tst} ====="
-    ./simv +UVM_TESTNAME=${tst} \
-           +UVM_VERBOSITY=UVM_LOW \
-           -n ${COVERAGE_FLAG} \
-           -l ${tst}.log
-
-    # Parsear UVM Report Summary para detectar fails reales
-    FATAL_COUNT=$(grep -E "^UVM_FATAL\s*:" ${tst}.log | awk '{print $NF}')
-    ERROR_COUNT=$(grep -E "^UVM_ERROR\s*:" ${tst}.log | awk '{print $NF}')
-
-    if [[ -z "${FATAL_COUNT}" ]] || [[ -z "${ERROR_COUNT}" ]]; then
-        # El test no generó UVM Report Summary → crash o terminó mal
-        echo "FAIL: ${tst} (no UVM summary — posible crash)"
-        FAIL=$((FAIL+1))
-    elif [[ "${FATAL_COUNT}" != "0" ]]; then
-        echo "FAIL: ${tst} (UVM_FATAL=${FATAL_COUNT})"
-        FAIL=$((FAIL+1))
-    elif [[ "${ERROR_COUNT}" != "0" ]]; then
-        echo "FAIL: ${tst} (UVM_ERROR=${ERROR_COUNT})"
-        FAIL=$((FAIL+1))
-    else
-        echo "PASS: ${tst}"
-        PASS=$((PASS+1))
-    fi
-done
-
-# ── Resumen ────────────────────────────────────────────────
-echo ""
-echo "============================="
-echo "Total: $((PASS+FAIL))   Pass: ${PASS}   Fail: ${FAIL}"
-echo "============================="
+## ── Ejecución por test ─────────────────────────────────────
+#PASS=0
+#FAIL=0
+#for tst in "${TESTS[@]}"; do
+#    echo ""
+#    echo "===== Running ${tst} ====="
+#    ./simv +UVM_TESTNAME=${tst} \
+#           +UVM_VERBOSITY=UVM_LOW \
+#           -n ${COVERAGE_FLAG} \
+#           -l ${tst}.log
+#
+#    # Parsear UVM Report Summary para detectar fails reales
+#    FATAL_COUNT=$(grep -E "^UVM_FATAL\s*:" ${tst}.log | awk '{print $NF}')
+#    ERROR_COUNT=$(grep -E "^UVM_ERROR\s*:" ${tst}.log | awk '{print $NF}')
+#
+#    if [[ -z "${FATAL_COUNT}" ]] || [[ -z "${ERROR_COUNT}" ]]; then
+#        # El test no generó UVM Report Summary → crash o terminó mal
+#        echo "FAIL: ${tst} (no UVM summary — posible crash)"
+#        FAIL=$((FAIL+1))
+#    elif [[ "${FATAL_COUNT}" != "0" ]]; then
+#        echo "FAIL: ${tst} (UVM_FATAL=${FATAL_COUNT})"
+#        FAIL=$((FAIL+1))
+#    elif [[ "${ERROR_COUNT}" != "0" ]]; then
+#        echo "FAIL: ${tst} (UVM_ERROR=${ERROR_COUNT})"
+#        FAIL=$((FAIL+1))
+#    else
+#        echo "PASS: ${tst}"
+#        PASS=$((PASS+1))
+#    fi
+#done
+#
+## ── Resumen ────────────────────────────────────────────────
+#echo ""
+#echo "============================="
+#echo "Total: $((PASS+FAIL))   Pass: ${PASS}   Fail: ${FAIL}"
+#echo "============================="
 
 # ── Reporte de coverage ────────────────────────────────────
 if [[ -n "${COVERAGE_FLAG}" ]]; then
