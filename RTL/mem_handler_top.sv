@@ -72,6 +72,15 @@ module sram_sync #(
 
     // ── Array de memoria ─────────────────────────────────────
     reg [AXI_DATA_WIDTH-1:0] mem [0:MEM_DEPTH-1];
+    
+    // ── DEBUG: espejo de posiciones específicas para waveform ──
+    // (visible en Verdi sin necesidad de expandir el array unpacked)
+    // offset 0xd = 13 es donde ocurre el mismatch del bank 1
+    wire [AXI_DATA_WIDTH-1:0] dbg_mem_addr13 = mem[13];
+    wire [AXI_DATA_WIDTH-1:0] dbg_mem_addr_current = mem[addr];  // la addr que se lee AHORA
+    wire [BANK_ADDR_WIDTH-1:0] dbg_addr = addr;
+    wire                       dbg_en = en;
+    wire                       dbg_we = we;
 
     // ── Pipeline de lectura (READ_LATENCY etapas) ────────────
     // Para READ_LATENCY=1: un solo registro (rd_pipe[0]).
