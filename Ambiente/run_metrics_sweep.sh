@@ -25,7 +25,6 @@ export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes
 cd ${RUN_DIR}
 
 CSV_DIR="/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Metricas"
-mkdir -p ${CSV_DIR}
 
 # ── Limpiar CSVs previos (el header cambió con hazard-aware) ──
 echo "===== Cleaning previous CSVs ====="
