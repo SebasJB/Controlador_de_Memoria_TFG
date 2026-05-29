@@ -53,7 +53,7 @@ FAIL=0
 for bp in "${BACKPRESSURES[@]}"; do
     echo ""
     echo "===== Running bp=${bp} (b_bp=r_bp=${bp}) ====="
-    ./simv +UVM_TESTNAME=mem_full_test \
+    ./mem_handler_simv +UVM_TESTNAME=mem_full_test \
            +PHASE_ONLY=GENERAL \
            +UVM_VERBOSITY=UVM_LOW \
            +CSV_DIR=${CSV_DIR} \

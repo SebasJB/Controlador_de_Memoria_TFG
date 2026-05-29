@@ -1,3 +1,4 @@
 *.sv text eol=lf
 *.svh text eol=lf
 *.v text eol=lf
+:*.sh text eol=lf
