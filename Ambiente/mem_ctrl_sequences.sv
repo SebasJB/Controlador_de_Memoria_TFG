@@ -264,7 +264,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("GENERAL")) begin
             `uvm_info("MASTER_WR", "=== Phase A: GENERAL (100 WR) ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_a");
-            ph.phase_name = "GENERAL"; ph.n_txns = 25;
+            ph.phase_name = "GENERAL"; ph.n_txns = 100;
             ph.start(m_sequencer);
         end
 
@@ -273,7 +273,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             for (int b = 0; b < N_BANKS; b++) begin
                 `uvm_info("MASTER_WR", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d (200 WR) ===", b, b), UVM_LOW)
                 ph = ph_wr_t::type_id::create($sformatf("ph_b_%0d", b));
-                ph.phase_name = "SINGLE_BANK"; ph.n_txns = 50; ph.target_bank = b;
+                ph.phase_name = "SINGLE_BANK"; ph.n_txns = 200; ph.target_bank = b;
                 ph.start(m_sequencer);
             end
         end
@@ -282,7 +282,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("CONFLICT")) begin
             `uvm_info("MASTER_WR", "=== Phase C: CONFLICT (300 WR) ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_c");
-            ph.phase_name = "CONFLICT"; ph.n_txns = 50;
+            ph.phase_name = "CONFLICT"; ph.n_txns = 300;
             ph.start(m_sequencer);
         end
 
@@ -290,7 +290,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("INVALID_ADDR")) begin
             `uvm_info("MASTER_WR", "=== Phase D: INVALID_ADDR (50 WR) ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_d");
-            ph.phase_name = "INVALID_ADDR"; ph.n_txns = 20;
+            ph.phase_name = "INVALID_ADDR"; ph.n_txns = 50;
             ph.start(m_sequencer);
         end
 
@@ -298,7 +298,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("WSTRB_STRESS")) begin
             `uvm_info("MASTER_WR", "=== Phase E: WSTRB_STRESS (200 WR) ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_e");
-            ph.phase_name = "WSTRB_STRESS"; ph.n_txns = 50;
+            ph.phase_name = "WSTRB_STRESS"; ph.n_txns = 200;
             ph.start(m_sequencer);
         end
 
@@ -338,7 +338,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("GENERAL")) begin
             `uvm_info("MASTER_RD", "=== Phase A: GENERAL (100 RD) ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_a");
-            ph.phase_name = "GENERAL"; ph.n_txns = 50;
+            ph.phase_name = "GENERAL"; ph.n_txns = 100;
             ph.start(m_sequencer);
         end
 
@@ -346,7 +346,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             for (int b = 0; b < N_BANKS; b++) begin
                 `uvm_info("MASTER_RD", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d (200 RD) ===", b, b), UVM_LOW)
                 ph = ph_rd_t::type_id::create($sformatf("ph_b_%0d", b));
-                ph.phase_name = "SINGLE_BANK"; ph.n_txns = 50; ph.target_bank = b;
+                ph.phase_name = "SINGLE_BANK"; ph.n_txns = 200; ph.target_bank = b;
                 ph.start(m_sequencer);
             end
         end
@@ -354,14 +354,14 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         if (run_phase("CONFLICT")) begin
             `uvm_info("MASTER_RD", "=== Phase C: CONFLICT (300 RD) ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_c");
-            ph.phase_name = "CONFLICT"; ph.n_txns = 50;
+            ph.phase_name = "CONFLICT"; ph.n_txns = 300;
             ph.start(m_sequencer);
         end
 
         if (run_phase("INVALID_ADDR")) begin
             `uvm_info("MASTER_RD", "=== Phase D: INVALID_ADDR (50 RD) ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_d");
-            ph.phase_name = "INVALID_ADDR"; ph.n_txns = 20;
+            ph.phase_name = "INVALID_ADDR"; ph.n_txns = 50;
             ph.start(m_sequencer);
         end
 
