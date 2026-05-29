@@ -23,11 +23,12 @@ set -e
 # ── Directorios ────────────────────────────────────────────
 export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones}
 export TB_DIR=${TB_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente}
-cd ${RUN_DIR}
+
 
 CSV_DIR="/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Metricas"
 
 # ── Limpiar CSVs previos (el header cambió con hazard-aware) ──
+cd ${CSV_DIR}
 echo "===== Cleaning previous CSVs ====="
 rm -f ${CSV_DIR}/metrics_summary.csv
 rm -f ${CSV_DIR}/latencies_detail.csv
@@ -46,6 +47,7 @@ rm -f ${CSV_DIR}/bank_utilization.csv
 #    exit 1
 #fi
 
+cd ${RUN_DIR}
 # ── Sweep de backpressure (mismo nivel b_bp = r_bp) ────────
 BACKPRESSURES=(0 2 5 10 15 20 30)
 
