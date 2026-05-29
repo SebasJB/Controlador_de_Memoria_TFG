@@ -39,12 +39,12 @@ fi
 # ── Compilación ────────────────────────────────────────────
 echo "===== Compiling ====="
 cd ${RUN_DIR}
-vcs -f mem_ctrl_uvm.f \
+vcs -f ${TB_DIR}/mem_ctrl_uvm.f \
     -full64 \
     -ntb_opts uvm-1.2 \
     ${COVERAGE_FLAG} \
     -l compile.log \
-    -o sim_mem_hand_env -debug_access+all -debug_region+cell
+    -o mem_handler_simv -debug_access+all -debug_region+cell
 
 ## ── Ejecución por test ─────────────────────────────────────
 #PASS=0
@@ -52,7 +52,7 @@ vcs -f mem_ctrl_uvm.f \
 #for tst in "${TESTS[@]}"; do
 #    echo ""
 #    echo "===== Running ${tst} ====="
-#    ./simv +UVM_TESTNAME=${tst} \
+#    ./mem_handler_simv +UVM_TESTNAME=${tst} \
 #           +UVM_VERBOSITY=UVM_LOW \
 #           -n ${COVERAGE_FLAG} \
 #           -l ${tst}.log
