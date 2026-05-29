@@ -46,3 +46,23 @@
   CREATE_STREAM @136865000 {NAME:ph_d T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:22036}
   CREATE_STREAM @138695000 {NAME:wrap T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:22400}
   CREATE_STREAM @139335000 {NAME:sat_rd T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:22508}
+  CREATE_STREAM @0 {NAME:m_wr T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:971}
+  CREATE_STREAM @0 {NAME:m_rd T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:974}
+  CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:987}
+  CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:999}
+  CREATE_STREAM @7835000 {NAME:ph_b_0 T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:3696}
+  CREATE_STREAM @8775000 {NAME:ph_b_0 T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:4054}
+  CREATE_STREAM @12595000 {NAME:ph_b_1 T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:5150}
+  CREATE_STREAM @19505000 {NAME:ph_b_1 T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:7620}
+  CREATE_STREAM @24265000 {NAME:ph_b_2 T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:8970}
+  CREATE_STREAM @31915000 {NAME:ph_b_2 T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:11744}
+  CREATE_STREAM @36415000 {NAME:ph_b_3 T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:13028}
+  CREATE_STREAM @41105000 {NAME:ph_c T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:14698}
+  CREATE_STREAM @45395000 {NAME:ph_b_3 T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:16264}
+  CREATE_STREAM @47875000 {NAME:ph_d T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:17222}
+  CREATE_STREAM @49755000 {NAME:ph_e T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:17900}
+  CREATE_STREAM @53885000 {NAME:ph_c T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:19378}
+  CREATE_STREAM @57435000 {NAME:sat_wr T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:20646}
+  CREATE_STREAM @64875000 {NAME:ph_d T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:22556}
+  CREATE_STREAM @68075000 {NAME:wrap T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:23176}
+  CREATE_STREAM @68715000 {NAME:sat_rd T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:23284}

@@ -5,16 +5,16 @@ ifeq ($(LDVERSION), 0)
 endif
 
 ARCHIVE_OBJS=
-ARCHIVE_OBJS += _1338159_archive_1.so
-_1338159_archive_1.so : archive.1/_1338159_archive_1.a
+ARCHIVE_OBJS += _1366939_archive_1.so
+_1366939_archive_1.so : archive.2/_1366939_archive_1.a
 	@$(AR) -s $<
-	@$(PIC_LD) -shared  -Bsymbolic $(LD_NORELAX_FLAG)  -o .//../mem_handler_simv.daidir//_1338159_archive_1.so --whole-archive $< --no-whole-archive
+	@$(PIC_LD) -shared  -Bsymbolic $(LD_NORELAX_FLAG)  -o .//../mem_handler_simv.daidir//_1366939_archive_1.so --whole-archive $< --no-whole-archive
 	@rm -f $@
-	@ln -sf .//../mem_handler_simv.daidir//_1338159_archive_1.so $@
+	@ln -sf .//../mem_handler_simv.daidir//_1366939_archive_1.so $@
 
 
 ARCHIVE_OBJS += _prev_archive_1.so
-_prev_archive_1.so : archive.1/_prev_archive_1.a
+_prev_archive_1.so : archive.2/_prev_archive_1.a
 	@$(AR) -s $<
 	@$(PIC_LD) -shared  -Bsymbolic $(LD_NORELAX_FLAG)  -o .//../mem_handler_simv.daidir//_prev_archive_1.so --whole-archive $< --no-whole-archive
 	@rm -f $@
