@@ -11,30 +11,30 @@
 // ============================================================
 
 // ── RTL DUT ─────────────────────────────────────────────────
-${RTL_DIR}/fifo.sv
-${RTL_DIR}/addr_decoder.sv
-${RTL_DIR}/axi4_lite_front_end.sv
-${RTL_DIR}/sram_bank_controller.sv
-${RTL_DIR}/scheduler.sv
-${RTL_DIR}/wr_response_path.sv
-${RTL_DIR}/rd_response_path.sv
-${RTL_DIR}/mem_handler_top.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/fifo.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/addr_decoder.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/axi4_lite_front_end.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/scheduler.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/wr_response_path.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/rd_response_path.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/mem_handler_top.sv
 
 // ── SVA bind modules (opcional, comentar si no se desean) ──
-${SVA_DIR}/scheduler_sva.sv
-${SVA_DIR}/sram_bank_controller_sva.sv
-${SVA_DIR}/wr_response_path_sva.sv
-${SVA_DIR}/rd_response_path_sva.sv
-${SVA_DIR}/axi4_lite_front_end_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/SVA/scheduler_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/SVA/sram_bank_controller_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/SVA/wr_response_path_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/SVA/rd_response_path_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/SVA/axi4_lite_front_end_sva.sv
 
 // ── Verification interfaces ────────────────────────────────
-${TB_DIR}/Mem_bank_interface.sv
-${TB_DIR}/probe_interfaces.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Mem_bank_interface.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/probe_interfaces.sv
 
 // ── UVM package + tb_top ───────────────────────────────────
-+incdir+${TB_DIR}
-${TB_DIR}/mem_ctrl_pkg.sv
-${TB_DIR}/TB_top.sv
+//+incdir+${TB_DIR}
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_pkg.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/TB_top.sv
 
 // ── Flags VCS ──────────────────────────────────────────────
 -sverilog
