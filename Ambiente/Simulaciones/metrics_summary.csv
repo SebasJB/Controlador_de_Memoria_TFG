@@ -1,0 +1,2 @@
+test_name,b_bp,r_bp,writes,reads,b_resp,r_resp,data_mismatches,hazards_tolerated,order_violations,slverr,invalid_wr,invalid_rd,avg_lat_wr,min_lat_wr,max_lat_wr,avg_lat_rd,min_lat_rd,max_lat_rd,throughput_wr,throughput_rd,sim_time_ns
+mem_full_test,0,0,1321,1399,1272,1355,0,0,0,0,49,44,509.95,40.00,2520.00,169.82,60.00,2100.00,7.845,8.357,162135

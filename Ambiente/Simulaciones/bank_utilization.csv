@@ -1,0 +1,5 @@
+test_name,b_bp,r_bp,bank_id,writes_completed,reads_completed,total_completes,utilization_proxy_pct,sim_time_ns
+mem_full_test,0,0,0,232,362,594,21.84,162135
+mem_full_test,0,0,1,332,308,640,23.53,162135
+mem_full_test,0,0,2,263,298,561,20.62,162135
+mem_full_test,0,0,3,396,387,783,28.79,162135
