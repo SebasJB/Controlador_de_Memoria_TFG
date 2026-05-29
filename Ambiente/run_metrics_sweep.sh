@@ -22,7 +22,7 @@ set -e
 
 # ── Directorios ────────────────────────────────────────────
 export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones}
-
+export TB_DIR=${TB_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente}
 cd ${RUN_DIR}
 
 CSV_DIR="/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Metricas"
@@ -54,7 +54,8 @@ FAIL=0
 for bp in "${BACKPRESSURES[@]}"; do
     echo ""
     echo "===== Running bp=${bp} (b_bp=r_bp=${bp}) ====="
-           +PHASE_ONLY="GENERAL" \
+    ./mem_handler_simv +UVM_TESTNAME=mem_full_test \
+           +PHASE_ONLY=GENERAL \
            +UVM_VERBOSITY=UVM_LOW \
            +CSV_DIR=${CSV_DIR} \
            +B_BP=${bp} \

@@ -40,5 +40,5 @@ ${TB_DIR}/TB_top.sv
 -sverilog
 +define+UVM_NO_DEPRECATED
 -timescale=1ns/1ps
--debug_access+all
+//-debug_access+all
 +vcs+lic+wait
