@@ -55,7 +55,7 @@ FAIL=0
 for bp in "${BACKPRESSURES[@]}"; do
     echo ""
     echo "===== Running bp=${bp} (b_bp=r_bp=${bp}) ====="
-           +PHASE_ONLY=GENERAL \
+           +PHASE_ONLY="GENERAL" \
            +UVM_VERBOSITY=UVM_LOW \
            +CSV_DIR=${CSV_DIR} \
            +B_BP=${bp} \
