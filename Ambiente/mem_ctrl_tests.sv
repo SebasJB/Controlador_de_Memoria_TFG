@@ -113,19 +113,19 @@ class mem_full_test extends mem_base_test;
         m_wr = mem_master_wr_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_wr");
         m_rd = mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_rd");
     
-    //    // PARALELO: writes y reads compiten por el scheduler
-    //    fork
-    //        m_wr.start(env.wr_agent.sequencer);
-    //        m_rd.start(env.rd_agent.sequencer);
-    //    join   // espera a que AMBAS sequences terminen
-    //
-    //    // Drain final: deja que salgan las respuestas en vuelo
-    //    drain_responses(2000);
+        // PARALELO: writes y reads compiten por el scheduler
+        fork
+            m_wr.start(env.wr_agent.sequencer);
+            m_rd.start(env.rd_agent.sequencer);
+        join   // espera a que AMBAS sequences terminen
+    
+        // Drain final: deja que salgan las respuestas en vuelo
+        drain_responses(2000);
 
-        m_wr.start(env.wr_agent.sequencer);
-        drain_responses(2000);
-        m_rd.start(env.rd_agent.sequencer);
-        drain_responses(2000);
+    //    m_wr.start(env.wr_agent.sequencer);
+    //    drain_responses(2000);
+    //    m_rd.start(env.rd_agent.sequencer);
+    //    drain_responses(2000);
     
         phase.drop_objection(this);
     endtask
