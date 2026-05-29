@@ -15,7 +15,7 @@ set -e
 export RTL_DIR=${RTL_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL}
 export SVA_DIR=${SVA_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA}
 export TB_DIR=${TB_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente}
-export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente}
+export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones}
 
 # ── Lista oficial de tests ─────────────────────────────────
 ALL_TESTS=(
@@ -44,7 +44,7 @@ vcs -f mem_ctrl_uvm.f \
     -ntb_opts uvm-1.2 \
     ${COVERAGE_FLAG} \
     -l compile.log \
-    -o simv -debug_access+all -debug_region+cell
+    -o sim_mem_hand_env -debug_access+all -debug_region+cell
 
 ## ── Ejecución por test ─────────────────────────────────────
 #PASS=0
