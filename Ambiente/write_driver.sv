@@ -111,7 +111,7 @@ class write_driver #(
             `uvm_info("WR_DRV_B",
                 $sformatf("B stall %0d cycles before accepting @ %0t",
                           b_backpressure_cycles, $time),
-                UVM_HIGH)
+                UVM_LOW)
             repeat (b_backpressure_cycles) @(vif.master_write_cb);
         end
 
