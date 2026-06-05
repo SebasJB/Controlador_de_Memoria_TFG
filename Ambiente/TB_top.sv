@@ -198,8 +198,17 @@ module tb_top;
 
     // ── Timeout global (escape de hangs en regression) ───
     initial begin
-        #10_000_000;   // 20 ms = 2000k ciclos @100MHz
+        #10_000_000;   // 10 ms = 1000k ciclos @100MHz
         `uvm_fatal("TB_TOP", "Global timeout reached")
+    end
+
+    initial begin
+        $display("================================================");
+        $display("[TB_TOP] PARAMS: N_BANKS=%0d  READ_LAT=%0d  BANK_SIZE=%0d",
+                 N_BANKS, READ_LATENCY, BANK_SIZE_BYTES);
+        $display("[TB_TOP] DUT inst: dut.N_BANKS=%0d  dut.READ_LATENCY=%0d",
+                 dut.N_BANKS, dut.READ_LATENCY);
+        $display("================================================");
     end
 
     // ── Waveform dump ────────────────────────────────────

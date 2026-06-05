@@ -117,6 +117,7 @@ class mem_full_test extends mem_base_test;
 
         uvm_config_db#(int)::set(this, "env.wr_agent.driver", "b_backpressure_cycles", b_bp_arg);
         uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", r_bp_arg);
+        `uvm_info("TEST_PARAMS", $sformatf("env params: TEST_N_BANKS=%0d  TEST_BANK_SIZE_BYTES=%0d", TEST_N_BANKS, TEST_BANK_SIZE_BYTES), UVM_LOW)
     endfunction
 
     task run_phase(uvm_phase phase);
