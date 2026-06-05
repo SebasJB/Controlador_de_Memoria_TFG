@@ -86,7 +86,7 @@ class read_driver #(
             `uvm_info("RD_DRV_R",
                 $sformatf("R stall %0d cycles before accepting @ %0t",
                           current_bp, $time),
-                UVM_LOW)
+                UVM_HIGH)
             repeat (current_bp) @(vif.master_read_cb);
         end
 
