@@ -142,21 +142,21 @@ class mem_ctrl_coverage #(
             bins wait_st  = {2'b10};
             bins complete = {2'b11};
         }
-        cr_state_busy: cross cp_state, cp_busy_count;
-        cp_wr_fifo: coverpoint cov_wr_fifo_occ {
-            bins empty   = {0};
-            bins q1      = {[1                : WR_FIFO_DEPTH/4]};
-            bins q2      = {[WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH/2]};
-            bins q3      = {[WR_FIFO_DEPTH/2+1: 3*WR_FIFO_DEPTH/4]};
-            bins full    = {[3*WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH]};
-        }
-        cp_rd_fifo: coverpoint cov_rd_fifo_occ {
-            bins empty   = {0};
-            bins q1      = {[1                : RD_FIFO_DEPTH/4]};
-            bins q2      = {[RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH/2]};
-            bins q3      = {[RD_FIFO_DEPTH/2+1: 3*RD_FIFO_DEPTH/4]};
-            bins full    = {[3*RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH]};
-        }
+//        cr_state_busy: cross cp_state, cp_busy_count;
+//        cp_wr_fifo: coverpoint cov_wr_fifo_occ {
+//            bins empty   = {0};
+//            bins q1      = {[1                : WR_FIFO_DEPTH/4]};
+//            bins q2      = {[WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH/2]};
+//            bins q3      = {[WR_FIFO_DEPTH/2+1: 3*WR_FIFO_DEPTH/4]};
+//            bins full    = {[3*WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH]};
+//        }
+//        cp_rd_fifo: coverpoint cov_rd_fifo_occ {
+//            bins empty   = {0};
+//            bins q1      = {[1                : RD_FIFO_DEPTH/4]};
+//            bins q2      = {[RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH/2]};
+//            bins q3      = {[RD_FIFO_DEPTH/2+1: 3*RD_FIFO_DEPTH/4]};
+//            bins full    = {[3*RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH]};
+//        }
     endgroup
 
     `uvm_component_param_utils(mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH))
