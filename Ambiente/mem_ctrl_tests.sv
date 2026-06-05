@@ -126,9 +126,36 @@ class mem_full_test extends mem_base_test;
     
         // PARALELO: writes y reads compiten por el scheduler
         fork
+            // 1. Master WR
             m_wr.start(env.wr_agent.sequencer);
+    
+            // 2. Master RD
             m_rd.start(env.rd_agent.sequencer);
-        join   // espera a que AMBAS sequences terminen
+    
+            // 3. Listener de BACKPRESSURE: activa stalls cuando ambas masters
+            //    entran a la fase, los desactiva cuando ambas salen.
+            begin
+                // Esperar a que ambas masters disparen bp_start
+                bp_start.wait_trigger();
+                bp_start.wait_trigger();
+                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls", UVM_LOW)
+    
+                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+                                         "b_backpressure_cycles", 15);
+                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+                                         "r_backpressure_cycles", 15);
+    
+                // Esperar a que ambas masters disparen bp_end
+                bp_end.wait_trigger();
+                bp_end.wait_trigger();
+                `uvm_info("BP_CTRL", "Both masters left BACKPRESSURE — deactivating stalls", UVM_LOW)
+    
+                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+                                         "b_backpressure_cycles", 0);
+                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+                                         "r_backpressure_cycles", 0);
+            end
+        join
     
         // Drain final: deja que salgan las respuestas en vuelo
         drain_responses(2000);

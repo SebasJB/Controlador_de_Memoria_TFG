@@ -331,6 +331,33 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             sat.num_txns = 200;
             sat.start(m_sequencer);
         end
+
+        // ── G: BACKPRESSURE (300 WR con stalls en B activos)
+        if (run_phase("BACKPRESSURE")) begin
+            uvm_event bp_start = uvm_event_pool::get_global("bp_start");
+            uvm_event bp_end   = uvm_event_pool::get_global("bp_end");
+
+            `uvm_info("MASTER_WR", "=== Phase H: BACKPRESSURE (300 WR) ===", UVM_LOW)
+            bp_start.trigger();                  // avisa al test
+            ph = ph_wr_t::type_id::create("ph_h");
+            ph.phase_name = "GENERAL";           // estímulo normal, stalls los pone el test
+            ph.n_txns = 300;
+            ph.start(m_sequencer);
+            bp_end.trigger();                    // avisa al test que terminó
+        end
+        // ── G: BACKPRESSURE (300 WR con stalls en B activos)
+        if (run_phase("BACKPRESSURE")) begin
+            uvm_event bp_start = uvm_event_pool::get_global("bp_start");
+            uvm_event bp_end   = uvm_event_pool::get_global("bp_end");
+
+            `uvm_info("MASTER_WR", "=== Phase H: BACKPRESSURE (300 WR) ===", UVM_LOW)
+            bp_start.trigger();                  // avisa al test
+            ph = ph_wr_t::type_id::create("ph_h");
+            ph.phase_name = "GENERAL";           // estímulo normal, stalls los pone el test
+            ph.n_txns = 300;
+            ph.start(m_sequencer);
+            bp_end.trigger();                    // avisa al test que terminó
+        end
     endtask
 endclass
 

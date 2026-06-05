@@ -31,13 +31,10 @@ class write_driver #(
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        if (!uvm_config_db#(virtual mem_bank_interface #(ADDR_W, DATA_W))::get(
-                this, "", "axi_vif", vif))
+        if (!uvm_config_db#(virtual mem_bank_interface #(ADDR_W, DATA_W))::get(this, "", "axi_vif", vif))
             `uvm_fatal("WR_DRV", "axi_vif not set")
-        void'(uvm_config_db#(int)::get(this, "", "b_backpressure_cycles",
-                                       b_backpressure_cycles));
-        `uvm_info("WR_DRV", $sformatf("build_phase: b_backpressure_cycles=%0d",
-                                       b_backpressure_cycles), UVM_HIGH)
+        void'(uvm_config_db#(int)::get(this, "", "b_backpressure_cycles", b_backpressure_cycles));
+        `uvm_info("WR_DRV", $sformatf("build_phase: b_backpressure_cycles=%0d", b_backpressure_cycles), UVM_LOW)
     endfunction
 
     task run_phase(uvm_phase phase);
