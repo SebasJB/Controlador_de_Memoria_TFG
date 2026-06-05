@@ -123,31 +123,40 @@ class mem_ctrl_coverage #(
     // ========================================================
     int unsigned cov_wr_fifo_occ;
     int unsigned cov_rd_fifo_occ;
+    // Variable para sampling rotativo del FSM
+    bit [1:0]  cov_bank_state;
+    int        cov_sample_idx;
 
     covergroup cg_bank_state;
         option.per_instance = 1;
 
         cp_busy_count: coverpoint cov_busy_count {
-            bins zero  = {0};
-            bins one   = {1};
-            bins two   = {2};
-            bins three = {3};
-            bins all   = {N_BANKS};
+            bins zero     = {0};
+            bins low[]    = {[1 : N_BANKS/2]};              // 1..N/2
+            bins high[]   = {[N_BANKS/2+1 : N_BANKS-1]};    // N/2+1..N-1
+            bins all      = {N_BANKS};                       // todos busy
         }
-        cp_wr_fifo: coverpoint cov_wr_fifo_occ {
-            bins empty   = {0};
-            bins q1      = {[1                : WR_FIFO_DEPTH/4]};
-            bins q2      = {[WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH/2]};
-            bins q3      = {[WR_FIFO_DEPTH/2+1: 3*WR_FIFO_DEPTH/4]};
-            bins full    = {[3*WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH]};
+        cp_state: coverpoint cov_bank_state {
+            bins idle     = {2'b00};
+            bins issue    = {2'b01};
+            bins wait_st  = {2'b10};
+            bins complete = {2'b11};
         }
-        cp_rd_fifo: coverpoint cov_rd_fifo_occ {
-            bins empty   = {0};
-            bins q1      = {[1                : RD_FIFO_DEPTH/4]};
-            bins q2      = {[RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH/2]};
-            bins q3      = {[RD_FIFO_DEPTH/2+1: 3*RD_FIFO_DEPTH/4]};
-            bins full    = {[3*RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH]};
-        }
+        cr_state_busy: cross cp_state, cp_busy_count;
+//        cp_wr_fifo: coverpoint cov_wr_fifo_occ {
+//            bins empty   = {0};
+//            bins q1      = {[1                : WR_FIFO_DEPTH/4]};
+//            bins q2      = {[WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH/2]};
+//            bins q3      = {[WR_FIFO_DEPTH/2+1: 3*WR_FIFO_DEPTH/4]};
+//            bins full    = {[3*WR_FIFO_DEPTH/4+1: WR_FIFO_DEPTH]};
+//        }
+//        cp_rd_fifo: coverpoint cov_rd_fifo_occ {
+//            bins empty   = {0};
+//            bins q1      = {[1                : RD_FIFO_DEPTH/4]};
+//            bins q2      = {[RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH/2]};
+//            bins q3      = {[RD_FIFO_DEPTH/2+1: 3*RD_FIFO_DEPTH/4]};
+//            bins full    = {[3*RD_FIFO_DEPTH/4+1: RD_FIFO_DEPTH]};
+//        }
     endgroup
 
     `uvm_component_param_utils(mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH))
@@ -211,11 +220,16 @@ class mem_ctrl_coverage #(
             cg_arbitration.sample();
 
             // Sample bank state
+            // Sample bank state — rotar entre bancos cada ciclo
             if (bank_vif != null) begin
                 int busy_count = 0;
                 for (int b = 0; b < N_BANKS; b++)
                     if (bank_vif.bank_busy[b]) busy_count++;
                 cov_busy_count = busy_count;
+
+                // Rotar el sample del FSM entre bancos
+                cov_bank_state = bank_vif.bank_fsm_st[cov_sample_idx];
+                cov_sample_idx = (cov_sample_idx + 1) % N_BANKS;
             end
             if (fifo_vif != null) begin
                 cov_wr_fifo_occ = fifo_vif.wr_req_count;
