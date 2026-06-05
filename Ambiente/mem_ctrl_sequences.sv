@@ -420,7 +420,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             sat.num_txns = 200;
             //if (!sat.randomize() with { n_txns == 64; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — FIFO_SAT")
-            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.n_txns), UVM_LOW)
+            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.num_txns), UVM_LOW)
             sat.start(m_sequencer);
         end
     endtask
