@@ -266,7 +266,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_WR", "=== Phase A: GENERAL ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_a");
             ph.phase_name = "GENERAL";
-            ph.n_txns = 15;
+            ph.n_txns = 1000;
             //if (!ph.randomize() with { n_txns inside {[100:200]}; })
             //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — GENERAL")
             `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
@@ -392,7 +392,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_RD", "=== Phase A: GENERAL ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_a");
             ph.phase_name = "GENERAL";
-            ph.n_txns = 15;
+            ph.n_txns = 1000;
             //if (!ph.randomize() with { n_txns inside {[100:200]}; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — GENERAL")
             `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
