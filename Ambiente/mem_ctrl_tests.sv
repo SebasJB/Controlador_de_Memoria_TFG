@@ -140,39 +140,40 @@ class mem_full_test extends mem_base_test;
 
         // PARALELO: writes y reads compiten por el scheduler
         fork
-            // 1. Master WR
-            begin
-                m_wr.start(env.wr_agent.sequencer);
+            begin : masters
+                fork
+                    m_wr.start(env.wr_agent.sequencer);
+                    m_rd.start(env.rd_agent.sequencer);
+                join
             end
 
-            // 2. Master RD
-            begin
-                m_rd.start(env.rd_agent.sequencer);
-            end
+            begin : bp_listener
+                // Esperar a que ambas masters disparen bp_start
+                bp_start.wait_trigger();
+                bp_start.wait_trigger();
+                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls", UVM_LOW)
 
-            // 3. Listener de BACKPRESSURE: activa stalls cuando ambas
-            //    masters entran a la fase, los desactiva cuando ambas salen.
-//            begin
-//                // Esperar a que ambas masters disparen bp_start
-//                bp_start.wait_trigger();
-//                bp_start.wait_trigger();
-//                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls", UVM_LOW)
-//
-//                uvm_config_db#(int)::set(this, "env.wr_agent.driver", "b_backpressure_cycles", 15);
-//                uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", 15);
-//
-//                // Esperar a que ambas masters disparen bp_end
-//                bp_end.wait_trigger();
-//                bp_end.wait_trigger();
-//                `uvm_info("BP_CTRL", "Both masters left BACKPRESSURE — deactivating stalls", UVM_LOW)
-//
-//                uvm_config_db#(int)::set(this, "env.wr_agent.driver", "b_backpressure_cycles", 0);
-//                uvm_config_db#(int)::set(this, "env.rd_agent.driver", "r_backpressure_cycles", 0);
-//            end
-        join
+                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+                                         "b_backpressure_cycles", 15);
+                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+                                         "r_backpressure_cycles", 15);
+
+                bp_end.wait_trigger();
+                bp_end.wait_trigger();
+                `uvm_info("BP_CTRL", "Both masters left BACKPRESSURE — deactivating stalls", UVM_LOW)
+
+                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+                                         "b_backpressure_cycles", 0);
+                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+                                         "r_backpressure_cycles", 0);
+            end
+        join_any
 
         // Drain final: deja que salgan las respuestas en vuelo
         drain_responses(2000);
+        // Si el listener sigue esperando eventos (caso PHASE_ONLY sin
+        // BACKPRESSURE), matarlo para que el test pueda terminar.
+        disable bp_listener;
         phase.drop_objection(this);
     endtask
 endclass
