@@ -103,16 +103,22 @@ class write_driver #(
 
     task accept_b_responses();
     int b_idx = 0;
+    int current_bp;
     forever begin
         @(vif.master_write_cb);
         if (vif.master_write_cb.bvalid !== 1'b1) continue;
 
-        if (b_backpressure_cycles > 0) begin
+        // Releer el knob del config_db en cada respuesta para que
+        // los cambios runtime del listener BACKPRESSURE se apliquen.
+        if (!uvm_config_db#(int)::get(this, "", "b_backpressure_cycles", current_bp))
+            current_bp = 0;
+
+        if (current_bp > 0) begin
             `uvm_info("WR_DRV_B",
                 $sformatf("B stall %0d cycles before accepting @ %0t",
-                          b_backpressure_cycles, $time),
+                          current_bp, $time),
                 UVM_LOW)
-            repeat (b_backpressure_cycles) @(vif.master_write_cb);
+            repeat (current_bp) @(vif.master_write_cb);
         end
 
         vif.master_write_cb.bready <= 1'b1;
@@ -124,7 +130,7 @@ class write_driver #(
                       b_idx, vif.master_write_cb.bresp, $time),
             UVM_HIGH)
         b_idx++;
-    end
-endtask
+        end
+    endtask
 
 endclass
