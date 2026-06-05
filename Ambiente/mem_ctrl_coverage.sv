@@ -142,7 +142,7 @@ class mem_ctrl_coverage #(
             bins wait_st  = {2'b10};
             bins complete = {2'b11};
         }
-//        cr_state_busy: cross cp_state, cp_busy_count;
+        cr_state_busy: cross cp_state, cp_busy_count;
 //        cp_wr_fifo: coverpoint cov_wr_fifo_occ {
 //            bins empty   = {0};
 //            bins q1      = {[1                : WR_FIFO_DEPTH/4]};
