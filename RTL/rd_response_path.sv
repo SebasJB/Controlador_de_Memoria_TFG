@@ -86,11 +86,6 @@ module reorder_buffer #(
     reg [BANK_BITS-1:0] rd_ptr_addr;
     reg rd_ptr_wrap;
 
-    wire rob_valid_0 = rob_valid[0];
-    wire rob_valid_1 = rob_valid[1];
-    wire rob_valid_2 = rob_valid[2];
-    wire rob_valid_3 = rob_valid[3];
-
 
     // ── In-order drain: rd_ptr selecciona slot ───────
     assign rob_data_out = rob_data[rd_ptr_addr];

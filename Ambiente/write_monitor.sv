@@ -19,6 +19,7 @@ class write_monitor #(
     uvm_analysis_port #(item_t) ap_b;
 
     item_t pending_b[$];
+    mem_ctrl_hazard_tracker hazard;
 
     `uvm_component_param_utils(write_monitor #(ADDR_W, DATA_W, N_BANKS))
 
@@ -30,9 +31,10 @@ class write_monitor #(
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        if (!uvm_config_db#(virtual mem_bank_interface #(ADDR_W, DATA_W))::get(
-                this, "", "axi_vif", vif))
+        if (!uvm_config_db#(virtual mem_bank_interface #(ADDR_W, DATA_W))::get(this, "", "axi_vif", vif))
             `uvm_fatal("WR_MON", "axi_vif not set")
+        if (!uvm_config_db#(mem_ctrl_hazard_tracker)::get(this, "", "hazard_tracker", hazard))
+            `uvm_fatal("HAZARD", "No hazard_tracker in config_db")
     endfunction
 
     task run_phase(uvm_phase phase);
@@ -97,8 +99,14 @@ class write_monitor #(
                                   wr_idx, item.txn_id, item.addr,
                                   item.data, item.wstrb),
                         UVM_HIGH)
-                    ap_wr.write(item);
+                    ap_wr.write(item)
                     pending_b.push_back(item);
+                    // Registrar la dirección en el hazard tracker para
+                    // que las RD posteriores la excluyan durante la
+                    // ventana de HAZARD_WINDOW ciclos (restricción
+                    // AXI4-Lite §8.2 del master).
+                    if (hazard != null)
+                        hazard.add_recent_wr(item.addr);
                     wr_idx++;
                 end
             end

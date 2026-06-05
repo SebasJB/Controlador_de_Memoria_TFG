@@ -186,9 +186,10 @@ class mem_rob_wrap_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE
     function new(string name = "mem_rob_wrap_rd_seq"); super.new(name); endfunction
 
     task body();
-        int word_bytes = DATA_W / 8;
-        for (int i = 0; i < 2 * N_BANKS + 4; i++)
-            do_read((i % N_BANKS) * word_bytes);
+    int word_bytes = DATA_W / 8;
+    // 50 RDs intercaladas entre bancos para forzar múltiples wraps del ROB
+    for (int i = 0; i < 50; i++)
+        do_read((i % N_BANKS) * word_bytes);
     endtask
 endclass
 
@@ -265,8 +266,9 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_WR", "=== Phase A: GENERAL ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_a");
             ph.phase_name = "GENERAL";
-            if (!ph.randomize() with { n_txns inside {[100:200]}; })
-                `uvm_fatal("MASTER_WR", "Randomize n_txns failed — GENERAL")
+            ph.n_txns = 1000;
+            //if (!ph.randomize() with { n_txns inside {[100:200]}; })
+            //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — GENERAL")
             `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
@@ -274,11 +276,13 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         // ── Fase B: SINGLE_BANK (cada banco aislado)
         if (run_phase("SINGLE_BANK")) begin
             for (int b = 0; b < N_BANKS; b++) begin
-                `uvm_info("MASTER_WR", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d (200 WR) ===", b, b), UVM_LOW)
+                `uvm_info("MASTER_WR", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d ===", b, b), UVM_LOW)
                 ph = ph_wr_t::type_id::create($sformatf("ph_b_%0d", b));
-                ph.phase_name = "SINGLE_BANK"; ph.target_bank = b;
-                if (!ph.randomize() with { n_txns inside {[100:300]}; })
-                    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — SINGLE_BANK")
+                ph.phase_name = "SINGLE_BANK";
+                ph.n_txns = 100;
+                ph.target_bank = b;
+                //if (!ph.randomize() with { n_txns inside {[100:300]}; })
+                //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — SINGLE_BANK")
                 `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
                 ph.start(m_sequencer);
             end
@@ -289,8 +293,9 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_WR", "=== Phase C: CONFLICT===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_c");
             ph.phase_name = "CONFLICT";
-            if (!ph.randomize() with { n_txns inside {[100:300]}; })
-                `uvm_fatal("MASTER_WR", "Randomize n_txns failed — CONFLICT")
+            ph.n_txns = 500;
+            //if (!ph.randomize() with { n_txns inside {[100:300]}; })
+            //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — CONFLICT")
             `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
@@ -300,27 +305,30 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_WR", "=== Phase D: INVALID_ADDR ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_d");
             ph.phase_name = "INVALID_ADDR";
-            if (!ph.randomize() with { n_txns inside {[20:80]}; })
-                `uvm_fatal("MASTER_WR", "Randomize n_txns failed — INVALID_ADDR")
+            ph.n_txns = 100;
+            //if (!ph.randomize() with { n_txns inside {[20:80]}; })
+            //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — INVALID_ADDR")
             `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
 
         // ── Fase E: WSTRB_STRESS (cobertura granular byte-enable)
         if (run_phase("WSTRB_STRESS")) begin
-            `uvm_info("MASTER_WR", "=== Phase E: WSTRB_STRESS (200 WR) ===", UVM_LOW)
+            `uvm_info("MASTER_WR", "=== Phase E: WSTRB_STRESS ===", UVM_LOW)
             ph = ph_wr_t::type_id::create("ph_e");
             ph.phase_name = "WSTRB_STRESS";
-            if (!ph.randomize() with { n_txns inside {[100:300]}; })
-                `uvm_fatal("MASTER_WR", "Randomize n_txns failed — WSTRB_STRESS")
+            ph.n_txns = 500;
+            //if (!ph.randomize() with { n_txns inside {[100:300]}; })
+            //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — WSTRB_STRESS")
             `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
 
         // ── Fase F: FIFO_SAT (back-to-back, satura FIFOs REQ)
         if (run_phase("FIFO_SAT")) begin
-            `uvm_info("MASTER_WR", "=== Phase F: FIFO_SATURATION (64 WR back-to-back) ===", UVM_LOW)
+            `uvm_info("MASTER_WR", "=== Phase F: FIFO_SATURATION (WR back-to-back) ===", UVM_LOW)
             sat = sat_wr_t::type_id::create("sat_wr");
+            sat.num_txns = 200;
             sat.start(m_sequencer);
         end
     endtask
@@ -354,40 +362,45 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_RD", "=== Phase A: GENERAL ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_a");
             ph.phase_name = "GENERAL";
-            if (!ph.randomize() with { n_txns inside {[100:200]}; })
-                `uvm_fatal("MASTER_RD", "Randomize n_txns failed — GENERAL")
+            ph.n_txns = 1000;
+            //if (!ph.randomize() with { n_txns inside {[100:200]}; })
+            //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — GENERAL")
             `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
 
         if (run_phase("SINGLE_BANK")) begin
             for (int b = 0; b < N_BANKS; b++) begin
-                `uvm_info("MASTER_RD", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d (200 RD) ===", b, b), UVM_LOW)
+                `uvm_info("MASTER_RD", $sformatf("=== Phase B%0d: SINGLE_BANK=%0d ===", b, b), UVM_LOW)
                 ph = ph_rd_t::type_id::create($sformatf("ph_b_%0d", b));
-                ph.phase_name = "SINGLE_BANK"; ph.target_bank = b;
-                if (!ph.randomize() with { n_txns inside {[100:300]}; })
-                    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — SINGLE_BANK")
+                ph.phase_name = "SINGLE_BANK";
+                ph.n_txns = 100;
+                ph.target_bank = b;
+                //if (!ph.randomize() with { n_txns inside {[100:300]}; })
+                //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — SINGLE_BANK")
                 `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
                 ph.start(m_sequencer);
             end
         end
 
         if (run_phase("CONFLICT")) begin
-            `uvm_info("MASTER_RD", "=== Phase C: CONFLICT (300 RD) ===", UVM_LOW)
+            `uvm_info("MASTER_RD", "=== Phase C: CONFLICT ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_c");
             ph.phase_name = "CONFLICT";
-            if (!ph.randomize() with { n_txns inside {[100:300]}; })
-                `uvm_fatal("MASTER_RD", "Randomize n_txns failed — CONFLICT")
-            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            ph.n_txns = 500;
+            //if (!ph.randomize() with { n_txns inside {[100:300]}; })
+            //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — CONFLICT")
+        `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
 
         if (run_phase("INVALID_ADDR")) begin
-            `uvm_info("MASTER_RD", "=== Phase D: INVALID_ADDR (50 RD) ===", UVM_LOW)
+            `uvm_info("MASTER_RD", "=== Phase D: INVALID_ADDR ===", UVM_LOW)
             ph = ph_rd_t::type_id::create("ph_d");
             ph.phase_name = "INVALID_ADDR";
-            if (!ph.randomize() with { n_txns inside {[20:80]}; })
-                `uvm_fatal("MASTER_RD", "Randomize n_txns failed — INVALID_ADDR")
+            ph.n_txns = 100;
+            //if (!ph.randomize() with { n_txns inside {[20:80]}; })
+            //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — INVALID_ADDR")
             `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
             ph.start(m_sequencer);
         end
@@ -402,8 +415,12 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         end
 
         if (run_phase("FIFO_SAT")) begin
-            `uvm_info("MASTER_RD", "=== Phase F: FIFO_SATURATION (64 RD back-to-back) ===", UVM_LOW)
+            `uvm_info("MASTER_RD", "=== Phase F: FIFO_SATURATION (RD back-to-back) ===", UVM_LOW)
             sat = sat_rd_t::type_id::create("sat_rd");
+            sat.num_txns = 200;
+            //if (!sat.randomize() with { n_txns == 64; })
+            //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — FIFO_SAT")
+            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.n_txns), UVM_LOW)
             sat.start(m_sequencer);
         end
     endtask

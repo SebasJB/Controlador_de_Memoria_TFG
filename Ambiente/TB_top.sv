@@ -22,12 +22,23 @@ module tb_top;
     import uvm_pkg::*;
     import mem_ctrl_pkg::*;
 
+    // ── Defines parametrizables (sobreescribibles con +define+) ──
+    `ifndef TB_N_BANKS
+        `define TB_N_BANKS 4
+    `endif
+    `ifndef TB_BANK_SIZE_BYTES
+        `define TB_BANK_SIZE_BYTES 8192
+    `endif
+    `ifndef TB_READ_LATENCY
+        `define TB_READ_LATENCY 1
+    `endif
+
     // ── Parámetros concretos del DUT ─────────────────────
     localparam int ADDR_W            = 32;
     localparam int DATA_W            = 32;
-    localparam int N_BANKS           = 4;
-    localparam int BANK_SIZE_BYTES   = 1024;
-    localparam int READ_LATENCY      = 1;
+    localparam int N_BANKS           = `TB_N_BANKS;
+    localparam int BANK_SIZE_BYTES   = `TB_BANK_SIZE_BYTES;
+    localparam int READ_LATENCY      = `TB_READ_LATENCY;
     localparam int LAT_CNT_W         = 8;
     localparam int WR_REQ_FIFO_DEPTH = 8;
     localparam int RD_REQ_FIFO_DEPTH = 8;

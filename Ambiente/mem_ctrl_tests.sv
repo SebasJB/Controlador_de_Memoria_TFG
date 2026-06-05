@@ -18,11 +18,22 @@
 //      Permite saltar fases en mem_full_test para debug.
 // ============================================================
 
-// Parámetros consistentes con tb_top
+// ── Defines parametrizables (sobreescribibles con +define+) ──
+// Estos defines deben usar valores idénticos a los TB_* del
+// tb_top.sv. Por convención el script de compilación pasa
+// ambos juegos con +define+ en cada corrida.
+`ifndef TEST_N_BANKS
+    `define TEST_N_BANKS 4
+`endif
+`ifndef TEST_BANK_SIZE_BYTES
+    `define TEST_BANK_SIZE_BYTES 8192
+`endif
+
+// ── Parámetros consistentes con tb_top ───────────────────
 parameter int TEST_ADDR_W          = 32;
 parameter int TEST_DATA_W          = 32;
-parameter int TEST_N_BANKS         = 4;
-parameter int TEST_BANK_SIZE_BYTES = 1024;
+parameter int TEST_N_BANKS         = `TEST_N_BANKS;
+parameter int TEST_BANK_SIZE_BYTES = `TEST_BANK_SIZE_BYTES;
 parameter int TEST_WR_FIFO_DEPTH   = 8;
 parameter int TEST_RD_FIFO_DEPTH   = 8;
 

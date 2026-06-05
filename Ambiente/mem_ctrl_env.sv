@@ -25,11 +25,10 @@ class mem_ctrl_env #(
     parameter int RD_FIFO_DEPTH    = 8
 ) extends uvm_env;
 
-    write_agent       #(ADDR_W, DATA_W, N_BANKS)              wr_agent;
-    read_agent        #(ADDR_W, DATA_W, N_BANKS)              rd_agent;
+    write_agent #(ADDR_W, DATA_W, N_BANKS) wr_agent;
+    read_agent #(ADDR_W, DATA_W, N_BANKS) rd_agent;
     mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES) sb;
-    mem_ctrl_coverage   #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES,
-                          WR_FIFO_DEPTH, RD_FIFO_DEPTH)             cov;
+    mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES,WR_FIFO_DEPTH, RD_FIFO_DEPTH) cov;
 
     `uvm_component_param_utils(mem_ctrl_env #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH))
 

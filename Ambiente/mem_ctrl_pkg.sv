@@ -34,6 +34,7 @@ package mem_ctrl_pkg;
 
     // ── Phase 2: estímulo ────────────────────────────────
     `include "mem_ctrl_seq_item.sv"
+    `include "mem_ctrl_hazard_tracker.sv"
     `include "mem_ctrl_sequences.sv"
 
     // ── Phase 2: agentes ─────────────────────────────────

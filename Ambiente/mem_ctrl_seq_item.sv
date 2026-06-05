@@ -23,7 +23,7 @@ class mem_ctrl_seq_item #(
     parameter int ADDR_W           = 32,
     parameter int DATA_W           = 32,
     parameter int N_BANKS          = 4,
-    parameter int BANK_SIZE_BYTES  = 1024
+    parameter int BANK_SIZE_BYTES  = 8192
 ) extends uvm_sequence_item;
 
     // ── Campos randomizables ─────────────────────────────
@@ -76,6 +76,8 @@ class mem_ctrl_seq_item #(
         c_force_op_wr.constraint_mode(0);
         c_force_op_rd.constraint_mode(0);
         c_force_addr_lo.constraint_mode(0);
+        c_force_addr_hot.constraint_mode(0);
+        c_force_addr_uniform.constraint_mode(0);
         c_force_wstrb_partial.constraint_mode(0);
     endfunction
 
@@ -114,6 +116,20 @@ class mem_ctrl_seq_item #(
     constraint c_force_addr_lo {
         soft addr < (N_BANKS * WORD_BYTES * 16);
     }
+    // force_addr_hot: GENERAL — HOT amplio (64 palabras × N_BANKS)
+    // Tasa alta de hits RD-sobre-WR para validar el path WR completo
+    // contra el shadow memory del scoreboard.
+    constraint c_force_addr_hot {
+        soft addr < (N_BANKS * WORD_BYTES * 64);
+    }
+
+    // force_addr_uniform: SINGLE_BANK / FIFO_SAT — cobertura toggle
+    // Distribuye direcciones sobre las 2048 palabras de cada banco.
+    // Necesario para cerrar toggle coverage del bank_word_addr (11 bits).
+    constraint c_force_addr_uniform {
+        soft addr < TOTAL_BYTES;
+        soft addr[OFF_BITS-1:0] == '0;
+    }
 
     // force_wstrb_partial: patrones byte-enable
     constraint c_force_wstrb_partial {
@@ -137,12 +153,24 @@ class mem_ctrl_seq_item #(
         c_force_op_wr.constraint_mode(0);
         c_force_op_rd.constraint_mode(0);
         c_force_addr_lo.constraint_mode(0);
+        c_force_addr_hot.constraint_mode(0);
+        c_force_addr_uniform.constraint_mode(0);
         c_force_wstrb_partial.constraint_mode(0);
 
         case (phase)
-            "GENERAL":      /* defaults */ ;
-            "SINGLE_BANK":  c_force_bank.constraint_mode(1);
-            "CONFLICT":     c_force_addr_lo.constraint_mode(1);
+            "GENERAL": begin
+                // HOT amplio: 64 palabras × N_BANKS
+                c_force_addr_hot.constraint_mode(1);
+            end
+            "SINGLE_BANK": begin
+                // UNIFORM sobre el banco seleccionado
+                c_force_bank.constraint_mode(1);
+                c_force_addr_uniform.constraint_mode(1);
+            end
+            "CONFLICT": begin
+                // HOT estrecho: 16 palabras × N_BANKS → max reuso
+                c_force_addr_lo.constraint_mode(1);
+            end
             "INVALID_ADDR": begin
                 c_default_addr_valid.constraint_mode(0);
                 c_force_invalid.constraint_mode(1);
@@ -151,6 +179,16 @@ class mem_ctrl_seq_item #(
                 c_force_op_wr.constraint_mode(1);
                 c_default_wstrb.constraint_mode(0);
                 c_force_wstrb_partial.constraint_mode(1);
+                // HOT amplio: que las RD posteriores caigan sobre escritas
+                c_force_addr_hot.constraint_mode(1);
+            end
+            "ROB_WRAP": begin
+                // HOT estrecho: el orden importa, no el rango
+                c_force_addr_lo.constraint_mode(1);
+            end
+            "FIFO_SAT": begin
+                // UNIFORM: variedad para llenar las FIFOs
+                c_force_addr_uniform.constraint_mode(1);
             end
             "WRITES_ONLY":  c_force_op_wr.constraint_mode(1);
             "READS_ONLY":   c_force_op_rd.constraint_mode(1);
