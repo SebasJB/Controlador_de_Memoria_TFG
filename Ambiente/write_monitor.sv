@@ -99,7 +99,7 @@ class write_monitor #(
                                   wr_idx, item.txn_id, item.addr,
                                   item.data, item.wstrb),
                         UVM_HIGH)
-                    ap_wr.write(item)
+                    ap_wr.write(item);
                     pending_b.push_back(item);
                     // Registrar la dirección en el hazard tracker para
                     // que las RD posteriores la excluyan durante la
