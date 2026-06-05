@@ -347,8 +347,11 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
         end
         // ── G: BACKPRESSURE (300 WR con stalls en B activos)
         if (run_phase("BACKPRESSURE")) begin
-            uvm_event bp_start = uvm_event_pool::get_global("bp_start");
-            uvm_event bp_end   = uvm_event_pool::get_global("bp_end");
+            uvm_event bp_start;
+            uvm_event bp_end;
+            // Asignar después
+            bp_start = uvm_event_pool::get_global("bp_start");
+            bp_end   = uvm_event_pool::get_global("bp_end");
 
             `uvm_info("MASTER_WR", "=== Phase H: BACKPRESSURE (300 WR) ===", UVM_LOW)
             bp_start.trigger();                  // avisa al test
@@ -450,5 +453,22 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.num_txns), UVM_LOW)
             sat.start(m_sequencer);
         end
+        
+        // ── G: BACKPRESSURE (300 RD con stalls en R activos)
+        if (run_phase("BACKPRESSURE")) begin
+            uvm_event bp_start;
+            uvm_event bp_end;
+            // Asignar después
+            bp_start = uvm_event_pool::get_global("bp_start");
+            bp_end   = uvm_event_pool::get_global("bp_end");
+
+            `uvm_info("MASTER_RD", "=== Phase H: BACKPRESSURE (300 RD) ===", UVM_LOW)
+            bp_start.trigger();
+            ph = ph_rd_t::type_id::create("ph_h");
+            ph.phase_name = "GENERAL";
+            ph.n_txns = 300;
+            ph.start(m_sequencer);
+            bp_end.trigger();
+        end  
     endtask
 endclass

@@ -101,6 +101,8 @@ class mem_full_test extends mem_base_test;
         // En build_phase de mem_full_test
         string csv_dir_arg;
         int    b_bp_arg, r_bp_arg;
+        uvm_event bp_start;
+        uvm_event bp_end;
 
         super.build_phase(phase);
 
@@ -123,6 +125,8 @@ class mem_full_test extends mem_base_test;
         phase.raise_objection(this);
         m_wr = mem_master_wr_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_wr");
         m_rd = mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)::type_id::create("m_rd");
+        bp_start = uvm_event_pool::get_global("bp_start");
+        bp_end   = uvm_event_pool::get_global("bp_end");
     
         // PARALELO: writes y reads compiten por el scheduler
         fork
@@ -134,8 +138,7 @@ class mem_full_test extends mem_base_test;
     
             // 3. Listener de BACKPRESSURE: activa stalls cuando ambas masters
             //    entran a la fase, los desactiva cuando ambas salen.
-            begin
-                // Esperar a que ambas masters disparen bp_start
+            // Esperar a que ambas masters disparen bp_start
                 bp_start.wait_trigger();
                 bp_start.wait_trigger();
                 `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls", UVM_LOW)
@@ -154,7 +157,6 @@ class mem_full_test extends mem_base_test;
                                          "b_backpressure_cycles", 0);
                 uvm_config_db#(int)::set(this, "env.rd_agent.driver",
                                          "r_backpressure_cycles", 0);
-            end
         join
     
         // Drain final: deja que salgan las respuestas en vuelo
