@@ -277,7 +277,7 @@ module read_tag_generator #(
             cnt_wrap <= 1'b0;
         end else begin
             if (grant_rd) begin
-                if (cnt_addr == 3) begin
+                if (cnt_addr == ADDR_MAX) begin
                     // Reiniciar dirección a 0, invertir wrap bit
                     cnt_addr <= {BANK_BITS{1'b0}};
                     cnt_wrap <= !cnt_wrap;
