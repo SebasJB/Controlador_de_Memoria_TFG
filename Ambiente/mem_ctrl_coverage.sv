@@ -115,7 +115,17 @@ class mem_ctrl_coverage #(
             bins both       = {2'b11};
         }
 
-        cr_grant_conflict: cross cp_grant, cp_conflict;
+        cr_grant_conflict: cross cp_grant, cp_conflict {
+            // Imposibles físicamente: no hay grant sin pending del lado correspondiente
+            ignore_bins no_pndg_grant   = binsof(cp_conflict.no_pending) &&
+                                          !binsof(cp_grant.idle);
+            ignore_bins wr_only_no_wr_grant = binsof(cp_conflict.only_wr) &&
+                                              (binsof(cp_grant.rd_only) ||
+                                               binsof(cp_grant.both));
+            ignore_bins rd_only_no_rd_grant = binsof(cp_conflict.only_rd) &&
+                                              (binsof(cp_grant.wr_only) ||
+                                               binsof(cp_grant.both));
+        }
     endgroup
 
     // ========================================================
