@@ -49,6 +49,7 @@ vcs -f ${TB_DIR}/mem_ctrl_uvm.f \
     -ntb_opts uvm-1.2 \
     -cm line+cond+fsm+tgl+branch \
     -cm_dir ${RUN_DIR}/${COV_DIR_NAME} \
+    -cm_hier ${TB_DIR}/cov_hier.cfg \
     +define+TB_N_BANKS=${N_BANKS} \
     +define+TB_READ_LATENCY=${READ_LAT} \
     +define+TB_BANK_SIZE_BYTES=${BANK_SIZE_BYTES} \
