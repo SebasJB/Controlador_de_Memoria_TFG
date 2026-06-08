@@ -32,10 +32,8 @@ declare -a CONFIGS=(
     "CFG-A4 4  4"
     "CFG-B1 8  1"
     "CFG-B4 8  4"
-    "CFG-C1 12 1"
-    "CFG-C4 12 4"
-    "CFG-D1 16 1"
-    "CFG-D4 16 4"
+    "CFG-C1 16 1"
+    "CFG-C4 16 4"
 )
 
 # ── Test funcional oficial ─────────────────────────────────

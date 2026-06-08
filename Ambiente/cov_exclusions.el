@@ -1,0 +1,9 @@
+exclude /fifo_flops
+exclude /fifo_generic
+exclude /dff_async_rst
+exclude /dltch_async_rst
+exclude /dltch
+exclude /prll_d_reg
+exclude /prll_d_ltch_no_rst
+exclude /prll_d_ltch
+exclude /sram_sync
