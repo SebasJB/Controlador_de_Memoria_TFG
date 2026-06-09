@@ -432,7 +432,6 @@ class mem_ctrl_scoreboard #(
         `uvm_info("SB_REPORT", $sformatf("Order violations:     %0d", order_violations),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("SLVERR observed:      %0d", slverr_count),        UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Avg WR latency (ns):  %0.2f", avg_lat_wr),        UVM_LOW)
-        `// ── Latencias en ciclos de reloj (1 ciclo = 10 ns) ──
         `uvm_info("SB_REPORT", $sformatf("Avg WR latency (cyc): %0.2f", avg_lat_wr/10.0),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Min WR latency (cyc): %0.2f", min_lat_wr_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Max WR latency (cyc): %0.2f", max_lat_wr_ns/10.0), UVM_LOW)
