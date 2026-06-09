@@ -50,7 +50,7 @@ class read_driver #(
             `uvm_info("RD_DRV_REQ",
                 $sformatf("got seq_item txn_id=%0d addr=0x%08h",
                           req.txn_id, req.addr),
-                UVM_LOW)
+                UVM_HIGH)
             repeat (req.delay_cycles) @(vif.master_read_cb);
             drive_ar(req);
             seq_item_port.item_done();
@@ -67,7 +67,7 @@ class read_driver #(
         `uvm_info("RD_DRV_AR",
             $sformatf("AR fire txn_id=%0d addr=0x%08h @ %0t",
                       item.txn_id, item.addr, item.t_req_fire),
-            UVM_LOW)
+            UVM_HIGH)
     endtask
 
     task accept_r_responses();
@@ -102,7 +102,7 @@ class read_driver #(
             $sformatf("R accepted #%0d rdata=0x%08h rresp=%0b @ %0t",
                       r_idx, vif.master_read_cb.rdata,
                       vif.master_read_cb.rresp, $time),
-            UVM_LOW)
+            UVM_HIGH)
         r_idx++;
     end
 endtask
