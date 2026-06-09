@@ -57,7 +57,7 @@ class write_driver #(
         forever begin
             item_t req;
             seq_item_port.get_next_item(req);
-            `uvm_info("WR_DRV_REQ", $sformatf("got seq_item txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h", req.txn_id, req.addr, req.data, req.wstrb),UVM_HIGH)
+            `uvm_info("WR_DRV_REQ", $sformatf("got seq_item txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h", req.txn_id, req.addr, req.data, req.wstrb),UVM_LOW)
             repeat (req.delay_cycles) @(vif.master_write_cb);
             drive_aw_w(req);
             seq_item_port.item_done();
@@ -73,7 +73,7 @@ class write_driver #(
         `uvm_info("WR_DRV",
             $sformatf("AW+W complete txn_id=%0d @ %0t",
                       item.txn_id, item.t_req_fire),
-            UVM_HIGH)
+            UVM_LOW)
     endtask
 
     task drive_aw(item_t item);
@@ -128,7 +128,7 @@ class write_driver #(
         `uvm_info("WR_DRV_B",
             $sformatf("B accepted #%0d bresp=%0b @ %0t",
                       b_idx, vif.master_write_cb.bresp, $time),
-            UVM_HIGH)
+            UVM_LOW)
         b_idx++;
         end
     endtask

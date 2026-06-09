@@ -269,7 +269,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 1000;
             //if (!ph.randomize() with { n_txns inside {[100:200]}; })
             //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — GENERAL")
-            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -283,7 +283,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
                 ph.target_bank = b;
                 //if (!ph.randomize() with { n_txns inside {[100:300]}; })
                 //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — SINGLE_BANK")
-                `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+                `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
                 ph.start(m_sequencer);
             end
         end
@@ -296,7 +296,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 500;
             //if (!ph.randomize() with { n_txns inside {[100:300]}; })
             //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — CONFLICT")
-            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -308,7 +308,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 100;
             //if (!ph.randomize() with { n_txns inside {[20:80]}; })
             //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — INVALID_ADDR")
-            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -320,7 +320,7 @@ class mem_master_wr_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 500;
             //if (!ph.randomize() with { n_txns inside {[100:300]}; })
             //    `uvm_fatal("MASTER_WR", "Randomize n_txns failed — WSTRB_STRESS")
-            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_WR", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -395,7 +395,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 1000;
             //if (!ph.randomize() with { n_txns inside {[100:200]}; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — GENERAL")
-            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -408,7 +408,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
                 ph.target_bank = b;
                 //if (!ph.randomize() with { n_txns inside {[100:300]}; })
                 //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — SINGLE_BANK")
-                `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+                `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
                 ph.start(m_sequencer);
             end
         end
@@ -420,7 +420,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 500;
             //if (!ph.randomize() with { n_txns inside {[100:300]}; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — CONFLICT")
-        `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+        `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -431,7 +431,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             ph.n_txns = 100;
             //if (!ph.randomize() with { n_txns inside {[20:80]}; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — INVALID_ADDR")
-            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_LOW)
+            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", ph.n_txns), UVM_HIGH)
             ph.start(m_sequencer);
         end
 
@@ -450,7 +450,7 @@ class mem_master_rd_seq #(parameter ADDR_W=32, DATA_W=32, N_BANKS=4, BANK_SIZE_B
             sat.num_txns = 200;
             //if (!sat.randomize() with { n_txns == 64; })
             //    `uvm_fatal("MASTER_RD", "Randomize n_txns failed — FIFO_SAT")
-            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.num_txns), UVM_LOW)
+            `uvm_info("MASTER_RD", $sformatf("Cantidad de transacciones de fase: %0d", sat.num_txns), UVM_HIGH)
             sat.start(m_sequencer);
         end
         
