@@ -296,50 +296,21 @@ class mem_ctrl_scoreboard #(
                 item.resp, item.txn_id))
         end
 
-        // ── Sanity: cola no vacía ──
+        // ── Order check ──
         if (ar_global_queue.size() == 0) begin
             `uvm_error("SB_R", $sformatf(
-                "R fire without pending AR (item.txn_id_observed=%0d)",
+                "R fire without pending AR (txn_id_observed=%0d)",
                 item.txn_id))
             return;
         end
+        head_ar = ar_global_queue.pop_front();
 
-        // ── Búsqueda del AR correspondiente ──
-        // El DUT entrega respuestas R según el orden del ROB, no en
-        // estricto orden de issue. Por ello buscamos en la cola global
-        // el AR cuyo exp_data coincida con item.data, en lugar de hacer
-        // pop_front ciego. Esto tolera respuestas que llegan fuera del
-        // orden FIFO de los AR.
-        head_ar.txn_id = 0;
-        head_ar.bank   = 0;
-        match_idx      = -1;
-
-        // Primer intento: match exacto con exp_data del snapshot
-        foreach (ar_global_queue[i]) begin
-            int b   = ar_global_queue[i].bank;
-            int tid = ar_global_queue[i].txn_id;
-            foreach (exp_queue[b][j]) begin
-                if (exp_queue[b][j].txn_id == tid &&
-                    (exp_queue[b][j].exp_data === item.data ||
-                     ref_mem[exp_queue[b][j].bank][exp_queue[b][j].offset] === item.data)) begin
-                    head_ar   = ar_global_queue[i];
-                    match_idx = j;
-                    ar_global_queue.delete(i);
-                    break;
-                end
-            end
-            if (match_idx != -1) break;
-        end
-
-        // Si no hubo match por dato, fallback: asume orden FIFO global
-        // (puede ocurrir bajo corrupción real, lo cual se reporta luego)
-        if (match_idx == -1) begin
-            head_ar = ar_global_queue.pop_front();
-            foreach (exp_queue[head_ar.bank][i]) begin
-                if (exp_queue[head_ar.bank][i].txn_id == head_ar.txn_id) begin
-                    match_idx = i;
-                    break;
-                end
+        // ── Data check ──
+        match_idx = -1;
+        foreach (exp_queue[head_ar.bank][i]) begin
+            if (exp_queue[head_ar.bank][i].txn_id == head_ar.txn_id) begin
+                match_idx = i;
+                break;
             end
         end
 
