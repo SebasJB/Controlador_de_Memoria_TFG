@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: request_capture_reg</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_request_capture_reg'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_request_capture_reg')">request_capture_reg</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv')">/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod17.html#inst_tag_540"  onclick="showContent('inst_tag_540')">tb_top.dut.gen_bank[0].u_bank.u_capture</a></td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_540_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_540_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_540_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod17.html#inst_tag_541"  onclick="showContent('inst_tag_541')">tb_top.dut.gen_bank[1].u_bank.u_capture</a></td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_541_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_541_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_541_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod17.html#inst_tag_542"  onclick="showContent('inst_tag_542')">tb_top.dut.gen_bank[2].u_bank.u_capture</a></td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_542_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_542_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_542_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod17.html#inst_tag_543"  onclick="showContent('inst_tag_543')">tb_top.dut.gen_bank[3].u_bank.u_capture</a></td>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_543_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_543_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_543_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_540'>
+<hr>
+<a name="inst_tag_540"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_540" >tb_top.dut.gen_bank[0].u_bank.u_capture</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_540_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_540_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_540_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_16" >gen_bank[0].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_541'>
+<hr>
+<a name="inst_tag_541"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_541" >tb_top.dut.gen_bank[1].u_bank.u_capture</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_541_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_541_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_541_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_17" >gen_bank[1].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_542'>
+<hr>
+<a name="inst_tag_542"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_542" >tb_top.dut.gen_bank[2].u_bank.u_capture</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_542_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_542_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_542_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_18" >gen_bank[2].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_543'>
+<hr>
+<a name="inst_tag_543"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_543" >tb_top.dut.gen_bank[3].u_bank.u_capture</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_543_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod17.html#inst_tag_543_Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod17.html#inst_tag_543_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.84</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_19" >gen_bank[3].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_request_capture_reg'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod17.html" >request_capture_reg</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>75</td><td>12</td><td>12</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+74                          always @(posedge clk) begin
+75         1/1                  if (!rst_n) begin
+76         1/1                      lat_op    &lt;= 1'b0;
+77         1/1                      lat_addr  &lt;= {BANK_ADDR_WIDTH{1'b0}};
+78         1/1                      lat_wdata &lt;= {AXI_DATA_WIDTH{1'b0}};
+79         1/1                      lat_wstrb &lt;= {(AXI_DATA_WIDTH/8){1'b0}};
+80         1/1                      lat_tag   &lt;= {$clog2(N_BANKS){1'b0}};
+81         1/1                  end else if (capture_en) begin
+82         1/1                      lat_op    &lt;= bank_req_op;
+83         1/1                      lat_addr  &lt;= bank_req_addr;
+84         1/1                      lat_wdata &lt;= bank_req_wdata;
+85         1/1                      lat_wstrb &lt;= bank_req_wstrb;
+86         1/1                      lat_tag   &lt;= bank_req_tag;
+87                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod17.html" >request_capture_reg</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">16</td>
+<td class="rt">94.12 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">107</td>
+<td class="rt">107</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">107</td>
+<td class="rt">106</td>
+<td class="rt">99.07 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">93.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">210</td>
+<td class="rt">209</td>
+<td class="rt">99.52 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">105</td>
+<td class="rt">105</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">105</td>
+<td class="rt">104</td>
+<td class="rt">99.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lat_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lat_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod17.html" >request_capture_reg</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">75</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75                 if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+76                     lat_op    <= 1'b0;
+           <font color = "green">            ==></font>
+77                     lat_addr  <= {BANK_ADDR_WIDTH{1'b0}};
+78                     lat_wdata <= {AXI_DATA_WIDTH{1'b0}};
+79                     lat_wstrb <= {(AXI_DATA_WIDTH/8){1'b0}};
+80                     lat_tag   <= {$clog2(N_BANKS){1'b0}};
+81                 end else if (capture_en) begin
+                            <font color = "green">-2-</font>  
+82                     lat_op    <= bank_req_op;
+           <font color = "green">            ==></font>
+83                     lat_addr  <= bank_req_addr;
+84                     lat_wdata <= bank_req_wdata;
+85                     lat_wstrb <= bank_req_wstrb;
+86                     lat_tag   <= bank_req_tag;
+87                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_540'>
+<a name="inst_tag_540_Line"></a>
+<b>Line Coverage for Instance : <a href="mod17.html#inst_tag_540" >tb_top.dut.gen_bank[0].u_bank.u_capture</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>75</td><td>12</td><td>12</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+74                          always @(posedge clk) begin
+75         1/1                  if (!rst_n) begin
+76         1/1                      lat_op    &lt;= 1'b0;
+77         1/1                      lat_addr  &lt;= {BANK_ADDR_WIDTH{1'b0}};
+78         1/1                      lat_wdata &lt;= {AXI_DATA_WIDTH{1'b0}};
+79         1/1                      lat_wstrb &lt;= {(AXI_DATA_WIDTH/8){1'b0}};
+80         1/1                      lat_tag   &lt;= {$clog2(N_BANKS){1'b0}};
+81         1/1                  end else if (capture_en) begin
+82         1/1                      lat_op    &lt;= bank_req_op;
+83         1/1                      lat_addr  &lt;= bank_req_addr;
+84         1/1                      lat_wdata &lt;= bank_req_wdata;
+85         1/1                      lat_wstrb &lt;= bank_req_wstrb;
+86         1/1                      lat_tag   &lt;= bank_req_tag;
+87                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_540_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod17.html#inst_tag_540" >tb_top.dut.gen_bank[0].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">16</td>
+<td class="rt">94.12 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">107</td>
+<td class="rt">107</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">107</td>
+<td class="rt">106</td>
+<td class="rt">99.07 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">93.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">210</td>
+<td class="rt">209</td>
+<td class="rt">99.52 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">105</td>
+<td class="rt">105</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">105</td>
+<td class="rt">104</td>
+<td class="rt">99.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lat_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lat_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_540_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod17.html#inst_tag_540" >tb_top.dut.gen_bank[0].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">75</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75                 if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+76                     lat_op    <= 1'b0;
+           <font color = "green">            ==></font>
+77                     lat_addr  <= {BANK_ADDR_WIDTH{1'b0}};
+78                     lat_wdata <= {AXI_DATA_WIDTH{1'b0}};
+79                     lat_wstrb <= {(AXI_DATA_WIDTH/8){1'b0}};
+80                     lat_tag   <= {$clog2(N_BANKS){1'b0}};
+81                 end else if (capture_en) begin
+                            <font color = "green">-2-</font>  
+82                     lat_op    <= bank_req_op;
+           <font color = "green">            ==></font>
+83                     lat_addr  <= bank_req_addr;
+84                     lat_wdata <= bank_req_wdata;
+85                     lat_wstrb <= bank_req_wstrb;
+86                     lat_tag   <= bank_req_tag;
+87                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_541'>
+<a name="inst_tag_541_Line"></a>
+<b>Line Coverage for Instance : <a href="mod17.html#inst_tag_541" >tb_top.dut.gen_bank[1].u_bank.u_capture</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>75</td><td>12</td><td>12</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+74                          always @(posedge clk) begin
+75         1/1                  if (!rst_n) begin
+76         1/1                      lat_op    &lt;= 1'b0;
+77         1/1                      lat_addr  &lt;= {BANK_ADDR_WIDTH{1'b0}};
+78         1/1                      lat_wdata &lt;= {AXI_DATA_WIDTH{1'b0}};
+79         1/1                      lat_wstrb &lt;= {(AXI_DATA_WIDTH/8){1'b0}};
+80         1/1                      lat_tag   &lt;= {$clog2(N_BANKS){1'b0}};
+81         1/1                  end else if (capture_en) begin
+82         1/1                      lat_op    &lt;= bank_req_op;
+83         1/1                      lat_addr  &lt;= bank_req_addr;
+84         1/1                      lat_wdata &lt;= bank_req_wdata;
+85         1/1                      lat_wstrb &lt;= bank_req_wstrb;
+86         1/1                      lat_tag   &lt;= bank_req_tag;
+87                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_541_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod17.html#inst_tag_541" >tb_top.dut.gen_bank[1].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">16</td>
+<td class="rt">94.12 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">107</td>
+<td class="rt">107</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">107</td>
+<td class="rt">106</td>
+<td class="rt">99.07 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">93.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">210</td>
+<td class="rt">209</td>
+<td class="rt">99.52 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">105</td>
+<td class="rt">105</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">105</td>
+<td class="rt">104</td>
+<td class="rt">99.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lat_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lat_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_541_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod17.html#inst_tag_541" >tb_top.dut.gen_bank[1].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">75</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75                 if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+76                     lat_op    <= 1'b0;
+           <font color = "green">            ==></font>
+77                     lat_addr  <= {BANK_ADDR_WIDTH{1'b0}};
+78                     lat_wdata <= {AXI_DATA_WIDTH{1'b0}};
+79                     lat_wstrb <= {(AXI_DATA_WIDTH/8){1'b0}};
+80                     lat_tag   <= {$clog2(N_BANKS){1'b0}};
+81                 end else if (capture_en) begin
+                            <font color = "green">-2-</font>  
+82                     lat_op    <= bank_req_op;
+           <font color = "green">            ==></font>
+83                     lat_addr  <= bank_req_addr;
+84                     lat_wdata <= bank_req_wdata;
+85                     lat_wstrb <= bank_req_wstrb;
+86                     lat_tag   <= bank_req_tag;
+87                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_542'>
+<a name="inst_tag_542_Line"></a>
+<b>Line Coverage for Instance : <a href="mod17.html#inst_tag_542" >tb_top.dut.gen_bank[2].u_bank.u_capture</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>75</td><td>12</td><td>12</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+74                          always @(posedge clk) begin
+75         1/1                  if (!rst_n) begin
+76         1/1                      lat_op    &lt;= 1'b0;
+77         1/1                      lat_addr  &lt;= {BANK_ADDR_WIDTH{1'b0}};
+78         1/1                      lat_wdata &lt;= {AXI_DATA_WIDTH{1'b0}};
+79         1/1                      lat_wstrb &lt;= {(AXI_DATA_WIDTH/8){1'b0}};
+80         1/1                      lat_tag   &lt;= {$clog2(N_BANKS){1'b0}};
+81         1/1                  end else if (capture_en) begin
+82         1/1                      lat_op    &lt;= bank_req_op;
+83         1/1                      lat_addr  &lt;= bank_req_addr;
+84         1/1                      lat_wdata &lt;= bank_req_wdata;
+85         1/1                      lat_wstrb &lt;= bank_req_wstrb;
+86         1/1                      lat_tag   &lt;= bank_req_tag;
+87                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_542_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod17.html#inst_tag_542" >tb_top.dut.gen_bank[2].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">16</td>
+<td class="rt">94.12 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">107</td>
+<td class="rt">107</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">107</td>
+<td class="rt">106</td>
+<td class="rt">99.07 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">93.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">210</td>
+<td class="rt">209</td>
+<td class="rt">99.52 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">105</td>
+<td class="rt">105</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">105</td>
+<td class="rt">104</td>
+<td class="rt">99.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lat_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lat_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_542_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod17.html#inst_tag_542" >tb_top.dut.gen_bank[2].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">75</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75                 if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+76                     lat_op    <= 1'b0;
+           <font color = "green">            ==></font>
+77                     lat_addr  <= {BANK_ADDR_WIDTH{1'b0}};
+78                     lat_wdata <= {AXI_DATA_WIDTH{1'b0}};
+79                     lat_wstrb <= {(AXI_DATA_WIDTH/8){1'b0}};
+80                     lat_tag   <= {$clog2(N_BANKS){1'b0}};
+81                 end else if (capture_en) begin
+                            <font color = "green">-2-</font>  
+82                     lat_op    <= bank_req_op;
+           <font color = "green">            ==></font>
+83                     lat_addr  <= bank_req_addr;
+84                     lat_wdata <= bank_req_wdata;
+85                     lat_wstrb <= bank_req_wstrb;
+86                     lat_tag   <= bank_req_tag;
+87                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_543'>
+<a name="inst_tag_543_Line"></a>
+<b>Line Coverage for Instance : <a href="mod17.html#inst_tag_543" >tb_top.dut.gen_bank[3].u_bank.u_capture</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>75</td><td>12</td><td>12</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+74                          always @(posedge clk) begin
+75         1/1                  if (!rst_n) begin
+76         1/1                      lat_op    &lt;= 1'b0;
+77         1/1                      lat_addr  &lt;= {BANK_ADDR_WIDTH{1'b0}};
+78         1/1                      lat_wdata &lt;= {AXI_DATA_WIDTH{1'b0}};
+79         1/1                      lat_wstrb &lt;= {(AXI_DATA_WIDTH/8){1'b0}};
+80         1/1                      lat_tag   &lt;= {$clog2(N_BANKS){1'b0}};
+81         1/1                  end else if (capture_en) begin
+82         1/1                      lat_op    &lt;= bank_req_op;
+83         1/1                      lat_addr  &lt;= bank_req_addr;
+84         1/1                      lat_wdata &lt;= bank_req_wdata;
+85         1/1                      lat_wstrb &lt;= bank_req_wstrb;
+86         1/1                      lat_tag   &lt;= bank_req_tag;
+87                              end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_543_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod17.html#inst_tag_543" >tb_top.dut.gen_bank[3].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">16</td>
+<td class="rt">94.12 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">107</td>
+<td class="rt">107</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">107</td>
+<td class="rt">106</td>
+<td class="rt">99.07 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">93.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">210</td>
+<td class="rt">209</td>
+<td class="rt">99.52 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">105</td>
+<td class="rt">105</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">105</td>
+<td class="rt">104</td>
+<td class="rt">99.05 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lat_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lat_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lat_op</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_543_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod17.html#inst_tag_543" >tb_top.dut.gen_bank[3].u_bank.u_capture</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">75</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+75                 if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+76                     lat_op    <= 1'b0;
+           <font color = "green">            ==></font>
+77                     lat_addr  <= {BANK_ADDR_WIDTH{1'b0}};
+78                     lat_wdata <= {AXI_DATA_WIDTH{1'b0}};
+79                     lat_wstrb <= {(AXI_DATA_WIDTH/8){1'b0}};
+80                     lat_tag   <= {$clog2(N_BANKS){1'b0}};
+81                 end else if (capture_en) begin
+                            <font color = "green">-2-</font>  
+82                     lat_op    <= bank_req_op;
+           <font color = "green">            ==></font>
+83                     lat_addr  <= bank_req_addr;
+84                     lat_wdata <= bank_req_wdata;
+85                     lat_wstrb <= bank_req_wstrb;
+86                     lat_tag   <= bank_req_tag;
+87                 end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_540">
+    <li>
+      <a href="#inst_tag_540_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_540_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_540_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_541">
+    <li>
+      <a href="#inst_tag_541_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_541_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_541_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_542">
+    <li>
+      <a href="#inst_tag_542_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_542_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_542_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_543">
+    <li>
+      <a href="#inst_tag_543_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_543_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_543_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_request_capture_reg">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

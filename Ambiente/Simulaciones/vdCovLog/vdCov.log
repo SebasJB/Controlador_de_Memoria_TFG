@@ -1,0 +1,17 @@
+The design 'cov_n4_lat1.vdb' was loaded successfully.
+The following test is loaded from "cov_n4_lat1.vdb",
+    cov_n4_lat1/mem_full_test_CFG-A1
+Exclusion file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el' has been loaded successfully.
+Checksum conflicts are found: 
+    Modules with checksum mismatches  : 0
+    Instances with checksum mismatches: 0
+    Un-mappable modules: 0
+    Un-mappable instances: 12
+    Total un-mappable exclusions: 60
+    Total exclusions need to review: 60   .
+[DVCEX032] 
+No new exclusions were added to the exclusion file /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el.
+[DVCEX032] 
+No new exclusions were added to the exclusion file /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el.
+[DVCEX032] 
+No new exclusions were added to the exclusion file /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el.

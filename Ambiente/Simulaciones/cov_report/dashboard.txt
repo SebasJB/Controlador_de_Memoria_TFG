@@ -1,0 +1,38 @@
+Dashboard
+
+Date: Mon Jun  8 08:36:56 2026
+
+User: BarrantesPerez_Veri_II_25
+
+Version: R-2020.12-SP2
+Command line: urg -dir /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat4.vdb -dbname /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_merged -report /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_report -format both -log /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/urg_merge.log
+Number of tests: 9
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT GROUP  
+ 56.18  19.79  57.14  57.44  71.43  15.98  91.67  79.80 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                               
+  0.00   0.00   0.00   0.00 --       0.00 --     fifo_flops                         
+ 27.78  50.00 --       0.00 --      33.33 --     prll_d_ltch                        
+ 33.33  50.00 --       0.00 --      50.00 --     prll_d_ltch_no_rst                 
+ 89.96  97.27 100.00  87.04  71.43  92.35  91.67 tb_top                             
+ 30.91  31.82 --     --     --      30.00 --     uvm_custom_install_recording       
+  7.71   5.12 --       0.00 --      18.00 --     uvm_custom_install_verdi_recording 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 56.37  30.83  33.33  76.04  71.43  43.26  83.33 
+
+
+-------------------------------------------------------------------------------
+Total Groups Coverage Summary 
+SCORE  INST SCORE WEIGHT 
+ 79.80  79.80     1      
+

@@ -1,0 +1,53 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 88.24  98.37 100.00  81.97  71.43  94.34  83.33 
+
+
+Total modules in report: 42
+-------------------------------------------------------------------------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                     
+ 54.84 --     --      54.84 --     --     --     byte_offset_remover      
+ 54.84 --     --      54.84 --     --     --     range_checker            
+ 57.97 --     --      57.97 --     --     --     rd_request_formatter     
+ 58.82 --     --      58.82 --     --     --     bank_selector            
+ 64.10 --     --      64.10 --     --     --     addr_decoder             
+ 65.85 --     --      65.85 --     --     --     local_addr_gen           
+ 66.67 --     --      66.67 --     --     --     b_channel_logic          
+ 73.97 --     --      73.97 --     --     --     mem_handler_top          
+ 74.47 --     --      74.47 --     --     --     axi4_lite_front_end      
+ 75.00 --     --     --     --     --      75.00 rd_response_path_sva     
+ 77.27 --     --      77.27 --     --     --     wr_response_path         
+ 78.83 --     --      78.83 --     --     --     wr_request_formatter     
+ 79.43 --     --      79.43 --     --     --     wr_request_assembler     
+ 81.94 100.00 --      45.83 --     100.00 --     error_counter            
+ 82.40 --     --      82.40 --     --     --     scheduler                
+ 85.60  93.55 --      96.15  71.43  81.25 --     bank_fsm                 
+ 85.71 --     --      85.71 --     --     --     wdata_wstrb_broadcast    
+ 86.62 100.00 --      59.86 --     100.00 --     aw_capture_reg           
+ 93.75 100.00 --      81.25 --     100.00 --     latency_counter          
+ 97.14 --     --      97.14 --     --     --     r_channel_logic          
+ 97.77 --     --      97.77 --     --     --     rd_response_path         
+ 98.81 100.00 --      96.43 --     100.00 --     pending_counter          
+ 99.02 100.00 --      97.06 --     100.00 --     read_tag_generator       
+ 99.65 100.00 --      98.96 --     100.00 --     reorder_buffer           
+ 99.78 --     --      99.78 --     --     --     sram_bank_controller     
+ 99.79 100.00 --      99.37 --     100.00 --     w_capture_reg            
+ 99.85 100.00 --      99.55 --     100.00 --     request_capture_reg      
+100.00 --     --     100.00 --     --     --     wr_write_check_logic     
+100.00 --     --     100.00 --     --     --     rd_req_valid_check       
+100.00 --     100.00 100.00 --     --     --     aw_ready_ctrl            
+100.00 --     --     100.00 --     --     --     priority_resolver        
+100.00 --     --     100.00 --     --     --     bank_conflict_check      
+100.00 --     --     100.00 --     --     --     wr_resp_collector        
+100.00 --     --     100.00 --     --     --     rd_resp_assembler        
+100.00 --     100.00 100.00 --     --     --     w_ready_ctrl             
+100.00 100.00 --     100.00 --     --     --     unified_dispatch_logic   
+100.00 --     --     --     --     --     100.00 sram_bank_controller_sva 
+100.00 --     --     100.00 --     --     --     sram_drive_logic         
+100.00 --     --     100.00 --     --     --     wr_req_valid_check       
+100.00 --     --     100.00 --     --     --     bank_availability_check  
+100.00 --     --     100.00 --     --     --     fifo_pop_control         
+--     --     --     --     --     --     --     tb_top(X)                
+

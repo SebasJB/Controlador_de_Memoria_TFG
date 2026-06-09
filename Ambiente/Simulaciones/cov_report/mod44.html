@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: mem_handler_top</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_mem_handler_top'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_mem_handler_top')">mem_handler_top</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod44.html#Toggle" > 70.55</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/mem_handler_top.sv')">/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/mem_handler_top.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod44.html#inst_tag_596"  onclick="showContent('inst_tag_596')">tb_top.dut</a></td>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod44.html#Toggle" > 70.55</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_mem_handler_top'>
+<hr>
+<a name="inst_tag_596"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_596" >tb_top.dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod44.html#Toggle" > 70.55</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.22</td>
+<td class="s9 cl rt"> 97.84</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 87.56</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s9 cl rt"> 92.86</td>
+<td class="s9 cl rt"> 91.67</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 71.97</td>
+<td class="s9 cl rt"> 90.91</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod30.html#inst_tag_557" >tb_top</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_16" id="tag_urg_inst_16">gen_bank[0].u_bank</a></td>
+<td class="s9 cl rt"> 90.92</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.76</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_17" id="tag_urg_inst_17">gen_bank[1].u_bank</a></td>
+<td class="s9 cl rt"> 90.92</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.76</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_18" id="tag_urg_inst_18">gen_bank[2].u_bank</a></td>
+<td class="s9 cl rt"> 90.92</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.76</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_19" id="tag_urg_inst_19">gen_bank[3].u_bank</a></td>
+<td class="s9 cl rt"> 90.92</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.76</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod6.html#inst_tag_8" id="tag_urg_inst_8">gen_sram[0].u_sram</a></td>
+<td class="s9 cl rt"> 99.92</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 99.69</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod6.html#inst_tag_9" id="tag_urg_inst_9">gen_sram[1].u_sram</a></td>
+<td class="s9 cl rt"> 99.92</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 99.69</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod6.html#inst_tag_10" id="tag_urg_inst_10">gen_sram[2].u_sram</a></td>
+<td class="s9 cl rt"> 99.92</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 99.69</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod6.html#inst_tag_11" id="tag_urg_inst_11">gen_sram[3].u_sram</a></td>
+<td class="s9 cl rt"> 99.92</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 99.69</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod22.html#inst_tag_548" id="tag_urg_inst_548">u_axi_front_end</a></td>
+<td class="s9 cl rt"> 93.94</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.77</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_550" id="tag_urg_inst_550">u_rd_addr_decoder</a></td>
+<td class="s5 cl rt"> 57.02</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 57.02</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_5" id="tag_urg_inst_5">u_rd_req_fifo</a></td>
+<td class="s9 cl rt"> 91.43</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 65.73</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod62.html#inst_tag_681" id="tag_urg_inst_681">u_rd_response_path</a></td>
+<td class="s9 cl rt"> 94.58</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 97.90</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod5.html#inst_tag_7" id="tag_urg_inst_7">u_scheduler</a></td>
+<td class="s9 cl rt"> 93.56</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 80.68</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod23.html#inst_tag_549" id="tag_urg_inst_549">u_wr_addr_decoder</a></td>
+<td class="s5 cl rt"> 57.02</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 57.02</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_4" id="tag_urg_inst_4">u_wr_req_fifo</a></td>
+<td class="s9 cl rt"> 95.26</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.06</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod3.html#inst_tag_3" id="tag_urg_inst_3">u_wr_response_path</a></td>
+<td class="s9 cl rt"> 95.61</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 86.84</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_mem_handler_top'>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod44.html" >mem_handler_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">48</td>
+<td class="rt">35</td>
+<td class="rt">72.92 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">1056</td>
+<td class="rt">745</td>
+<td class="rt">70.55 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">528</td>
+<td class="rt">374</td>
+<td class="rt">70.83 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">528</td>
+<td class="rt">371</td>
+<td class="rt">70.27 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">21</td>
+<td class="rt">14</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s6">
+<td>Port Bits</td>
+<td class="rt">360</td>
+<td class="rt">249</td>
+<td class="rt">69.17 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">180</td>
+<td class="rt">126</td>
+<td class="rt">70.00 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">180</td>
+<td class="rt">123</td>
+<td class="rt">68.33 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">27</td>
+<td class="rt">21</td>
+<td class="rt">77.78 </td>
+</tr><tr class="s7">
+<td>Signal Bits</td>
+<td class="rt">696</td>
+<td class="rt">496</td>
+<td class="rt">71.26 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">348</td>
+<td class="rt">248</td>
+<td class="rt">71.26 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">348</td>
+<td class="rt">248</td>
+<td class="rt">71.26 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_awaddr[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awaddr[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_bvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_bresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_bready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_arvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_arready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_araddr[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_araddr[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wr_err_cnt[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_err_cnt[6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_err_cnt[15:7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_err_cnt[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_err_cnt[6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_err_cnt[15:7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wr_req_data[51:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_req_data[68:52]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_req_data_out[51:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_req_data_out[68:52]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_req_data[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_data[32:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_req_data_out[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_data_out[32:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_req_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_req_pop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_req_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_req_pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_pop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_req_pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_addr[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_addr[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_bank_id[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_bank_word_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_addr_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_addr[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_addr[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_bank_id[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_bank_word_addr[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_addr_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>bank_req_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>bank_req_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>bank_req_tag[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_ptr_ext[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rob_tag_free</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_resp_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dispatch_w</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_596">
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+  <ul name="tag_mem_handler_top">
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

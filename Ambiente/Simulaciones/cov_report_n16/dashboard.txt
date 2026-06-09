@@ -1,0 +1,34 @@
+Dashboard
+
+Date: Tue Jun  9 00:36:39 2026
+
+User: BarrantesPerez_Veri_II_25
+
+Version: R-2020.12-SP2
+Command line: urg -dir cov_n16_lat1.vdb cov_n16_lat4.vdb -dbname cov_merged_n16 -report cov_report_n16 -format text -elfile /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el -flex_merge union 
+
+Number of tests: 2
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT GROUP  
+ 96.27  96.68 100.00  96.45 100.00  91.35 100.00  89.42 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME      
+ 97.41  96.68 100.00  96.45 100.00  91.35 100.00 tb_top(X) 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 88.24  98.37 100.00  81.97  71.43  94.34  83.33 
+
+
+-------------------------------------------------------------------------------
+Total Groups Coverage Summary 
+SCORE  INST SCORE WEIGHT 
+ 89.42  89.42     1      
+

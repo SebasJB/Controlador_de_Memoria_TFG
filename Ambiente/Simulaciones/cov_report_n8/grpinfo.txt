@@ -1,0 +1,1046 @@
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state
+
+===============================================================================
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 53.75  53.75    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                        
+ 53.75 1      100    1        64           64            tb_top.me.obj.cg_bank_state 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 26       11        15      53.75   
+
+
+Variables for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state
+
+
+VARIABLE      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_busy_count 12       3         9       75.00   100  1      1        0                    
+cp_rd_fifo    5        4         1       20.00   100  1      1        0                    
+cp_state      4        0         4       100.00  100  1      1        0                    
+cp_wr_fifo    5        4         1       20.00   100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_busy_count
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 12       3         9       75.00   
+
+
+User Defined Bins for cp_busy_count
+
+
+Uncovered bins
+
+NAME   COUNT AT LEAST NUMBER STATUS 
+all    0     1        1             
+three  0     1        1             
+high_7 0     1        1             
+
+
+Covered bins
+
+NAME   COUNT AT LEAST STATUS 
+two    10    1               
+one    40    1               
+zero   27634 1               
+high_5 134   1               
+high_6 8     1               
+low_1  26614 1               
+low_2  13277 1               
+low_3  3414  1               
+low_4  768   1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_rd_fifo
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        4         1       20.00   
+
+
+User Defined Bins for cp_rd_fifo
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER STATUS 
+full 0     1        1             
+q3   0     1        1             
+q2   0     1        1             
+q1   0     1        1             
+
+
+Covered bins
+
+NAME  COUNT AT LEAST STATUS 
+empty 2074  1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_state
+
+
+Bins
+
+NAME     COUNT AT LEAST STATUS 
+complete 2305  1               
+wait_st  3854  1               
+issue    2361  1               
+idle     61305 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wr_fifo
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        4         1       20.00   
+
+
+User Defined Bins for cp_wr_fifo
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER STATUS 
+full 0     1        1             
+q3   0     1        1             
+q2   0     1        1             
+q1   0     1        1             
+
+
+Covered bins
+
+NAME  COUNT AT LEAST STATUS 
+empty 2074  1               
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : tb_top.me.obj.cg_bank_state
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 53.75 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                                              
+ 53.75  53.75    1      100    1        1            64           64                    mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   tb_top.me.obj.cg_bank_state
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 26       11        15      53.75   
+
+
+Variables for Group Instance  tb_top.me.obj.cg_bank_state
+
+
+VARIABLE      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_busy_count 12       3         9       75.00   100  1      1        0                    
+cp_rd_fifo    5        4         1       20.00   100  1      1        0                    
+cp_state      4        0         4       100.00  100  1      1        0                    
+cp_wr_fifo    5        4         1       20.00   100  1      1        0                    
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_busy_count
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 12       3         9       75.00   
+
+
+User Defined Bins for cp_busy_count
+
+
+Uncovered bins
+
+NAME   COUNT AT LEAST NUMBER STATUS 
+all    0     1        1             
+three  0     1        1             
+high_7 0     1        1             
+
+
+Covered bins
+
+NAME   COUNT AT LEAST STATUS 
+two    10    1               
+one    40    1               
+zero   27634 1               
+high_5 134   1               
+high_6 8     1               
+low_1  26614 1               
+low_2  13277 1               
+low_3  3414  1               
+low_4  768   1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_rd_fifo
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        4         1       20.00   
+
+
+User Defined Bins for cp_rd_fifo
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER STATUS 
+full 0     1        1             
+q3   0     1        1             
+q2   0     1        1             
+q1   0     1        1             
+
+
+Covered bins
+
+NAME  COUNT AT LEAST STATUS 
+empty 2074  1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_state
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_state
+
+
+Bins
+
+NAME     COUNT AT LEAST STATUS 
+complete 2305  1               
+wait_st  3854  1               
+issue    2361  1               
+idle     61305 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wr_fifo
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        4         1       20.00   
+
+
+User Defined Bins for cp_wr_fifo
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER STATUS 
+full 0     1        1             
+q3   0     1        1             
+q2   0     1        1             
+q1   0     1        1             
+
+
+Covered bins
+
+NAME  COUNT AT LEAST STATUS 
+empty 2074  1               
+
+
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
+
+===============================================================================
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 96.00  96.00    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                         
+ 96.00 1      100    1        64           64            tb_top.me.obj.cg_transaction 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       1         24      95.00   
+Crosses   16       0         16      100.00  
+
+
+Variables for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
+
+
+VARIABLE  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_bank   8        0         8       100.00  100  1      1        0                    
+cp_op     2        0         2       100.00  100  1      1        0                    
+cp_region 5        1         4       80.00   100  1      1        0                    
+cp_wstrb  10       0         10      100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
+
+
+CROSS      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_op_bank 16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bank
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for cp_bank
+
+
+Bins
+
+NAME COUNT AT LEAST STATUS 
+b_0  2372  1               
+b_1  2451  1               
+b_2  2515  1               
+b_3  2540  1               
+b_4  2521  1               
+b_5  2605  1               
+b_6  2390  1               
+b_7  2586  1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_op
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_op
+
+
+Bins
+
+NAME  COUNT AT LEAST STATUS 
+read  8865  1               
+write 11115 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        1         4       80.00   
+
+
+User Defined Bins for cp_region
+
+
+Uncovered bins
+
+NAME    COUNT AT LEAST NUMBER STATUS 
+invalid 0     1        1             
+
+
+Covered bins
+
+NAME     COUNT AT LEAST STATUS 
+high     1377  1               
+mid_high 1356  1               
+mid_low  1266  1               
+low      15981 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wstrb
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 10       0         10      100.00  
+
+
+User Defined Bins for cp_wstrb
+
+
+Bins
+
+NAME        COUNT AT LEAST STATUS 
+no_bytes    8865  1               
+full_word   9615  1               
+three_bytes 276   1               
+half_inter  291   1               
+half_high   141   1               
+half_low    213   1               
+byte3       156   1               
+byte2       135   1               
+byte1       141   1               
+byte0       147   1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_op_bank
+
+
+Samples crossed: cp_op cp_bank
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for cr_op_bank
+
+
+Bins
+
+cp_op cp_bank COUNT AT LEAST STATUS 
+read  b_0     1094  1               
+read  b_1     1092  1               
+read  b_2     1116  1               
+read  b_3     1110  1               
+read  b_4     1127  1               
+read  b_5     1095  1               
+read  b_6     1107  1               
+read  b_7     1124  1               
+write b_0     1278  1               
+write b_1     1359  1               
+write b_2     1399  1               
+write b_3     1430  1               
+write b_4     1394  1               
+write b_5     1510  1               
+write b_6     1283  1               
+write b_7     1462  1               
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : tb_top.me.obj.cg_transaction
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 96.00 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                                               
+ 96.00  96.00    1      100    1        1            64           64                    mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   tb_top.me.obj.cg_transaction
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 25       1         24      95.00   
+Crosses   16       0         16      100.00  
+
+
+Variables for Group Instance  tb_top.me.obj.cg_transaction
+
+
+VARIABLE  EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_bank   8        0         8       100.00  100  1      1        0                    
+cp_op     2        0         2       100.00  100  1      1        0                    
+cp_region 5        1         4       80.00   100  1      1        0                    
+cp_wstrb  10       0         10      100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  tb_top.me.obj.cg_transaction
+
+
+CROSS      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_op_bank 16       0         16      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bank
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 8        0         8       100.00  
+
+
+User Defined Bins for cp_bank
+
+
+Bins
+
+NAME COUNT AT LEAST STATUS 
+b_0  2372  1               
+b_1  2451  1               
+b_2  2515  1               
+b_3  2540  1               
+b_4  2521  1               
+b_5  2605  1               
+b_6  2390  1               
+b_7  2586  1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_op
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_op
+
+
+Bins
+
+NAME  COUNT AT LEAST STATUS 
+read  8865  1               
+write 11115 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_region
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        1         4       80.00   
+
+
+User Defined Bins for cp_region
+
+
+Uncovered bins
+
+NAME    COUNT AT LEAST NUMBER STATUS 
+invalid 0     1        1             
+
+
+Covered bins
+
+NAME     COUNT AT LEAST STATUS 
+high     1377  1               
+mid_high 1356  1               
+mid_low  1266  1               
+low      15981 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_wstrb
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 10       0         10      100.00  
+
+
+User Defined Bins for cp_wstrb
+
+
+Bins
+
+NAME        COUNT AT LEAST STATUS 
+no_bytes    8865  1               
+full_word   9615  1               
+three_bytes 276   1               
+half_inter  291   1               
+half_high   141   1               
+half_low    213   1               
+byte3       156   1               
+byte2       135   1               
+byte1       141   1               
+byte0       147   1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_op_bank
+
+
+Samples crossed: cp_op cp_bank
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 16       0         16      100.00          
+
+
+Automatically Generated Cross Bins for cr_op_bank
+
+
+Bins
+
+cp_op cp_bank COUNT AT LEAST STATUS 
+read  b_0     1094  1               
+read  b_1     1092  1               
+read  b_2     1116  1               
+read  b_3     1110  1               
+read  b_4     1127  1               
+read  b_5     1095  1               
+read  b_6     1107  1               
+read  b_7     1124  1               
+write b_0     1278  1               
+write b_1     1359  1               
+write b_2     1399  1               
+write b_3     1430  1               
+write b_4     1394  1               
+write b_5     1510  1               
+write b_6     1283  1               
+write b_7     1462  1               
+
+
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
+
+===============================================================================
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 98.72  98.72    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                         
+ 98.72 1      100    1        64           64            tb_top.me.obj.cg_arbitration 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       0         17      100.00  
+Crosses   13       1         12      92.31   
+
+
+Variables for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_bp_b     2        0         2       100.00  100  1      1        2                    
+cp_bp_rob   2        0         2       100.00  100  1      1        0                    
+cp_conflict 5        0         5       100.00  100  1      1        0                    
+cp_discard  4        0         4       100.00  100  1      1        0                    
+cp_grant    4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_b
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for cp_bp_b
+
+
+Bins
+
+NAME    COUNT AT LEAST STATUS 
+auto[0] 53687 1               
+auto[1] 18212 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_rob
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_bp_rob
+
+
+Bins
+
+NAME COUNT AT LEAST STATUS 
+busy 8790  1               
+free 63109 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_conflict
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for cp_conflict
+
+
+Bins
+
+NAME       COUNT AT LEAST STATUS 
+both_same  4093  1               
+both_diff  14153 1               
+only_rd    17397 1               
+only_wr    15889 1               
+no_pending 20367 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_discard
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_discard
+
+
+Bins
+
+NAME       COUNT AT LEAST STATUS 
+both       6     1               
+rd_discard 294   1               
+wr_discard 294   1               
+none       71305 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_grant
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_grant
+
+
+Bins
+
+NAME    COUNT AT LEAST STATUS 
+both    1609  1               
+rd_only 6956  1               
+wr_only 9206  1               
+idle    54128 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_grant_conflict
+
+
+Samples crossed: cp_grant cp_conflict
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              13       1         12      92.31   1       
+Automatically Generated Cross Bins 13       1         12      92.31   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for cr_grant_conflict
+
+
+Uncovered bins
+
+cp_grant cp_conflict COUNT AT LEAST NUMBER STATUS 
+[both]   [both_same] 0     1        1             
+
+
+Covered bins
+
+cp_grant cp_conflict COUNT AT LEAST STATUS 
+both     both_diff   1609  1               
+rd_only  both_same   85    1               
+rd_only  both_diff   1113  1               
+rd_only  only_rd     5758  1               
+wr_only  both_same   1132  1               
+wr_only  both_diff   3513  1               
+wr_only  only_wr     4561  1               
+idle     both_same   2876  1               
+idle     both_diff   7918  1               
+idle     only_rd     11639 1               
+idle     only_wr     11328 1               
+idle     no_pending  20367 1               
+
+
+User Defined Cross Bins for cr_grant_conflict
+
+
+Excluded/Illegal bins
+
+NAME                COUNT STATUS   
+no_pndg_grant       0     Excluded 
+rd_only_no_rd_grant 0     Excluded 
+wr_only_no_wr_grant 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : tb_top.me.obj.cg_arbitration
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 98.72 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                                               
+ 98.72  98.72    1      100    1        1            64           64                    mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   tb_top.me.obj.cg_arbitration
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       0         17      100.00  
+Crosses   13       1         12      92.31   
+
+
+Variables for Group Instance  tb_top.me.obj.cg_arbitration
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_bp_b     2        0         2       100.00  100  1      1        2                    
+cp_bp_rob   2        0         2       100.00  100  1      1        0                    
+cp_conflict 5        0         5       100.00  100  1      1        0                    
+cp_discard  4        0         4       100.00  100  1      1        0                    
+cp_grant    4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  tb_top.me.obj.cg_arbitration
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_b
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for cp_bp_b
+
+
+Bins
+
+NAME    COUNT AT LEAST STATUS 
+auto[0] 53687 1               
+auto[1] 18212 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_rob
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_bp_rob
+
+
+Bins
+
+NAME COUNT AT LEAST STATUS 
+busy 8790  1               
+free 63109 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_conflict
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for cp_conflict
+
+
+Bins
+
+NAME       COUNT AT LEAST STATUS 
+both_same  4093  1               
+both_diff  14153 1               
+only_rd    17397 1               
+only_wr    15889 1               
+no_pending 20367 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_discard
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_discard
+
+
+Bins
+
+NAME       COUNT AT LEAST STATUS 
+both       6     1               
+rd_discard 294   1               
+wr_discard 294   1               
+none       71305 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_grant
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_grant
+
+
+Bins
+
+NAME    COUNT AT LEAST STATUS 
+both    1609  1               
+rd_only 6956  1               
+wr_only 9206  1               
+idle    54128 1               
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_grant_conflict
+
+
+Samples crossed: cp_grant cp_conflict
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              13       1         12      92.31   1       
+Automatically Generated Cross Bins 13       1         12      92.31   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for cr_grant_conflict
+
+
+Uncovered bins
+
+cp_grant cp_conflict COUNT AT LEAST NUMBER STATUS 
+[both]   [both_same] 0     1        1             
+
+
+Covered bins
+
+cp_grant cp_conflict COUNT AT LEAST STATUS 
+both     both_diff   1609  1               
+rd_only  both_same   85    1               
+rd_only  both_diff   1113  1               
+rd_only  only_rd     5758  1               
+wr_only  both_same   1132  1               
+wr_only  both_diff   3513  1               
+wr_only  only_wr     4561  1               
+idle     both_same   2876  1               
+idle     both_diff   7918  1               
+idle     only_rd     11639 1               
+idle     only_wr     11328 1               
+idle     no_pending  20367 1               
+
+
+User Defined Cross Bins for cr_grant_conflict
+
+
+Excluded/Illegal bins
+
+NAME                COUNT STATUS   
+no_pndg_grant       0     Excluded 
+rd_only_no_rd_grant 0     Excluded 
+wr_only_no_wr_grant 0     Excluded 
+
+

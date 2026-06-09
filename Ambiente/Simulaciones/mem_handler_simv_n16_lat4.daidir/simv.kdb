@@ -1,0 +1,18 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones
+VCS_HOME=/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2
+VERDI_HOME=/mnt/vol_NFS_rh003/tools/verdi/R-2020.12-SP2
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+TOP=uvm_custom_install_recording uvm_custom_install_verdi_recording prll_d_ltch_no_rst prll_d_ltch fifo_flops tb_top 
+OPTION=-ssz -ssv -ssy 
+ELAB_OPTION=-ssz -ssv -ssy 
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a

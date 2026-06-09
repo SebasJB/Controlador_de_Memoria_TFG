@@ -1,0 +1,7 @@
+{"vcs1":{"timestamp_begin":1780928531.817551498, "rt":29.20, "ut":26.85, "st":0.76}}
+{"vcselab":{"timestamp_begin":1780928561.202417327, "rt":1.25, "ut":0.73, "st":0.19}}
+Command terminated by signal 2
+{"link":{"timestamp_begin":1780928562.619645236, "rt":0.54, "ut":0.09, "st":0.21}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1780928530.092763502}
+{"VCS_COMP_START_TIME": 1780928530.092763502}
+{"VCS_COMP_END_TIME": 1780928565.032039822}

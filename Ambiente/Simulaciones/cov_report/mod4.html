@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: fifo_generic</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_fifo_generic'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_fifo_generic')">fifo_generic</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.52</td>
+<td class="s10 cl rt"><a href="mod4.html#Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#Cond" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod4.html#Toggle" > 82.07</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/fifo.sv')">/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/fifo.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_5"  onclick="showContent('inst_tag_5')">tb_top.dut.u_rd_req_fifo</a></td>
+<td class="s9 cl rt"> 91.43</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Cond" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod4.html#inst_tag_5_Toggle" > 65.73</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_4"  onclick="showContent('inst_tag_4')">tb_top.dut.u_wr_req_fifo</a></td>
+<td class="s9 cl rt"> 95.26</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Cond" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod4.html#inst_tag_4_Toggle" > 81.06</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_6"  onclick="showContent('inst_tag_6')">tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></td>
+<td class="s9 cl rt"> 99.86</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Cond" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_6_Toggle" > 99.43</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_5'>
+<hr>
+<a name="inst_tag_5"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_5" >tb_top.dut.u_rd_req_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 91.43</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Cond" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod4.html#inst_tag_5_Toggle" > 65.73</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_5_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 91.43</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 65.73</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod44.html#inst_tag_596" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_4'>
+<hr>
+<a name="inst_tag_4"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4" >tb_top.dut.u_wr_req_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.26</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Cond" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod4.html#inst_tag_4_Toggle" > 81.06</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_4_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.26</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.06</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 70.55</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod44.html#inst_tag_596" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_6'>
+<hr>
+<a name="inst_tag_6"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_6" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.86</td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Line" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Cond" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod4.html#inst_tag_6_Toggle" > 99.43</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod4.html#inst_tag_6_Branch" >100.00</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 99.86</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 99.43</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 97.73</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 97.73</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod62.html#inst_tag_681" >u_rd_response_path</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_fifo_generic'>
+<a name="Line"></a>
+Line Coverage for Module : <a name="1979909476"></a>
+<a href="mod4.html" >fifo_generic</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>210</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>221</td><td>7</td><td>7</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+209                       always_comb begin
+210        1/1              wrPtrNext = wrPtr;
+211        1/1              rdPtrNext = rdPtr;
+212        1/1              if (writeEn) begin
+213        1/1                wrPtrNext = wrPtr + 1;
+214                         end
+                        MISSING_ELSE
+215        1/1              if (readEn) begin
+216        1/1                rdPtrNext = rdPtr + 1;
+217                         end
+                        MISSING_ELSE
+218                       end
+219                     
+220                       always_ff @(posedge clk or posedge rst) begin
+221        1/1              if (rst) begin
+222        1/1                wrPtr &lt;= '0;
+223        1/1                rdPtr &lt;= '0;
+224                         end else begin
+225        1/1                wrPtr &lt;= wrPtrNext;
+226        1/1                rdPtr &lt;= rdPtrNext;
+227                         end
+228        1/1              if (writeEn) begin
+229        1/1                mem[wrPtr[PtrWidth-1:0]] &lt;= writeData;
+230                         end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a name="1979909476"></a>
+<a href="mod4.html" >fifo_generic</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       235
+ EXPRESSION ((wrPtr[PtrWidth] == rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       236
+ EXPRESSION ((wrPtr[PtrWidth] != rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1692233066"></a>
+<a href="mod4.html" >fifo_generic ( parameter DataWidth=69,Depth=8 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 95.26</td>
+<td class="s8 cl rt"> 81.06</td>
+</tr></table>
+<span class=inst><a href="mod4.html#inst_tag_4_Toggle" >tb_top.dut.u_wr_req_fifo</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">322</td>
+<td class="rt">261</td>
+<td class="rt">81.06 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">161</td>
+<td class="rt">130</td>
+<td class="rt">80.75 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">161</td>
+<td class="rt">131</td>
+<td class="rt">81.37 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">5</td>
+<td class="rt">62.50 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">288</td>
+<td class="rt">227</td>
+<td class="rt">78.82 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">113</td>
+<td class="rt">78.47 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">114</td>
+<td class="rt">79.17 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[53:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[68:54]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[53:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>readData[68:54]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1842294969"></a>
+<a href="mod4.html" >fifo_generic ( parameter DataWidth=33,Depth=8 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 91.43</td>
+<td class="s6 cl rt"> 65.73</td>
+</tr></table>
+<span class=inst><a href="mod4.html#inst_tag_5_Toggle" >tb_top.dut.u_rd_req_fifo</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">178</td>
+<td class="rt">117</td>
+<td class="rt">65.73 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">89</td>
+<td class="rt">58</td>
+<td class="rt">65.17 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">89</td>
+<td class="rt">59</td>
+<td class="rt">66.29 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">5</td>
+<td class="rt">62.50 </td>
+</tr><tr class="s5">
+<td>Port Bits</td>
+<td class="rt">144</td>
+<td class="rt">83</td>
+<td class="rt">57.64 </td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">72</td>
+<td class="rt">41</td>
+<td class="rt">56.94 </td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">72</td>
+<td class="rt">42</td>
+<td class="rt">58.33 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[32:18]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>readData[32:18]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="2122906566"></a>
+<a href="mod4.html" >fifo_generic ( parameter DataWidth=32,Depth=8 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 99.86</td>
+<td class="s9 cl rt"> 99.43</td>
+</tr></table>
+<span class=inst><a href="mod4.html#inst_tag_6_Toggle" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">174</td>
+<td class="rt">173</td>
+<td class="rt">99.43 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">87</td>
+<td class="rt">86</td>
+<td class="rt">98.85 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">87</td>
+<td class="rt">87</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">140</td>
+<td class="rt">139</td>
+<td class="rt">99.29 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">70</td>
+<td class="rt">69</td>
+<td class="rt">98.57 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">70</td>
+<td class="rt">70</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a name="1979909476"></a>
+<a href="mod4.html" >fifo_generic</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">212</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">215</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">221</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">228</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+212            if (writeEn) begin
+               <font color = "green">-1-</font>  
+213              wrPtrNext = wrPtr + 1;
+           <font color = "green">      ==></font>
+214            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+215            if (readEn) begin
+               <font color = "green">-1-</font>  
+216              rdPtrNext = rdPtr + 1;
+           <font color = "green">      ==></font>
+217            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+221            if (rst) begin
+               <font color = "green">-1-</font>  
+222              wrPtr <= '0;
+           <font color = "green">      ==></font>
+223              rdPtr <= '0;
+224            end else begin
+225              wrPtr <= wrPtrNext;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+228            if (writeEn) begin
+               <font color = "green">-1-</font>  
+229              mem[wrPtr[PtrWidth-1:0]] <= writeData;
+           <font color = "green">      ==></font>
+230            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_5'>
+<a name="inst_tag_5_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_5" >tb_top.dut.u_rd_req_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>210</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>221</td><td>7</td><td>7</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+209                       always_comb begin
+210        1/1              wrPtrNext = wrPtr;
+211        1/1              rdPtrNext = rdPtr;
+212        1/1              if (writeEn) begin
+213        1/1                wrPtrNext = wrPtr + 1;
+214                         end
+                        MISSING_ELSE
+215        1/1              if (readEn) begin
+216        1/1                rdPtrNext = rdPtr + 1;
+217                         end
+                        MISSING_ELSE
+218                       end
+219                     
+220                       always_ff @(posedge clk or posedge rst) begin
+221        1/1              if (rst) begin
+222        1/1                wrPtr &lt;= '0;
+223        1/1                rdPtr &lt;= '0;
+224                         end else begin
+225        1/1                wrPtr &lt;= wrPtrNext;
+226        1/1                rdPtr &lt;= rdPtrNext;
+227                         end
+228        1/1              if (writeEn) begin
+229        1/1                mem[wrPtr[PtrWidth-1:0]] &lt;= writeData;
+230                         end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_5_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_5" >tb_top.dut.u_rd_req_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       235
+ EXPRESSION ((wrPtr[PtrWidth] == rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       236
+ EXPRESSION ((wrPtr[PtrWidth] != rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_5_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod4.html#inst_tag_5" >tb_top.dut.u_rd_req_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">178</td>
+<td class="rt">117</td>
+<td class="rt">65.73 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">89</td>
+<td class="rt">58</td>
+<td class="rt">65.17 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">89</td>
+<td class="rt">59</td>
+<td class="rt">66.29 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">5</td>
+<td class="rt">62.50 </td>
+</tr><tr class="s5">
+<td>Port Bits</td>
+<td class="rt">144</td>
+<td class="rt">83</td>
+<td class="rt">57.64 </td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">72</td>
+<td class="rt">41</td>
+<td class="rt">56.94 </td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">72</td>
+<td class="rt">42</td>
+<td class="rt">58.33 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[32:18]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>readData[32:18]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_5_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_5" >tb_top.dut.u_rd_req_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">212</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">215</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">221</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">228</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+212            if (writeEn) begin
+               <font color = "green">-1-</font>  
+213              wrPtrNext = wrPtr + 1;
+           <font color = "green">      ==></font>
+214            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+215            if (readEn) begin
+               <font color = "green">-1-</font>  
+216              rdPtrNext = rdPtr + 1;
+           <font color = "green">      ==></font>
+217            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+221            if (rst) begin
+               <font color = "green">-1-</font>  
+222              wrPtr <= '0;
+           <font color = "green">      ==></font>
+223              rdPtr <= '0;
+224            end else begin
+225              wrPtr <= wrPtrNext;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+228            if (writeEn) begin
+               <font color = "green">-1-</font>  
+229              mem[wrPtr[PtrWidth-1:0]] <= writeData;
+           <font color = "green">      ==></font>
+230            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_4'>
+<a name="inst_tag_4_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_4" >tb_top.dut.u_wr_req_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>210</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>221</td><td>7</td><td>7</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+209                       always_comb begin
+210        1/1              wrPtrNext = wrPtr;
+211        1/1              rdPtrNext = rdPtr;
+212        1/1              if (writeEn) begin
+213        1/1                wrPtrNext = wrPtr + 1;
+214                         end
+                        MISSING_ELSE
+215        1/1              if (readEn) begin
+216        1/1                rdPtrNext = rdPtr + 1;
+217                         end
+                        MISSING_ELSE
+218                       end
+219                     
+220                       always_ff @(posedge clk or posedge rst) begin
+221        1/1              if (rst) begin
+222        1/1                wrPtr &lt;= '0;
+223        1/1                rdPtr &lt;= '0;
+224                         end else begin
+225        1/1                wrPtr &lt;= wrPtrNext;
+226        1/1                rdPtr &lt;= rdPtrNext;
+227                         end
+228        1/1              if (writeEn) begin
+229        1/1                mem[wrPtr[PtrWidth-1:0]] &lt;= writeData;
+230                         end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_4_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_4" >tb_top.dut.u_wr_req_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       235
+ EXPRESSION ((wrPtr[PtrWidth] == rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       236
+ EXPRESSION ((wrPtr[PtrWidth] != rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_4_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod4.html#inst_tag_4" >tb_top.dut.u_wr_req_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">322</td>
+<td class="rt">261</td>
+<td class="rt">81.06 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">161</td>
+<td class="rt">130</td>
+<td class="rt">80.75 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">161</td>
+<td class="rt">131</td>
+<td class="rt">81.37 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">5</td>
+<td class="rt">62.50 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">288</td>
+<td class="rt">227</td>
+<td class="rt">78.82 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">113</td>
+<td class="rt">78.47 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">114</td>
+<td class="rt">79.17 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[53:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[68:54]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[53:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>readData[68:54]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_4_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_4" >tb_top.dut.u_wr_req_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">212</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">215</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">221</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">228</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+212            if (writeEn) begin
+               <font color = "green">-1-</font>  
+213              wrPtrNext = wrPtr + 1;
+           <font color = "green">      ==></font>
+214            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+215            if (readEn) begin
+               <font color = "green">-1-</font>  
+216              rdPtrNext = rdPtr + 1;
+           <font color = "green">      ==></font>
+217            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+221            if (rst) begin
+               <font color = "green">-1-</font>  
+222              wrPtr <= '0;
+           <font color = "green">      ==></font>
+223              rdPtr <= '0;
+224            end else begin
+225              wrPtr <= wrPtrNext;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+228            if (writeEn) begin
+               <font color = "green">-1-</font>  
+229              mem[wrPtr[PtrWidth-1:0]] <= writeData;
+           <font color = "green">      ==></font>
+230            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_6'>
+<a name="inst_tag_6_Line"></a>
+<b>Line Coverage for Instance : <a href="mod4.html#inst_tag_6" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>13</td><td>13</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>210</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>221</td><td>7</td><td>7</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+209                       always_comb begin
+210        1/1              wrPtrNext = wrPtr;
+211        1/1              rdPtrNext = rdPtr;
+212        1/1              if (writeEn) begin
+213        1/1                wrPtrNext = wrPtr + 1;
+214                         end
+                        MISSING_ELSE
+215        1/1              if (readEn) begin
+216        1/1                rdPtrNext = rdPtr + 1;
+217                         end
+                        MISSING_ELSE
+218                       end
+219                     
+220                       always_ff @(posedge clk or posedge rst) begin
+221        1/1              if (rst) begin
+222        1/1                wrPtr &lt;= '0;
+223        1/1                rdPtr &lt;= '0;
+224                         end else begin
+225        1/1                wrPtr &lt;= wrPtrNext;
+226        1/1                rdPtr &lt;= rdPtrNext;
+227                         end
+228        1/1              if (writeEn) begin
+229        1/1                mem[wrPtr[PtrWidth-1:0]] &lt;= writeData;
+230                         end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="inst_tag_6_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod4.html#inst_tag_6" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">Conditions</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">Logical</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       235
+ EXPRESSION ((wrPtr[PtrWidth] == rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       236
+ EXPRESSION ((wrPtr[PtrWidth] != rdPtr[PtrWidth]) &amp;&amp; (wrPtr[(PtrWidth - 1):0] == rdPtr[(PtrWidth - 1):0]))
+             ------------------1-----------------    --------------------------2-------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="inst_tag_6_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod4.html#inst_tag_6" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">174</td>
+<td class="rt">173</td>
+<td class="rt">99.43 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">87</td>
+<td class="rt">86</td>
+<td class="rt">98.85 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">87</td>
+<td class="rt">87</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">140</td>
+<td class="rt">139</td>
+<td class="rt">99.29 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">70</td>
+<td class="rt">69</td>
+<td class="rt">98.57 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">70</td>
+<td class="rt">70</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>writeData[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readEn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>readData[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pndng</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>wrPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wrPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtr[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rdPtrNext[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_6_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod4.html#inst_tag_6" >tb_top.dut.u_rd_response_path.u_rd_resp_fifo</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">212</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">215</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">221</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">228</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+212            if (writeEn) begin
+               <font color = "green">-1-</font>  
+213              wrPtrNext = wrPtr + 1;
+           <font color = "green">      ==></font>
+214            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+215            if (readEn) begin
+               <font color = "green">-1-</font>  
+216              rdPtrNext = rdPtr + 1;
+           <font color = "green">      ==></font>
+217            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+221            if (rst) begin
+               <font color = "green">-1-</font>  
+222              wrPtr <= '0;
+           <font color = "green">      ==></font>
+223              rdPtr <= '0;
+224            end else begin
+225              wrPtr <= wrPtrNext;
+           <font color = "green">      ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+228            if (writeEn) begin
+               <font color = "green">-1-</font>  
+229              mem[wrPtr[PtrWidth-1:0]] <= writeData;
+           <font color = "green">      ==></font>
+230            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_4">
+    <li>
+      <a href="#inst_tag_4_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_4_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_4_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_4_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_5">
+    <li>
+      <a href="#inst_tag_5_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_5_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_5_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_5_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_6">
+    <li>
+      <a href="#inst_tag_6_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_6_Cond">Cond</a>    </li>
+    <li>
+      <a href="#inst_tag_6_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_6_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_fifo_generic">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

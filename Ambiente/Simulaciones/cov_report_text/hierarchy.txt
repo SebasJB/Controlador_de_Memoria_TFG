@@ -1,0 +1,924 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+  0.00   0.00   0.00   0.00 --       0.00 --     fifo_flops 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[0]._dp2_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[10]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[11]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[12]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[13]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[14]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[15]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[1]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[2]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[3]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[4]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[5]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[6]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[7]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[8]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+    0.00   0.00 --       0.00 --       0.00 --     _dp_[9]._dp3_.D_reg 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+      0.00   0.00 --       0.00 --       0.00 --     bit_[0].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[10].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[11].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[12].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[13].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[14].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[15].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[16].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[17].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[18].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[19].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[1].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[20].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[21].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[22].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[23].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[24].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[25].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[26].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[27].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[28].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[29].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[2].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[30].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[31].prll_regstr_ 
+      0.00   0.00 --       0.00 --       0.00 --     bit_[3].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[4].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[5].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[6].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[7].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[8].prll_regstr_  
+      0.00   0.00 --       0.00 --       0.00 --     bit_[9].prll_regstr_  
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+ 27.78  50.00 --       0.00 --      33.33 --     prll_d_ltch 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+   27.78  50.00 --       0.00 --      33.33 --     bit_[0].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[10].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[11].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[12].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[13].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[14].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[15].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[16].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[17].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[18].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[19].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[1].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[20].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[21].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[22].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[23].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[24].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[25].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[26].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[27].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[28].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[29].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[2].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[30].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[31].prll_regstr_ 
+   27.78  50.00 --       0.00 --      33.33 --     bit_[3].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[4].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[5].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[6].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[7].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[8].prll_regstr_  
+   27.78  50.00 --       0.00 --      33.33 --     bit_[9].prll_regstr_  
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+ 33.33  50.00 --       0.00 --      50.00 --     prll_d_ltch_no_rst 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                       
+   33.33  50.00 --       0.00 --      50.00 --     bit_[0].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[10].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[11].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[12].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[13].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[14].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[15].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[16].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[17].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[18].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[19].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[1].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[20].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[21].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[22].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[23].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[24].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[25].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[26].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[27].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[28].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[29].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[2].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[30].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[31].prll_regstr_ 
+   33.33  50.00 --       0.00 --      50.00 --     bit_[3].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[4].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[5].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[6].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[7].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[8].prll_regstr_  
+   33.33  50.00 --       0.00 --      50.00 --     bit_[9].prll_regstr_  
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT        
+ 87.26  94.75  91.67  90.39  71.43  85.31  90.00 tb_top 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT            
+   76.69 --     --      76.69 --     --     --     axi_if     
+   75.00 --     --      75.00 --     --     --     bank_probe 
+   87.47  94.95  91.67  90.85  71.43  85.92  90.00 dut        
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[0].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[1].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[2].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[3].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[4].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[5].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[6].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     88.61  92.86 --      98.78  71.43  80.00 100.00 gen_bank[7].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.85 100.00 --      99.54 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       83.23  90.32 --      96.15  71.43  75.00 --     u_fsm                      
+       75.21  92.31 --      50.00 --      83.33 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+       99.85 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.30 100.00 100.00  97.19 --     100.00 --     gen_sram[0].u_sram 
+     99.84 100.00 100.00  99.38 --     100.00 --     gen_sram[1].u_sram 
+     99.92 100.00 100.00  99.69 --     100.00 --     gen_sram[2].u_sram 
+     99.92 100.00 100.00  99.69 --     100.00 --     gen_sram[3].u_sram 
+     99.69 100.00 100.00  98.75 --     100.00 --     gen_sram[4].u_sram 
+     99.69 100.00 100.00  98.75 --     100.00 --     gen_sram[5].u_sram 
+     99.77 100.00 100.00  99.06 --     100.00 --     gen_sram[6].u_sram 
+     98.52 100.00 100.00  94.06 --     100.00 --     gen_sram[7].u_sram 
+     85.05 100.00  66.67  73.54 --     100.00 --     u_axi_front_end    
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                           
+       85.68 100.00 --      57.04 --     100.00 --     u_aw_capture_reg          
+       66.67 --      66.67  66.67 --     --     --     u_aw_ready_ctrl           
+       72.55 --     --      72.55 --     --     --     u_axi4_lite_front_end_sva 
+       55.07 --     --      55.07 --     --     --     u_rd_formatter            
+       99.79 100.00 --      99.37 --     100.00 --     u_w_capture_reg           
+       66.67 --      66.67  66.67 --     --     --     u_w_ready_ctrl            
+       77.30 --     --      77.30 --     --     --     u_wr_assembler            
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+         75.00 --     --      75.00 --     --     --     u_check     
+         77.37 --     --      77.37 --     --     --     u_formatter 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                   
+     56.97 --     --      56.97 --     --     --     u_rd_addr_decoder 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                  
+       54.55 --     --      54.55 --     --     --     u_bank_selector  
+       63.41 --     --      63.41 --     --     --     u_local_addr_gen 
+       51.61 --     --      51.61 --     --     --     u_offset_remover 
+       51.61 --     --      51.61 --     --     --     u_range_checker  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     90.87 100.00 100.00  63.48 --     100.00 --     u_rd_req_fifo      
+     82.49 100.00  66.67  95.80 --     100.00  50.00 u_rd_response_path 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                        
+       97.14 --     --      97.14 --     --     --     u_r_channel_logic      
+       91.24 100.00  66.67  98.28 --     100.00 --     u_rd_resp_fifo         
+       72.09 --     --      94.17 --     --      50.00 u_rd_response_path_sva 
+       97.46 100.00 --      92.39 --     100.00 --     u_reorder_buffer       
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+     93.45 100.00 --      80.36 --     100.00 --     u_scheduler 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                           
+      100.00 --     --     100.00 --     --     --     u_bank_availability_check 
+      100.00 --     --     100.00 --     --     --     u_bank_conflict_check     
+       81.94 100.00 --      45.83 --     100.00 --     u_error_counter           
+      100.00 --     --     100.00 --     --     --     u_fifo_pop_control        
+       92.86 --     --      92.86 --     --     --     u_priority_resolver       
+      100.00 --     --     100.00 --     --     --     u_rd_req_valid_check      
+       98.81 100.00 --      96.43 --     100.00 --     u_read_tag_generator      
+       70.55 --     --      70.55 --     --     --     u_scheduler_sva           
+      100.00 100.00 --     100.00 --     --     --     u_unified_dispatch_logic  
+       84.76 --     --      84.76 --     --     --     u_wdata_wstrb_broadcast   
+       80.00 --     --      80.00 --     --     --     u_wr_req_valid_check      
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                   
+     56.97 --     --      56.97 --     --     --     u_wr_addr_decoder 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                  
+       54.55 --     --      54.55 --     --     --     u_bank_selector  
+       63.41 --     --      63.41 --     --     --     u_local_addr_gen 
+       51.61 --     --      51.61 --     --     --     u_offset_remover 
+       51.61 --     --      51.61 --     --     --     u_range_checker  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     86.46 100.00  66.67  79.19 --     100.00 --     u_wr_req_fifo      
+     92.05 100.00 --      76.15 --     100.00 --     u_wr_response_path 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                        
+       66.67 --     --      66.67 --     --     --     u_b_chan               
+      100.00 --     --     100.00 --     --     --     u_collector            
+       91.67 100.00 --      75.00 --     100.00 --     u_counter              
+       74.00 --     --      74.00 --     --     --     u_wr_response_path_sva 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+   25.00 --     --      25.00 --     --     --     fifo_probe  
+   50.00 --     --      50.00 --     --     --     sched_probe 
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                                    
+ 30.91  31.82 --     --     --      30.00 --     uvm_custom_install_recording       
+  7.71   5.12 --       0.00 --      18.00 --     uvm_custom_install_verdi_recording 
+

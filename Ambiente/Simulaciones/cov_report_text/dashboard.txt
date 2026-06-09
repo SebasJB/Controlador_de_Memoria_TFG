@@ -1,0 +1,39 @@
+Dashboard
+
+Date: Fri Jun  5 07:15:12 2026
+
+User: BarrantesPerez_Veri_II_25
+
+Version: R-2020.12-SP2
+Command line: urg -dir cov_n8_lat4.vdb -report cov_report_text -format text 
+
+Number of tests: 1
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT GROUP  
+ 59.99  26.32  61.11  67.41  71.43  20.33  90.00  83.33 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                               
+  0.00   0.00   0.00   0.00 --       0.00 --     fifo_flops                         
+ 27.78  50.00 --       0.00 --      33.33 --     prll_d_ltch                        
+ 33.33  50.00 --       0.00 --      50.00 --     prll_d_ltch_no_rst                 
+ 87.26  94.75  91.67  90.39  71.43  85.31  90.00 tb_top                             
+ 30.91  31.82 --     --     --      30.00 --     uvm_custom_install_recording       
+  7.71   5.12 --       0.00 --      18.00 --     uvm_custom_install_verdi_recording 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 52.50  30.53  29.63  75.15  71.43  41.57  66.67 
+
+
+-------------------------------------------------------------------------------
+Total Groups Coverage Summary 
+SCORE  INST SCORE WEIGHT 
+ 83.33  83.33     1      
+

@@ -1,0 +1,139 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT           
+ 97.94  97.25 100.00  90.41 100.00 100.00 100.00 tb_top(X) 
+  
+  ----------------
+  SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT     
+   97.94  97.25 100.00  90.41 100.00 100.00 100.00 dut 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.17  96.43 --      99.43 100.00 100.00 100.00 gen_bank[0].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.84 100.00 --      99.53 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       97.43  93.55 --      96.15 100.00 100.00 --     u_fsm(x)                   
+       93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+      100.00 --     --     --     --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.17  96.43 --      99.43 100.00 100.00 100.00 gen_bank[1].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.84 100.00 --      99.53 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       97.43  93.55 --      96.15 100.00 100.00 --     u_fsm(x)                   
+       93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+      100.00 --     --     --     --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.17  96.43 --      99.43 100.00 100.00 100.00 gen_bank[2].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.84 100.00 --      99.53 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       97.43  93.55 --      96.15 100.00 100.00 --     u_fsm(x)                   
+       93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+      100.00 --     --     --     --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.17  96.43 --      99.43 100.00 100.00 100.00 gen_bank[3].u_bank 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                            
+       99.84 100.00 --      99.53 --     100.00 --     u_capture                  
+      100.00 --     --     100.00 --     --     --     u_drive                    
+       97.43  93.55 --      96.15 100.00 100.00 --     u_fsm(x)                   
+       93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
+      100.00 --     --     100.00 --     --     --     u_rd_resp                  
+      100.00 --     --     --     --     --     100.00 u_sram_bank_controller_sva 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                 
+     95.02 100.00 100.00  80.07 --     100.00 --     u_axi_front_end 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+       96.51 100.00 --      89.53 --     100.00 --     u_aw_capture_reg(x) 
+      100.00 --     100.00 100.00 --     --     --     u_aw_ready_ctrl     
+       90.00 --     --      90.00 --     --     --     u_rd_formatter(x)   
+       99.79 100.00 --      99.37 --     100.00 --     u_w_capture_reg     
+      100.00 --     100.00 100.00 --     --     --     u_w_ready_ctrl      
+       80.60 --     --      80.60 --     --     --     u_wr_assembler(x)   
+        
+        ----------------
+        SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+        100.00 --     --     100.00 --     --     --     u_check     
+         75.91 --     --      75.91 --     --     --     u_formatter 
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+     94.20 --     --      94.20 --     --     --     u_rd_addr_decoder(x) 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+      100.00 --     --     100.00 --     --     --     u_bank_selector(x)  
+       92.59 --     --      92.59 --     --     --     u_local_addr_gen(x) 
+       88.24 --     --      88.24 --     --     --     u_offset_remover(x) 
+       88.24 --     --      88.24 --     --     --     u_range_checker(x)  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     99.26 100.00 --      97.77 --     100.00 --     u_rd_response_path 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                   
+       97.14 --     --      97.14 --     --     --     u_r_channel_logic 
+       99.62 100.00 --      98.86 --     100.00 --     u_reorder_buffer  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+     94.00 100.00 --      81.99 --     100.00 --     u_scheduler 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                           
+      100.00 --     --     100.00 --     --     --     u_bank_availability_check 
+      100.00 --     --     100.00 --     --     --     u_bank_conflict_check     
+       81.94 100.00 --      45.83 --     100.00 --     u_error_counter           
+      100.00 --     --     100.00 --     --     --     u_fifo_pop_control        
+      100.00 --     --     100.00 --     --     --     u_priority_resolver       
+      100.00 --     --     100.00 --     --     --     u_rd_req_valid_check      
+       98.48 100.00 --      95.45 --     100.00 --     u_read_tag_generator      
+      100.00 100.00 --     100.00 --     --     --     u_unified_dispatch_logic  
+       83.81 --     --      83.81 --     --     --     u_wdata_wstrb_broadcast   
+      100.00 --     --     100.00 --     --     --     u_wr_req_valid_check      
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                      
+     94.20 --     --      94.20 --     --     --     u_wr_addr_decoder(x) 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                     
+      100.00 --     --     100.00 --     --     --     u_bank_selector(x)  
+       92.59 --     --      92.59 --     --     --     u_local_addr_gen(x) 
+       88.24 --     --      88.24 --     --     --     u_offset_remover(x) 
+       88.24 --     --      88.24 --     --     --     u_range_checker(x)  
+    
+    ----------------
+    SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT                    
+     95.37 100.00 --      86.11 --     100.00 --     u_wr_response_path 
+      
+      ----------------
+      SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT             
+       66.67 --     --      66.67 --     --     --     u_b_chan    
+      100.00 --     --     100.00 --     --     --     u_collector 
+       98.81 100.00 --      96.43 --     100.00 --     u_counter   
+

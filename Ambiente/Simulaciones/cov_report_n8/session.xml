@@ -1,0 +1,57 @@
+<session version="1.1" release="R-2020.12-SP2" timestp="2026-06-09 06:28:55 GMT">
+  <info>
+    <attr name="datetime" value="Tue Jun  9 00:36:15 2026
+"/>
+    <attr name="command" value="urg -dir cov_n8_lat1.vdb cov_n8_lat4.vdb -dbname cov_merged_n8 -report cov_report_n8 -format text -elfile /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_exclusions.el -flex_merge union"/>
+    <attr name="top_instance" value="prll_d_ltch_no_rst,fifo_flops,tb_top,uvm_custom_install_recording,uvm_custom_install_verdi_recording,prll_d_ltch"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Cond" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="FSM" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Branch" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Assert" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="499/515" />
+    <metric name="Cond" value="6/6" />
+    <metric name="Toggle" value="12121/12904" />
+    <metric name="FSM" value="40/40" />
+    <metric name="Branch" value="204/216" />
+    <metric name="Assert" value="32/32" />
+    <metric name="Group" value="82.8226%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state">
+      <metric name="Group" value="53.75%" />
+    </scope>
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction">
+      <metric name="Group" value="96%" />
+    </scope>
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration">
+      <metric name="Group" value="98.7179%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+    <scorelist type="total" name="Design Hierarchy Assert">
+      <score name="Assert" value="32/32" />
+      <score name="Score" value="100.00" />
+    </scorelist>
+    <scorelist type="total" name="Module List Assert">
+      <score name="Assert" value="10/12" />
+      <score name="Score" value="83.33" />
+    </scorelist>
+    <scorelist type="total" name="Assertion">
+      <score name="Assert" value="32/40" />
+      <score name="Score" value="80.00" />
+    </scorelist>
+  </scope>
+  </old_coverage>
+</session>

@@ -1,0 +1,59 @@
+Assertions
+
+
+Assertions by Category
+           ASSERT PROPERTIES SEQUENCES
+Total           0         24         0
+Category 0      0         24         0
+
+-------------------------------------------------------------------------------
+
+Assertions by Severity
+           ASSERT PROPERTIES SEQUENCES
+Total           0         24         0
+Severity 0      0         24         0
+
+-------------------------------------------------------------------------------
+
+Summary for Cover Properties
+             NUMBER PERCENT
+Total Number     24  100.00
+Uncovered         0    0.00
+Matches          16   66.67
+Excluded          8   33.33
+
+-------------------------------------------------------------------------------
+
+Detail Report for Cover Properties
+
+Cover Properties Matches:
+                               COVER PROPERTIES                                CATEGORY SEVERITY ATTEMPTS MATCHES INCOMPLETE
+tb_top.dut.gen_bank[0].u_bank.u_sram_bank_controller_sva.cp_back_to_back              0        0  1043796    1336          0
+tb_top.dut.gen_bank[0].u_bank.u_sram_bank_controller_sva.cp_read_completes            0        0  1043796    1302          0
+tb_top.dut.gen_bank[0].u_bank.u_sram_bank_controller_sva.cp_wait_state_reached        0        0  1043796    3505          0
+tb_top.dut.gen_bank[0].u_bank.u_sram_bank_controller_sva.cp_write_completes           0        0  1043796    1610          0
+tb_top.dut.gen_bank[1].u_bank.u_sram_bank_controller_sva.cp_back_to_back              0        0  1043796    1313          0
+tb_top.dut.gen_bank[1].u_bank.u_sram_bank_controller_sva.cp_read_completes            0        0  1043796    1334          0
+tb_top.dut.gen_bank[1].u_bank.u_sram_bank_controller_sva.cp_wait_state_reached        0        0  1043796    3585          0
+tb_top.dut.gen_bank[1].u_bank.u_sram_bank_controller_sva.cp_write_completes           0        0  1043796    1738          0
+tb_top.dut.gen_bank[2].u_bank.u_sram_bank_controller_sva.cp_back_to_back              0        0  1043796    1304          0
+tb_top.dut.gen_bank[2].u_bank.u_sram_bank_controller_sva.cp_read_completes            0        0  1043796    1322          0
+tb_top.dut.gen_bank[2].u_bank.u_sram_bank_controller_sva.cp_wait_state_reached        0        0  1043796    3555          0
+tb_top.dut.gen_bank[2].u_bank.u_sram_bank_controller_sva.cp_write_completes           0        0  1043796    1784          0
+tb_top.dut.gen_bank[3].u_bank.u_sram_bank_controller_sva.cp_back_to_back              0        0  1043796    1250          0
+tb_top.dut.gen_bank[3].u_bank.u_sram_bank_controller_sva.cp_read_completes            0        0  1043796    1342          0
+tb_top.dut.gen_bank[3].u_bank.u_sram_bank_controller_sva.cp_wait_state_reached        0        0  1043796    3605          0
+tb_top.dut.gen_bank[3].u_bank.u_sram_bank_controller_sva.cp_write_completes           0        0  1043796    1668          0
+
+Cover Properties Excluded:
+                               COVER PROPERTIES                               CATEGORY SEVERITY EXCLUSION
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_any_resp_occurred             0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_fifo_full_backpressure        0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_master_rready_fast            0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_master_rready_slow            0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_multi_resp_concurrent         0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_rob_full_occurred             0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_rob_push_occurred             0        0  Excluded
+tb_top.dut.u_rd_response_path.u_rd_response_path_sva.c_rvalid_handshake              0        0  Excluded
+
+

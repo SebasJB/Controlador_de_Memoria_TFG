@@ -1,0 +1,57 @@
+<session version="1.1" release="R-2020.12-SP2" timestp="2026-06-05 13:13:34 GMT">
+  <info>
+    <attr name="datetime" value="Fri Jun  5 07:15:12 2026
+"/>
+    <attr name="command" value="urg -dir cov_n8_lat4.vdb -report cov_report_text -format text"/>
+    <attr name="top_instance" value="prll_d_ltch_no_rst,fifo_flops,tb_top,uvm_custom_install_recording,uvm_custom_install_verdi_recording,prll_d_ltch"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Cond" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="FSM" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Branch" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Assert" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="756/2872" />
+    <metric name="Cond" value="66/108" />
+    <metric name="Toggle" value="18779/27856" />
+    <metric name="FSM" value="40/56" />
+    <metric name="Branch" value="320/1574" />
+    <metric name="Assert" value="36/40" />
+    <metric name="Group" value="83.3272%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration">
+      <metric name="Group" value="72.5%" />
+    </scope>
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state">
+      <metric name="Group" value="81.4815%" />
+    </scope>
+    <scope type="group" name="mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction">
+      <metric name="Group" value="96%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+    <scorelist type="total" name="Design Hierarchy Assert">
+      <score name="Assert" value="36/40" />
+      <score name="Score" value="90.00" />
+    </scorelist>
+    <scorelist type="total" name="Module List Assert">
+      <score name="Assert" value="8/12" />
+      <score name="Score" value="66.67" />
+    </scorelist>
+    <scorelist type="total" name="Assertion">
+      <score name="Assert" value="36/40" />
+      <score name="Score" value="90.00" />
+    </scorelist>
+  </scope>
+  </old_coverage>
+</session>

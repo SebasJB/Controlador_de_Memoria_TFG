@@ -1,0 +1,3105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: bank_fsm</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_bank_fsm'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_bank_fsm')">bank_fsm</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv')">/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod13.html#inst_tag_21"  onclick="showContent('inst_tag_21')">tb_top.dut.gen_bank[0].u_bank.u_fsm</a></td>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_21_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_21_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_21_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_21_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod13.html#inst_tag_22"  onclick="showContent('inst_tag_22')">tb_top.dut.gen_bank[1].u_bank.u_fsm</a></td>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_22_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_22_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_22_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_22_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod13.html#inst_tag_23"  onclick="showContent('inst_tag_23')">tb_top.dut.gen_bank[2].u_bank.u_fsm</a></td>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_23_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_23_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_23_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_23_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod13.html#inst_tag_24"  onclick="showContent('inst_tag_24')">tb_top.dut.gen_bank[3].u_bank.u_fsm</a></td>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_24_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_24_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_24_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_24_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='inst_tag_21'>
+<hr>
+<a name="inst_tag_21"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_21" >tb_top.dut.gen_bank[0].u_bank.u_fsm</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_21_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_21_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_21_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_21_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"> 93.55</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 81.25</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_16" >gen_bank[0].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_22'>
+<hr>
+<a name="inst_tag_22"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_22" >tb_top.dut.gen_bank[1].u_bank.u_fsm</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_22_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_22_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_22_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_22_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"> 93.55</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 81.25</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_17" >gen_bank[1].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_23'>
+<hr>
+<a name="inst_tag_23"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_23" >tb_top.dut.gen_bank[2].u_bank.u_fsm</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_23_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_23_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_23_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_23_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"> 93.55</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 81.25</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_18" >gen_bank[2].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div name='inst_tag_24'>
+<hr>
+<a name="inst_tag_24"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_24" >tb_top.dut.gen_bank[3].u_bank.u_fsm</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_24_Line" > 93.55</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod13.html#inst_tag_24_Toggle" > 96.15</a></td>
+<td class="s7 cl rt"><a href="mod13.html#inst_tag_24_FSM" > 71.43</a></td>
+<td class="s8 cl rt"><a href="mod13.html#inst_tag_24_Branch" > 81.25</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 85.60</td>
+<td class="s9 cl rt"> 93.55</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 96.15</td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s8 cl rt"> 81.25</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 99.78</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_19" >gen_bank[3].u_bank</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_bank_fsm'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod13.html" >bank_fsm</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>31</td><td>29</td><td>93.55</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>153</td><td>16</td><td>15</td><td>93.75</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>188</td><td>15</td><td>14</td><td>93.33</td></tr>
+</table>
+<pre class="code"><br clear=all>
+152                         always @(posedge clk) begin
+153        1/1                  if (!rst_n) begin
+154        1/1                      state &lt;= IDLE;
+155                             end else begin
+156        1/1                      case (state)
+157                                     IDLE : begin
+158        1/1                              if (bank_req_valid)
+159        1/1                                  state &lt;= ISSUE;
+160                                         else
+161        1/1                                  state &lt;= IDLE;
+162                                     end
+163                                     ISSUE : begin
+164        1/1                              if (is_wr)
+165        1/1                                  state &lt;= COMPLETE;
+166        1/1                              else if (is_rd) begin
+167        1/1                                  if (READ_LATENCY == 1)
+168        1/1                                      state &lt;= COMPLETE;
+169                                             else
+170        1/1                                      state &lt;= WAIT;
+171                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+172                                     end
+173                                     WAIT : begin
+174        1/1                              if (done_pulse)
+175        1/1                                  state &lt;= COMPLETE;
+                        MISSING_ELSE
+176                                     end
+177                                     COMPLETE : begin
+178        1/1                              state &lt;= IDLE;
+179                                     end
+180        <font color = "red">0/1     ==>                  default : state &lt;= IDLE;</font>
+181                                 endcase
+182                             end
+183                         end
+184                     
+185                         // ── Salidas (Moore) ───────────────────────────────────
+186                         always @(*) begin
+187                             // Defaults
+188        1/1                  fsm_idle      = 1'b0;
+189        1/1                  issue_en      = 1'b0;
+190        1/1                  bank_busy     = 1'b0;
+191        1/1                  wr_resp_valid = 1'b0;
+192        1/1                  rd_capture_en = 1'b0;
+193                     
+194        1/1                  case (state)
+195                                 IDLE : begin
+196        1/1                          fsm_idle  = 1'b1;
+197        1/1                          bank_busy = 1'b0;
+198                                 end
+199                                 ISSUE : begin
+200        1/1                          issue_en  = 1'b1;
+201        1/1                          bank_busy = 1'b1;
+202                                 end
+203                                 WAIT : begin
+204        1/1                          bank_busy = 1'b1;
+205                                 end
+206                                 COMPLETE : begin
+207                                     // Liberación conservadora: bank_busy=1 aquí
+208        1/1                          bank_busy     = 1'b1;
+209        1/1                          wr_resp_valid = is_wr;
+210        1/1                          rd_capture_en = is_rd;
+211                                 end
+212                                 default : begin
+213        <font color = "red">0/1     ==>                  fsm_idle  = 1'b1;</font>
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod13.html" >bank_fsm</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">25</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">13</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>issue_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bank_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_resp_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod13.html" >bank_fsm</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ISSUE->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT->COMPLETE</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WAIT->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod13.html" >bank_fsm</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">153</td>
+<td class="rt">11</td>
+<td class="rt">9</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">194</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+153                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+154                    state <= IDLE;
+           <font color = "green">            ==></font>
+155                end else begin
+156                    case (state)
+                       <font color = "red">-2-</font>  
+157                        IDLE : begin
+158                            if (bank_req_valid)
+                               <font color = "green">-3-</font>  
+159                                state <= ISSUE;
+           <font color = "green">                        ==></font>
+160                            else
+161                                state <= IDLE;
+           <font color = "green">                        ==></font>
+162                        end
+163                        ISSUE : begin
+164                            if (is_wr)
+                               <font color = "green">-4-</font>  
+165                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+166                            else if (is_rd) begin
+                                    <font color = "red">-5-</font>  
+167                                if (READ_LATENCY == 1)
+                                   <font color = "green">-6-</font>  
+168                                    state <= COMPLETE;
+           <font color = "green">                            ==></font>
+169                                else
+170                                    state <= WAIT;
+           <font color = "green">                            ==></font>
+171                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+172                        end
+173                        WAIT : begin
+174                            if (done_pulse)
+                               <font color = "green">-7-</font>  
+175                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+176                        end
+177                        COMPLETE : begin
+178                            state <= IDLE;
+           <font color = "green">                    ==></font>
+179                        end
+180                        default : state <= IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+194                case (state)
+                   <font color = "red">-1-</font>  
+195                    IDLE : begin
+196                        fsm_idle  = 1'b1;
+           <font color = "green">                ==></font>
+197                        bank_busy = 1'b0;
+198                    end
+199                    ISSUE : begin
+200                        issue_en  = 1'b1;
+           <font color = "green">                ==></font>
+201                        bank_busy = 1'b1;
+202                    end
+203                    WAIT : begin
+204                        bank_busy = 1'b1;
+           <font color = "green">                ==></font>
+205                    end
+206                    COMPLETE : begin
+207                        // Liberación conservadora: bank_busy=1 aquí
+208                        bank_busy     = 1'b1;
+           <font color = "green">                ==></font>
+209                        wr_resp_valid = is_wr;
+210                        rd_capture_en = is_rd;
+211                    end
+212                    default : begin
+213                        fsm_idle  = 1'b1;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ISSUE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WAIT </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_21'>
+<a name="inst_tag_21_Line"></a>
+<b>Line Coverage for Instance : <a href="mod13.html#inst_tag_21" >tb_top.dut.gen_bank[0].u_bank.u_fsm</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>31</td><td>29</td><td>93.55</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>153</td><td>16</td><td>15</td><td>93.75</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>188</td><td>15</td><td>14</td><td>93.33</td></tr>
+</table>
+<pre class="code"><br clear=all>
+152                         always @(posedge clk) begin
+153        1/1                  if (!rst_n) begin
+154        1/1                      state &lt;= IDLE;
+155                             end else begin
+156        1/1                      case (state)
+157                                     IDLE : begin
+158        1/1                              if (bank_req_valid)
+159        1/1                                  state &lt;= ISSUE;
+160                                         else
+161        1/1                                  state &lt;= IDLE;
+162                                     end
+163                                     ISSUE : begin
+164        1/1                              if (is_wr)
+165        1/1                                  state &lt;= COMPLETE;
+166        1/1                              else if (is_rd) begin
+167        1/1                                  if (READ_LATENCY == 1)
+168        1/1                                      state &lt;= COMPLETE;
+169                                             else
+170        1/1                                      state &lt;= WAIT;
+171                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+172                                     end
+173                                     WAIT : begin
+174        1/1                              if (done_pulse)
+175        1/1                                  state &lt;= COMPLETE;
+                        MISSING_ELSE
+176                                     end
+177                                     COMPLETE : begin
+178        1/1                              state &lt;= IDLE;
+179                                     end
+180        <font color = "red">0/1     ==>                  default : state &lt;= IDLE;</font>
+181                                 endcase
+182                             end
+183                         end
+184                     
+185                         // ── Salidas (Moore) ───────────────────────────────────
+186                         always @(*) begin
+187                             // Defaults
+188        1/1                  fsm_idle      = 1'b0;
+189        1/1                  issue_en      = 1'b0;
+190        1/1                  bank_busy     = 1'b0;
+191        1/1                  wr_resp_valid = 1'b0;
+192        1/1                  rd_capture_en = 1'b0;
+193                     
+194        1/1                  case (state)
+195                                 IDLE : begin
+196        1/1                          fsm_idle  = 1'b1;
+197        1/1                          bank_busy = 1'b0;
+198                                 end
+199                                 ISSUE : begin
+200        1/1                          issue_en  = 1'b1;
+201        1/1                          bank_busy = 1'b1;
+202                                 end
+203                                 WAIT : begin
+204        1/1                          bank_busy = 1'b1;
+205                                 end
+206                                 COMPLETE : begin
+207                                     // Liberación conservadora: bank_busy=1 aquí
+208        1/1                          bank_busy     = 1'b1;
+209        1/1                          wr_resp_valid = is_wr;
+210        1/1                          rd_capture_en = is_rd;
+211                                 end
+212                                 default : begin
+213        <font color = "red">0/1     ==>                  fsm_idle  = 1'b1;</font>
+</pre>
+<hr>
+<a name="inst_tag_21_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod13.html#inst_tag_21" >tb_top.dut.gen_bank[0].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">25</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">13</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>issue_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bank_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_resp_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_21_FSM"></a>
+<b>FSM Coverage for Instance : <a href="mod13.html#inst_tag_21" >tb_top.dut.gen_bank[0].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ISSUE->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT->COMPLETE</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WAIT->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="inst_tag_21_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod13.html#inst_tag_21" >tb_top.dut.gen_bank[0].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">153</td>
+<td class="rt">11</td>
+<td class="rt">9</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">194</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+153                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+154                    state <= IDLE;
+           <font color = "green">            ==></font>
+155                end else begin
+156                    case (state)
+                       <font color = "red">-2-</font>  
+157                        IDLE : begin
+158                            if (bank_req_valid)
+                               <font color = "green">-3-</font>  
+159                                state <= ISSUE;
+           <font color = "green">                        ==></font>
+160                            else
+161                                state <= IDLE;
+           <font color = "green">                        ==></font>
+162                        end
+163                        ISSUE : begin
+164                            if (is_wr)
+                               <font color = "green">-4-</font>  
+165                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+166                            else if (is_rd) begin
+                                    <font color = "red">-5-</font>  
+167                                if (READ_LATENCY == 1)
+                                   <font color = "green">-6-</font>  
+168                                    state <= COMPLETE;
+           <font color = "green">                            ==></font>
+169                                else
+170                                    state <= WAIT;
+           <font color = "green">                            ==></font>
+171                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+172                        end
+173                        WAIT : begin
+174                            if (done_pulse)
+                               <font color = "green">-7-</font>  
+175                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+176                        end
+177                        COMPLETE : begin
+178                            state <= IDLE;
+           <font color = "green">                    ==></font>
+179                        end
+180                        default : state <= IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+194                case (state)
+                   <font color = "red">-1-</font>  
+195                    IDLE : begin
+196                        fsm_idle  = 1'b1;
+           <font color = "green">                ==></font>
+197                        bank_busy = 1'b0;
+198                    end
+199                    ISSUE : begin
+200                        issue_en  = 1'b1;
+           <font color = "green">                ==></font>
+201                        bank_busy = 1'b1;
+202                    end
+203                    WAIT : begin
+204                        bank_busy = 1'b1;
+           <font color = "green">                ==></font>
+205                    end
+206                    COMPLETE : begin
+207                        // Liberación conservadora: bank_busy=1 aquí
+208                        bank_busy     = 1'b1;
+           <font color = "green">                ==></font>
+209                        wr_resp_valid = is_wr;
+210                        rd_capture_en = is_rd;
+211                    end
+212                    default : begin
+213                        fsm_idle  = 1'b1;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ISSUE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WAIT </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_22'>
+<a name="inst_tag_22_Line"></a>
+<b>Line Coverage for Instance : <a href="mod13.html#inst_tag_22" >tb_top.dut.gen_bank[1].u_bank.u_fsm</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>31</td><td>29</td><td>93.55</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>153</td><td>16</td><td>15</td><td>93.75</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>188</td><td>15</td><td>14</td><td>93.33</td></tr>
+</table>
+<pre class="code"><br clear=all>
+152                         always @(posedge clk) begin
+153        1/1                  if (!rst_n) begin
+154        1/1                      state &lt;= IDLE;
+155                             end else begin
+156        1/1                      case (state)
+157                                     IDLE : begin
+158        1/1                              if (bank_req_valid)
+159        1/1                                  state &lt;= ISSUE;
+160                                         else
+161        1/1                                  state &lt;= IDLE;
+162                                     end
+163                                     ISSUE : begin
+164        1/1                              if (is_wr)
+165        1/1                                  state &lt;= COMPLETE;
+166        1/1                              else if (is_rd) begin
+167        1/1                                  if (READ_LATENCY == 1)
+168        1/1                                      state &lt;= COMPLETE;
+169                                             else
+170        1/1                                      state &lt;= WAIT;
+171                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+172                                     end
+173                                     WAIT : begin
+174        1/1                              if (done_pulse)
+175        1/1                                  state &lt;= COMPLETE;
+                        MISSING_ELSE
+176                                     end
+177                                     COMPLETE : begin
+178        1/1                              state &lt;= IDLE;
+179                                     end
+180        <font color = "red">0/1     ==>                  default : state &lt;= IDLE;</font>
+181                                 endcase
+182                             end
+183                         end
+184                     
+185                         // ── Salidas (Moore) ───────────────────────────────────
+186                         always @(*) begin
+187                             // Defaults
+188        1/1                  fsm_idle      = 1'b0;
+189        1/1                  issue_en      = 1'b0;
+190        1/1                  bank_busy     = 1'b0;
+191        1/1                  wr_resp_valid = 1'b0;
+192        1/1                  rd_capture_en = 1'b0;
+193                     
+194        1/1                  case (state)
+195                                 IDLE : begin
+196        1/1                          fsm_idle  = 1'b1;
+197        1/1                          bank_busy = 1'b0;
+198                                 end
+199                                 ISSUE : begin
+200        1/1                          issue_en  = 1'b1;
+201        1/1                          bank_busy = 1'b1;
+202                                 end
+203                                 WAIT : begin
+204        1/1                          bank_busy = 1'b1;
+205                                 end
+206                                 COMPLETE : begin
+207                                     // Liberación conservadora: bank_busy=1 aquí
+208        1/1                          bank_busy     = 1'b1;
+209        1/1                          wr_resp_valid = is_wr;
+210        1/1                          rd_capture_en = is_rd;
+211                                 end
+212                                 default : begin
+213        <font color = "red">0/1     ==>                  fsm_idle  = 1'b1;</font>
+</pre>
+<hr>
+<a name="inst_tag_22_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod13.html#inst_tag_22" >tb_top.dut.gen_bank[1].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">25</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">13</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>issue_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bank_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_resp_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_22_FSM"></a>
+<b>FSM Coverage for Instance : <a href="mod13.html#inst_tag_22" >tb_top.dut.gen_bank[1].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ISSUE->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT->COMPLETE</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WAIT->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="inst_tag_22_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod13.html#inst_tag_22" >tb_top.dut.gen_bank[1].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">153</td>
+<td class="rt">11</td>
+<td class="rt">9</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">194</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+153                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+154                    state <= IDLE;
+           <font color = "green">            ==></font>
+155                end else begin
+156                    case (state)
+                       <font color = "red">-2-</font>  
+157                        IDLE : begin
+158                            if (bank_req_valid)
+                               <font color = "green">-3-</font>  
+159                                state <= ISSUE;
+           <font color = "green">                        ==></font>
+160                            else
+161                                state <= IDLE;
+           <font color = "green">                        ==></font>
+162                        end
+163                        ISSUE : begin
+164                            if (is_wr)
+                               <font color = "green">-4-</font>  
+165                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+166                            else if (is_rd) begin
+                                    <font color = "red">-5-</font>  
+167                                if (READ_LATENCY == 1)
+                                   <font color = "green">-6-</font>  
+168                                    state <= COMPLETE;
+           <font color = "green">                            ==></font>
+169                                else
+170                                    state <= WAIT;
+           <font color = "green">                            ==></font>
+171                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+172                        end
+173                        WAIT : begin
+174                            if (done_pulse)
+                               <font color = "green">-7-</font>  
+175                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+176                        end
+177                        COMPLETE : begin
+178                            state <= IDLE;
+           <font color = "green">                    ==></font>
+179                        end
+180                        default : state <= IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+194                case (state)
+                   <font color = "red">-1-</font>  
+195                    IDLE : begin
+196                        fsm_idle  = 1'b1;
+           <font color = "green">                ==></font>
+197                        bank_busy = 1'b0;
+198                    end
+199                    ISSUE : begin
+200                        issue_en  = 1'b1;
+           <font color = "green">                ==></font>
+201                        bank_busy = 1'b1;
+202                    end
+203                    WAIT : begin
+204                        bank_busy = 1'b1;
+           <font color = "green">                ==></font>
+205                    end
+206                    COMPLETE : begin
+207                        // Liberación conservadora: bank_busy=1 aquí
+208                        bank_busy     = 1'b1;
+           <font color = "green">                ==></font>
+209                        wr_resp_valid = is_wr;
+210                        rd_capture_en = is_rd;
+211                    end
+212                    default : begin
+213                        fsm_idle  = 1'b1;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ISSUE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WAIT </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_23'>
+<a name="inst_tag_23_Line"></a>
+<b>Line Coverage for Instance : <a href="mod13.html#inst_tag_23" >tb_top.dut.gen_bank[2].u_bank.u_fsm</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>31</td><td>29</td><td>93.55</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>153</td><td>16</td><td>15</td><td>93.75</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>188</td><td>15</td><td>14</td><td>93.33</td></tr>
+</table>
+<pre class="code"><br clear=all>
+152                         always @(posedge clk) begin
+153        1/1                  if (!rst_n) begin
+154        1/1                      state &lt;= IDLE;
+155                             end else begin
+156        1/1                      case (state)
+157                                     IDLE : begin
+158        1/1                              if (bank_req_valid)
+159        1/1                                  state &lt;= ISSUE;
+160                                         else
+161        1/1                                  state &lt;= IDLE;
+162                                     end
+163                                     ISSUE : begin
+164        1/1                              if (is_wr)
+165        1/1                                  state &lt;= COMPLETE;
+166        1/1                              else if (is_rd) begin
+167        1/1                                  if (READ_LATENCY == 1)
+168        1/1                                      state &lt;= COMPLETE;
+169                                             else
+170        1/1                                      state &lt;= WAIT;
+171                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+172                                     end
+173                                     WAIT : begin
+174        1/1                              if (done_pulse)
+175        1/1                                  state &lt;= COMPLETE;
+                        MISSING_ELSE
+176                                     end
+177                                     COMPLETE : begin
+178        1/1                              state &lt;= IDLE;
+179                                     end
+180        <font color = "red">0/1     ==>                  default : state &lt;= IDLE;</font>
+181                                 endcase
+182                             end
+183                         end
+184                     
+185                         // ── Salidas (Moore) ───────────────────────────────────
+186                         always @(*) begin
+187                             // Defaults
+188        1/1                  fsm_idle      = 1'b0;
+189        1/1                  issue_en      = 1'b0;
+190        1/1                  bank_busy     = 1'b0;
+191        1/1                  wr_resp_valid = 1'b0;
+192        1/1                  rd_capture_en = 1'b0;
+193                     
+194        1/1                  case (state)
+195                                 IDLE : begin
+196        1/1                          fsm_idle  = 1'b1;
+197        1/1                          bank_busy = 1'b0;
+198                                 end
+199                                 ISSUE : begin
+200        1/1                          issue_en  = 1'b1;
+201        1/1                          bank_busy = 1'b1;
+202                                 end
+203                                 WAIT : begin
+204        1/1                          bank_busy = 1'b1;
+205                                 end
+206                                 COMPLETE : begin
+207                                     // Liberación conservadora: bank_busy=1 aquí
+208        1/1                          bank_busy     = 1'b1;
+209        1/1                          wr_resp_valid = is_wr;
+210        1/1                          rd_capture_en = is_rd;
+211                                 end
+212                                 default : begin
+213        <font color = "red">0/1     ==>                  fsm_idle  = 1'b1;</font>
+</pre>
+<hr>
+<a name="inst_tag_23_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod13.html#inst_tag_23" >tb_top.dut.gen_bank[2].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">25</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">13</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>issue_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bank_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_resp_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_23_FSM"></a>
+<b>FSM Coverage for Instance : <a href="mod13.html#inst_tag_23" >tb_top.dut.gen_bank[2].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ISSUE->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT->COMPLETE</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WAIT->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="inst_tag_23_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod13.html#inst_tag_23" >tb_top.dut.gen_bank[2].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">153</td>
+<td class="rt">11</td>
+<td class="rt">9</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">194</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+153                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+154                    state <= IDLE;
+           <font color = "green">            ==></font>
+155                end else begin
+156                    case (state)
+                       <font color = "red">-2-</font>  
+157                        IDLE : begin
+158                            if (bank_req_valid)
+                               <font color = "green">-3-</font>  
+159                                state <= ISSUE;
+           <font color = "green">                        ==></font>
+160                            else
+161                                state <= IDLE;
+           <font color = "green">                        ==></font>
+162                        end
+163                        ISSUE : begin
+164                            if (is_wr)
+                               <font color = "green">-4-</font>  
+165                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+166                            else if (is_rd) begin
+                                    <font color = "red">-5-</font>  
+167                                if (READ_LATENCY == 1)
+                                   <font color = "green">-6-</font>  
+168                                    state <= COMPLETE;
+           <font color = "green">                            ==></font>
+169                                else
+170                                    state <= WAIT;
+           <font color = "green">                            ==></font>
+171                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+172                        end
+173                        WAIT : begin
+174                            if (done_pulse)
+                               <font color = "green">-7-</font>  
+175                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+176                        end
+177                        COMPLETE : begin
+178                            state <= IDLE;
+           <font color = "green">                    ==></font>
+179                        end
+180                        default : state <= IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+194                case (state)
+                   <font color = "red">-1-</font>  
+195                    IDLE : begin
+196                        fsm_idle  = 1'b1;
+           <font color = "green">                ==></font>
+197                        bank_busy = 1'b0;
+198                    end
+199                    ISSUE : begin
+200                        issue_en  = 1'b1;
+           <font color = "green">                ==></font>
+201                        bank_busy = 1'b1;
+202                    end
+203                    WAIT : begin
+204                        bank_busy = 1'b1;
+           <font color = "green">                ==></font>
+205                    end
+206                    COMPLETE : begin
+207                        // Liberación conservadora: bank_busy=1 aquí
+208                        bank_busy     = 1'b1;
+           <font color = "green">                ==></font>
+209                        wr_resp_valid = is_wr;
+210                        rd_capture_en = is_rd;
+211                    end
+212                    default : begin
+213                        fsm_idle  = 1'b1;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ISSUE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WAIT </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+<div name='inst_tag_24'>
+<a name="inst_tag_24_Line"></a>
+<b>Line Coverage for Instance : <a href="mod13.html#inst_tag_24" >tb_top.dut.gen_bank[3].u_bank.u_fsm</a></b><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>31</td><td>29</td><td>93.55</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>153</td><td>16</td><td>15</td><td>93.75</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>188</td><td>15</td><td>14</td><td>93.33</td></tr>
+</table>
+<pre class="code"><br clear=all>
+152                         always @(posedge clk) begin
+153        1/1                  if (!rst_n) begin
+154        1/1                      state &lt;= IDLE;
+155                             end else begin
+156        1/1                      case (state)
+157                                     IDLE : begin
+158        1/1                              if (bank_req_valid)
+159        1/1                                  state &lt;= ISSUE;
+160                                         else
+161        1/1                                  state &lt;= IDLE;
+162                                     end
+163                                     ISSUE : begin
+164        1/1                              if (is_wr)
+165        1/1                                  state &lt;= COMPLETE;
+166        1/1                              else if (is_rd) begin
+167        1/1                                  if (READ_LATENCY == 1)
+168        1/1                                      state &lt;= COMPLETE;
+169                                             else
+170        1/1                                      state &lt;= WAIT;
+171                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+172                                     end
+173                                     WAIT : begin
+174        1/1                              if (done_pulse)
+175        1/1                                  state &lt;= COMPLETE;
+                        MISSING_ELSE
+176                                     end
+177                                     COMPLETE : begin
+178        1/1                              state &lt;= IDLE;
+179                                     end
+180        <font color = "red">0/1     ==>                  default : state &lt;= IDLE;</font>
+181                                 endcase
+182                             end
+183                         end
+184                     
+185                         // ── Salidas (Moore) ───────────────────────────────────
+186                         always @(*) begin
+187                             // Defaults
+188        1/1                  fsm_idle      = 1'b0;
+189        1/1                  issue_en      = 1'b0;
+190        1/1                  bank_busy     = 1'b0;
+191        1/1                  wr_resp_valid = 1'b0;
+192        1/1                  rd_capture_en = 1'b0;
+193                     
+194        1/1                  case (state)
+195                                 IDLE : begin
+196        1/1                          fsm_idle  = 1'b1;
+197        1/1                          bank_busy = 1'b0;
+198                                 end
+199                                 ISSUE : begin
+200        1/1                          issue_en  = 1'b1;
+201        1/1                          bank_busy = 1'b1;
+202                                 end
+203                                 WAIT : begin
+204        1/1                          bank_busy = 1'b1;
+205                                 end
+206                                 COMPLETE : begin
+207                                     // Liberación conservadora: bank_busy=1 aquí
+208        1/1                          bank_busy     = 1'b1;
+209        1/1                          wr_resp_valid = is_wr;
+210        1/1                          rd_capture_en = is_rd;
+211                                 end
+212                                 default : begin
+213        <font color = "red">0/1     ==>                  fsm_idle  = 1'b1;</font>
+</pre>
+<hr>
+<a name="inst_tag_24_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod13.html#inst_tag_24" >tb_top.dut.gen_bank[3].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">25</td>
+<td class="rt">96.15 </td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">13</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s9">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">22</td>
+<td class="rt">21</td>
+<td class="rt">95.45 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">11</td>
+<td class="rt">10</td>
+<td class="rt">90.91 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>bank_req_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_wr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>is_rd</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>fsm_idle</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>issue_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>bank_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>wr_resp_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rd_capture_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="inst_tag_24_FSM"></a>
+<b>FSM Coverage for Instance : <a href="mod13.html#inst_tag_24" >tb_top.dut.gen_bank[3].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s7">
+<td>Transitions</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>COMPLETE->IDLE</td>
+<td class="rt">154</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>IDLE->ISSUE</td>
+<td class="rt">159</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->COMPLETE</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>ISSUE->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>ISSUE->WAIT</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>WAIT->COMPLETE</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>WAIT->IDLE</td>
+<td class="rt">154</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="inst_tag_24_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod13.html#inst_tag_24" >tb_top.dut.gen_bank[3].u_bank.u_fsm</a></b><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">16</td>
+<td class="rt">13</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">153</td>
+<td class="rt">11</td>
+<td class="rt">9</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td>CASE</td>
+<td class="rt">194</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+153                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+154                    state <= IDLE;
+           <font color = "green">            ==></font>
+155                end else begin
+156                    case (state)
+                       <font color = "red">-2-</font>  
+157                        IDLE : begin
+158                            if (bank_req_valid)
+                               <font color = "green">-3-</font>  
+159                                state <= ISSUE;
+           <font color = "green">                        ==></font>
+160                            else
+161                                state <= IDLE;
+           <font color = "green">                        ==></font>
+162                        end
+163                        ISSUE : begin
+164                            if (is_wr)
+                               <font color = "green">-4-</font>  
+165                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+166                            else if (is_rd) begin
+                                    <font color = "red">-5-</font>  
+167                                if (READ_LATENCY == 1)
+                                   <font color = "green">-6-</font>  
+168                                    state <= COMPLETE;
+           <font color = "green">                            ==></font>
+169                                else
+170                                    state <= WAIT;
+           <font color = "green">                            ==></font>
+171                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+172                        end
+173                        WAIT : begin
+174                            if (done_pulse)
+                               <font color = "green">-7-</font>  
+175                                state <= COMPLETE;
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+176                        end
+177                        COMPLETE : begin
+178                            state <= IDLE;
+           <font color = "green">                    ==></font>
+179                        end
+180                        default : state <= IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>ISSUE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>WAIT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>COMPLETE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+194                case (state)
+                   <font color = "red">-1-</font>  
+195                    IDLE : begin
+196                        fsm_idle  = 1'b1;
+           <font color = "green">                ==></font>
+197                        bank_busy = 1'b0;
+198                    end
+199                    ISSUE : begin
+200                        issue_en  = 1'b1;
+           <font color = "green">                ==></font>
+201                        bank_busy = 1'b1;
+202                    end
+203                    WAIT : begin
+204                        bank_busy = 1'b1;
+           <font color = "green">                ==></font>
+205                    end
+206                    COMPLETE : begin
+207                        // Liberación conservadora: bank_busy=1 aquí
+208                        bank_busy     = 1'b1;
+           <font color = "green">                ==></font>
+209                        wr_resp_valid = is_wr;
+210                        rd_capture_en = is_rd;
+211                    end
+212                    default : begin
+213                        fsm_idle  = 1'b1;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>IDLE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>ISSUE </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>WAIT </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>COMPLETE </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_21">
+    <li>
+      <a href="#inst_tag_21_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_21_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_21_FSM">FSM</a>    </li>
+    <li>
+      <a href="#inst_tag_21_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_22">
+    <li>
+      <a href="#inst_tag_22_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_22_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_22_FSM">FSM</a>    </li>
+    <li>
+      <a href="#inst_tag_22_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_23">
+    <li>
+      <a href="#inst_tag_23_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_23_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_23_FSM">FSM</a>    </li>
+    <li>
+      <a href="#inst_tag_23_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="inst_tag_24">
+    <li>
+      <a href="#inst_tag_24_Line">Line</a>    </li>
+    <li>
+      <a href="#inst_tag_24_Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#inst_tag_24_FSM">FSM</a>    </li>
+    <li>
+      <a href="#inst_tag_24_Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_bank_fsm">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

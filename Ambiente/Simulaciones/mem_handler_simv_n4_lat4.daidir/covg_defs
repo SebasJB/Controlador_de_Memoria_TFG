@@ -1,0 +1,407 @@
+global coverage_group 0 mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_transaction __coverage_mem_ctrl_coverage#(32,32,4,8192,8,8).cg_transaction unused_mem_ctrl_coverage#(32,32,4,8192,8,8)_cg_transaction_loop_label mem_ctrl_pkg 0 1 0 0 0  ( 0 
+)
+ 1 1
+ 116 /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
+ 46 0 0 0 1 0 0 0 0  1
+0
+0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1e
+0
+0
+0
+64
+0
+ 0
+
+4
+0
+1
+0
+ 5 cp_op 49 0 0 0 0 0 180 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn 180 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 1 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2 1 1 0 0 1 1 5 write 50 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_0 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 4 read 51 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1 0 0 0 0 0 0 0
+ 0
+
+ 7 cp_bank 53 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_2 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_2 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 1 32 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 1 1 1 1 0 1 1 1 b 54 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_3 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_4 0 0 0 0 0
+ 0
+
+ 9 cp_region 56 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_5 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_5 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 1 32 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 5 1 1 0 0 1 1 3 low 57 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_3 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_6 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 mid_low 58 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_7 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_8 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 8 mid_high 59 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_9 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_a 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 4 high 60 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_b 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_c 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 invalid 61 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_d 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_e 0 0 0 0 0
+ 0
+
+ 8 cp_wstrb 63 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_f 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_f 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 4 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 10 1 1 0 0 1 1 5 byte0 64 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_10 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 5 byte1 65 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_11 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 5 byte2 66 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_12 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 5 byte3 67 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_13 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 8 half_low 68 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_14 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 9 half_high 69 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_15 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 10 half_inter 70 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 2 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_16 0 0 0 0 0 0 0
+ 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_17 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 11 three_bytes 71 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 4 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_18 0 0 0 0 0 0 0
+ 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_19 0 0 0 0 0 0 0
+ 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1a 0 0 0 0 0 0 0
+ 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1b 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 9 full_word 72 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1c 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 8 no_bytes 73 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_transaction_fn_1d 0 0 0 0 0 0 0
+ 0
+
+ 10 cr_op_bank 0 77 0 0 -1 0 0 0 0 2 0 1 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+end_coverage_group
+global coverage_group 0 mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration __coverage_mem_ctrl_coverage#(32,32,4,8192,8,8).cg_arbitration unused_mem_ctrl_coverage#(32,32,4,8192,8,8)_cg_arbitration_loop_label mem_ctrl_pkg 0 1 0 0 0  ( 0 
+)
+ 0 90 0 0 0 1 0 0 0 0  1
+0
+0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_12
+0
+0
+0
+64
+0
+ 0
+
+5
+0
+1
+0
+ 8 cp_grant 93 0 0 0 0 0 180 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn 180 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 2 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 4 1 1 0 0 1 1 4 idle 94 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_0 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 wr_only 95 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_1 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 rd_only 96 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_2 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 4 both 97 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_3 0 0 0 0 0 0 0
+ 0
+
+ 11 cp_conflict 99 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_4 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_4 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 3 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 5 1 1 0 0 1 1 10 no_pending 100 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 2 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_5 0 0 0 0 0 0 0
+ 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_6 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 only_wr 101 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 2 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_7 0 0 0 0 0 0 0
+ 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_8 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 only_rd 102 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 2 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_9 0 0 0 0 0 0 0
+ 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_a 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 9 both_diff 103 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_b 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 9 both_same 104 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_c 0 0 0 0 0 0 0
+ 0
+
+ 7 cp_bp_b 106 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_d 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_d 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 1 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 9 cp_bp_rob 107 0 0 0 0 0 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_e 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_e 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 1 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 2 1 1 0 0 1 1 4 free 108 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_f 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 4 busy 109 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_10 0 0 0 0 0 0 0
+ 0
+
+ 10 cp_discard 111 0 0 0 0 0 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_11 183 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_11 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 2 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 4 1 1 0 0 1 1 4 none 112 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_0 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 10 wr_discard 113 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_1 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 10 rd_discard 114 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_2 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 4 both 115 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 182 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_arbitration_fn_3 0 0 0 0 0 0 0
+ 0
+
+ 17 cr_grant_conflict 0 118 0 0 -1 0 0 0 0 2 0 1 -1 0 0 0
+ 0
+ 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 3 1 2 0 0 -1 0 0 1 1 13 no_pndg_grant 121 0 2 0 1 3 1 0 1 1 10 no_pending 0 0 0 0 0 1 1 0 1 4 idle 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 2 0 0 -1 0 0 1 1 19 wr_only_no_wr_grant 124 0 2 0 1 5 1 0 1 1 7 only_wr 0 0 0 0 0 1 0 0 1 7 rd_only 0 0 0 0 0 1 0 0 1 4 both 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 1 2 0 0 -1 0 0 1 1 19 rd_only_no_rd_grant 127 0 2 0 1 5 1 0 1 1 7 only_rd 0 0 0 0 0 1 0 0 1 7 wr_only 0 0 0 0 0 1 0 0 1 4 both 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+
+end_coverage_group
+global coverage_group 0 mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_bank_state __coverage_mem_ctrl_coverage#(32,32,4,8192,8,8).cg_bank_state unused_mem_ctrl_coverage#(32,32,4,8192,8,8)_cg_bank_state_loop_label mem_ctrl_pkg 0 1 0 0 0  ( 0 
+)
+ 0 140 0 0 0 1 0 0 0 0  1
+0
+0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_a
+0
+0
+0
+64
+0
+ 0
+
+2
+0
+0
+0
+ 13 cp_busy_count 143 0 0 0 0 0 179 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn 179 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 1 32 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 4 1 1 0 0 1 1 4 zero 144 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_0 0 0 0 0 0 0 0
+ 0
+ 1 1 1 0 1 1 3 low 145 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_1 0 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_2 0 0 0 0 0
+ 0
+ 1 1 1 0 1 1 4 high 146 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_3 0 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_3 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 3 all 147 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_4 0 0 0 0 0 0 0
+ 0
+
+ 8 cp_state 149 0 0 0 0 0 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_5 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_5 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 0 -1 2 2 0 0 1 0 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 4 1 1 0 0 1 1 4 idle 150 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_6 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 5 issue 151 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_7 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 7 wait_st 152 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_8 0 0 0 0 0 0 0
+ 0
+ 1 1 0 0 1 1 8 complete 153 0 0 1 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 0 0 1 1 1 181 mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47::mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_mem_ctrl_pkg_mem_ctrl_coverage_1877456383400586110_47_cg_bank_state_fn_9 0 0 0 0 0 0 0
+ 0
+
+end_coverage_group
