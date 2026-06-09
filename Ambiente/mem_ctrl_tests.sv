@@ -151,7 +151,7 @@ class mem_full_test extends mem_base_test;
                 // Esperar a que ambas masters disparen bp_start
                 bp_start.wait_trigger();
                 bp_start.wait_trigger();
-                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls", UVM_LOW)
+                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls ", UVM_LOW)
 
                 uvm_config_db#(int)::set(this, "env.wr_agent.driver",
                                          "b_backpressure_cycles", 15);

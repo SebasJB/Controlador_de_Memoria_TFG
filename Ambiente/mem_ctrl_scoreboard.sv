@@ -382,11 +382,13 @@ class mem_ctrl_scoreboard #(
         real sim_time_ns;
         super.report_phase(phase);
 
+        // Conversión: 1 ciclo = 10 ns (clock 100 MHz)
         avg_lat_wr   = (b_count > 0) ? (sum_lat_wr_ns / b_count) : 0.0;
         avg_lat_rd   = (r_count > 0) ? (sum_lat_rd_ns / r_count) : 0.0;
         sim_time_ns  = real'($time);
-        throughput_wr = (sim_time_ns > 0) ? (real'(b_count) * 1000.0 / sim_time_ns) : 0.0;
-        throughput_rd = (sim_time_ns > 0) ? (real'(r_count) * 1000.0 / sim_time_ns) : 0.0;
+        // Throughput en operaciones por ciclo (sim_time_ns/10 = ciclos totales)
+        throughput_wr = (sim_time_ns > 0) ? (real'(b_count) * 10.0 / sim_time_ns) : 0.0;
+        throughput_rd = (sim_time_ns > 0) ? (real'(r_count) * 10.0 / sim_time_ns) : 0.0;
 
         if (b_count == 0) min_lat_wr_ns = 0.0;
         if (r_count == 0) min_lat_rd_ns = 0.0;
@@ -402,17 +404,17 @@ class mem_ctrl_scoreboard #(
         `uvm_info("SB_REPORT", $sformatf("RAW hazards tolerated:%0d", hazard_tolerated),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Order violations:     %0d", order_violations),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("SLVERR observed:      %0d", slverr_count),        UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Avg WR latency (ns):  %0.2f", avg_lat_wr),        UVM_LOW)
+        // ── Latencias en ciclos ──
         `uvm_info("SB_REPORT", $sformatf("Avg WR latency (cyc): %0.2f", avg_lat_wr/10.0),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Min WR latency (cyc): %0.2f", min_lat_wr_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Max WR latency (cyc): %0.2f", max_lat_wr_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Avg RD latency (cyc): %0.2f", avg_lat_rd/10.0),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Min RD latency (cyc): %0.2f", min_lat_rd_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Max RD latency (cyc): %0.2f", max_lat_rd_ns/10.0), UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Throughput WR (op/us):%0.3f", throughput_wr),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Throughput RD (op/us):%0.3f", throughput_rd),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Sim time (cyc):       %0.0f", sim_time_ns/10.0), UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("AR queue remaining:   %0d", ar_global_queue.size()), UVM_LOW)
+        // ── Throughput en op/ciclo ──
+        `uvm_info("SB_REPORT", $sformatf("Throughput WR (op/cyc):%0.4f", throughput_wr),    UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Throughput RD (op/cyc):%0.4f", throughput_rd),    UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Sim time (cyc):       %0.0f", sim_time_ns/10.0),  UVM_LOW)
         for (int b = 0; b < N_BANKS; b++) begin
             `uvm_info("SB_REPORT", $sformatf("Bank %0d: WR=%0d RD=%0d",
                 b, bank_completes_wr[b], bank_completes_rd[b]), UVM_LOW)
