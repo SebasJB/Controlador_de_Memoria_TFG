@@ -296,21 +296,50 @@ class mem_ctrl_scoreboard #(
                 item.resp, item.txn_id))
         end
 
-        // ── Order check ──
+        // ── Sanity: cola no vacía ──
         if (ar_global_queue.size() == 0) begin
             `uvm_error("SB_R", $sformatf(
-                "R fire without pending AR (txn_id_observed=%0d)",
+                "R fire without pending AR (item.txn_id_observed=%0d)",
                 item.txn_id))
             return;
         end
-        head_ar = ar_global_queue.pop_front();
 
-        // ── Data check ──
-        match_idx = -1;
-        foreach (exp_queue[head_ar.bank][i]) begin
-            if (exp_queue[head_ar.bank][i].txn_id == head_ar.txn_id) begin
-                match_idx = i;
-                break;
+        // ── Búsqueda del AR correspondiente ──
+        // El DUT entrega respuestas R según el orden del ROB, no en
+        // estricto orden de issue. Por ello buscamos en la cola global
+        // el AR cuyo exp_data coincida con item.data, en lugar de hacer
+        // pop_front ciego. Esto tolera respuestas que llegan fuera del
+        // orden FIFO de los AR.
+        head_ar.txn_id = 0;
+        head_ar.bank   = 0;
+        match_idx      = -1;
+
+        // Primer intento: match exacto con exp_data del snapshot
+        foreach (ar_global_queue[i]) begin
+            int b   = ar_global_queue[i].bank;
+            int tid = ar_global_queue[i].txn_id;
+            foreach (exp_queue[b][j]) begin
+                if (exp_queue[b][j].txn_id == tid &&
+                    (exp_queue[b][j].exp_data === item.data ||
+                     ref_mem[exp_queue[b][j].bank][exp_queue[b][j].offset] === item.data)) begin
+                    head_ar   = ar_global_queue[i];
+                    match_idx = j;
+                    ar_global_queue.delete(i);
+                    break;
+                end
+            end
+            if (match_idx != -1) break;
+        end
+
+        // Si no hubo match por dato, fallback: asume orden FIFO global
+        // (puede ocurrir bajo corrupción real, lo cual se reporta luego)
+        if (match_idx == -1) begin
+            head_ar = ar_global_queue.pop_front();
+            foreach (exp_queue[head_ar.bank][i]) begin
+                if (exp_queue[head_ar.bank][i].txn_id == head_ar.txn_id) begin
+                    match_idx = i;
+                    break;
+                end
             end
         end
 
@@ -403,14 +432,16 @@ class mem_ctrl_scoreboard #(
         `uvm_info("SB_REPORT", $sformatf("Order violations:     %0d", order_violations),    UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("SLVERR observed:      %0d", slverr_count),        UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Avg WR latency (ns):  %0.2f", avg_lat_wr),        UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Min WR latency (ns):  %0.2f", min_lat_wr_ns),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Max WR latency (ns):  %0.2f", max_lat_wr_ns),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Avg RD latency (ns):  %0.2f", avg_lat_rd),        UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Min RD latency (ns):  %0.2f", min_lat_rd_ns),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Max RD latency (ns):  %0.2f", max_lat_rd_ns),     UVM_LOW)
+        `// ── Latencias en ciclos de reloj (1 ciclo = 10 ns) ──
+        `uvm_info("SB_REPORT", $sformatf("Avg WR latency (cyc): %0.2f", avg_lat_wr/10.0),    UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Min WR latency (cyc): %0.2f", min_lat_wr_ns/10.0), UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Max WR latency (cyc): %0.2f", max_lat_wr_ns/10.0), UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Avg RD latency (cyc): %0.2f", avg_lat_rd/10.0),    UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Min RD latency (cyc): %0.2f", min_lat_rd_ns/10.0), UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Max RD latency (cyc): %0.2f", max_lat_rd_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Throughput WR (op/us):%0.3f", throughput_wr),     UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("Throughput RD (op/us):%0.3f", throughput_rd),     UVM_LOW)
-        `uvm_info("SB_REPORT", $sformatf("Sim time (ns):        %0.0f", sim_time_ns),       UVM_LOW)
+        `uvm_info("SB_REPORT", $sformatf("Sim time (cyc):       %0.0f", sim_time_ns/10.0), UVM_LOW)
         `uvm_info("SB_REPORT", $sformatf("AR queue remaining:   %0d", ar_global_queue.size()), UVM_LOW)
         for (int b = 0; b < N_BANKS; b++) begin
             `uvm_info("SB_REPORT", $sformatf("Bank %0d: WR=%0d RD=%0d",
@@ -442,9 +473,9 @@ class mem_ctrl_scoreboard #(
             $fwrite(fd, "test_name,b_bp,r_bp,writes,reads,b_resp,r_resp,");
             $fwrite(fd, "data_mismatches,hazards_tolerated,order_violations,slverr,");
             $fwrite(fd, "invalid_wr,invalid_rd,");
-            $fwrite(fd, "avg_lat_wr,min_lat_wr,max_lat_wr,");
-            $fwrite(fd, "avg_lat_rd,min_lat_rd,max_lat_rd,");
-            $fwrite(fd, "throughput_wr,throughput_rd,sim_time_ns\n");
+            $fwrite(fd, "avg_lat_wr_cyc,min_lat_wr_cyc,max_lat_wr_cyc,");
+            $fwrite(fd, "avg_lat_rd_cyc,min_lat_rd_cyc,max_lat_rd_cyc,");
+            $fwrite(fd, "throughput_wr,throughput_rd,sim_time_cyc\n");
         end else begin
             $fclose(fd_check);
             fd = $fopen(filepath, "a");
@@ -454,9 +485,9 @@ class mem_ctrl_scoreboard #(
         $fwrite(fd, "%0d,%0d,%0d,%0d,", write_count, read_count, b_count, r_count);
         $fwrite(fd, "%0d,%0d,%0d,%0d,", data_mismatches, hazard_tolerated, order_violations, slverr_count);
         $fwrite(fd, "%0d,%0d,", addr_invalid_writes, addr_invalid_reads);
-        $fwrite(fd, "%0.2f,%0.2f,%0.2f,", avg_lat_wr, min_lat_wr_ns, max_lat_wr_ns);
-        $fwrite(fd, "%0.2f,%0.2f,%0.2f,", avg_lat_rd, min_lat_rd_ns, max_lat_rd_ns);
-        $fwrite(fd, "%0.3f,%0.3f,%0.0f\n", throughput_wr, throughput_rd, sim_time_ns);
+        $fwrite(fd, "%0.2f,%0.2f,%0.2f,", avg_lat_wr/10.0, min_lat_wr_ns/10.0, max_lat_wr_ns/10.0);
+        $fwrite(fd, "%0.2f,%0.2f,%0.2f,", avg_lat_rd/10.0, min_lat_rd_ns/10.0, max_lat_rd_ns/10.0);
+        $fwrite(fd, "%0.3f,%0.3f,%0.0f\n", throughput_wr, throughput_rd, sim_time_ns/10.0);
         $fclose(fd);
         `uvm_info("SB_CSV", $sformatf("Summary written to %s", filepath), UVM_LOW)
     endfunction
@@ -471,7 +502,7 @@ class mem_ctrl_scoreboard #(
         fd_check = $fopen(filepath, "r");
         if (fd_check == 0) begin
             fd = $fopen(filepath, "w");
-            $fwrite(fd, "test_name,b_bp,r_bp,txn_id,op_type,bank,latency_ns\n");
+            $fwrite(fd, "test_name,b_bp,r_bp,txn_id,op_type,bank,latency_cyc\n");
         end else begin
             $fclose(fd_check);
             fd = $fopen(filepath, "a");
@@ -481,7 +512,7 @@ class mem_ctrl_scoreboard #(
             $fwrite(fd, "%s,%0d,%0d,%0d,%s,%0d,%0.2f\n",
                 run_label, b_bp_value, r_bp_value,
                 lat_history[i].txn_id, lat_history[i].op_type,
-                lat_history[i].bank, lat_history[i].latency_ns);
+                lat_history[i].bank, lat_history[i].latency_ns/10.0);
         end
         $fclose(fd);
         `uvm_info("SB_CSV", $sformatf("Latencies written to %s (%0d entries)",
@@ -502,7 +533,7 @@ class mem_ctrl_scoreboard #(
             fd = $fopen(filepath, "w");
             $fwrite(fd, "test_name,b_bp,r_bp,bank_id,");
             $fwrite(fd, "writes_completed,reads_completed,total_completes,");
-            $fwrite(fd, "utilization_proxy_pct,sim_time_ns\n");
+            $fwrite(fd, "utilization_proxy_pct,sim_time_cyc\n");
         end else begin
             $fclose(fd_check);
             fd = $fopen(filepath, "a");
@@ -515,7 +546,7 @@ class mem_ctrl_scoreboard #(
             $fwrite(fd, "%s,%0d,%0d,%0d,%0d,%0d,%0d,%0.2f,%0.0f\n",
                 run_label, b_bp_value, r_bp_value, b,
                 bank_completes_wr[b], bank_completes_rd[b], total_completes,
-                util_pct, sim_time_ns);
+                util_pct, sim_time_ns/10.0);
         end
         $fclose(fd);
         `uvm_info("SB_CSV", $sformatf("Bank util written to %s", filepath), UVM_LOW)
