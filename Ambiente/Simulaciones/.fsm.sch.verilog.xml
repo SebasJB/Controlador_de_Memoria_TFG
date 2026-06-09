@@ -11,13 +11,5 @@
 <Instance name="tb_top.dut.gen_bank[5].u_bank.u_fsm"  />
 <Instance name="tb_top.dut.gen_bank[6].u_bank.u_fsm"  />
 <Instance name="tb_top.dut.gen_bank[7].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[8].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[9].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[10].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[11].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[12].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[13].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[14].u_bank.u_fsm"  />
-<Instance name="tb_top.dut.gen_bank[15].u_bank.u_fsm"  />
 </RTLBlock>
 </Command>

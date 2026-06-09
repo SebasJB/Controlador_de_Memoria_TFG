@@ -8,7 +8,7 @@ VSRC=..
 TARGET_ARCH=
 
 # Choose name of executable 
-PRODUCTBASE=$(VSRC)/mem_handler_simv_n16_lat4
+PRODUCTBASE=$(VSRC)/mem_handler_simv_n8_lat1
 
 PRODUCT=$(PRODUCTBASE)
 
@@ -40,7 +40,7 @@ STDLIB =
 STRIPFLAGS= 
 
 PRE_LDFLAGS= # Loader Flags
-LDFLAGS= -rdynamic  -Wl,-rpath='$$ORIGIN'/mem_handler_simv_n16_lat4.daidir -Wl,-rpath=./mem_handler_simv_n16_lat4.daidir -Wl,-rpath=/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib -L/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib 
+LDFLAGS= -rdynamic  -Wl,-rpath='$$ORIGIN'/mem_handler_simv_n8_lat1.daidir -Wl,-rpath=./mem_handler_simv_n8_lat1.daidir -Wl,-rpath=/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib -L/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib 
 # Picarchive Flags
 PICLDFLAGS= -Wl,-rpath-link=./ 
 

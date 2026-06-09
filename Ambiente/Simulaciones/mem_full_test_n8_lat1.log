@@ -1,7 +1,7 @@
 Command: /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/./mem_handler_simv_n8_lat1 +UVM_TESTNAME=mem_full_test +UVM_VERBOSITY=UVM_LOW -cm line+cond+fsm+tgl+branch -cm_dir /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb -cm_name mem_full_test_CFG-B1 -l mem_full_test_n8_lat1.log
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12-SP2_Full64; Runtime version R-2020.12-SP2_Full64;  Jun  9 00:28 2026
+Compiler version R-2020.12-SP2_Full64; Runtime version R-2020.12-SP2_Full64;  Jun  9 07:22 2026
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -57,43 +57,41 @@ UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_sequences.sv(465) @ 122775000: uvm_test_top.env.rd_agent.sequencer@@m_rd [MASTER_RD] === Phase H: BACKPRESSURE (300 RD) ===
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_sequences.sv(329) @ 131785000: uvm_test_top.env.wr_agent.sequencer@@m_wr [MASTER_WR] === Phase F: FIFO_SATURATION (WR back-to-back) ===
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_sequences.sv(340) @ 140895000: uvm_test_top.env.wr_agent.sequencer@@m_wr [MASTER_WR] === Phase H: BACKPRESSURE (300 WR) ===
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_tests.sv(154) @ 140895000: uvm_test_top [BP_CTRL] Both masters in BACKPRESSURE — activating stalls
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_tests.sv(154) @ 140895000: uvm_test_top [BP_CTRL] Both masters in BACKPRESSURE — activating stalls 
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_sequences.sv(356) @ 189385000: uvm_test_top.env.wr_agent.sequencer@@m_wr [MASTER_WR] === Phase H: BACKPRESSURE (300 WR) ===
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_tests.sv(163) @ 240385000: uvm_test_top [BP_CTRL] Both masters left BACKPRESSURE — deactivating stalls
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv(254) @ 260385000: uvm_test_top.env.cov [COV_REPORT] cg_transaction: 96.00% | cg_arbitration: 90.38% | cg_bank_state: 59.72%
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(394) @ 260385000: uvm_test_top.env.sb [SB_REPORT] ===== MEM_CTRL SCOREBOARD REPORT =====
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(395) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Writes issued:        3700
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(396) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Reads issued:         2950
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(397) @ 260385000: uvm_test_top.env.sb [SB_REPORT] B  responses:         3600
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(398) @ 260385000: uvm_test_top.env.sb [SB_REPORT] R  responses:         2850
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(399) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Invalid WR addr (M5): 100
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(400) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Invalid RD addr (M5): 100
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(401) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Data mismatches:      0
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(402) @ 260385000: uvm_test_top.env.sb [SB_REPORT] RAW hazards tolerated:2
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(403) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Order violations:     0
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(404) @ 260385000: uvm_test_top.env.sb [SB_REPORT] SLVERR observed:      0
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(405) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Avg WR latency (ns):  3968.91
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(406) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Avg WR latency (cyc): 396.89
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(407) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Min WR latency (cyc): 4.00
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(408) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Max WR latency (cyc): 1970.00
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(409) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Avg RD latency (cyc): 96.02
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(410) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Min RD latency (cyc): 6.00
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(411) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Max RD latency (cyc): 490.00
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(412) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Throughput WR (op/us):13.826
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(413) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Throughput RD (op/us):10.945
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(414) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Sim time (cyc):       26038
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(415) @ 260385000: uvm_test_top.env.sb [SB_REPORT] AR queue remaining:   0
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 0: WR=404 RD=353
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 1: WR=430 RD=349
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 2: WR=436 RD=354
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 3: WR=456 RD=362
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 4: WR=436 RD=362
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 5: WR=482 RD=349
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 6: WR=397 RD=360
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 7: WR=459 RD=361
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(462) @ 260385000: uvm_test_top.env.sb [SB_CSV] Summary written to ./metrics_summary.csv
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(488) @ 260385000: uvm_test_top.env.sb [SB_CSV] Latencies written to ./latencies_detail.csv (6450 entries)
-UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(522) @ 260385000: uvm_test_top.env.sb [SB_CSV] Bank util written to ./bank_utilization.csv
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(396) @ 260385000: uvm_test_top.env.sb [SB_REPORT] ===== MEM_CTRL SCOREBOARD REPORT =====
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(397) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Writes issued:        3700
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(398) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Reads issued:         2950
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(399) @ 260385000: uvm_test_top.env.sb [SB_REPORT] B  responses:         3600
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(400) @ 260385000: uvm_test_top.env.sb [SB_REPORT] R  responses:         2850
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(401) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Invalid WR addr (M5): 100
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(402) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Invalid RD addr (M5): 100
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(403) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Data mismatches:      0
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(404) @ 260385000: uvm_test_top.env.sb [SB_REPORT] RAW hazards tolerated:2
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(405) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Order violations:     0
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(406) @ 260385000: uvm_test_top.env.sb [SB_REPORT] SLVERR observed:      0
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(408) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Avg WR latency (cyc): 396.89
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(409) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Min WR latency (cyc): 4.00
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(410) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Max WR latency (cyc): 1970.00
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(411) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Avg RD latency (cyc): 96.02
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(412) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Min RD latency (cyc): 6.00
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(413) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Max RD latency (cyc): 490.00
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(415) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Throughput WR (op/cyc):0.1383
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(416) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Throughput RD (op/cyc):0.1095
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(417) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Sim time (cyc):       26038
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 0: WR=404 RD=353
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 1: WR=430 RD=349
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 2: WR=436 RD=354
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 3: WR=456 RD=362
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 4: WR=436 RD=362
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 5: WR=482 RD=349
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 6: WR=397 RD=360
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(419) @ 260385000: uvm_test_top.env.sb [SB_REPORT] Bank 7: WR=459 RD=361
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(464) @ 260385000: uvm_test_top.env.sb [SB_CSV] Summary written to ./metrics_summary.csv
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(490) @ 260385000: uvm_test_top.env.sb [SB_CSV] Latencies written to ./latencies_detail.csv (6450 entries)
+UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(524) @ 260385000: uvm_test_top.env.sb [SB_CSV] Bank util written to ./bank_utilization.csv
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 260385000: reporter [UVM/REPORT/CATCHER] 
 --- UVM Report catcher Summary ---
 
@@ -109,7 +107,7 @@ UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   72
+UVM_INFO :   70
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
@@ -121,7 +119,7 @@ UVM_FATAL :    0
 [RD_DRV]     1
 [RNTST]     1
 [SB_CSV]     4
-[SB_REPORT]    30
+[SB_REPORT]    28
 [TEST_PARAMS]     1
 [UVM/RELNOTES]     1
 [UVM/REPORT/CATCHER]     1
@@ -175,5 +173,5 @@ VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitor
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 260385000 ps
-CPU Time:      7.740 seconds;       Data structure size:   0.8Mb
-Tue Jun  9 00:28:10 2026
+CPU Time:      8.010 seconds;       Data structure size:   0.8Mb
+Tue Jun  9 07:22:23 2026
