@@ -56,7 +56,7 @@ class read_monitor #(
                 item.is_write   = 1'b0;
                 item.addr       = vif.monitor_cb.araddr;
                 item.t_req_fire = $time;
-                `uvm_info("RD_MON_AR", $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t", ar_idx, item.txn_id, item.addr, $time),UVM_HIGH)
+                `uvm_info("RD_MON_AR", $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t", ar_idx, item.txn_id, item.addr, $time),UVM_LOW)
                 ap_ar.write(item);
                 pending_r.push_back(item);
                 ar_idx++;
@@ -79,7 +79,7 @@ class read_monitor #(
                     r_item.resp        = vif.monitor_cb.rresp;
                     r_item.t_resp_fire = $time;
                     `uvm_info("RD_MON_R", $sformatf("R fire #%0d txn_id=%0d rdata=0x%08h rresp=%0b lat=%0t @ %0t", r_idx, r_item.txn_id, r_item.data, r_item.resp, r_item.t_resp_fire - r_item.t_req_fire, $time),
-                        UVM_HIGH)
+                        UVM_LOW)
                     ap_r.write(r_item);
                     r_idx++;
                 end

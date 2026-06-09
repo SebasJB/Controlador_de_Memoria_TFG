@@ -98,7 +98,7 @@ class write_monitor #(
                         $sformatf("emit txn #%0d txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h",
                                   wr_idx, item.txn_id, item.addr,
                                   item.data, item.wstrb),
-                        UVM_HIGH)
+                        UVM_LOW)
                     ap_wr.write(item);
                     pending_b.push_back(item);
                     // Registrar la dirección en el hazard tracker para
@@ -131,7 +131,7 @@ class write_monitor #(
                         $sformatf("B fire #%0d txn_id=%0d bresp=%0b lat=%0t @ %0t",
                                   b_idx, b_item.txn_id, b_item.resp,
                                   b_item.t_resp_fire - b_item.t_req_fire, $time),
-                        UVM_HIGH)
+                        UVM_LOW)
                     ap_b.write(b_item);
                     b_idx++;
                 end
