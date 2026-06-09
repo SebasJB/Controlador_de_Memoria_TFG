@@ -811,3 +811,7 @@
   CREATE_STREAM @0 {NAME:m_rd T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:990}
   CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:1001}
   CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:1011}
+  CREATE_STREAM @0 {NAME:m_wr T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:987}
+  CREATE_STREAM @0 {NAME:m_rd T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:990}
+  CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.wr_agent.sequencer STREAM:1001}
+  CREATE_STREAM @0 {NAME:ph_a T:Transactions SCOPE:uvm_test_top.env.rd_agent.sequencer STREAM:1011}
