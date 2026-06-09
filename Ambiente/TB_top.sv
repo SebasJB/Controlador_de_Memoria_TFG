@@ -39,7 +39,7 @@ module tb_top;
     localparam int N_BANKS           = `TB_N_BANKS;
     localparam int BANK_SIZE_BYTES   = `TB_BANK_SIZE_BYTES;
     localparam int READ_LATENCY      = `TB_READ_LATENCY;
-    localparam int LAT_CNT_W         = 8;
+    localparam int LAT_CNT_W         = 3;
     localparam int WR_REQ_FIFO_DEPTH = 8;
     localparam int RD_REQ_FIFO_DEPTH = 8;
     localparam int WR_RESP_DEPTH     = 8;

@@ -132,7 +132,7 @@ module mem_handler_top #(
     parameter N_BANKS           = 4,
     parameter BANK_SIZE_BYTES   = 1024,
     parameter READ_LATENCY      = 1,
-    parameter LAT_CNT_W         = 8,
+    parameter LAT_CNT_W         = 3,
     parameter WR_REQ_FIFO_DEPTH = 8,
     parameter RD_REQ_FIFO_DEPTH = 8,
     parameter WR_RESP_DEPTH     = 8,
