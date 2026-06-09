@@ -85,7 +85,7 @@ class write_driver #(
         `uvm_info("WR_DRV_AW",
             $sformatf("AW fire txn_id=%0d addr=0x%08h @ %0t",
                       item.txn_id, item.addr, $time),
-            UVM_HIGH)
+            UVM_LOW)
     endtask
 
     task drive_w(item_t item);
@@ -98,7 +98,7 @@ class write_driver #(
         `uvm_info("WR_DRV_W",
             $sformatf("W fire txn_id=%0d data=0x%08h wstrb=0x%h @ %0t",
                       item.txn_id, item.data, item.wstrb, $time),
-            UVM_HIGH)
+            UVM_LOW)
     endtask
 
     task accept_b_responses();
