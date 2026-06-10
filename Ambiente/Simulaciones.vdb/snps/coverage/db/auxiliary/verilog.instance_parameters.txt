@@ -1,0 +1,16 @@
+tb_top.dut.gen_bank[0].u_bank.u_fsm.COMPLETE3
+tb_top.dut.gen_bank[0].u_bank.u_fsm.IDLE0
+tb_top.dut.gen_bank[0].u_bank.u_fsm.ISSUE1
+tb_top.dut.gen_bank[0].u_bank.u_fsm.WAIT2
+tb_top.dut.gen_bank[1].u_bank.u_fsm.COMPLETE3
+tb_top.dut.gen_bank[1].u_bank.u_fsm.IDLE0
+tb_top.dut.gen_bank[1].u_bank.u_fsm.ISSUE1
+tb_top.dut.gen_bank[1].u_bank.u_fsm.WAIT2
+tb_top.dut.gen_bank[2].u_bank.u_fsm.COMPLETE3
+tb_top.dut.gen_bank[2].u_bank.u_fsm.IDLE0
+tb_top.dut.gen_bank[2].u_bank.u_fsm.ISSUE1
+tb_top.dut.gen_bank[2].u_bank.u_fsm.WAIT2
+tb_top.dut.gen_bank[3].u_bank.u_fsm.COMPLETE3
+tb_top.dut.gen_bank[3].u_bank.u_fsm.IDLE0
+tb_top.dut.gen_bank[3].u_bank.u_fsm.ISSUE1
+tb_top.dut.gen_bank[3].u_bank.u_fsm.WAIT2
