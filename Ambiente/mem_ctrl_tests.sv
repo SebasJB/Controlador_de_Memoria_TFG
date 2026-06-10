@@ -124,8 +124,8 @@ class mem_full_test extends mem_base_test;
         // ── Declaraciones de variables locales del task ──
         mem_master_wr_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES) m_wr;
         mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES) m_rd;
-        uvm_event bp_start;
-        uvm_event bp_end;
+//        uvm_event bp_start;
+//        uvm_event bp_end;
 
         // ── Statements ejecutables ──
         phase.raise_objection(this);
@@ -135,45 +135,50 @@ class mem_full_test extends mem_base_test;
         m_rd = mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)
                 ::type_id::create("m_rd");
 
-        bp_start = uvm_event_pool::get_global("bp_start");
-        bp_end   = uvm_event_pool::get_global("bp_end");
+//        bp_start = uvm_event_pool::get_global("bp_start");
+//        bp_end   = uvm_event_pool::get_global("bp_end");
 
         // PARALELO: writes y reads compiten por el scheduler
         fork
-            begin : masters
-                fork
-                    m_wr.start(env.wr_agent.sequencer);
-                    m_rd.start(env.rd_agent.sequencer);
-                join
+            begin : write_master
+
+                m_wr.start(env.wr_agent.sequencer);
             end
 
-            begin : bp_listener
-                // Esperar a que ambas masters disparen bp_start
-                bp_start.wait_trigger();
-                bp_start.wait_trigger();
-                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls ", UVM_LOW)
 
-                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
-                                         "b_backpressure_cycles", 15);
-                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
-                                         "r_backpressure_cycles", 15);
+            begin : read_master
 
-                bp_end.wait_trigger();
-                bp_end.wait_trigger();
-                `uvm_info("BP_CTRL", "Both masters left BACKPRESSURE — deactivating stalls", UVM_LOW)
+                m_rd.start(env.rd_agent.sequencer);
 
-                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
-                                         "b_backpressure_cycles", 0);
-                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
-                                         "r_backpressure_cycles", 0);
             end
-        join_any
+
+//            begin : bp_listener
+//                // Esperar a que ambas masters disparen bp_start
+//                bp_start.wait_trigger();
+//                bp_start.wait_trigger();
+//                `uvm_info("BP_CTRL", "Both masters in BACKPRESSURE — activating stalls ", UVM_LOW)
+//
+//                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+//                                         "b_backpressure_cycles", 15);
+//                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+//                                         "r_backpressure_cycles", 15);
+//
+//                bp_end.wait_trigger();
+//                bp_end.wait_trigger();
+//                `uvm_info("BP_CTRL", "Both masters left BACKPRESSURE — deactivating stalls", UVM_LOW)
+//
+//                uvm_config_db#(int)::set(this, "env.wr_agent.driver",
+//                                         "b_backpressure_cycles", 0);
+//                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
+//                                         "r_backpressure_cycles", 0);
+//            end
+        join
 
         // Drain final: deja que salgan las respuestas en vuelo
         drain_responses(2000);
         // Si el listener sigue esperando eventos (caso PHASE_ONLY sin
         // BACKPRESSURE), matarlo para que el test pueda terminar.
-        disable bp_listener;
+        //disable bp_listener;
         phase.drop_objection(this);
     endtask
 endclass
@@ -189,7 +194,7 @@ class mem_b_backpressure_test extends mem_base_test;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         uvm_config_db#(int)::set(this, "env.wr_agent.driver",
-                                  "b_backpressure_cycles", 20);
+                                  "b_backpressure_cycles", 15);
     endfunction
 
     task run_phase(uvm_phase phase);
@@ -214,7 +219,7 @@ class mem_r_backpressure_test extends mem_base_test;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         uvm_config_db#(int)::set(this, "env.rd_agent.driver",
-                                  "r_backpressure_cycles", 30);
+                                  "r_backpressure_cycles", 15);
     endfunction
 
     task run_phase(uvm_phase phase);
