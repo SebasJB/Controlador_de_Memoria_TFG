@@ -79,8 +79,8 @@ class read_driver #(
 
         // Releer el knob del config_db en cada respuesta para que
         // los cambios runtime del listener BACKPRESSURE se apliquen.
-        //if (!uvm_config_db#(int)::get(this, "", "r_backpressure_cycles", current_bp))
-        //    current_bp = 0;
+        if (!uvm_config_db#(int)::get(this, "", "r_backpressure_cycles", current_bp))
+            current_bp = 0;
 
         if (current_bp > 0) begin
             `uvm_info("RD_DRV_R",
