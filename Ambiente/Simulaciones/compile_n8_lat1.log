@@ -4,7 +4,7 @@ Command: vcs -f /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Cont
 +define+TEST_BANK_SIZE_BYTES=8192 -l compile_n8_lat1.log -o mem_handler_simv_n8_lat1 \
 -debug_access+all -debug_region+cell
                          Chronologic VCS (TM)
-       Version R-2020.12-SP2_Full64 -- Wed Jun 10 21:12:02 2026
+       Version R-2020.12-SP2_Full64 -- Wed Jun 10 22:52:27 2026
 
                     Copyright (c) 1991 - 2021 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -404,7 +404,7 @@ TimeScale is 1 ns / 1 ps
 VCS Coverage Metrics Release R-2020.12-SP2_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
 
 Warning-[INTFDV] VCD dumping of interface/program/package
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/TB_top.sv, 217
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/TB_top.sv, 218
   Selective VCD dumping of interface 'mem_bank_interface' is not supported.  
   Selective VCD dumping for interfaces, packages and programs is not 
   supported.
@@ -458,7 +458,7 @@ fi
 g++  -o ../mem_handler_simv_n8_lat1      -rdynamic  -Wl,-rpath='$ORIGIN'/mem_handler_simv_n8_lat1.daidir \
 -Wl,-rpath=./mem_handler_simv_n8_lat1.daidir -Wl,-rpath=/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib \
 -L/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1 \
-uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o   _3247475_archive_1.so  SIM_l.o      \
+uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o   _3259386_archive_1.so  SIM_l.o      \
 rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o        \
 -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/libBA.a \
 -luclinative /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive \
@@ -467,4 +467,4 @@ _vcs_pli_stub_.o   /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/vcs_sa
 /mnt/vol_NFS_rh003/tools/verdi/R-2020.12-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc \
 -lm -lpthread -ldl 
 ../mem_handler_simv_n8_lat1 up to date
-CPU time: 28.812 seconds to compile + .940 seconds to elab + 1.235 seconds to link
+CPU time: 27.647 seconds to compile + 1.071 seconds to elab + 1.298 seconds to link
