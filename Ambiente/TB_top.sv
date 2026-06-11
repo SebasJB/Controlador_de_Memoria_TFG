@@ -175,7 +175,7 @@ module tb_top;
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "ADDR_W",          ADDR_W);
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "DATA_W",          DATA_W);
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "N_BANKS",         N_BANKS);
-        uvm_config_db#(int)::set(null, "uvm_test_top.*", "read_latency_val",    READ_LATENCY);
+        uvm_config_db#(int)::set(null, "*", "read_latency_val", `TB_READ_LATENCY);
         uvm_config_db#(int)::set(null, "uvm_test_top.*", "BANK_SIZE_BYTES", BANK_SIZE_BYTES);
 
         // Publicar las probe vifs hacia el coverage subscriber.
