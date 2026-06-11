@@ -34,11 +34,12 @@ parameter int TEST_ADDR_W          = 32;
 parameter int TEST_DATA_W          = 32;
 parameter int TEST_N_BANKS         = `TEST_N_BANKS;
 parameter int TEST_BANK_SIZE_BYTES = `TEST_BANK_SIZE_BYTES;
+parameter int TEST_READ_LATENCY    = READ_LATENCY;
 parameter int TEST_WR_FIFO_DEPTH   = 8;
 parameter int TEST_RD_FIFO_DEPTH   = 8;
 
 typedef mem_ctrl_env #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS,
-                       TEST_BANK_SIZE_BYTES,
+                       TEST_BANK_SIZE_BYTES, TEST_READ_LATENCY,
                        TEST_WR_FIFO_DEPTH, TEST_RD_FIFO_DEPTH) env_t;
 
 
