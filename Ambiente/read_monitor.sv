@@ -61,7 +61,7 @@ class read_monitor #(
                 ap_ar.write(item);
                 // Solo encolar si la dirección es válida — las inválidas son descartadas
                 // por el DUT sin generar R fire.
-                if (item.addr[31:2] < (N_BANKS * BANK_SIZE_BYTES))
+                if (item.addr[31:2] < (N_BANKS * (BANK_SIZE_BYTES / (DATA_W/8))))
                     pending_r.push_back(item);
                 ar_idx++;
             end
