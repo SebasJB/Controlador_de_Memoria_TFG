@@ -29,13 +29,11 @@ class mem_ctrl_env #(
     read_agent #(ADDR_W, DATA_W, N_BANKS) rd_agent;
     mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES) sb;
     mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES,WR_FIFO_DEPTH, RD_FIFO_DEPTH) cov;
-    mem_ctrl_hazard_tracker hazard;
 
     `uvm_component_param_utils(mem_ctrl_env #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH))
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
-        uvm_config_db#(mem_ctrl_hazard_tracker)::set(this, "*", "hazard_tracker", hazard);
     endfunction
 
     function void build_phase(uvm_phase phase);
@@ -44,7 +42,6 @@ class mem_ctrl_env #(
         rd_agent = read_agent  #(ADDR_W, DATA_W, N_BANKS)::type_id::create("rd_agent", this);
         sb = mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create("sb", this);
         cov = mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH)::type_id::create("cov", this);
-        hazard = mem_ctrl_hazard_tracker::type_id::create("hazard");
     endfunction
 
     function void connect_phase(uvm_phase phase);

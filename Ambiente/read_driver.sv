@@ -72,22 +72,16 @@ class read_driver #(
 
     task accept_r_responses();
     int r_idx = 0;
-    int current_bp;
     forever begin
         @(vif.master_read_cb);
         if (vif.master_read_cb.rvalid !== 1'b1) continue;
 
-        // Releer el knob del config_db en cada respuesta para que
-        // los cambios runtime del listener BACKPRESSURE se apliquen.
-        if (!uvm_config_db#(int)::get(this, "", "r_backpressure_cycles", current_bp))
-            current_bp = 0;
-
-        if (current_bp > 0) begin
+        if (r_backpressure_cycles > 0) begin
             `uvm_info("RD_DRV_R",
                 $sformatf("R stall %0d cycles before accepting @ %0t",
-                          current_bp, $time),
+                          r_backpressure_cycles, $time),
                 UVM_HIGH)
-            repeat (current_bp) @(vif.master_read_cb);
+            repeat (r_backpressure_cycles) @(vif.master_read_cb);
         end
 
         // Aceptar: rready=1 por exactamente 1 ciclo.
