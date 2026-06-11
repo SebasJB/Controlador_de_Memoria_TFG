@@ -18,7 +18,7 @@ class write_agent #(
     typedef mem_ctrl_seq_item #(ADDR_W, DATA_W, N_BANKS) item_t;
 
     uvm_sequencer #(item_t)                          sequencer;
-    write_driver  #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          driver;
+    write_driver  #(ADDR_W, DATA_W, N_BANKS)          driver;
     write_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          monitor;
 
     // Re-exposición de los analysis ports del monitor (atajo
@@ -41,7 +41,7 @@ class write_agent #(
         if (get_is_active() == UVM_ACTIVE) begin
             sequencer = uvm_sequencer #(item_t)::type_id::create(
                         "sequencer", this);
-            driver    = write_driver #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create(
+            driver    = write_driver #(ADDR_W, DATA_W, N_BANKS)::type_id::create(
                         "driver", this);
         end
     endfunction

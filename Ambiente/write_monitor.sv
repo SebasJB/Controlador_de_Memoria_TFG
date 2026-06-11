@@ -94,13 +94,7 @@ class write_monitor #(
                     item.addr       = aw_q.pop_front();
                     item.data       = wd_q.pop_front();
                     item.wstrb      = ws_q.pop_front();
-
-                    // En la rama AW fire:
-                    aw_q.push_back(vif.monitor_cb.awaddr);
-                    aw_t_q.push_back($time);   // ← timestamp en el momento real del AW fire
-
-                    // En la emisión del item (reemplazar línea 93):
-                    item.t_req_fire = aw_t_q.pop_front();   // en lugar de $time
+                    item.t_req_fire = aw_t_q.pop_front();
                     `uvm_info("WR_MON_TXN",
                         $sformatf("emit txn #%0d txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h",
                                   wr_idx, item.txn_id, item.addr,
@@ -110,7 +104,7 @@ class write_monitor #(
                     // Solo encolar si la dirección es válida — las inválidas no generan B fire.
                     if (item.addr[31:2] < (N_BANKS * (BANK_SIZE_BYTES / (DATA_W/8))))
                         pending_b.push_back(item);
-    
+                    wr_idx++;
                 end
             end
         join

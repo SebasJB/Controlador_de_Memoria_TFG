@@ -14,7 +14,7 @@ class read_agent #(
     typedef mem_ctrl_seq_item #(ADDR_W, DATA_W, N_BANKS) item_t;
 
     uvm_sequencer #(item_t)                          sequencer;
-    read_driver   #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          driver;
+    read_driver   #(ADDR_W, DATA_W, N_BANKS)          driver;
     read_monitor  #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          monitor;
 
     uvm_analysis_port #(item_t) ap_ar;
@@ -35,7 +35,7 @@ class read_agent #(
         if (get_is_active() == UVM_ACTIVE) begin
             sequencer = uvm_sequencer #(item_t)::type_id::create(
                         "sequencer", this);
-            driver    = read_driver #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create(
+            driver    = read_driver #(ADDR_W, DATA_W, N_BANKS)::type_id::create(
                         "driver", this);
         end
     endfunction
