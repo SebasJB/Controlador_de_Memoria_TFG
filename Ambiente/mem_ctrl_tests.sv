@@ -34,7 +34,6 @@ parameter int TEST_ADDR_W          = 32;
 parameter int TEST_DATA_W          = 32;
 parameter int TEST_N_BANKS         = `TEST_N_BANKS;
 parameter int TEST_BANK_SIZE_BYTES = `TEST_BANK_SIZE_BYTES;
-parameter int TEST_READ_LATENCY    = READ_LATENCY;
 parameter int TEST_WR_FIFO_DEPTH   = 8;
 parameter int TEST_RD_FIFO_DEPTH   = 8;
 
@@ -142,15 +141,12 @@ class mem_full_test extends mem_base_test;
         // PARALELO: writes y reads compiten por el scheduler
         fork
             begin : write_master
-
                 m_wr.start(env.wr_agent.sequencer);
             end
 
 
             begin : read_master
-
                 m_rd.start(env.rd_agent.sequencer);
-
             end
 
 //            begin : bp_listener
