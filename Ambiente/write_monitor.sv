@@ -20,6 +20,7 @@ class write_monitor #(
     uvm_analysis_port #(item_t) ap_b;
 
     item_t pending_b[$];
+    longint unsigned aw_t_q[$];
 
     `uvm_component_param_utils(write_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
