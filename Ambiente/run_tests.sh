@@ -25,6 +25,9 @@ export TB_DIR=${TB_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2
 export RUN_DIR=${RUN_DIR:-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones}
 export SCRIPT_DIR=${SCRIPT_DIR:-$(dirname "$(readlink -f "$0")")}
 
+# ── Directorio raíz de métricas (un subdirectorio por config) ──
+METRICS_ROOT="${RUN_DIR}/metrics"
+
 # ── Matriz oficial: 8 configuraciones ──────────────────────
 # Formato: "NAME N_BANKS READ_LATENCY"
 declare -a CONFIGS=(
@@ -69,11 +72,13 @@ run_test() {
     local simv_name="mem_handler_simv_n${n_banks}_lat${read_lat}"
     local cov_dir="cov_n${n_banks}_lat${read_lat}.vdb"
     local log_name="${test_name}_n${n_banks}_lat${read_lat}.log"
+    local metrics_dir="${METRICS_ROOT}/n${n_banks}_lat${read_lat}"
 
     echo ""
     echo "===== Running ${test_name} on ${cfg_name} (N=${n_banks}, LAT=${read_lat}) ====="
 
     cd ${RUN_DIR}
+    mkdir -p "${metrics_dir}"
 
     if [[ ! -x "./${simv_name}" ]]; then
         echo "ERROR: ${simv_name} no existe. ¿Compilaste esta configuración?"
@@ -86,6 +91,8 @@ run_test() {
         -cm line+cond+fsm+tgl+branch \
         -cm_dir ${RUN_DIR}/${cov_dir} \
         -cm_name ${test_name}_${cfg_name} \
+        +uvm_set_config_string=*,csv_dir,${metrics_dir} \
+        +uvm_set_config_int=*,read_latency_val,${read_lat} \
         -l ${log_name}
 
     # Parsear UVM Report Summary
@@ -144,6 +151,51 @@ merge_coverage() {
     echo "Log del merge      : ${RUN_DIR}/urg_merge.log"
 }
 
+# ── Función: concatena los CSVs por config en metrics_by_config.csv ───────
+# Lee todos los metrics/n*_lat*/metrics_summary.csv, extrae n_banks y
+# read_latency del nombre del directorio, y produce un CSV unificado.
+# No requiere cambios en el scoreboard.
+build_config_csv() {
+    echo ""
+    echo "===== Building metrics_by_config.csv ====="
+    python3 - << PYEOF
+import pandas as pd, glob, re, os, sys
+
+root    = "${METRICS_ROOT}"
+pattern = os.path.join(root, "n*_lat*", "metrics_summary.csv")
+files   = sorted(glob.glob(pattern))
+
+if not files:
+    print(f"[WARN] No se encontraron CSVs en: {pattern}")
+    sys.exit(0)
+
+dfs = []
+for f in files:
+    m = re.search(r'n(\d+)_lat(\d+)', f)
+    if not m:
+        print(f"[WARN] Patrón n*_lat* no encontrado en: {f}")
+        continue
+    df = pd.read_csv(f)
+    # Insertar columnas de config si el scoreboard no las escribió
+    if 'n_banks' not in df.columns:
+        df.insert(1, 'n_banks',      int(m.group(1)))
+    if 'read_latency' not in df.columns:
+        df.insert(2, 'read_latency', int(m.group(2)))
+    dfs.append(df)
+    print(f"  [{m.group(1)}B LAT{m.group(2)}] {f}")
+
+if not dfs:
+    print("[ERROR] Ningún CSV válido encontrado.")
+    sys.exit(1)
+
+combined = pd.concat(dfs, ignore_index=True)
+output   = os.path.join(root, "metrics_by_config.csv")
+combined.to_csv(output, index=False)
+print(f"\n✓ {output}")
+print(f"  {len(combined)} fila(s), {len(combined.columns)} columnas")
+PYEOF
+}
+
 # ── Función: regresión completa ────────────────────────────
 run_regression() {
     local pass=0
@@ -184,6 +236,8 @@ run_regression() {
         echo "Failed configs: ${failed_configs[@]}"
     fi
     echo "============================="
+
+    build_config_csv
 
     return ${fail}
 }
