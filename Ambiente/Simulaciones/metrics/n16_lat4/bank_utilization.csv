@@ -1,0 +1,17 @@
+test_name,b_bp,r_bp,bank_id,writes_completed,reads_completed,total_completes,utilization_proxy_pct,sim_time_cyc
+mem_full_test,0,0,0,220,214,434,5.90,23446
+mem_full_test,0,0,1,222,201,423,5.76,23446
+mem_full_test,0,0,2,229,195,424,5.77,23446
+mem_full_test,0,0,3,237,219,456,6.20,23446
+mem_full_test,0,0,4,233,197,430,5.85,23446
+mem_full_test,0,0,5,228,216,444,6.04,23446
+mem_full_test,0,0,6,241,207,448,6.10,23446
+mem_full_test,0,0,7,235,221,456,6.20,23446
+mem_full_test,0,0,8,221,210,431,5.86,23446
+mem_full_test,0,0,9,224,216,440,5.99,23446
+mem_full_test,0,0,10,250,211,461,6.27,23446
+mem_full_test,0,0,11,251,205,456,6.20,23446
+mem_full_test,0,0,12,215,200,415,5.65,23446
+mem_full_test,0,0,13,215,218,433,5.89,23446
+mem_full_test,0,0,14,238,210,448,6.10,23446
+mem_full_test,0,0,15,241,210,451,6.14,23446
