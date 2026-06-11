@@ -240,7 +240,7 @@ case ${MODE} in
     regression)
         run_regression
         REGRESSION_RC=$?
-        merge_coverage
+        #merge_coverage
         exit ${REGRESSION_RC}
         ;;
     debug)
