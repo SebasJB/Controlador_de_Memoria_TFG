@@ -38,7 +38,7 @@ parameter int TEST_WR_FIFO_DEPTH   = 8;
 parameter int TEST_RD_FIFO_DEPTH   = 8;
 
 typedef mem_ctrl_env #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS,
-                       TEST_BANK_SIZE_BYTES, TEST_READ_LATENCY,
+                       TEST_BANK_SIZE_BYTES,
                        TEST_WR_FIFO_DEPTH, TEST_RD_FIFO_DEPTH) env_t;
 
 
