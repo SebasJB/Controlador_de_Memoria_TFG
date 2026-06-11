@@ -8,7 +8,8 @@
 class write_monitor #(
     parameter int ADDR_W  = 32,
     parameter int DATA_W  = 32,
-    parameter int N_BANKS = 4
+    parameter int N_BANKS = 4,
+    parameter int BANK_SIZE_BYTES = 8192
 ) extends uvm_monitor;
 
     typedef mem_ctrl_seq_item #(ADDR_W, DATA_W, N_BANKS) item_t;
@@ -20,7 +21,7 @@ class write_monitor #(
 
     item_t pending_b[$];
 
-    `uvm_component_param_utils(write_monitor #(ADDR_W, DATA_W, N_BANKS))
+    `uvm_component_param_utils(write_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -51,7 +52,7 @@ class write_monitor #(
         int                 aw_idx = 0;
         int                 w_idx  = 0;
         int                 wr_idx = 0;
-        longint unsigned aw_t_q[$];
+        
 
         fork
             // Captura AW fire
@@ -60,6 +61,7 @@ class write_monitor #(
                 if (vif.monitor_cb.awvalid === 1'b1 &&
                     vif.monitor_cb.awready === 1'b1) begin
                     aw_q.push_back(vif.monitor_cb.awaddr);
+                    aw_t_q.push_back(longint'($time));
                     `uvm_info("WR_MON_AW",
                         $sformatf("AW fire #%0d addr=0x%08h @ %0t",
                                   aw_idx, vif.monitor_cb.awaddr, $time),

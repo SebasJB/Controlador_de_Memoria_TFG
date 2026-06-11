@@ -11,21 +11,22 @@
 class write_agent #(
     parameter int ADDR_W  = 32,
     parameter int DATA_W  = 32,
-    parameter int N_BANKS = 4
+    parameter int N_BANKS = 4,
+    parameter int BANK_SIZE_BYTES = 8192
 ) extends uvm_agent;
 
     typedef mem_ctrl_seq_item #(ADDR_W, DATA_W, N_BANKS) item_t;
 
     uvm_sequencer #(item_t)                          sequencer;
-    write_driver  #(ADDR_W, DATA_W, N_BANKS)          driver;
-    write_monitor #(ADDR_W, DATA_W, N_BANKS)          monitor;
+    write_driver  #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          driver;
+    write_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)          monitor;
 
     // Re-exposición de los analysis ports del monitor (atajo
     // para que el env conecte directamente al scoreboard/coverage)
     uvm_analysis_port #(item_t) ap_wr;
     uvm_analysis_port #(item_t) ap_b;
 
-    `uvm_component_param_utils(write_agent #(ADDR_W, DATA_W, N_BANKS))
+    `uvm_component_param_utils(write_agent #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -35,12 +36,12 @@ class write_agent #(
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        monitor = write_monitor #(ADDR_W, DATA_W, N_BANKS)::type_id::create(
+        monitor = write_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create(
                     "monitor", this);
         if (get_is_active() == UVM_ACTIVE) begin
             sequencer = uvm_sequencer #(item_t)::type_id::create(
                         "sequencer", this);
-            driver    = write_driver #(ADDR_W, DATA_W, N_BANKS)::type_id::create(
+            driver    = write_driver #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create(
                         "driver", this);
         end
     endfunction

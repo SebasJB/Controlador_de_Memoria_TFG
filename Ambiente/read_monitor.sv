@@ -8,7 +8,8 @@
 class read_monitor #(
     parameter int ADDR_W  = 32,
     parameter int DATA_W  = 32,
-    parameter int N_BANKS = 4
+    parameter int N_BANKS = 4,
+    parameter int BANK_SIZE_BYTES = 8192
 ) extends uvm_monitor;
 
     typedef mem_ctrl_seq_item #(ADDR_W, DATA_W, N_BANKS) item_t;
@@ -20,7 +21,7 @@ class read_monitor #(
 
     item_t pending_r[$];
 
-    `uvm_component_param_utils(read_monitor #(ADDR_W, DATA_W, N_BANKS))
+    `uvm_component_param_utils(read_monitor #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
     function new(string name, uvm_component parent);
         super.new(name, parent);

@@ -20,13 +20,13 @@ class mem_ctrl_env #(
     parameter int ADDR_W           = 32,
     parameter int DATA_W           = 32,
     parameter int N_BANKS          = 4,
-    parameter int BANK_SIZE_BYTES  = 1024,
+    parameter int BANK_SIZE_BYTES  = 8192,
     parameter int WR_FIFO_DEPTH    = 8,
     parameter int RD_FIFO_DEPTH    = 8
 ) extends uvm_env;
 
-    write_agent #(ADDR_W, DATA_W, N_BANKS) wr_agent;
-    read_agent #(ADDR_W, DATA_W, N_BANKS) rd_agent;
+    write_agent #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES) wr_agent;
+    read_agent #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES) rd_agent;
     mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES) sb;
     mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES,WR_FIFO_DEPTH, RD_FIFO_DEPTH) cov;
 
@@ -38,8 +38,8 @@ class mem_ctrl_env #(
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        wr_agent = write_agent #(ADDR_W, DATA_W, N_BANKS)::type_id::create("wr_agent", this);
-        rd_agent = read_agent  #(ADDR_W, DATA_W, N_BANKS)::type_id::create("rd_agent", this);
+        wr_agent = write_agent #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create("wr_agent", this);
+        rd_agent = read_agent  #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create("rd_agent", this);
         sb = mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES)::type_id::create("sb", this);
         cov = mem_ctrl_coverage #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES, WR_FIFO_DEPTH, RD_FIFO_DEPTH)::type_id::create("cov", this);
     endfunction
