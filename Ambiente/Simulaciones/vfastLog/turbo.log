@@ -1,0 +1,3 @@
+Command Line: /mnt/vol_NFS_rh003/tools/verdi/R-2020.12-SP2/platform/LINUXAMD64/bin/vfast -silent -del . -o /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd.fsdb -ft verilog /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd
+uname(Linux redhat003 4.18.0-553.74.1.el8_10.x86_64 #1 SMP Sun Sep 7 09:23:35 EDT 2025 x86_64)
+au time 1.667689 1.477021 0.064904 delta 34447360 34447360 total 117862400 117862400

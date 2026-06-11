@@ -1,0 +1,17 @@
+#######################################################################################
+# fsdb.xxxxx.log : log primitive debug message of FSDB Reader
+# This is for R&D to analyze when there are issues happening when FSDB reading
+# The corresponding FSDB file is /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd.fsdb
+#######################################################################################
+[BASIC]Reader version : Synopsys VCS version R-2020.12-SP2_Full64
+[BASIC]simulator version : Synopsys VCS version R-2020.12-SP2_Full64
+[BASIC]dumper version : unspecified
+[THREAD]The MTR thread count is 12
+[READSCOPE]ReadScopeTree calling time is 1
+[READSCOPE]ReadScope_PartialLoad calling time is 0
+[READSCOPE]Scope read by partial load count is 0
+[READSCOPE]Scope read count is 716
+[READSCOPE]Decompressed blk is 1
+[FSDBGate Info] start
+[FSDBGate Info] Total fhdb_compute_count = 0
+[FSDBGate Info] end

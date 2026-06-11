@@ -1,0 +1,91 @@
+Magic 271485
+Revision Verdi_R-2020.12-SP2
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 1920 913 100 65
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd" "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 730940299.071449 731868305.913717
+cursor 731215000.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 0
+; marker line index
+markerPos 17
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd.fsdb"
+addSignal -h 15 /tb_top/dut/u_scheduler/rd_discard
+addSignal -h 15 -holdScope wr_discard
+addGroup "G2"
+addSignal -h 15 /tb_top/dut/u_scheduler/wr_req_pndng
+addSignal -h 15 -holdScope rd_req_pndng
+addGroup "G3"
+addSignal -h 15 /tb_top/dut/u_scheduler/rd_req_pop
+addSignal -h 15 -holdScope wr_req_pop
+addGroup "G4"
+addSignal -h 15 /tb_top/dut/u_scheduler/grant_rd
+addSignal -h 15 -holdScope grant_wr
+addGroup "G5"
+addSignal -h 15 /tb_top/dut/u_wr_response_path/s_axi_bvalid
+addSignal -h 15 /tb_top/dut/u_rd_response_path/s_axi_rvalid
+addGroup "G6"
+addSignal -h 15 /tb_top/dut/u_scheduler/rd_err_cnt[15:0]
+addSignal -h 15 -holdScope wr_err_cnt[15:0]
+addGroup "G7"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+activeDirFile "" "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/tb_mem_ctrl.vcd.fsdb"
+
+GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
+getSignalForm close
+
+"/tb_top"
+"/tb_top/dut"
+
+SCOPE_LIST_BEGIN
+"/tb_top"
+"/tb_top/dut/u_scheduler"
+"/tb_top/dut"
+"/tb_top/axi_if"
+"/tb_top/dut/u_rd_req_fifo"
+"/tb_top/dut/u_rd_response_path"
+"/tb_top/dut/u_wr_response_path"
+SCOPE_LIST_END
+
+GETSIGNALFORM_SCOPE_HIERARCHY_END
+
+
