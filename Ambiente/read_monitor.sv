@@ -58,7 +58,10 @@ class read_monitor #(
                 item.t_req_fire = $time;
                 `uvm_info("RD_MON_AR", $sformatf("AR fire #%0d txn_id=%0d addr=0x%08h @ %0t", ar_idx, item.txn_id, item.addr, $time),UVM_HIGH)
                 ap_ar.write(item);
-                pending_r.push_back(item);
+                // Solo encolar si la dirección es válida — las inválidas son descartadas
+                // por el DUT sin generar R fire.
+                if (item.addr[31:2] < (N_BANKS * (BANK_SIZE_BYTES / (DATA_W/8))))
+                    pending_r.push_back(item);
                 ar_idx++;
             end
         end

@@ -51,6 +51,7 @@ class write_monitor #(
         int                 aw_idx = 0;
         int                 w_idx  = 0;
         int                 wr_idx = 0;
+        longint unsigned aw_t_q[$];
 
         fork
             // Captura AW fire
@@ -90,14 +91,22 @@ class write_monitor #(
                     item.addr       = aw_q.pop_front();
                     item.data       = wd_q.pop_front();
                     item.wstrb      = ws_q.pop_front();
-                    item.t_req_fire = $time;
+
+                    // En la rama AW fire:
+                    aw_q.push_back(vif.monitor_cb.awaddr);
+                    aw_t_q.push_back($time);   // ← timestamp en el momento real del AW fire
+
+                    // En la emisión del item (reemplazar línea 93):
+                    item.t_req_fire = aw_t_q.pop_front();   // en lugar de $time
                     `uvm_info("WR_MON_TXN",
                         $sformatf("emit txn #%0d txn_id=%0d addr=0x%08h data=0x%08h wstrb=0x%h",
                                   wr_idx, item.txn_id, item.addr,
                                   item.data, item.wstrb),
                         UVM_HIGH)
                     ap_wr.write(item);
-                    pending_b.push_back(item);
+                    // Solo encolar si la dirección es válida — las inválidas no generan B fire.
+                    if (item.addr[31:2] < (N_BANKS * (BANK_SIZE_BYTES / (DATA_W/8))))
+                        pending_b.push_back(item);
     
                 end
             end

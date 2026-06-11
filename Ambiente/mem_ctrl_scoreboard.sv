@@ -114,6 +114,7 @@ class mem_ctrl_scoreboard #(
     int          b_bp_value;
     int          r_bp_value;
     string       run_label;
+    int          read_latency_val;
 
     `uvm_component_param_utils(mem_ctrl_scoreboard #(ADDR_W, DATA_W, N_BANKS, BANK_SIZE_BYTES))
 
@@ -150,6 +151,8 @@ class mem_ctrl_scoreboard #(
             b_bp_value = 0;
         if (!uvm_config_db#(int)::get(this, "", "r_bp_value", r_bp_value))
             r_bp_value = 0;
+        if (!uvm_config_db#(int)::get(this, "", "read_latency_val", read_latency_val))
+            read_latency_val = 1;
         if (!uvm_config_db#(string)::get(this, "", "run_label", run_label))
             run_label = "mem_full_test";
 
@@ -442,7 +445,7 @@ class mem_ctrl_scoreboard #(
         fd_check = $fopen(filepath, "r");
         if (fd_check == 0) begin
             fd = $fopen(filepath, "w");
-            $fwrite(fd, "test_name,b_bp,r_bp,writes,reads,b_resp,r_resp,");
+            $fwrite(fd, "test_name,n_banks,read_latency,b_bp,r_bp,writes,reads,b_resp,r_resp,");
             $fwrite(fd, "data_mismatches,hazards_tolerated,order_violations,slverr,");
             $fwrite(fd, "invalid_wr,invalid_rd,");
             $fwrite(fd, "avg_lat_wr_cyc,min_lat_wr_cyc,max_lat_wr_cyc,");
@@ -453,7 +456,7 @@ class mem_ctrl_scoreboard #(
             fd = $fopen(filepath, "a");
         end
 
-        $fwrite(fd, "%s,%0d,%0d,", run_label, b_bp_value, r_bp_value);
+        $fwrite(fd, "%s,%0d,%0d,%0d,%0d,", run_label, N_BANKS, read_latency_val, b_bp_value, r_bp_value);
         $fwrite(fd, "%0d,%0d,%0d,%0d,", write_count, read_count, b_count, r_count);
         $fwrite(fd, "%0d,%0d,%0d,%0d,", data_mismatches, hazard_tolerated, order_violations, slverr_count);
         $fwrite(fd, "%0d,%0d,", addr_invalid_writes, addr_invalid_reads);
