@@ -63,6 +63,24 @@ for bp in "${BACKPRESSURES[@]}"; do
            +R_BP=${bp} \
            -l ${CSV_DIR}/run_bp${bp}.log
 
+    # Parsear el UVM Report Summary para detectar fails reales
+    FATAL_COUNT=$(grep -E "^UVM_FATAL\s*:" ${CSV_DIR}/run_bp${bp}.log | awk '{print $NF}')
+    ERROR_COUNT=$(grep -E "^UVM_ERROR\s*:" ${CSV_DIR}/run_bp${bp}.log | awk '{print $NF}')
+
+    if [[ -z "${FATAL_COUNT}" ]] || [[ -z "${ERROR_COUNT}" ]]; then
+        echo "FAIL: bp=${bp} (no UVM summary — posible crash)"
+        FAIL=$((FAIL+1))
+    elif [[ "${FATAL_COUNT}" != "0" ]]; then
+        echo "FAIL: bp=${bp} (UVM_FATAL=${FATAL_COUNT})"
+        FAIL=$((FAIL+1))
+    elif [[ "${ERROR_COUNT}" != "0" ]]; then
+        echo "FAIL: bp=${bp} (UVM_ERROR=${ERROR_COUNT})"
+        FAIL=$((FAIL+1))
+    else
+        echo "PASS: bp=${bp}"
+        PASS=$((PASS+1))
+    fi
+
     ./mem_handler_simv_n8_lat4 +UVM_TESTNAME=mem_full_test \
            +UVM_VERBOSITY=UVM_LOW \
            +CSV_DIR=${CSV_DIR} \
@@ -70,7 +88,6 @@ for bp in "${BACKPRESSURES[@]}"; do
            +R_BP=${bp} \
            -l ${CSV_DIR}/run_bp${bp}.log
 
-    # Parsear el UVM Report Summary para detectar fails reales
     FATAL_COUNT=$(grep -E "^UVM_FATAL\s*:" ${CSV_DIR}/run_bp${bp}.log | awk '{print $NF}')
     ERROR_COUNT=$(grep -E "^UVM_ERROR\s*:" ${CSV_DIR}/run_bp${bp}.log | awk '{print $NF}')
 
