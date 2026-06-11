@@ -49,14 +49,21 @@ rm -f ${CSV_DIR}/bank_utilization.csv
 
 cd ${RUN_DIR}
 # ── Sweep de backpressure (mismo nivel b_bp = r_bp) ────────
-BACKPRESSURES=(0 5 15 30)
+BACKPRESSURES=(10 30)
 
 PASS=0
 FAIL=0
 for bp in "${BACKPRESSURES[@]}"; do
     echo ""
     echo "===== Running bp=${bp} (b_bp=r_bp=${bp}) ====="
-    ./mem_handler_simv_n16_lat1 +UVM_TESTNAME=mem_full_test \
+    ./mem_handler_simv_n8_lat1 +UVM_TESTNAME=mem_full_test \
+           +UVM_VERBOSITY=UVM_LOW \
+           +CSV_DIR=${CSV_DIR} \
+           +B_BP=${bp} \
+           +R_BP=${bp} \
+           -l ${CSV_DIR}/run_bp${bp}.log
+
+    ./mem_handler_simv_n8_lat4 +UVM_TESTNAME=mem_full_test \
            +UVM_VERBOSITY=UVM_LOW \
            +CSV_DIR=${CSV_DIR} \
            +B_BP=${bp} \
