@@ -12,12 +12,10 @@ Glitch -1
 cm_tglmda 0
 cm_tglstructarr 0
 cm_tglcount 0
-cm_hier 1
+cm_hier 0
 InstrSpecs 0
 TglUnpkdLimitVal -1
 IrisFlow -1
-HierFile /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat4.vdb/db/verilog/cm.hier_info
-cm_hier_file /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_hier.cfg
 cm_assert_hier 0
 cm_common_hier 0
 cm_hier_advanced_wildcards 0

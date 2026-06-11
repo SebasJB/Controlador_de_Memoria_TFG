@@ -1,11 +1,10 @@
 Command: vcs -f /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_uvm.f \
 -full64 -ntb_opts uvm-1.2 -cm line+cond+fsm+tgl+branch -cm_dir /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb \
--cm_hier /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_hier.cfg \
 +define+TB_N_BANKS=4 +define+TB_READ_LATENCY=4 +define+TB_BANK_SIZE_BYTES=8192 +define+TEST_N_BANKS=4 \
 +define+TEST_BANK_SIZE_BYTES=8192 -l compile_n4_lat4.log -o mem_handler_simv_n4_lat4 \
 -debug_access+all -debug_region+cell
                          Chronologic VCS (TM)
-       Version R-2020.12-SP2_Full64 -- Tue Jun  9 00:26:39 2026
+       Version R-2020.12-SP2_Full64 -- Wed Jun 10 21:11:21 2026
 
                     Copyright (c) 1991 - 2021 Synopsys, Inc.
    This software and the associated documentation are proprietary to Synopsys,
@@ -371,8 +370,6 @@ Parsing included file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_20
 Back to file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_pkg.sv'.
 Parsing included file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_seq_item.sv'.
 Back to file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_pkg.sv'.
-Parsing included file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_hazard_tracker.sv'.
-Back to file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_pkg.sv'.
 Parsing included file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_sequences.sv'.
 Back to file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_pkg.sv'.
 Parsing included file '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/write_driver.sv'.
@@ -404,36 +401,6 @@ Top Level Modules:
        fifo_flops
        tb_top
 TimeScale is 1 ns / 1 ps
-
-Warning-[VCM-HFUFR] Hier Config: regions not found
-  In the '-cm_hier' configuration file, pattern "+tree --- cat" did not match 
-  any pattern.
-  Please check the entry at line number "1" in hier config file 
-  "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_hier.cfg".
-  If the unmatched pattern is a design unit which is present in a verilog 
-  library or present under a celldefine directive and you want VCS to consider
-  it for coverage, then please pass "-cm_libs yv+celldefine".
-
-
-Warning-[VCM-HFUFR] Hier Config: regions not found
-  In the '-cm_hier' configuration file, pattern "+module --- rd_resp_mux" did 
-  not match any pattern.
-  Please check the entry at line number "39" in hier config file 
-  "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_hier.cfg".
-  If the unmatched pattern is a design unit which is present in a verilog 
-  library or present under a celldefine directive and you want VCS to consider
-  it for coverage, then please pass "-cm_libs yv+celldefine".
-
-
-Warning-[VCM-HFUFR] Hier Config: regions not found
-  In the '-cm_hier' configuration file, pattern "+tree --- EOF" did not match 
-  any pattern.
-  Please check the entry at line number "42" in hier config file 
-  "/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/cov_hier.cfg".
-  If the unmatched pattern is a design unit which is present in a verilog 
-  library or present under a celldefine directive and you want VCS to consider
-  it for coverage, then please pass "-cm_libs yv+celldefine".
-
 VCS Coverage Metrics Release R-2020.12-SP2_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
 
 Warning-[INTFDV] VCD dumping of interface/program/package
@@ -491,7 +458,7 @@ fi
 g++  -o ../mem_handler_simv_n4_lat4      -rdynamic  -Wl,-rpath='$ORIGIN'/mem_handler_simv_n4_lat4.daidir \
 -Wl,-rpath=./mem_handler_simv_n4_lat4.daidir -Wl,-rpath=/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib \
 -L/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1 \
-uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o   _3018326_archive_1.so  SIM_l.o      \
+uvm_dpi.o uvm_verdi_dpi.o   objs/amcQw_d.o   _3246563_archive_1.so  SIM_l.o      \
 rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o        \
 -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -lreader_common /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/libBA.a \
 -luclinative /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive \
@@ -500,4 +467,4 @@ _vcs_pli_stub_.o   /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/linux64/lib/vcs_sa
 /mnt/vol_NFS_rh003/tools/verdi/R-2020.12-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc \
 -lm -lpthread -ldl 
 ../mem_handler_simv_n4_lat4 up to date
-CPU time: 29.224 seconds to compile + .959 seconds to elab + 1.230 seconds to link
+CPU time: 26.733 seconds to compile + .892 seconds to elab + 1.274 seconds to link

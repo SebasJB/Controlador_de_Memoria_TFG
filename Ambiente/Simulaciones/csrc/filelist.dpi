@@ -1,5 +1,5 @@
-DPI_STUB_OBJS_OBJ0=./../mem_handler_simv_n16_lat2.daidir/vc_hdrs.o
-DPI_STUB_OBJS_SRC0=./../mem_handler_simv_n16_lat2.daidir/vc_hdrs.c
+DPI_STUB_OBJS_OBJ0=./../mem_handler_simv_n16_lat4.daidir/vc_hdrs.o
+DPI_STUB_OBJS_SRC0=./../mem_handler_simv_n16_lat4.daidir/vc_hdrs.c
 DPI_STUB_OBJS += $(DPI_STUB_OBJS_OBJ0)
 $(DPI_STUB_OBJS_OBJ0): $(DPI_STUB_OBJS_SRC0)
 	@$(CC) -I/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/include  -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC    -I/mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/include  -fPIC -c -o $(DPI_STUB_OBJS_OBJ0) $(DPI_STUB_OBJS_SRC0)

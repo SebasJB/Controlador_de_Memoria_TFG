@@ -1349,15 +1349,15 @@ low_8   0     1        1
 
 Covered bins
 
-NAME  COUNT AT LEAST 
-low_1 23923 1        
-low_2 10630 1        
-low_3 1377  1        
-low_4 223   1        
-low_5 39    1        
-low_6 7     1        
-low_7 1     1        
-zero  26696 1        
+NAME  COUNT  AT LEAST 
+low_1 33698  1        
+low_2 10609  1        
+low_3 1260   1        
+low_4 185    1        
+low_5 33     1        
+low_6 7      1        
+low_7 1      1        
+zero  120641 1        
 
 
 -------------------------------------------------------------------------------
@@ -1374,11 +1374,11 @@ User Defined Bins for cp_state
 
 Bins
 
-NAME     COUNT AT LEAST 
-complete 896   1        
-wait_st  1502  1        
-issue    890   1        
-idle     59608 1        
+NAME     COUNT  AT LEAST 
+complete 1260   1        
+wait_st  1288   1        
+issue    1246   1        
+idle     162640 1        
 
 
 -------------------------------------------------------------------------------
@@ -1442,15 +1442,15 @@ low_8   0     1        1
 
 Covered bins
 
-NAME  COUNT AT LEAST 
-low_1 23923 1        
-low_2 10630 1        
-low_3 1377  1        
-low_4 223   1        
-low_5 39    1        
-low_6 7     1        
-low_7 1     1        
-zero  26696 1        
+NAME  COUNT  AT LEAST 
+low_1 33698  1        
+low_2 10609  1        
+low_3 1260   1        
+low_4 185    1        
+low_5 33     1        
+low_6 7      1        
+low_7 1      1        
+zero  120641 1        
 
 
 -------------------------------------------------------------------------------
@@ -1467,11 +1467,11 @@ User Defined Bins for cp_state
 
 Bins
 
-NAME     COUNT AT LEAST 
-complete 896   1        
-wait_st  1502  1        
-issue    890   1        
-idle     59608 1        
+NAME     COUNT  AT LEAST 
+complete 1260   1        
+wait_st  1288   1        
+issue    1246   1        
+idle     162640 1        
 
 
 Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state
@@ -1535,13 +1535,13 @@ high_7 0     1        1
 Covered bins
 
 NAME   COUNT AT LEAST 
-high_5 134   1        
-high_6 8     1        
-low_1  26614 1        
-low_2  13277 1        
-low_3  3414  1        
-low_4  768   1        
-zero   25610 1        
+high_5 132   1        
+high_6 7     1        
+low_1  25225 1        
+low_2  13816 1        
+low_3  3227  1        
+low_4  715   1        
+zero   18577 1        
 
 
 -------------------------------------------------------------------------------
@@ -1559,10 +1559,10 @@ User Defined Bins for cp_state
 Bins
 
 NAME     COUNT AT LEAST 
-complete 2305  1        
-wait_st  3854  1        
-issue    2361  1        
-idle     61305 1        
+complete 2321  1        
+wait_st  3659  1        
+issue    2400  1        
+idle     53319 1        
 
 
 -------------------------------------------------------------------------------
@@ -1620,13 +1620,13 @@ high_7 0     1        1
 Covered bins
 
 NAME   COUNT AT LEAST 
-high_5 134   1        
-high_6 8     1        
-low_1  26614 1        
-low_2  13277 1        
-low_3  3414  1        
-low_4  768   1        
-zero   25610 1        
+high_5 132   1        
+high_6 7     1        
+low_1  25225 1        
+low_2  13816 1        
+low_3  3227  1        
+low_4  715   1        
+zero   18577 1        
 
 
 -------------------------------------------------------------------------------
@@ -1644,10 +1644,416 @@ User Defined Bins for cp_state
 Bins
 
 NAME     COUNT AT LEAST 
-complete 2305  1        
-wait_st  3854  1        
-issue    2361  1        
-idle     61305 1        
+complete 2321  1        
+wait_st  3659  1        
+issue    2400  1        
+idle     53319 1        
+
+
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
+
+===============================================================================
+Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 90.38  90.38    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                         
+ 90.38 1      100    1        64           64            tb_top.me.obj.cg_arbitration 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       1         16      90.00   
+Crosses   13       1         12      92.31   
+
+
+Variables for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_grant    4        0         4       100.00  100  1      1        0                    
+cp_conflict 5        0         5       100.00  100  1      1        0                    
+cp_bp_b     2        1         1       50.00   100  1      1        2                    
+cp_bp_rob   2        0         2       100.00  100  1      1        0                    
+cp_discard  4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_grant
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_grant
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+both    720   1        
+rd_only 3580  1        
+wr_only 4480  1        
+idle    20235 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_conflict
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for cp_conflict
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+both_same  3002  1        
+both_diff  3915  1        
+only_rd    8925  1        
+only_wr    2563  1        
+no_pending 10610 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_b
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        1         1       50.00   
+
+
+Automatically Generated Bins for cp_bp_b
+
+
+Uncovered bins
+
+NAME      COUNT AT LEAST NUMBER 
+[auto[1]] 0     1        1      
+
+
+Covered bins
+
+NAME    COUNT AT LEAST 
+auto[0] 29015 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_rob
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_bp_rob
+
+
+Bins
+
+NAME COUNT AT LEAST 
+busy 179   1        
+free 28836 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_discard
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_discard
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+both       4     1        
+rd_discard 196   1        
+wr_discard 196   1        
+none       28619 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_grant_conflict
+
+
+Samples crossed: cp_grant cp_conflict
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              13       1         12      92.31   1       
+Automatically Generated Cross Bins 13       1         12      92.31   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for cr_grant_conflict
+
+
+Uncovered bins
+
+cp_grant cp_conflict COUNT AT LEAST NUMBER 
+[both]   [both_same] 0     1        1      
+
+
+Covered bins
+
+cp_grant cp_conflict COUNT AT LEAST 
+both     both_diff   720   1        
+rd_only  both_same   6     1        
+rd_only  both_diff   507   1        
+rd_only  only_rd     3067  1        
+wr_only  both_same   1075  1        
+wr_only  both_diff   1569  1        
+wr_only  only_wr     1836  1        
+idle     both_same   1921  1        
+idle     both_diff   1119  1        
+idle     only_rd     5858  1        
+idle     only_wr     727   1        
+idle     no_pending  10610 1        
+
+
+User Defined Cross Bins for cr_grant_conflict
+
+
+Excluded/Illegal bins
+
+NAME                COUNT STATUS   
+no_pndg_grant       0     Excluded 
+wr_only_no_wr_grant 0     Excluded 
+rd_only_no_rd_grant 0     Excluded 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : tb_top.me.obj.cg_arbitration
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 90.38 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                                               
+ 90.38  90.38    1      100    1        1            64           64                    mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   tb_top.me.obj.cg_arbitration
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 17       1         16      90.00   
+Crosses   13       1         12      92.31   
+
+
+Variables for Group Instance  tb_top.me.obj.cg_arbitration
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_grant    4        0         4       100.00  100  1      1        0                    
+cp_conflict 5        0         5       100.00  100  1      1        0                    
+cp_bp_b     2        1         1       50.00   100  1      1        2                    
+cp_bp_rob   2        0         2       100.00  100  1      1        0                    
+cp_discard  4        0         4       100.00  100  1      1        0                    
+
+
+Crosses for Group Instance  tb_top.me.obj.cg_arbitration
+
+
+CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_grant
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_grant
+
+
+Bins
+
+NAME    COUNT AT LEAST 
+both    720   1        
+rd_only 3580  1        
+wr_only 4480  1        
+idle    20235 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_conflict
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 5        0         5       100.00  
+
+
+User Defined Bins for cp_conflict
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+both_same  3002  1        
+both_diff  3915  1        
+only_rd    8925  1        
+only_wr    2563  1        
+no_pending 10610 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_b
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        1         1       50.00   
+
+
+Automatically Generated Bins for cp_bp_b
+
+
+Uncovered bins
+
+NAME      COUNT AT LEAST NUMBER 
+[auto[1]] 0     1        1      
+
+
+Covered bins
+
+NAME    COUNT AT LEAST 
+auto[0] 29015 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_bp_rob
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_bp_rob
+
+
+Bins
+
+NAME COUNT AT LEAST 
+busy 179   1        
+free 28836 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_discard
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_discard
+
+
+Bins
+
+NAME       COUNT AT LEAST 
+both       4     1        
+rd_discard 196   1        
+wr_discard 196   1        
+none       28619 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross cr_grant_conflict
+
+
+Samples crossed: cp_grant cp_conflict
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              13       1         12      92.31   1       
+Automatically Generated Cross Bins 13       1         12      92.31   1       
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for cr_grant_conflict
+
+
+Uncovered bins
+
+cp_grant cp_conflict COUNT AT LEAST NUMBER 
+[both]   [both_same] 0     1        1      
+
+
+Covered bins
+
+cp_grant cp_conflict COUNT AT LEAST 
+both     both_diff   720   1        
+rd_only  both_same   6     1        
+rd_only  both_diff   507   1        
+rd_only  only_rd     3067  1        
+wr_only  both_same   1075  1        
+wr_only  both_diff   1569  1        
+wr_only  only_wr     1836  1        
+idle     both_same   1921  1        
+idle     both_diff   1119  1        
+idle     only_rd     5858  1        
+idle     only_wr     727   1        
+idle     no_pending  10610 1        
+
+
+User Defined Cross Bins for cr_grant_conflict
+
+
+Excluded/Illegal bins
+
+NAME                COUNT STATUS   
+no_pndg_grant       0     Excluded 
+wr_only_no_wr_grant 0     Excluded 
+rd_only_no_rd_grant 0     Excluded 
 
 
 Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_transaction
@@ -1714,8 +2120,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  8865  1        
-write 11115 1        
+read  9265  1        
+write 10915 1        
 
 
 -------------------------------------------------------------------------------
@@ -1733,14 +2139,14 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  2372  1        
-b_1  2451  1        
-b_2  2515  1        
-b_3  2540  1        
-b_4  2521  1        
-b_5  2605  1        
-b_6  2390  1        
-b_7  2586  1        
+b_0  2405  1        
+b_1  2507  1        
+b_2  2517  1        
+b_3  2580  1        
+b_4  2507  1        
+b_5  2656  1        
+b_6  2405  1        
+b_7  2603  1        
 
 
 -------------------------------------------------------------------------------
@@ -1767,7 +2173,7 @@ NAME     COUNT AT LEAST
 high     1377  1        
 mid_high 1356  1        
 mid_low  1266  1        
-low      15981 1        
+low      16181 1        
 
 
 -------------------------------------------------------------------------------
@@ -1785,8 +2191,8 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    8865  1        
-full_word   9615  1        
+no_bytes    9265  1        
+full_word   9415  1        
 three_bytes 276   1        
 half_inter  291   1        
 half_high   141   1        
@@ -1813,22 +2219,22 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     1094  1        
-read  b_1     1092  1        
-read  b_2     1116  1        
-read  b_3     1110  1        
-read  b_4     1127  1        
-read  b_5     1095  1        
-read  b_6     1107  1        
-read  b_7     1124  1        
-write b_0     1278  1        
-write b_1     1359  1        
-write b_2     1399  1        
-write b_3     1430  1        
-write b_4     1394  1        
-write b_5     1510  1        
-write b_6     1283  1        
-write b_7     1462  1        
+read  b_0     1128  1        
+read  b_1     1146  1        
+read  b_2     1158  1        
+read  b_3     1167  1        
+read  b_4     1186  1        
+read  b_5     1158  1        
+read  b_6     1149  1        
+read  b_7     1173  1        
+write b_0     1277  1        
+write b_1     1361  1        
+write b_2     1359  1        
+write b_3     1413  1        
+write b_4     1321  1        
+write b_5     1498  1        
+write b_6     1256  1        
+write b_7     1430  1        
 
 
 -------------------------------------------------------------------------------
@@ -1889,8 +2295,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  8865  1        
-write 11115 1        
+read  9265  1        
+write 10915 1        
 
 
 -------------------------------------------------------------------------------
@@ -1908,14 +2314,14 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  2372  1        
-b_1  2451  1        
-b_2  2515  1        
-b_3  2540  1        
-b_4  2521  1        
-b_5  2605  1        
-b_6  2390  1        
-b_7  2586  1        
+b_0  2405  1        
+b_1  2507  1        
+b_2  2517  1        
+b_3  2580  1        
+b_4  2507  1        
+b_5  2656  1        
+b_6  2405  1        
+b_7  2603  1        
 
 
 -------------------------------------------------------------------------------
@@ -1942,7 +2348,7 @@ NAME     COUNT AT LEAST
 high     1377  1        
 mid_high 1356  1        
 mid_low  1266  1        
-low      15981 1        
+low      16181 1        
 
 
 -------------------------------------------------------------------------------
@@ -1960,8 +2366,8 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    8865  1        
-full_word   9615  1        
+no_bytes    9265  1        
+full_word   9415  1        
 three_bytes 276   1        
 half_inter  291   1        
 half_high   141   1        
@@ -1988,22 +2394,22 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     1094  1        
-read  b_1     1092  1        
-read  b_2     1116  1        
-read  b_3     1110  1        
-read  b_4     1127  1        
-read  b_5     1095  1        
-read  b_6     1107  1        
-read  b_7     1124  1        
-write b_0     1278  1        
-write b_1     1359  1        
-write b_2     1399  1        
-write b_3     1430  1        
-write b_4     1394  1        
-write b_5     1510  1        
-write b_6     1283  1        
-write b_7     1462  1        
+read  b_0     1128  1        
+read  b_1     1146  1        
+read  b_2     1158  1        
+read  b_3     1167  1        
+read  b_4     1186  1        
+read  b_5     1158  1        
+read  b_6     1149  1        
+read  b_7     1173  1        
+write b_0     1277  1        
+write b_1     1361  1        
+write b_2     1359  1        
+write b_3     1413  1        
+write b_4     1321  1        
+write b_5     1498  1        
+write b_6     1256  1        
+write b_7     1430  1        
 
 
 Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_transaction
@@ -2070,8 +2476,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  5500  1        
-write 7000  1        
+read  4900  1        
+write 5800  1        
 
 
 -------------------------------------------------------------------------------
@@ -2089,10 +2495,10 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  3008  1        
-b_1  3168  1        
-b_2  3210  1        
-b_3  3114  1        
+b_0  2608  1        
+b_1  2702  1        
+b_2  2736  1        
+b_3  2654  1        
 
 
 -------------------------------------------------------------------------------
@@ -2119,7 +2525,7 @@ NAME     COUNT AT LEAST
 high     751   1        
 mid_high 675   1        
 mid_low  635   1        
-low      10439 1        
+low      8639  1        
 
 
 -------------------------------------------------------------------------------
@@ -2137,8 +2543,8 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    5500  1        
-full_word   6000  1        
+no_bytes    4900  1        
+full_word   4800  1        
 three_bytes 184   1        
 half_inter  194   1        
 half_high   94    1        
@@ -2165,14 +2571,14 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     1352  1        
-read  b_1     1384  1        
-read  b_2     1378  1        
-read  b_3     1386  1        
-write b_0     1656  1        
-write b_1     1784  1        
-write b_2     1832  1        
-write b_3     1728  1        
+read  b_0     1202  1        
+read  b_1     1230  1        
+read  b_2     1244  1        
+read  b_3     1224  1        
+write b_0     1406  1        
+write b_1     1472  1        
+write b_2     1492  1        
+write b_3     1430  1        
 
 
 -------------------------------------------------------------------------------
@@ -2233,8 +2639,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  5500  1        
-write 7000  1        
+read  4900  1        
+write 5800  1        
 
 
 -------------------------------------------------------------------------------
@@ -2252,10 +2658,10 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  3008  1        
-b_1  3168  1        
-b_2  3210  1        
-b_3  3114  1        
+b_0  2608  1        
+b_1  2702  1        
+b_2  2736  1        
+b_3  2654  1        
 
 
 -------------------------------------------------------------------------------
@@ -2282,7 +2688,7 @@ NAME     COUNT AT LEAST
 high     751   1        
 mid_high 675   1        
 mid_low  635   1        
-low      10439 1        
+low      8639  1        
 
 
 -------------------------------------------------------------------------------
@@ -2300,8 +2706,8 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    5500  1        
-full_word   6000  1        
+no_bytes    4900  1        
+full_word   4800  1        
 three_bytes 184   1        
 half_inter  194   1        
 half_high   94    1        
@@ -2328,14 +2734,14 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     1352  1        
-read  b_1     1384  1        
-read  b_2     1378  1        
-read  b_3     1386  1        
-write b_0     1656  1        
-write b_1     1784  1        
-write b_2     1832  1        
-write b_3     1728  1        
+read  b_0     1202  1        
+read  b_1     1230  1        
+read  b_2     1244  1        
+read  b_3     1224  1        
+write b_0     1406  1        
+write b_1     1472  1        
+write b_2     1492  1        
+write b_3     1430  1        
 
 
 Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,16,8192,8,8)::cg_transaction
@@ -2402,8 +2808,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  7500  1        
-write 9000  1        
+read  10350 1        
+write 11700 1        
 
 
 -------------------------------------------------------------------------------
@@ -2421,22 +2827,22 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  1022  1        
-b_1  962   1        
-b_2  1000  1        
-b_3  1034  1        
-b_4  1036  1        
-b_5  1042  1        
-b_6  1040  1        
-b_7  1056  1        
-b_8  1018  1        
-b_9  1056  1        
-b_10 1078  1        
-b_11 1050  1        
-b_12 978   1        
-b_13 1010  1        
-b_14 1050  1        
-b_15 1068  1        
+b_0  1356  1        
+b_1  1320  1        
+b_2  1347  1        
+b_3  1404  1        
+b_4  1356  1        
+b_5  1395  1        
+b_6  1395  1        
+b_7  1416  1        
+b_8  1356  1        
+b_9  1365  1        
+b_10 1443  1        
+b_11 1428  1        
+b_12 1299  1        
+b_13 1353  1        
+b_14 1398  1        
+b_15 1419  1        
 
 
 -------------------------------------------------------------------------------
@@ -2460,10 +2866,10 @@ invalid 0     1        1
 Covered bins
 
 NAME     COUNT AT LEAST 
-high     1708  1        
-mid_high 1664  1        
-mid_low  1642  1        
-low      11486 1        
+high     2562  1        
+mid_high 2496  1        
+mid_low  2463  1        
+low      14529 1        
 
 
 -------------------------------------------------------------------------------
@@ -2481,16 +2887,16 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    7500  1        
-full_word   8000  1        
-three_bytes 184   1        
-half_inter  194   1        
-half_high   94    1        
-half_low    142   1        
-byte3       104   1        
-byte2       90    1        
-byte1       94    1        
-byte0       98    1        
+no_bytes    10350 1        
+full_word   10200 1        
+three_bytes 276   1        
+half_inter  291   1        
+half_high   141   1        
+half_low    213   1        
+byte3       156   1        
+byte2       135   1        
+byte1       141   1        
+byte0       147   1        
 
 
 -------------------------------------------------------------------------------
@@ -2509,38 +2915,38 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     488   1        
-read  b_1     444   1        
-read  b_2     444   1        
-read  b_3     482   1        
-read  b_4     474   1        
-read  b_5     470   1        
-read  b_6     454   1        
-read  b_7     488   1        
-read  b_8     468   1        
-read  b_9     480   1        
-read  b_10    480   1        
-read  b_11    446   1        
-read  b_12    446   1        
-read  b_13    490   1        
-read  b_14    482   1        
-read  b_15    464   1        
-write b_0     534   1        
-write b_1     518   1        
-write b_2     556   1        
-write b_3     552   1        
-write b_4     562   1        
-write b_5     572   1        
-write b_6     586   1        
-write b_7     568   1        
-write b_8     550   1        
-write b_9     576   1        
-write b_10    598   1        
-write b_11    604   1        
-write b_12    532   1        
-write b_13    520   1        
-write b_14    568   1        
-write b_15    604   1        
+read  b_0     660   1        
+read  b_1     618   1        
+read  b_2     615   1        
+read  b_3     669   1        
+read  b_4     618   1        
+read  b_5     672   1        
+read  b_6     630   1        
+read  b_7     678   1        
+read  b_8     657   1        
+read  b_9     660   1        
+read  b_10    660   1        
+read  b_11    633   1        
+read  b_12    609   1        
+read  b_13    672   1        
+read  b_14    654   1        
+read  b_15    645   1        
+write b_0     696   1        
+write b_1     702   1        
+write b_2     732   1        
+write b_3     735   1        
+write b_4     738   1        
+write b_5     723   1        
+write b_6     765   1        
+write b_7     738   1        
+write b_8     699   1        
+write b_9     705   1        
+write b_10    783   1        
+write b_11    795   1        
+write b_12    690   1        
+write b_13    681   1        
+write b_14    744   1        
+write b_15    774   1        
 
 
 -------------------------------------------------------------------------------
@@ -2601,8 +3007,8 @@ User Defined Bins for cp_op
 Bins
 
 NAME  COUNT AT LEAST 
-read  7500  1        
-write 9000  1        
+read  10350 1        
+write 11700 1        
 
 
 -------------------------------------------------------------------------------
@@ -2620,22 +3026,22 @@ User Defined Bins for cp_bank
 Bins
 
 NAME COUNT AT LEAST 
-b_0  1022  1        
-b_1  962   1        
-b_2  1000  1        
-b_3  1034  1        
-b_4  1036  1        
-b_5  1042  1        
-b_6  1040  1        
-b_7  1056  1        
-b_8  1018  1        
-b_9  1056  1        
-b_10 1078  1        
-b_11 1050  1        
-b_12 978   1        
-b_13 1010  1        
-b_14 1050  1        
-b_15 1068  1        
+b_0  1356  1        
+b_1  1320  1        
+b_2  1347  1        
+b_3  1404  1        
+b_4  1356  1        
+b_5  1395  1        
+b_6  1395  1        
+b_7  1416  1        
+b_8  1356  1        
+b_9  1365  1        
+b_10 1443  1        
+b_11 1428  1        
+b_12 1299  1        
+b_13 1353  1        
+b_14 1398  1        
+b_15 1419  1        
 
 
 -------------------------------------------------------------------------------
@@ -2659,10 +3065,10 @@ invalid 0     1        1
 Covered bins
 
 NAME     COUNT AT LEAST 
-high     1708  1        
-mid_high 1664  1        
-mid_low  1642  1        
-low      11486 1        
+high     2562  1        
+mid_high 2496  1        
+mid_low  2463  1        
+low      14529 1        
 
 
 -------------------------------------------------------------------------------
@@ -2680,16 +3086,16 @@ User Defined Bins for cp_wstrb
 Bins
 
 NAME        COUNT AT LEAST 
-no_bytes    7500  1        
-full_word   8000  1        
-three_bytes 184   1        
-half_inter  194   1        
-half_high   94    1        
-half_low    142   1        
-byte3       104   1        
-byte2       90    1        
-byte1       94    1        
-byte0       98    1        
+no_bytes    10350 1        
+full_word   10200 1        
+three_bytes 276   1        
+half_inter  291   1        
+half_high   141   1        
+half_low    213   1        
+byte3       156   1        
+byte2       135   1        
+byte1       141   1        
+byte0       147   1        
 
 
 -------------------------------------------------------------------------------
@@ -2708,434 +3114,38 @@ Automatically Generated Cross Bins for cr_op_bank
 Bins
 
 cp_op cp_bank COUNT AT LEAST 
-read  b_0     488   1        
-read  b_1     444   1        
-read  b_2     444   1        
-read  b_3     482   1        
-read  b_4     474   1        
-read  b_5     470   1        
-read  b_6     454   1        
-read  b_7     488   1        
-read  b_8     468   1        
-read  b_9     480   1        
-read  b_10    480   1        
-read  b_11    446   1        
-read  b_12    446   1        
-read  b_13    490   1        
-read  b_14    482   1        
-read  b_15    464   1        
-write b_0     534   1        
-write b_1     518   1        
-write b_2     556   1        
-write b_3     552   1        
-write b_4     562   1        
-write b_5     572   1        
-write b_6     586   1        
-write b_7     568   1        
-write b_8     550   1        
-write b_9     576   1        
-write b_10    598   1        
-write b_11    604   1        
-write b_12    532   1        
-write b_13    520   1        
-write b_14    568   1        
-write b_15    604   1        
-
-
-Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
-
-===============================================================================
-Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
-===============================================================================
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
- 98.72  98.72    1      100    1        1            64           64            
-
-
-Source File(s) : 
-
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_coverage.sv
-
-1 Instances:
-
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                         
- 98.72 1      100    1        64           64            tb_top.me.obj.cg_arbitration 
-
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group   mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 17       0         17      100.00  
-Crosses   13       1         12      92.31   
-
-
-Variables for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
-
-
-VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-cp_grant    4        0         4       100.00  100  1      1        0                    
-cp_conflict 5        0         5       100.00  100  1      1        0                    
-cp_bp_b     2        0         2       100.00  100  1      1        2                    
-cp_bp_rob   2        0         2       100.00  100  1      1        0                    
-cp_discard  4        0         4       100.00  100  1      1        0                    
-
-
-Crosses for Group  mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration
-
-
-CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_grant
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for cp_grant
-
-
-Bins
-
-NAME    COUNT AT LEAST 
-both    801   1        
-rd_only 4099  1        
-wr_only 5599  1        
-idle    33267 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_conflict
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 5        0         5       100.00  
-
-
-User Defined Bins for cp_conflict
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-both_same  4305  1        
-both_diff  7641  1        
-only_rd    9244  1        
-only_wr    12899 1        
-no_pending 9677  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_bp_b
-
-
-CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
-Automatically Generated Bins 2        0         2       100.00  
-
-
-Automatically Generated Bins for cp_bp_b
-
-
-Bins
-
-NAME    COUNT AT LEAST 
-auto[0] 29930 1        
-auto[1] 13836 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_bp_rob
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for cp_bp_rob
-
-
-Bins
-
-NAME COUNT AT LEAST 
-busy 4660  1        
-free 39106 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_discard
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for cp_discard
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-both       4     1        
-rd_discard 196   1        
-wr_discard 196   1        
-none       43370 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross cr_grant_conflict
-
-
-Samples crossed: cp_grant cp_conflict
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              13       1         12      92.31   1       
-Automatically Generated Cross Bins 13       1         12      92.31   1       
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for cr_grant_conflict
-
-
-Uncovered bins
-
-cp_grant cp_conflict COUNT AT LEAST NUMBER 
-[both]   [both_same] 0     1        1      
-
-
-Covered bins
-
-cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   801   1        
-rd_only  both_same   65    1        
-rd_only  both_diff   796   1        
-rd_only  only_rd     3238  1        
-wr_only  both_same   1200  1        
-wr_only  both_diff   1797  1        
-wr_only  only_wr     2602  1        
-idle     both_same   3040  1        
-idle     both_diff   4247  1        
-idle     only_rd     6006  1        
-idle     only_wr     10297 1        
-idle     no_pending  9677  1        
-
-
-User Defined Cross Bins for cr_grant_conflict
-
-
-Excluded/Illegal bins
-
-NAME                COUNT STATUS   
-no_pndg_grant       0     Excluded 
-wr_only_no_wr_grant 0     Excluded 
-rd_only_no_rd_grant 0     Excluded 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Group Instance : tb_top.me.obj.cg_arbitration
-===============================================================================
-SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
- 98.72 1      100    1        64           64            
-
-
-Group:
-
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                                                               
- 98.72  98.72    1      100    1        1            64           64                    mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_arbitration 
-
-
-
--------------------------------------------------------------------------------
-
-Summary for Group Instance   tb_top.me.obj.cg_arbitration
-
-
-
-CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
-Variables 17       0         17      100.00  
-Crosses   13       1         12      92.31   
-
-
-Variables for Group Instance  tb_top.me.obj.cg_arbitration
-
-
-VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
-cp_grant    4        0         4       100.00  100  1      1        0                    
-cp_conflict 5        0         5       100.00  100  1      1        0                    
-cp_bp_b     2        0         2       100.00  100  1      1        2                    
-cp_bp_rob   2        0         2       100.00  100  1      1        0                    
-cp_discard  4        0         4       100.00  100  1      1        0                    
-
-
-Crosses for Group Instance  tb_top.me.obj.cg_arbitration
-
-
-CROSS             EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
-cr_grant_conflict 13       1         12      92.31   100  1      1        0                     
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_grant
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for cp_grant
-
-
-Bins
-
-NAME    COUNT AT LEAST 
-both    801   1        
-rd_only 4099  1        
-wr_only 5599  1        
-idle    33267 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_conflict
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 5        0         5       100.00  
-
-
-User Defined Bins for cp_conflict
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-both_same  4305  1        
-both_diff  7641  1        
-only_rd    9244  1        
-only_wr    12899 1        
-no_pending 9677  1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_bp_b
-
-
-CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
-Automatically Generated Bins 2        0         2       100.00  
-
-
-Automatically Generated Bins for cp_bp_b
-
-
-Bins
-
-NAME    COUNT AT LEAST 
-auto[0] 29930 1        
-auto[1] 13836 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_bp_rob
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 2        0         2       100.00  
-
-
-User Defined Bins for cp_bp_rob
-
-
-Bins
-
-NAME COUNT AT LEAST 
-busy 4660  1        
-free 39106 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Variable cp_discard
-
-
-CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
-User Defined Bins 4        0         4       100.00  
-
-
-User Defined Bins for cp_discard
-
-
-Bins
-
-NAME       COUNT AT LEAST 
-both       4     1        
-rd_discard 196   1        
-wr_discard 196   1        
-none       43370 1        
-
-
--------------------------------------------------------------------------------
-
-Summary for Cross cr_grant_conflict
-
-
-Samples crossed: cp_grant cp_conflict
-CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
-TOTAL                              13       1         12      92.31   1       
-Automatically Generated Cross Bins 13       1         12      92.31   1       
-User Defined Cross Bins            0        0         0                       
-
-
-Automatically Generated Cross Bins for cr_grant_conflict
-
-
-Uncovered bins
-
-cp_grant cp_conflict COUNT AT LEAST NUMBER 
-[both]   [both_same] 0     1        1      
-
-
-Covered bins
-
-cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   801   1        
-rd_only  both_same   65    1        
-rd_only  both_diff   796   1        
-rd_only  only_rd     3238  1        
-wr_only  both_same   1200  1        
-wr_only  both_diff   1797  1        
-wr_only  only_wr     2602  1        
-idle     both_same   3040  1        
-idle     both_diff   4247  1        
-idle     only_rd     6006  1        
-idle     only_wr     10297 1        
-idle     no_pending  9677  1        
-
-
-User Defined Cross Bins for cr_grant_conflict
-
-
-Excluded/Illegal bins
-
-NAME                COUNT STATUS   
-no_pndg_grant       0     Excluded 
-wr_only_no_wr_grant 0     Excluded 
-rd_only_no_rd_grant 0     Excluded 
+read  b_0     660   1        
+read  b_1     618   1        
+read  b_2     615   1        
+read  b_3     669   1        
+read  b_4     618   1        
+read  b_5     672   1        
+read  b_6     630   1        
+read  b_7     678   1        
+read  b_8     657   1        
+read  b_9     660   1        
+read  b_10    660   1        
+read  b_11    633   1        
+read  b_12    609   1        
+read  b_13    672   1        
+read  b_14    654   1        
+read  b_15    645   1        
+write b_0     696   1        
+write b_1     702   1        
+write b_2     732   1        
+write b_3     735   1        
+write b_4     738   1        
+write b_5     723   1        
+write b_6     765   1        
+write b_7     738   1        
+write b_8     699   1        
+write b_9     705   1        
+write b_10    783   1        
+write b_11    795   1        
+write b_12    690   1        
+write b_13    681   1        
+write b_14    744   1        
+write b_15    774   1        
 
 
 Group : mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_arbitration
@@ -3203,10 +3213,10 @@ User Defined Bins for cp_grant
 Bins
 
 NAME    COUNT AT LEAST 
-both    1607  1        
-rd_only 6943  1        
-wr_only 9193  1        
-idle    52082 1        
+both    1711  1        
+rd_only 7239  1        
+wr_only 8889  1        
+idle    43860 1        
 
 
 -------------------------------------------------------------------------------
@@ -3224,11 +3234,11 @@ User Defined Bins for cp_conflict
 Bins
 
 NAME       COUNT AT LEAST 
-both_same  4093  1        
-both_diff  14151 1        
-only_rd    17384 1        
-only_wr    15875 1        
-no_pending 18322 1        
+both_same  3534  1        
+both_diff  10125 1        
+only_rd    18073 1        
+only_wr    6432  1        
+no_pending 23535 1        
 
 
 -------------------------------------------------------------------------------
@@ -3246,8 +3256,8 @@ Automatically Generated Bins for cp_bp_b
 Bins
 
 NAME    COUNT AT LEAST 
-auto[0] 51613 1        
-auto[1] 18212 1        
+auto[0] 57265 1        
+auto[1] 4434  1        
 
 
 -------------------------------------------------------------------------------
@@ -3265,8 +3275,8 @@ User Defined Bins for cp_bp_rob
 Bins
 
 NAME COUNT AT LEAST 
-busy 8790  1        
-free 61035 1        
+busy 4395  1        
+free 57304 1        
 
 
 -------------------------------------------------------------------------------
@@ -3287,7 +3297,7 @@ NAME       COUNT AT LEAST
 both       6     1        
 rd_discard 294   1        
 wr_discard 294   1        
-none       69231 1        
+none       61105 1        
 
 
 -------------------------------------------------------------------------------
@@ -3314,18 +3324,18 @@ cp_grant cp_conflict COUNT AT LEAST NUMBER
 Covered bins
 
 cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   1607  1        
-rd_only  both_same   85    1        
-rd_only  both_diff   1113  1        
-rd_only  only_rd     5745  1        
-wr_only  both_same   1132  1        
-wr_only  both_diff   3513  1        
-wr_only  only_wr     4548  1        
-idle     both_same   2876  1        
-idle     both_diff   7918  1        
-idle     only_rd     11639 1        
-idle     only_wr     11327 1        
-idle     no_pending  18322 1        
+both     both_diff   1711  1        
+rd_only  both_same   46    1        
+rd_only  both_diff   843   1        
+rd_only  only_rd     6350  1        
+wr_only  both_same   1119  1        
+wr_only  both_diff   3270  1        
+wr_only  only_wr     4500  1        
+idle     both_same   2369  1        
+idle     both_diff   4301  1        
+idle     only_rd     11723 1        
+idle     only_wr     1932  1        
+idle     no_pending  23535 1        
 
 
 User Defined Cross Bins for cr_grant_conflict
@@ -3398,10 +3408,10 @@ User Defined Bins for cp_grant
 Bins
 
 NAME    COUNT AT LEAST 
-both    1607  1        
-rd_only 6943  1        
-wr_only 9193  1        
-idle    52082 1        
+both    1711  1        
+rd_only 7239  1        
+wr_only 8889  1        
+idle    43860 1        
 
 
 -------------------------------------------------------------------------------
@@ -3419,11 +3429,11 @@ User Defined Bins for cp_conflict
 Bins
 
 NAME       COUNT AT LEAST 
-both_same  4093  1        
-both_diff  14151 1        
-only_rd    17384 1        
-only_wr    15875 1        
-no_pending 18322 1        
+both_same  3534  1        
+both_diff  10125 1        
+only_rd    18073 1        
+only_wr    6432  1        
+no_pending 23535 1        
 
 
 -------------------------------------------------------------------------------
@@ -3441,8 +3451,8 @@ Automatically Generated Bins for cp_bp_b
 Bins
 
 NAME    COUNT AT LEAST 
-auto[0] 51613 1        
-auto[1] 18212 1        
+auto[0] 57265 1        
+auto[1] 4434  1        
 
 
 -------------------------------------------------------------------------------
@@ -3460,8 +3470,8 @@ User Defined Bins for cp_bp_rob
 Bins
 
 NAME COUNT AT LEAST 
-busy 8790  1        
-free 61035 1        
+busy 4395  1        
+free 57304 1        
 
 
 -------------------------------------------------------------------------------
@@ -3482,7 +3492,7 @@ NAME       COUNT AT LEAST
 both       6     1        
 rd_discard 294   1        
 wr_discard 294   1        
-none       69231 1        
+none       61105 1        
 
 
 -------------------------------------------------------------------------------
@@ -3509,18 +3519,18 @@ cp_grant cp_conflict COUNT AT LEAST NUMBER
 Covered bins
 
 cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   1607  1        
-rd_only  both_same   85    1        
-rd_only  both_diff   1113  1        
-rd_only  only_rd     5745  1        
-wr_only  both_same   1132  1        
-wr_only  both_diff   3513  1        
-wr_only  only_wr     4548  1        
-idle     both_same   2876  1        
-idle     both_diff   7918  1        
-idle     only_rd     11639 1        
-idle     only_wr     11327 1        
-idle     no_pending  18322 1        
+both     both_diff   1711  1        
+rd_only  both_same   46    1        
+rd_only  both_diff   843   1        
+rd_only  only_rd     6350  1        
+wr_only  both_same   1119  1        
+wr_only  both_diff   3270  1        
+wr_only  only_wr     4500  1        
+idle     both_same   2369  1        
+idle     both_diff   4301  1        
+idle     only_rd     11723 1        
+idle     only_wr     1932  1        
+idle     no_pending  23535 1        
 
 
 User Defined Cross Bins for cr_grant_conflict
@@ -3598,11 +3608,11 @@ User Defined Bins for cp_grant
 
 Bins
 
-NAME    COUNT AT LEAST 
-both    1327  1        
-rd_only 5973  1        
-wr_only 7473  1        
-idle    48123 1        
+NAME    COUNT  AT LEAST 
+both    1194   1        
+rd_only 8856   1        
+wr_only 10206  1        
+idle    146178 1        
 
 
 -------------------------------------------------------------------------------
@@ -3620,11 +3630,11 @@ User Defined Bins for cp_conflict
 Bins
 
 NAME       COUNT AT LEAST 
-both_same  1974  1        
-both_diff  8941  1        
-only_rd    22527 1        
-only_wr    14310 1        
-no_pending 15144 1        
+both_same  48268 1        
+both_diff  63514 1        
+only_rd    16121 1        
+only_wr    19305 1        
+no_pending 19226 1        
 
 
 -------------------------------------------------------------------------------
@@ -3641,9 +3651,9 @@ Automatically Generated Bins for cp_bp_b
 
 Bins
 
-NAME    COUNT AT LEAST 
-auto[0] 49022 1        
-auto[1] 13874 1        
+NAME    COUNT  AT LEAST 
+auto[0] 49148  1        
+auto[1] 117286 1        
 
 
 -------------------------------------------------------------------------------
@@ -3660,9 +3670,9 @@ User Defined Bins for cp_bp_rob
 
 Bins
 
-NAME COUNT AT LEAST 
-busy 10950 1        
-free 51946 1        
+NAME COUNT  AT LEAST 
+busy 102619 1        
+free 63815  1        
 
 
 -------------------------------------------------------------------------------
@@ -3679,11 +3689,11 @@ User Defined Bins for cp_discard
 
 Bins
 
-NAME       COUNT AT LEAST 
-both       6     1        
-rd_discard 194   1        
-wr_discard 194   1        
-none       62502 1        
+NAME       COUNT  AT LEAST 
+both       6      1        
+rd_discard 294    1        
+wr_discard 294    1        
+none       165840 1        
 
 
 -------------------------------------------------------------------------------
@@ -3710,18 +3720,18 @@ cp_grant cp_conflict COUNT AT LEAST NUMBER
 Covered bins
 
 cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   1327  1        
-rd_only  both_same   21    1        
-rd_only  both_diff   555   1        
-rd_only  only_rd     5397  1        
-wr_only  both_same   667   1        
-wr_only  both_diff   2929  1        
-wr_only  only_wr     3877  1        
-idle     both_same   1286  1        
-idle     both_diff   4130  1        
-idle     only_rd     17130 1        
-idle     only_wr     10433 1        
-idle     no_pending  15144 1        
+both     both_diff   1194  1        
+rd_only  both_same   1472  1        
+rd_only  both_diff   2101  1        
+rd_only  only_rd     5283  1        
+wr_only  both_same   2093  1        
+wr_only  both_diff   4486  1        
+wr_only  only_wr     3627  1        
+idle     both_same   44703 1        
+idle     both_diff   55733 1        
+idle     only_rd     10838 1        
+idle     only_wr     15678 1        
+idle     no_pending  19226 1        
 
 
 User Defined Cross Bins for cr_grant_conflict
@@ -3793,11 +3803,11 @@ User Defined Bins for cp_grant
 
 Bins
 
-NAME    COUNT AT LEAST 
-both    1327  1        
-rd_only 5973  1        
-wr_only 7473  1        
-idle    48123 1        
+NAME    COUNT  AT LEAST 
+both    1194   1        
+rd_only 8856   1        
+wr_only 10206  1        
+idle    146178 1        
 
 
 -------------------------------------------------------------------------------
@@ -3815,11 +3825,11 @@ User Defined Bins for cp_conflict
 Bins
 
 NAME       COUNT AT LEAST 
-both_same  1974  1        
-both_diff  8941  1        
-only_rd    22527 1        
-only_wr    14310 1        
-no_pending 15144 1        
+both_same  48268 1        
+both_diff  63514 1        
+only_rd    16121 1        
+only_wr    19305 1        
+no_pending 19226 1        
 
 
 -------------------------------------------------------------------------------
@@ -3836,9 +3846,9 @@ Automatically Generated Bins for cp_bp_b
 
 Bins
 
-NAME    COUNT AT LEAST 
-auto[0] 49022 1        
-auto[1] 13874 1        
+NAME    COUNT  AT LEAST 
+auto[0] 49148  1        
+auto[1] 117286 1        
 
 
 -------------------------------------------------------------------------------
@@ -3855,9 +3865,9 @@ User Defined Bins for cp_bp_rob
 
 Bins
 
-NAME COUNT AT LEAST 
-busy 10950 1        
-free 51946 1        
+NAME COUNT  AT LEAST 
+busy 102619 1        
+free 63815  1        
 
 
 -------------------------------------------------------------------------------
@@ -3874,11 +3884,11 @@ User Defined Bins for cp_discard
 
 Bins
 
-NAME       COUNT AT LEAST 
-both       6     1        
-rd_discard 194   1        
-wr_discard 194   1        
-none       62502 1        
+NAME       COUNT  AT LEAST 
+both       6      1        
+rd_discard 294    1        
+wr_discard 294    1        
+none       165840 1        
 
 
 -------------------------------------------------------------------------------
@@ -3905,18 +3915,18 @@ cp_grant cp_conflict COUNT AT LEAST NUMBER
 Covered bins
 
 cp_grant cp_conflict COUNT AT LEAST 
-both     both_diff   1327  1        
-rd_only  both_same   21    1        
-rd_only  both_diff   555   1        
-rd_only  only_rd     5397  1        
-wr_only  both_same   667   1        
-wr_only  both_diff   2929  1        
-wr_only  only_wr     3877  1        
-idle     both_same   1286  1        
-idle     both_diff   4130  1        
-idle     only_rd     17130 1        
-idle     only_wr     10433 1        
-idle     no_pending  15144 1        
+both     both_diff   1194  1        
+rd_only  both_same   1472  1        
+rd_only  both_diff   2101  1        
+rd_only  only_rd     5283  1        
+wr_only  both_same   2093  1        
+wr_only  both_diff   4486  1        
+wr_only  only_wr     3627  1        
+idle     both_same   44703 1        
+idle     both_diff   55733 1        
+idle     only_rd     10838 1        
+idle     only_wr     15678 1        
+idle     no_pending  19226 1        
 
 
 User Defined Cross Bins for cr_grant_conflict
@@ -3984,11 +3994,11 @@ User Defined Bins for cp_busy_count
 Bins
 
 NAME   COUNT AT LEAST 
-all    294   1        
-high_3 1727  1        
-low_1  15525 1        
-low_2  6484  1        
-zero   19736 1        
+all    278   1        
+high_3 1605  1        
+low_1  11473 1        
+low_2  6175  1        
+zero   9484  1        
 
 
 -------------------------------------------------------------------------------
@@ -4006,10 +4016,10 @@ User Defined Bins for cp_state
 Bins
 
 NAME     COUNT AT LEAST 
-complete 2865  1        
-wait_st  2972  1        
-issue    2788  1        
-idle     35141 1        
+complete 2395  1        
+wait_st  2598  1        
+issue    2367  1        
+idle     21655 1        
 
 
 -------------------------------------------------------------------------------
@@ -4060,11 +4070,11 @@ User Defined Bins for cp_busy_count
 Bins
 
 NAME   COUNT AT LEAST 
-all    294   1        
-high_3 1727  1        
-low_1  15525 1        
-low_2  6484  1        
-zero   19736 1        
+all    278   1        
+high_3 1605  1        
+low_1  11473 1        
+low_2  6175  1        
+zero   9484  1        
 
 
 -------------------------------------------------------------------------------
@@ -4082,9 +4092,9 @@ User Defined Bins for cp_state
 Bins
 
 NAME     COUNT AT LEAST 
-complete 2865  1        
-wait_st  2972  1        
-issue    2788  1        
-idle     35141 1        
+complete 2395  1        
+wait_st  2598  1        
+issue    2367  1        
+idle     21655 1        
 
 

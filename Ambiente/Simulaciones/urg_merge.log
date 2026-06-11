@@ -1,11 +1,55 @@
 Command: urg -dir /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat1.vdb /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat4.vdb -dbname /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_merged -report /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_report -format both -log /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/urg_merge.log
-Date: Mon Jun  8 08:36:52 2026
+Date: Wed Jun 10 21:15:02 2026
 
 URG Version R-2020.12-SP2 Copyright (c) 1991-2020 by Synopsys Inc.
 
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Line coverage objects for 
   instance 'tb_top' in test file 'n4_lat4' of test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[0].u_bank.u_lat_cnt' in test file 'n4_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[1].u_bank.u_lat_cnt' in test file 'n4_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[2].u_bank.u_lat_cnt' in test file 'n4_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[3].u_bank.u_lat_cnt' in test file 'n4_lat4' of
+  test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n4_lat4.vdb'
   is not the same as in base design. Coverage data of this instance won't be 
   merged.
@@ -388,6 +432,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[0].u_bank.u_lat_cnt' in test file 'n8_lat1' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[0].u_bank.u_rd_resp' in test file 'n8_lat1' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
@@ -422,6 +477,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[1].u_bank.u_capture' in test file 'n8_lat1' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[1].u_bank.u_lat_cnt' in test file 'n8_lat1' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
   is not the same as in base design. Coverage data of this instance won't be 
@@ -476,6 +542,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[2].u_bank.u_lat_cnt' in test file 'n8_lat1' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[2].u_bank.u_rd_resp' in test file 'n8_lat1' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
@@ -510,6 +587,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[3].u_bank.u_capture' in test file 'n8_lat1' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[3].u_bank.u_lat_cnt' in test file 'n8_lat1' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat1.vdb'
   is not the same as in base design. Coverage data of this instance won't be 
@@ -2195,6 +2283,22 @@ Warning-[CMR-VCINF] Version Check Error:Instance not found
   Please ensure that all coverage tests are generated from same design. If 
   problem still persists please contact vcs_support@synopsys.com.
 
+No Error: 
+Warning-[UCAPI-DCGDF] Duplicate Covergroup Definition Found
+  More than one CGs have this name 
+  (mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_bank_state). Verdi 
+  will display only one copy of this CG. 
+  The recommendation is to either fix the SV code so there are not two CGs 
+  with the same name, or merge with urg using '-flex_merge 
+  (union|drop|reference)' to resolve duplicate CGs into a single CG.
+No Error: 
+Warning-[UCAPI-DCGDF] Duplicate Covergroup Definition Found
+  More than one CGs have this name 
+  (mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state). Verdi 
+  will display only one copy of this CG. 
+  The recommendation is to either fix the SV code so there are not two CGs 
+  with the same name, or merge with urg using '-flex_merge 
+  (union|drop|reference)' to resolve duplicate CGs into a single CG.
 
 Warning-[CMR-VCINF] Version Check Error:Instance not found
   Database mismatch: Instance name "tb_top.dut.gen_bank[4].u_bank.u_capture" 
@@ -2555,6 +2659,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[0].u_bank.u_lat_cnt' in test file 'n8_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[0].u_bank.u_rd_resp' in test file 'n8_lat4' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
@@ -2589,6 +2704,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[1].u_bank.u_capture' in test file 'n8_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[1].u_bank.u_lat_cnt' in test file 'n8_lat4' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
   is not the same as in base design. Coverage data of this instance won't be 
@@ -2643,6 +2769,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[2].u_bank.u_lat_cnt' in test file 'n8_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[2].u_bank.u_rd_resp' in test file 'n8_lat4' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
@@ -2677,6 +2814,17 @@ Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
 Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
   Database mismatch for instance data. Number of Tgl coverage objects for 
   instance 'tb_top.dut.gen_bank[3].u_bank.u_capture' in test file 'n8_lat4' of
+  test-data directory 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
+  is not the same as in base design. Coverage data of this instance won't be 
+  merged.
+  Please ensure that all coverage tests are generated from same design. If 
+  problem still persists please contact vcs_support@synopsys.com.
+
+
+Warning-[UCAPI-INSTANCEMISMATCH] Instance Data Mismatch
+  Database mismatch for instance data. Number of Tgl coverage objects for 
+  instance 'tb_top.dut.gen_bank[3].u_bank.u_lat_cnt' in test file 'n8_lat4' of
   test-data directory 
   '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n8_lat4.vdb'
   is not the same as in base design. Coverage data of this instance won't be 
@@ -6898,6 +7046,22 @@ Warning-[CMR-VCINF] Version Check Error:Instance not found
   Please ensure that all coverage tests are generated from same design. If 
   problem still persists please contact vcs_support@synopsys.com.
 
+No Error: 
+Warning-[UCAPI-DCGDF] Duplicate Covergroup Definition Found
+  More than one CGs have this name 
+  (mem_ctrl_pkg::mem_ctrl_coverage#(32,32,4,8192,8,8)::cg_bank_state). Verdi 
+  will display only one copy of this CG. 
+  The recommendation is to either fix the SV code so there are not two CGs 
+  with the same name, or merge with urg using '-flex_merge 
+  (union|drop|reference)' to resolve duplicate CGs into a single CG.
+No Error: 
+Warning-[UCAPI-DCGDF] Duplicate Covergroup Definition Found
+  More than one CGs have this name 
+  (mem_ctrl_pkg::mem_ctrl_coverage#(32,32,8,8192,8,8)::cg_bank_state). Verdi 
+  will display only one copy of this CG. 
+  The recommendation is to either fix the SV code so there are not two CGs 
+  with the same name, or merge with urg using '-flex_merge 
+  (union|drop|reference)' to resolve duplicate CGs into a single CG.
 
 Warning-[CMR-VCINF] Version Check Error:Instance not found
   Database mismatch: Instance name "tb_top.dut.gen_bank[4].u_bank.u_capture" 

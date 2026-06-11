@@ -59498,7 +59498,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -59571,7 +59571,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -59934,7 +59934,7 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : scheduler_sva
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 69.05 --     --      69.05 --     --     --     
+ 67.46 --     --      67.46 --     --     --     
 
 Source File(s) : 
 
@@ -59943,23 +59943,23 @@ Source File(s) :
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                   
- 69.05 --     --      69.05 --     --     --     tb_top.dut.u_scheduler.u_scheduler_sva 
+ 67.46 --     --      67.46 --     --     --     tb_top.dut.u_scheduler.u_scheduler_sva 
 
 
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : scheduler_sva
                 Total Covered Percent 
-Totals          25    22      88.00   
-Total Bits      126   87      69.05   
-Total Bits 0->1 63    45      71.43   
-Total Bits 1->0 63    42      66.67   
+Totals          25    21      84.00   
+Total Bits      126   85      67.46   
+Total Bits 0->1 63    44      69.84   
+Total Bits 1->0 63    41      65.08   
 
                              
-Ports          23  20 86.96  
-Port Bits      110 71 64.55  
-Port Bits 0->1 55  37 67.27  
-Port Bits 1->0 55  34 61.82  
+Ports          23  19 82.61  
+Port Bits      110 69 62.73  
+Port Bits 0->1 55  36 65.45  
+Port Bits 1->0 55  33 60.00  
 
                               
 Signals          2  2  100.00 
@@ -59978,7 +59978,7 @@ rd_addr_valid    Yes    Yes         Yes         INPUT
 wr_req_pndng     Yes    Yes         Yes         INPUT     
 rd_req_pndng     Yes    Yes         Yes         INPUT     
 rob_tag_free     Yes    Yes         Yes         INPUT     
-wr_resp_full     Yes    Yes         Yes         INPUT     
+wr_resp_full     No     No          No          INPUT     
 wr_ok            Yes    Yes         Yes         INPUT     
 wr_discard       Yes    Yes         Yes         INPUT     
 rd_ok            Yes    Yes         Yes         INPUT     
@@ -60011,6 +60011,103 @@ Module Instance : tb_top.dut.u_scheduler.u_scheduler_sva
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 67.46 --     --      67.46 --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 67.46 --     --      67.46 --     --     --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME          
+ 67.46 --     --      67.46 --     --     --     scheduler_sva 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : wr_response_path_sva
+===============================================================================
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 69.05 --     --      69.05 --     --     --     
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA/wr_response_path_sva.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                                 
+ 69.05 --     --      69.05 --     --     --     tb_top.dut.u_wr_response_path.u_wr_response_path_sva 
+
+
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : wr_response_path_sva
+                Total Covered Percent 
+Totals          14    9       64.29   
+Total Bits      42    29      69.05   
+Total Bits 0->1 21    15      71.43   
+Total Bits 1->0 21    14      66.67   
+
+                            
+Ports          13 8  61.54  
+Port Bits      34 21 61.76  
+Port Bits 0->1 17 11 64.71  
+Port Bits 1->0 17 10 58.82  
+
+                            
+Signals          1 1 100.00 
+Signal Bits      8 8 100.00 
+Signal Bits 0->1 4 4 100.00 
+Signal Bits 1->0 4 4 100.00 
+
+Port Details
+                 Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk              Yes    Yes         Yes         INPUT     
+rst_n            No     No          Yes         INPUT     
+s_axi_bvalid     Yes    Yes         Yes         INPUT     
+s_axi_bresp[1:0] No     No          No          INPUT     
+s_axi_bready     Yes    Yes         Yes         INPUT     
+wr_resp_full     No     No          No          INPUT     
+wr_resp_push     Yes    Yes         Yes         INPUT     
+cnt[1:0]         Yes    Yes         Yes         INPUT     
+cnt[3:2]         No     No          No          INPUT     
+dispatch_ok      Yes    Yes         Yes         INPUT     
+push_ok          Yes    Yes         Yes         INPUT     
+pop_ok           Yes    Yes         Yes         INPUT     
+cnt_full         No     No          No          INPUT     
+cnt_empty        Yes    Yes         Yes         INPUT     
+
+Signal Details
+                          Toggle Toggle 1->0 Toggle 0->1 
+wr_resp_valid_packed[3:0] Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb_top.dut.u_wr_response_path.u_wr_response_path_sva
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
  69.05 --     --      69.05 --     --     --     
 
 
@@ -60022,14 +60119,14 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 
 Module : 
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME          
- 69.05 --     --      69.05 --     --     --     scheduler_sva 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                 
+ 69.05 --     --      69.05 --     --     --     wr_response_path_sva 
 
 
 Parent : 
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
+ 77.27 --     --      77.27 --     --     --     u_wr_response_path 
 
 
 Subtrees :
@@ -60045,7 +60142,7 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : mem_handler_top
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 70.55 --     --      70.55 --     --     --     
+ 70.17 --     --      70.17 --     --     --     
 
 Source File(s) : 
 
@@ -60054,17 +60151,17 @@ Source File(s) :
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME       
- 70.55 --     --      70.55 --     --     --     tb_top.dut 
+ 70.17 --     --      70.17 --     --     --     tb_top.dut 
 
 
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : mem_handler_top
                 Total Covered Percent 
-Totals          48    35      72.92   
-Total Bits      1056  745     70.55   
-Total Bits 0->1 528   374     70.83   
-Total Bits 1->0 528   371     70.27   
+Totals          48    33      68.75   
+Total Bits      1056  741     70.17   
+Total Bits 0->1 528   372     70.45   
+Total Bits 1->0 528   369     69.89   
 
                               
 Ports          21  14  66.67  
@@ -60073,10 +60170,10 @@ Port Bits 0->1 180 126 70.00
 Port Bits 1->0 180 123 68.33  
 
                                 
-Signals          27  21  77.78  
-Signal Bits      696 496 71.26  
-Signal Bits 0->1 348 248 71.26  
-Signal Bits 1->0 348 248 71.26  
+Signals          27  19  70.37  
+Signal Bits      696 492 70.69  
+Signal Bits 0->1 348 246 70.69  
+Signal Bits 1->0 348 246 70.69  
 
 Port Details
                     Toggle Toggle 1->0 Toggle 0->1 Direction 
@@ -60120,7 +60217,7 @@ rd_req_data_out[15:0]   Yes    Yes         Yes
 rd_req_data_out[32:16]  No     No          No          
 wr_req_push             Yes    Yes         Yes         
 wr_req_pop              Yes    Yes         Yes         
-wr_req_full             Yes    Yes         Yes         
+wr_req_full             No     No          No          
 wr_req_pndng            Yes    Yes         Yes         
 rd_req_push             Yes    Yes         Yes         
 rd_req_pop              Yes    Yes         Yes         
@@ -60141,7 +60238,7 @@ bank_req_wstrb[3:0]     Yes    Yes         Yes
 bank_req_tag[1:0]       Yes    Yes         Yes         
 wr_ptr_ext[2:0]         Yes    Yes         Yes         
 rob_tag_free            Yes    Yes         Yes         
-wr_resp_full            Yes    Yes         Yes         
+wr_resp_full            No     No          No          
 dispatch_w              Yes    Yes         Yes         
 
 
@@ -60153,19 +60250,19 @@ Module Instance : tb_top.dut
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 70.55 --     --      70.55 --     --     --     
+ 70.17 --     --      70.17 --     --     --     
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.22  97.84 100.00  87.56  71.43  92.86  91.67 
+ 90.24  97.84 100.00  87.66  71.43  92.86  91.67 
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 70.55 --     --      70.55 --     --     --     mem_handler_top 
+ 70.17 --     --      70.17 --     --     --     mem_handler_top 
 
 
 Parent : 
@@ -60177,10 +60274,10 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Subtrees :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 90.92  96.43 --      98.76  71.43  88.00 100.00 gen_bank[0].u_bank 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 gen_bank[1].u_bank 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 gen_bank[2].u_bank 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 gen_bank[3].u_bank 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 gen_bank[0].u_bank 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 gen_bank[1].u_bank 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 gen_bank[2].u_bank 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 gen_bank[3].u_bank 
  99.92 100.00 100.00  99.69 --     100.00 --     gen_sram[0].u_sram 
  99.92 100.00 100.00  99.69 --     100.00 --     gen_sram[1].u_sram 
  99.92 100.00 100.00  99.69 --     100.00 --     gen_sram[2].u_sram 
@@ -60188,11 +60285,11 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  93.94 100.00 100.00  75.77 --     100.00 --     u_axi_front_end    
  57.02 --     --      57.02 --     --     --     u_rd_addr_decoder  
  91.43 100.00 100.00  65.73 --     100.00 --     u_rd_req_fifo      
- 94.58 100.00 100.00  97.90 --     100.00  75.00 u_rd_response_path 
- 93.56 100.00 --      80.68 --     100.00 --     u_scheduler        
+ 94.43 100.00 100.00  97.15 --     100.00  75.00 u_rd_response_path 
+ 93.42 100.00 --      80.25 --     100.00 --     u_scheduler        
  57.02 --     --      57.02 --     --     --     u_wr_addr_decoder  
  95.26 100.00 100.00  81.06 --     100.00 --     u_wr_req_fifo      
- 95.61 100.00 --      86.84 --     100.00 --     u_wr_response_path 
+ 93.27 100.00 --      79.82 --     100.00 --     u_wr_response_path 
 
 
 
@@ -60461,7 +60558,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 89.96  97.27 100.00  87.04  71.43  92.35  91.67 
+ 89.98  97.27 100.00  87.13  71.43  92.35  91.67 
 
 
 Module : 
@@ -60481,7 +60578,7 @@ Subtrees :
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
  78.04 --     --      78.04 --     --     --     axi_if      
  75.00 --     --      75.00 --     --     --     bank_probe  
- 90.22  97.84 100.00  87.56  71.43  92.86  91.67 dut         
+ 90.24  97.84 100.00  87.66  71.43  92.86  91.67 dut         
  39.29 --     --      39.29 --     --     --     fifo_probe  
  54.65 --     --      54.65 --     --     --     sched_probe 
 
@@ -60587,7 +60684,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -60860,7 +60957,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 95.61 100.00 --      86.84 --     100.00 --     
+ 93.27 100.00 --      79.82 --     100.00 --     
 
 
 Module : 
@@ -60872,7 +60969,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -60881,7 +60978,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  66.67 --     --      66.67 --     --     --     u_b_chan               
 100.00 --     --     100.00 --     --     --     u_collector            
  98.81 100.00 --      96.43 --     100.00 --     u_counter              
- 88.10 --     --      88.10 --     --     --     u_wr_response_path_sva 
+ 69.05 --     --      69.05 --     --     --     u_wr_response_path_sva 
 
 
 
@@ -61157,7 +61254,7 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : scheduler
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 80.59 --     --      80.59 --     --     --     
+ 80.05 --     --      80.05 --     --     --     
 
 Source File(s) : 
 
@@ -61166,23 +61263,23 @@ Source File(s) :
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                   
- 80.59 --     --      80.59 --     --     --     tb_top.dut.u_scheduler 
+ 80.05 --     --      80.05 --     --     --     tb_top.dut.u_scheduler 
 
 
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : scheduler
                 Total Covered Percent 
-Totals          31    27      87.10   
-Total Bits      376   303     80.59   
-Total Bits 0->1 188   153     81.38   
-Total Bits 1->0 188   150     79.79   
+Totals          31    26      83.87   
+Total Bits      376   301     80.05   
+Total Bits 0->1 188   152     80.85   
+Total Bits 1->0 188   149     79.26   
 
                               
-Ports          22  18  81.82  
-Port Bits      358 285 79.61  
-Port Bits 0->1 179 144 80.45  
-Port Bits 1->0 179 141 78.77  
+Ports          22  17  77.27  
+Port Bits      358 283 79.05  
+Port Bits 0->1 179 143 79.89  
+Port Bits 1->0 179 140 78.21  
 
                               
 Signals          9  9  100.00 
@@ -61205,7 +61302,7 @@ rd_req_pndng            Yes    Yes         Yes         INPUT
 wr_req_data[51:0]       Yes    Yes         Yes         INPUT     
 wr_req_data[68:52]      No     No          No          INPUT     
 rob_tag_free            Yes    Yes         Yes         INPUT     
-wr_resp_full            Yes    Yes         Yes         INPUT     
+wr_resp_full            No     No          No          INPUT     
 dispatch_w              Yes    Yes         Yes         OUTPUT    
 wr_req_pop              Yes    Yes         Yes         OUTPUT    
 rd_req_pop              Yes    Yes         Yes         OUTPUT    
@@ -61241,25 +61338,25 @@ Module Instance : tb_top.dut.u_scheduler
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 80.59 --     --      80.59 --     --     --     
+ 80.05 --     --      80.05 --     --     --     
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 93.56 100.00 --      80.68 --     100.00 --     
+ 93.42 100.00 --      80.25 --     100.00 --     
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME      
- 80.59 --     --      80.59 --     --     --     scheduler 
+ 80.05 --     --      80.05 --     --     --     scheduler 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -61272,7 +61369,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 100.00 --     --     100.00 --     --     --     u_priority_resolver       
 100.00 --     --     100.00 --     --     --     u_rd_req_valid_check      
  98.48 100.00 --      95.45 --     100.00 --     u_read_tag_generator      
- 69.05 --     --      69.05 --     --     --     u_scheduler_sva           
+ 67.46 --     --      67.46 --     --     --     u_scheduler_sva           
 100.00 100.00 --     100.00 --     --     --     u_unified_dispatch_logic  
  85.71 --     --      85.71 --     --     --     u_wdata_wstrb_broadcast   
 100.00 --     --     100.00 --     --     --     u_wr_req_valid_check      
@@ -61407,7 +61504,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -61420,167 +61517,122 @@ no children
 -------------------------------------------------------------------------------
 Since this is the module's only instance, the coverage report is the same as for the module.
 ===============================================================================
-Module : latency_counter
+Module : rd_response_path_sva
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
+ 85.35 --     --      95.70 --     --      75.00 
 
 Source File(s) : 
 
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA/rd_response_path_sva.sv
 
 Module self-instances :
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                    
- 83.33 100.00 --      50.00 --     100.00 --     tb_top.dut.gen_bank[0].u_bank.u_lat_cnt 
- 83.33 100.00 --      50.00 --     100.00 --     tb_top.dut.gen_bank[1].u_bank.u_lat_cnt 
- 83.33 100.00 --      50.00 --     100.00 --     tb_top.dut.gen_bank[2].u_bank.u_lat_cnt 
- 83.33 100.00 --      50.00 --     100.00 --     tb_top.dut.gen_bank[3].u_bank.u_lat_cnt 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                                 
+ 85.35 --     --      95.70 --     --      75.00 tb_top.dut.u_rd_response_path.u_rd_response_path_sva 
 
 
 
 -------------------------------------------------------------------------------
-Line Coverage for Module : latency_counter
-
-             Line No.   Total   Covered  Percent
-TOTAL                       13       13   100.00
-ALWAYS            250       13       13   100.00
-
-249                         always @(posedge clk) begin
-250        1/1                  if (!rst_n) begin
-251        1/1                      cnt        <= {CNT_W{1'b0}};
-252        1/1                      done_pulse <= 1'b0;
-253                             end else begin
-254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255                     
-256        1/1                      if (start) begin
-257        1/1                          cnt <= {CNT_W{1'b0}};
-258                                     // Para LAT=1 el done sale inmediatamente
-259        1/1                          if (READ_LATENCY == 1)
-260        1/1                              done_pulse <= 1'b1;
-                        MISSING_ELSE
-261        1/1                      end else if (counting) begin
-262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-263        1/1                              done_pulse <= 1'b1;
-264        1/1                              cnt        <= {CNT_W{1'b0}};
-265                                     end else begin
-266        1/1                              cnt <= cnt + 1'b1;
-267                                     end
-268                                 end
-                        MISSING_ELSE
-
--------------------------------------------------------------------------------
-Toggle Coverage for Module : latency_counter
+Toggle Coverage for Module : rd_response_path_sva
                 Total Covered Percent 
-Totals          6     4       66.67   
-Total Bits      26    13      50.00   
-Total Bits 0->1 13    7       53.85   
-Total Bits 1->0 13    6       46.15   
+Totals          21    17      80.95   
+Total Bits      186   178     95.70   
+Total Bits 0->1 93    89      95.70   
+Total Bits 1->0 93    89      95.70   
 
-                           
-Ports          5  4 80.00  
-Port Bits      10 9 90.00  
-Port Bits 0->1 5  5 100.00 
-Port Bits 1->0 5  4 80.00  
+                              
+Ports          16  13  81.25  
+Port Bits      164 157 95.73  
+Port Bits 0->1 82  79  96.34  
+Port Bits 1->0 82  78  95.12  
 
-                             
-Signals          1  0 0.00   
-Signal Bits      16 4 25.00  
-Signal Bits 0->1 8  2 25.00  
-Signal Bits 1->0 8  2 25.00  
+                              
+Signals          5  4  80.00  
+Signal Bits      22 21 95.45  
+Signal Bits 0->1 11 10 90.91  
+Signal Bits 1->0 11 11 100.00 
 
 Port Details
-           Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk        Yes    Yes         Yes         INPUT     
-rst_n      No     No          Yes         INPUT     
-start      Yes    Yes         Yes         INPUT     
-counting   Yes    Yes         Yes         INPUT     
-done_pulse Yes    Yes         Yes         OUTPUT    
+                   Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk                Yes    Yes         Yes         INPUT     
+rst_n              No     No          Yes         INPUT     
+wr_ptr_ext[2:0]    Yes    Yes         Yes         INPUT     
+rob_tag_free       Yes    Yes         Yes         INPUT     
+s_axi_rvalid       Yes    Yes         Yes         INPUT     
+s_axi_rdata[31:0]  Yes    Yes         Yes         INPUT     
+s_axi_rresp[1:0]   No     No          No          INPUT     
+s_axi_rready       Yes    Yes         Yes         INPUT     
+rd_ptr_addr[1:0]   Yes    Yes         Yes         INPUT     
+rd_ptr_wrap        Yes    Yes         Yes         INPUT     
+rob_push           Yes    Yes         Yes         INPUT     
+rob_data_out[31:0] Yes    Yes         Yes         INPUT     
+rob_full           Yes    Yes         Yes         INPUT     
+rd_resp_fifo_full  No     No          No          INPUT     
+fifo_pndng         Yes    Yes         Yes         INPUT     
+fifo_pop           Yes    Yes         Yes         INPUT     
 
 Signal Details
-         Toggle Toggle 1->0 Toggle 0->1 
-cnt[1:0] Yes    Yes         Yes         
-cnt[7:2] No     No          No          
+                              Toggle Toggle 1->0 Toggle 0->1 
+rst_active                    No     Yes         No          
+rd_resp_valid_packed[3:0]     Yes    Yes         Yes         
+any_resp_valid                Yes    Yes         Yes         
+capture_to_rd_ptr_packed[3:0] Yes    Yes         Yes         
+any_capture_to_rd_ptr         Yes    Yes         Yes         
 
 
 -------------------------------------------------------------------------------
-Branch Coverage for Module : latency_counter
-         Line No. Total Covered Percent 
-Branches          6     6       100.00  
-IF       250      6     6       100.00  
+Assert Coverage for Module : rd_response_path_sva
+                 Total Attempted Percent Succeeded/Matched Percent 
+Assertions       0     0                 0                         
+Cover properties 8     8         100.00  6                 75.00   
+Cover sequences  0     0                 0                         
+Total            8     8         100.00  6                 75.00   
 
 
-250                if (!rst_n) begin
-                   -1-  
-251                    cnt        <= {CNT_W{1'b0}};
-                       ==>
-252                    done_pulse <= 1'b0;
-253                end else begin
-254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255        
-256                    if (start) begin
-                       -2-  
-257                        cnt <= {CNT_W{1'b0}};
-258                        // Para LAT=1 el done sale inmediatamente
-259                        if (READ_LATENCY == 1)
-                           -3-  
-260                            done_pulse <= 1'b1;
-                               ==>
-                               MISSING_ELSE
-                               ==>
-261                    end else if (counting) begin
-                                -4-  
-262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-                           -5-  
-263                            done_pulse <= 1'b1;
-                               ==>
-264                            cnt        <= {CNT_W{1'b0}};
-265                        end else begin
-266                            cnt <= cnt + 1'b1;
-                               ==>
-267                        end
-268                    end
-                       MISSING_ELSE
-                       ==>
 
-Branches:
+-------------------------------------------------------------------------------
 
--1- -2- -3- -4- -5- Status  
-1   -   -   -   -   Covered 
-0   1   1   -   -   Covered 
-0   1   0   -   -   Covered 
-0   0   -   1   1   Covered 
-0   0   -   1   0   Covered 
-0   0   -   0   -   Covered 
+Cover Directives for Properties: Details
+
+Name                     Attempts Matches Incomplete 
+c_any_resp_occurred      1259372  23715   0          
+c_fifo_full_backpressure 1259372  107993  0          
+c_master_rready_fast     1259372  0       0          
+c_master_rready_slow     1259372  128400  0          
+c_multi_resp_concurrent  1259372  0       0          
+c_rob_full_occurred      1259372  107193  0          
+c_rob_push_occurred      1259372  23715   0          
+c_rvalid_handshake       1259372  23715   0          
 
 
 -------------------------------------------------------------------------------
 ===============================================================================
-Module Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
+Module Instance : tb_top.dut.u_rd_response_path.u_rd_response_path_sva
 ===============================================================================
 
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
+ 85.35 --     --      95.70 --     --      75.00 
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
+ 85.35 --     --      95.70 --     --      75.00 
 
 
 Module : 
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 83.33 100.00 --      50.00 --     100.00 --     latency_counter 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                 
+ 85.35 --     --      95.70 --     --      75.00 rd_response_path_sva 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 99.78 --     --      99.78 --     --     --     gen_bank[0].u_bank 
+ 96.82 --     --      96.82 --     --     --     u_rd_response_path 
 
 
 Subtrees :
@@ -61591,573 +61643,7 @@ no children
 
 
 -------------------------------------------------------------------------------
-Line Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
-
-             Line No.   Total   Covered  Percent
-TOTAL                       13       13   100.00
-ALWAYS            250       13       13   100.00
-
-249                         always @(posedge clk) begin
-250        1/1                  if (!rst_n) begin
-251        1/1                      cnt        <= {CNT_W{1'b0}};
-252        1/1                      done_pulse <= 1'b0;
-253                             end else begin
-254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255                     
-256        1/1                      if (start) begin
-257        1/1                          cnt <= {CNT_W{1'b0}};
-258                                     // Para LAT=1 el done sale inmediatamente
-259        1/1                          if (READ_LATENCY == 1)
-260        1/1                              done_pulse <= 1'b1;
-                        MISSING_ELSE
-261        1/1                      end else if (counting) begin
-262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-263        1/1                              done_pulse <= 1'b1;
-264        1/1                              cnt        <= {CNT_W{1'b0}};
-265                                     end else begin
-266        1/1                              cnt <= cnt + 1'b1;
-267                                     end
-268                                 end
-                        MISSING_ELSE
-
--------------------------------------------------------------------------------
-Toggle Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
-                Total Covered Percent 
-Totals          6     4       66.67   
-Total Bits      26    13      50.00   
-Total Bits 0->1 13    7       53.85   
-Total Bits 1->0 13    6       46.15   
-
-                           
-Ports          5  4 80.00  
-Port Bits      10 9 90.00  
-Port Bits 0->1 5  5 100.00 
-Port Bits 1->0 5  4 80.00  
-
-                             
-Signals          1  0 0.00   
-Signal Bits      16 4 25.00  
-Signal Bits 0->1 8  2 25.00  
-Signal Bits 1->0 8  2 25.00  
-
-Port Details
-           Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk        Yes    Yes         Yes         INPUT     
-rst_n      No     No          Yes         INPUT     
-start      Yes    Yes         Yes         INPUT     
-counting   Yes    Yes         Yes         INPUT     
-done_pulse Yes    Yes         Yes         OUTPUT    
-
-Signal Details
-         Toggle Toggle 1->0 Toggle 0->1 
-cnt[1:0] Yes    Yes         Yes         
-cnt[7:2] No     No          No          
-
-
--------------------------------------------------------------------------------
-Branch Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
-         Line No. Total Covered Percent 
-Branches          6     6       100.00  
-IF       250      6     6       100.00  
-
-
-250                if (!rst_n) begin
-                   -1-  
-251                    cnt        <= {CNT_W{1'b0}};
-                       ==>
-252                    done_pulse <= 1'b0;
-253                end else begin
-254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255        
-256                    if (start) begin
-                       -2-  
-257                        cnt <= {CNT_W{1'b0}};
-258                        // Para LAT=1 el done sale inmediatamente
-259                        if (READ_LATENCY == 1)
-                           -3-  
-260                            done_pulse <= 1'b1;
-                               ==>
-                               MISSING_ELSE
-                               ==>
-261                    end else if (counting) begin
-                                -4-  
-262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-                           -5-  
-263                            done_pulse <= 1'b1;
-                               ==>
-264                            cnt        <= {CNT_W{1'b0}};
-265                        end else begin
-266                            cnt <= cnt + 1'b1;
-                               ==>
-267                        end
-268                    end
-                       MISSING_ELSE
-                       ==>
-
-Branches:
-
--1- -2- -3- -4- -5- Status  
-1   -   -   -   -   Covered 
-0   1   1   -   -   Covered 
-0   1   0   -   -   Covered 
-0   0   -   1   1   Covered 
-0   0   -   1   0   Covered 
-0   0   -   0   -   Covered 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 83.33 100.00 --      50.00 --     100.00 --     latency_counter 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 99.78 --     --      99.78 --     --     --     gen_bank[1].u_bank 
-
-
-Subtrees :
-
-
-no children
-----------------
-
-
--------------------------------------------------------------------------------
-Line Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
-
-             Line No.   Total   Covered  Percent
-TOTAL                       13       13   100.00
-ALWAYS            250       13       13   100.00
-
-249                         always @(posedge clk) begin
-250        1/1                  if (!rst_n) begin
-251        1/1                      cnt        <= {CNT_W{1'b0}};
-252        1/1                      done_pulse <= 1'b0;
-253                             end else begin
-254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255                     
-256        1/1                      if (start) begin
-257        1/1                          cnt <= {CNT_W{1'b0}};
-258                                     // Para LAT=1 el done sale inmediatamente
-259        1/1                          if (READ_LATENCY == 1)
-260        1/1                              done_pulse <= 1'b1;
-                        MISSING_ELSE
-261        1/1                      end else if (counting) begin
-262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-263        1/1                              done_pulse <= 1'b1;
-264        1/1                              cnt        <= {CNT_W{1'b0}};
-265                                     end else begin
-266        1/1                              cnt <= cnt + 1'b1;
-267                                     end
-268                                 end
-                        MISSING_ELSE
-
--------------------------------------------------------------------------------
-Toggle Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
-                Total Covered Percent 
-Totals          6     4       66.67   
-Total Bits      26    13      50.00   
-Total Bits 0->1 13    7       53.85   
-Total Bits 1->0 13    6       46.15   
-
-                           
-Ports          5  4 80.00  
-Port Bits      10 9 90.00  
-Port Bits 0->1 5  5 100.00 
-Port Bits 1->0 5  4 80.00  
-
-                             
-Signals          1  0 0.00   
-Signal Bits      16 4 25.00  
-Signal Bits 0->1 8  2 25.00  
-Signal Bits 1->0 8  2 25.00  
-
-Port Details
-           Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk        Yes    Yes         Yes         INPUT     
-rst_n      No     No          Yes         INPUT     
-start      Yes    Yes         Yes         INPUT     
-counting   Yes    Yes         Yes         INPUT     
-done_pulse Yes    Yes         Yes         OUTPUT    
-
-Signal Details
-         Toggle Toggle 1->0 Toggle 0->1 
-cnt[1:0] Yes    Yes         Yes         
-cnt[7:2] No     No          No          
-
-
--------------------------------------------------------------------------------
-Branch Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
-         Line No. Total Covered Percent 
-Branches          6     6       100.00  
-IF       250      6     6       100.00  
-
-
-250                if (!rst_n) begin
-                   -1-  
-251                    cnt        <= {CNT_W{1'b0}};
-                       ==>
-252                    done_pulse <= 1'b0;
-253                end else begin
-254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255        
-256                    if (start) begin
-                       -2-  
-257                        cnt <= {CNT_W{1'b0}};
-258                        // Para LAT=1 el done sale inmediatamente
-259                        if (READ_LATENCY == 1)
-                           -3-  
-260                            done_pulse <= 1'b1;
-                               ==>
-                               MISSING_ELSE
-                               ==>
-261                    end else if (counting) begin
-                                -4-  
-262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-                           -5-  
-263                            done_pulse <= 1'b1;
-                               ==>
-264                            cnt        <= {CNT_W{1'b0}};
-265                        end else begin
-266                            cnt <= cnt + 1'b1;
-                               ==>
-267                        end
-268                    end
-                       MISSING_ELSE
-                       ==>
-
-Branches:
-
--1- -2- -3- -4- -5- Status  
-1   -   -   -   -   Covered 
-0   1   1   -   -   Covered 
-0   1   0   -   -   Covered 
-0   0   -   1   1   Covered 
-0   0   -   1   0   Covered 
-0   0   -   0   -   Covered 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 83.33 100.00 --      50.00 --     100.00 --     latency_counter 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 99.78 --     --      99.78 --     --     --     gen_bank[2].u_bank 
-
-
-Subtrees :
-
-
-no children
-----------------
-
-
--------------------------------------------------------------------------------
-Line Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
-
-             Line No.   Total   Covered  Percent
-TOTAL                       13       13   100.00
-ALWAYS            250       13       13   100.00
-
-249                         always @(posedge clk) begin
-250        1/1                  if (!rst_n) begin
-251        1/1                      cnt        <= {CNT_W{1'b0}};
-252        1/1                      done_pulse <= 1'b0;
-253                             end else begin
-254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255                     
-256        1/1                      if (start) begin
-257        1/1                          cnt <= {CNT_W{1'b0}};
-258                                     // Para LAT=1 el done sale inmediatamente
-259        1/1                          if (READ_LATENCY == 1)
-260        1/1                              done_pulse <= 1'b1;
-                        MISSING_ELSE
-261        1/1                      end else if (counting) begin
-262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-263        1/1                              done_pulse <= 1'b1;
-264        1/1                              cnt        <= {CNT_W{1'b0}};
-265                                     end else begin
-266        1/1                              cnt <= cnt + 1'b1;
-267                                     end
-268                                 end
-                        MISSING_ELSE
-
--------------------------------------------------------------------------------
-Toggle Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
-                Total Covered Percent 
-Totals          6     4       66.67   
-Total Bits      26    13      50.00   
-Total Bits 0->1 13    7       53.85   
-Total Bits 1->0 13    6       46.15   
-
-                           
-Ports          5  4 80.00  
-Port Bits      10 9 90.00  
-Port Bits 0->1 5  5 100.00 
-Port Bits 1->0 5  4 80.00  
-
-                             
-Signals          1  0 0.00   
-Signal Bits      16 4 25.00  
-Signal Bits 0->1 8  2 25.00  
-Signal Bits 1->0 8  2 25.00  
-
-Port Details
-           Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk        Yes    Yes         Yes         INPUT     
-rst_n      No     No          Yes         INPUT     
-start      Yes    Yes         Yes         INPUT     
-counting   Yes    Yes         Yes         INPUT     
-done_pulse Yes    Yes         Yes         OUTPUT    
-
-Signal Details
-         Toggle Toggle 1->0 Toggle 0->1 
-cnt[1:0] Yes    Yes         Yes         
-cnt[7:2] No     No          No          
-
-
--------------------------------------------------------------------------------
-Branch Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
-         Line No. Total Covered Percent 
-Branches          6     6       100.00  
-IF       250      6     6       100.00  
-
-
-250                if (!rst_n) begin
-                   -1-  
-251                    cnt        <= {CNT_W{1'b0}};
-                       ==>
-252                    done_pulse <= 1'b0;
-253                end else begin
-254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255        
-256                    if (start) begin
-                       -2-  
-257                        cnt <= {CNT_W{1'b0}};
-258                        // Para LAT=1 el done sale inmediatamente
-259                        if (READ_LATENCY == 1)
-                           -3-  
-260                            done_pulse <= 1'b1;
-                               ==>
-                               MISSING_ELSE
-                               ==>
-261                    end else if (counting) begin
-                                -4-  
-262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-                           -5-  
-263                            done_pulse <= 1'b1;
-                               ==>
-264                            cnt        <= {CNT_W{1'b0}};
-265                        end else begin
-266                            cnt <= cnt + 1'b1;
-                               ==>
-267                        end
-268                    end
-                       MISSING_ELSE
-                       ==>
-
-Branches:
-
--1- -2- -3- -4- -5- Status  
-1   -   -   -   -   Covered 
-0   1   1   -   -   Covered 
-0   1   0   -   -   Covered 
-0   0   -   1   1   Covered 
-0   0   -   1   0   Covered 
-0   0   -   0   -   Covered 
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 83.33 100.00 --      50.00 --     100.00 --     
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
- 83.33 100.00 --      50.00 --     100.00 --     latency_counter 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 99.78 --     --      99.78 --     --     --     gen_bank[3].u_bank 
-
-
-Subtrees :
-
-
-no children
-----------------
-
-
--------------------------------------------------------------------------------
-Line Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
-
-             Line No.   Total   Covered  Percent
-TOTAL                       13       13   100.00
-ALWAYS            250       13       13   100.00
-
-249                         always @(posedge clk) begin
-250        1/1                  if (!rst_n) begin
-251        1/1                      cnt        <= {CNT_W{1'b0}};
-252        1/1                      done_pulse <= 1'b0;
-253                             end else begin
-254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255                     
-256        1/1                      if (start) begin
-257        1/1                          cnt <= {CNT_W{1'b0}};
-258                                     // Para LAT=1 el done sale inmediatamente
-259        1/1                          if (READ_LATENCY == 1)
-260        1/1                              done_pulse <= 1'b1;
-                        MISSING_ELSE
-261        1/1                      end else if (counting) begin
-262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-263        1/1                              done_pulse <= 1'b1;
-264        1/1                              cnt        <= {CNT_W{1'b0}};
-265                                     end else begin
-266        1/1                              cnt <= cnt + 1'b1;
-267                                     end
-268                                 end
-                        MISSING_ELSE
-
--------------------------------------------------------------------------------
-Toggle Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
-                Total Covered Percent 
-Totals          6     4       66.67   
-Total Bits      26    13      50.00   
-Total Bits 0->1 13    7       53.85   
-Total Bits 1->0 13    6       46.15   
-
-                           
-Ports          5  4 80.00  
-Port Bits      10 9 90.00  
-Port Bits 0->1 5  5 100.00 
-Port Bits 1->0 5  4 80.00  
-
-                             
-Signals          1  0 0.00   
-Signal Bits      16 4 25.00  
-Signal Bits 0->1 8  2 25.00  
-Signal Bits 1->0 8  2 25.00  
-
-Port Details
-           Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk        Yes    Yes         Yes         INPUT     
-rst_n      No     No          Yes         INPUT     
-start      Yes    Yes         Yes         INPUT     
-counting   Yes    Yes         Yes         INPUT     
-done_pulse Yes    Yes         Yes         OUTPUT    
-
-Signal Details
-         Toggle Toggle 1->0 Toggle 0->1 
-cnt[1:0] Yes    Yes         Yes         
-cnt[7:2] No     No          No          
-
-
--------------------------------------------------------------------------------
-Branch Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
-         Line No. Total Covered Percent 
-Branches          6     6       100.00  
-IF       250      6     6       100.00  
-
-
-250                if (!rst_n) begin
-                   -1-  
-251                    cnt        <= {CNT_W{1'b0}};
-                       ==>
-252                    done_pulse <= 1'b0;
-253                end else begin
-254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
-255        
-256                    if (start) begin
-                       -2-  
-257                        cnt <= {CNT_W{1'b0}};
-258                        // Para LAT=1 el done sale inmediatamente
-259                        if (READ_LATENCY == 1)
-                           -3-  
-260                            done_pulse <= 1'b1;
-                               ==>
-                               MISSING_ELSE
-                               ==>
-261                    end else if (counting) begin
-                                -4-  
-262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
-                           -5-  
-263                            done_pulse <= 1'b1;
-                               ==>
-264                            cnt        <= {CNT_W{1'b0}};
-265                        end else begin
-266                            cnt <= cnt + 1'b1;
-                               ==>
-267                        end
-268                    end
-                       MISSING_ELSE
-                       ==>
-
-Branches:
-
--1- -2- -3- -4- -5- Status  
-1   -   -   -   -   Covered 
-0   1   1   -   -   Covered 
-0   1   0   -   -   Covered 
-0   0   -   1   1   Covered 
-0   0   -   1   0   Covered 
-0   0   -   0   -   Covered 
-
-
+Since this is the module's only instance, the coverage report is the same as for the module.
 ===============================================================================
 Module : bank_fsm
 ===============================================================================
@@ -63627,135 +63113,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
-
-
-Subtrees :
-
-
-no children
-----------------
-
-
--------------------------------------------------------------------------------
-Since this is the module's only instance, the coverage report is the same as for the module.
-===============================================================================
-Module : rd_response_path_sva
-===============================================================================
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 85.89 --     --      96.77 --     --      75.00 
-
-Source File(s) : 
-
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA/rd_response_path_sva.sv
-
-Module self-instances :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                                 
- 85.89 --     --      96.77 --     --      75.00 tb_top.dut.u_rd_response_path.u_rd_response_path_sva 
-
-
-
--------------------------------------------------------------------------------
-Toggle Coverage for Module : rd_response_path_sva
-                Total Covered Percent 
-Totals          21    18      85.71   
-Total Bits      186   180     96.77   
-Total Bits 0->1 93    90      96.77   
-Total Bits 1->0 93    90      96.77   
-
-                              
-Ports          16  14  87.50  
-Port Bits      164 159 96.95  
-Port Bits 0->1 82  80  97.56  
-Port Bits 1->0 82  79  96.34  
-
-                              
-Signals          5  4  80.00  
-Signal Bits      22 21 95.45  
-Signal Bits 0->1 11 10 90.91  
-Signal Bits 1->0 11 11 100.00 
-
-Port Details
-                   Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk                Yes    Yes         Yes         INPUT     
-rst_n              No     No          Yes         INPUT     
-wr_ptr_ext[2:0]    Yes    Yes         Yes         INPUT     
-rob_tag_free       Yes    Yes         Yes         INPUT     
-s_axi_rvalid       Yes    Yes         Yes         INPUT     
-s_axi_rdata[31:0]  Yes    Yes         Yes         INPUT     
-s_axi_rresp[1:0]   No     No          No          INPUT     
-s_axi_rready       Yes    Yes         Yes         INPUT     
-rd_ptr_addr[1:0]   Yes    Yes         Yes         INPUT     
-rd_ptr_wrap        Yes    Yes         Yes         INPUT     
-rob_push           Yes    Yes         Yes         INPUT     
-rob_data_out[31:0] Yes    Yes         Yes         INPUT     
-rob_full           Yes    Yes         Yes         INPUT     
-rd_resp_fifo_full  Yes    Yes         Yes         INPUT     
-fifo_pndng         Yes    Yes         Yes         INPUT     
-fifo_pop           Yes    Yes         Yes         INPUT     
-
-Signal Details
-                              Toggle Toggle 1->0 Toggle 0->1 
-rst_active                    No     Yes         No          
-rd_resp_valid_packed[3:0]     Yes    Yes         Yes         
-any_resp_valid                Yes    Yes         Yes         
-capture_to_rd_ptr_packed[3:0] Yes    Yes         Yes         
-any_capture_to_rd_ptr         Yes    Yes         Yes         
-
-
--------------------------------------------------------------------------------
-Assert Coverage for Module : rd_response_path_sva
-                 Total Attempted Percent Succeeded/Matched Percent 
-Assertions       0     0                 0                         
-Cover properties 8     8         100.00  6                 75.00   
-Cover sequences  0     0                 0                         
-Total            8     8         100.00  6                 75.00   
-
-
-
--------------------------------------------------------------------------------
-
-Cover Directives for Properties: Details
-
-Name                     Attempts Matches Incomplete 
-c_any_resp_occurred      1178681  21165   0          
-c_fifo_full_backpressure 1178681  24692   0          
-c_master_rready_fast     1178681  0       0          
-c_master_rready_slow     1178681  44565   0          
-c_multi_resp_concurrent  1178681  0       0          
-c_rob_full_occurred      1178681  24400   0          
-c_rob_push_occurred      1178681  21165   0          
-c_rvalid_handshake       1178681  21165   0          
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : tb_top.dut.u_rd_response_path.u_rd_response_path_sva
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 85.89 --     --      96.77 --     --      75.00 
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 85.89 --     --      96.77 --     --      75.00 
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                 
- 85.89 --     --      96.77 --     --      75.00 rd_response_path_sva 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 97.73 --     --      97.73 --     --     --     u_rd_response_path 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -63916,90 +63274,167 @@ no children
 -------------------------------------------------------------------------------
 Since this is the module's only instance, the coverage report is the same as for the module.
 ===============================================================================
-Module : wr_response_path_sva
+Module : latency_counter
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 88.10 --     --      88.10 --     --     --     
+ 93.75 100.00 --      81.25 --     100.00 --     
 
 Source File(s) : 
 
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/SVA/wr_response_path_sva.sv
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/sram_bank_controller.sv
 
 Module self-instances :
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                                 
- 88.10 --     --      88.10 --     --     --     tb_top.dut.u_wr_response_path.u_wr_response_path_sva 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                    
+ 93.75 100.00 --      81.25 --     100.00 --     tb_top.dut.gen_bank[0].u_bank.u_lat_cnt 
+ 93.75 100.00 --      81.25 --     100.00 --     tb_top.dut.gen_bank[1].u_bank.u_lat_cnt 
+ 93.75 100.00 --      81.25 --     100.00 --     tb_top.dut.gen_bank[2].u_bank.u_lat_cnt 
+ 93.75 100.00 --      81.25 --     100.00 --     tb_top.dut.gen_bank[3].u_bank.u_lat_cnt 
 
 
 
 -------------------------------------------------------------------------------
-Toggle Coverage for Module : wr_response_path_sva
+Line Coverage for Module : latency_counter
+
+             Line No.   Total   Covered  Percent
+TOTAL                       13       13   100.00
+ALWAYS            250       13       13   100.00
+
+249                         always @(posedge clk) begin
+250        1/1                  if (!rst_n) begin
+251        1/1                      cnt        <= {CNT_W{1'b0}};
+252        1/1                      done_pulse <= 1'b0;
+253                             end else begin
+254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255                     
+256        1/1                      if (start) begin
+257        1/1                          cnt <= {CNT_W{1'b0}};
+258                                     // Para LAT=1 el done sale inmediatamente
+259        1/1                          if (READ_LATENCY == 1)
+260        1/1                              done_pulse <= 1'b1;
+                        MISSING_ELSE
+261        1/1                      end else if (counting) begin
+262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+263        1/1                              done_pulse <= 1'b1;
+264        1/1                              cnt        <= {CNT_W{1'b0}};
+265                                     end else begin
+266        1/1                              cnt <= cnt + 1'b1;
+267                                     end
+268                                 end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : latency_counter
                 Total Covered Percent 
-Totals          14    12      85.71   
-Total Bits      42    37      88.10   
-Total Bits 0->1 21    19      90.48   
-Total Bits 1->0 21    18      85.71   
+Totals          6     4       66.67   
+Total Bits      16    13      81.25   
+Total Bits 0->1 8     7       87.50   
+Total Bits 1->0 8     6       75.00   
+
+                           
+Ports          5  4 80.00  
+Port Bits      10 9 90.00  
+Port Bits 0->1 5  5 100.00 
+Port Bits 1->0 5  4 80.00  
 
                             
-Ports          13 11 84.62  
-Port Bits      34 29 85.29  
-Port Bits 0->1 17 15 88.24  
-Port Bits 1->0 17 14 82.35  
-
-                            
-Signals          1 1 100.00 
-Signal Bits      8 8 100.00 
-Signal Bits 0->1 4 4 100.00 
-Signal Bits 1->0 4 4 100.00 
+Signals          1 0 0.00   
+Signal Bits      6 4 66.67  
+Signal Bits 0->1 3 2 66.67  
+Signal Bits 1->0 3 2 66.67  
 
 Port Details
-                 Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk              Yes    Yes         Yes         INPUT     
-rst_n            No     No          Yes         INPUT     
-s_axi_bvalid     Yes    Yes         Yes         INPUT     
-s_axi_bresp[1:0] No     No          No          INPUT     
-s_axi_bready     Yes    Yes         Yes         INPUT     
-wr_resp_full     Yes    Yes         Yes         INPUT     
-wr_resp_push     Yes    Yes         Yes         INPUT     
-cnt[3:0]         Yes    Yes         Yes         INPUT     
-dispatch_ok      Yes    Yes         Yes         INPUT     
-push_ok          Yes    Yes         Yes         INPUT     
-pop_ok           Yes    Yes         Yes         INPUT     
-cnt_full         Yes    Yes         Yes         INPUT     
-cnt_empty        Yes    Yes         Yes         INPUT     
+           Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk        Yes    Yes         Yes         INPUT     
+rst_n      No     No          Yes         INPUT     
+start      Yes    Yes         Yes         INPUT     
+counting   Yes    Yes         Yes         INPUT     
+done_pulse Yes    Yes         Yes         OUTPUT    
 
 Signal Details
-                          Toggle Toggle 1->0 Toggle 0->1 
-wr_resp_valid_packed[3:0] Yes    Yes         Yes         
+         Toggle Toggle 1->0 Toggle 0->1 
+cnt[1:0] Yes    Yes         Yes         
+cnt[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Module : latency_counter
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       250      6     6       100.00  
+
+
+250                if (!rst_n) begin
+                   -1-  
+251                    cnt        <= {CNT_W{1'b0}};
+                       ==>
+252                    done_pulse <= 1'b0;
+253                end else begin
+254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255        
+256                    if (start) begin
+                       -2-  
+257                        cnt <= {CNT_W{1'b0}};
+258                        // Para LAT=1 el done sale inmediatamente
+259                        if (READ_LATENCY == 1)
+                           -3-  
+260                            done_pulse <= 1'b1;
+                               ==>
+                               MISSING_ELSE
+                               ==>
+261                    end else if (counting) begin
+                                -4-  
+262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+                           -5-  
+263                            done_pulse <= 1'b1;
+                               ==>
+264                            cnt        <= {CNT_W{1'b0}};
+265                        end else begin
+266                            cnt <= cnt + 1'b1;
+                               ==>
+267                        end
+268                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   1   Covered 
+0   0   -   1   0   Covered 
+0   0   -   0   -   Covered 
 
 
 -------------------------------------------------------------------------------
 ===============================================================================
-Module Instance : tb_top.dut.u_wr_response_path.u_wr_response_path_sva
+Module Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
 ===============================================================================
 
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 88.10 --     --      88.10 --     --     --     
+ 93.75 100.00 --      81.25 --     100.00 --     
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 88.10 --     --      88.10 --     --     --     
+ 93.75 100.00 --      81.25 --     100.00 --     
 
 
 Module : 
 
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                 
- 88.10 --     --      88.10 --     --     --     wr_response_path_sva 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
+ 93.75 100.00 --      81.25 --     100.00 --     latency_counter 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 77.27 --     --      77.27 --     --     --     u_wr_response_path 
+ 99.78 --     --      99.78 --     --     --     gen_bank[0].u_bank 
 
 
 Subtrees :
@@ -64010,7 +63445,573 @@ no children
 
 
 -------------------------------------------------------------------------------
-Since this is the module's only instance, the coverage report is the same as for the module.
+Line Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
+
+             Line No.   Total   Covered  Percent
+TOTAL                       13       13   100.00
+ALWAYS            250       13       13   100.00
+
+249                         always @(posedge clk) begin
+250        1/1                  if (!rst_n) begin
+251        1/1                      cnt        <= {CNT_W{1'b0}};
+252        1/1                      done_pulse <= 1'b0;
+253                             end else begin
+254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255                     
+256        1/1                      if (start) begin
+257        1/1                          cnt <= {CNT_W{1'b0}};
+258                                     // Para LAT=1 el done sale inmediatamente
+259        1/1                          if (READ_LATENCY == 1)
+260        1/1                              done_pulse <= 1'b1;
+                        MISSING_ELSE
+261        1/1                      end else if (counting) begin
+262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+263        1/1                              done_pulse <= 1'b1;
+264        1/1                              cnt        <= {CNT_W{1'b0}};
+265                                     end else begin
+266        1/1                              cnt <= cnt + 1'b1;
+267                                     end
+268                                 end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
+                Total Covered Percent 
+Totals          6     4       66.67   
+Total Bits      16    13      81.25   
+Total Bits 0->1 8     7       87.50   
+Total Bits 1->0 8     6       75.00   
+
+                           
+Ports          5  4 80.00  
+Port Bits      10 9 90.00  
+Port Bits 0->1 5  5 100.00 
+Port Bits 1->0 5  4 80.00  
+
+                            
+Signals          1 0 0.00   
+Signal Bits      6 4 66.67  
+Signal Bits 0->1 3 2 66.67  
+Signal Bits 1->0 3 2 66.67  
+
+Port Details
+           Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk        Yes    Yes         Yes         INPUT     
+rst_n      No     No          Yes         INPUT     
+start      Yes    Yes         Yes         INPUT     
+counting   Yes    Yes         Yes         INPUT     
+done_pulse Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+         Toggle Toggle 1->0 Toggle 0->1 
+cnt[1:0] Yes    Yes         Yes         
+cnt[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : tb_top.dut.gen_bank[0].u_bank.u_lat_cnt
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       250      6     6       100.00  
+
+
+250                if (!rst_n) begin
+                   -1-  
+251                    cnt        <= {CNT_W{1'b0}};
+                       ==>
+252                    done_pulse <= 1'b0;
+253                end else begin
+254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255        
+256                    if (start) begin
+                       -2-  
+257                        cnt <= {CNT_W{1'b0}};
+258                        // Para LAT=1 el done sale inmediatamente
+259                        if (READ_LATENCY == 1)
+                           -3-  
+260                            done_pulse <= 1'b1;
+                               ==>
+                               MISSING_ELSE
+                               ==>
+261                    end else if (counting) begin
+                                -4-  
+262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+                           -5-  
+263                            done_pulse <= 1'b1;
+                               ==>
+264                            cnt        <= {CNT_W{1'b0}};
+265                        end else begin
+266                            cnt <= cnt + 1'b1;
+                               ==>
+267                        end
+268                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   1   Covered 
+0   0   -   1   0   Covered 
+0   0   -   0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
+ 93.75 100.00 --      81.25 --     100.00 --     latency_counter 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
+ 99.78 --     --      99.78 --     --     --     gen_bank[1].u_bank 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
+
+             Line No.   Total   Covered  Percent
+TOTAL                       13       13   100.00
+ALWAYS            250       13       13   100.00
+
+249                         always @(posedge clk) begin
+250        1/1                  if (!rst_n) begin
+251        1/1                      cnt        <= {CNT_W{1'b0}};
+252        1/1                      done_pulse <= 1'b0;
+253                             end else begin
+254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255                     
+256        1/1                      if (start) begin
+257        1/1                          cnt <= {CNT_W{1'b0}};
+258                                     // Para LAT=1 el done sale inmediatamente
+259        1/1                          if (READ_LATENCY == 1)
+260        1/1                              done_pulse <= 1'b1;
+                        MISSING_ELSE
+261        1/1                      end else if (counting) begin
+262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+263        1/1                              done_pulse <= 1'b1;
+264        1/1                              cnt        <= {CNT_W{1'b0}};
+265                                     end else begin
+266        1/1                              cnt <= cnt + 1'b1;
+267                                     end
+268                                 end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
+                Total Covered Percent 
+Totals          6     4       66.67   
+Total Bits      16    13      81.25   
+Total Bits 0->1 8     7       87.50   
+Total Bits 1->0 8     6       75.00   
+
+                           
+Ports          5  4 80.00  
+Port Bits      10 9 90.00  
+Port Bits 0->1 5  5 100.00 
+Port Bits 1->0 5  4 80.00  
+
+                            
+Signals          1 0 0.00   
+Signal Bits      6 4 66.67  
+Signal Bits 0->1 3 2 66.67  
+Signal Bits 1->0 3 2 66.67  
+
+Port Details
+           Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk        Yes    Yes         Yes         INPUT     
+rst_n      No     No          Yes         INPUT     
+start      Yes    Yes         Yes         INPUT     
+counting   Yes    Yes         Yes         INPUT     
+done_pulse Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+         Toggle Toggle 1->0 Toggle 0->1 
+cnt[1:0] Yes    Yes         Yes         
+cnt[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : tb_top.dut.gen_bank[1].u_bank.u_lat_cnt
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       250      6     6       100.00  
+
+
+250                if (!rst_n) begin
+                   -1-  
+251                    cnt        <= {CNT_W{1'b0}};
+                       ==>
+252                    done_pulse <= 1'b0;
+253                end else begin
+254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255        
+256                    if (start) begin
+                       -2-  
+257                        cnt <= {CNT_W{1'b0}};
+258                        // Para LAT=1 el done sale inmediatamente
+259                        if (READ_LATENCY == 1)
+                           -3-  
+260                            done_pulse <= 1'b1;
+                               ==>
+                               MISSING_ELSE
+                               ==>
+261                    end else if (counting) begin
+                                -4-  
+262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+                           -5-  
+263                            done_pulse <= 1'b1;
+                               ==>
+264                            cnt        <= {CNT_W{1'b0}};
+265                        end else begin
+266                            cnt <= cnt + 1'b1;
+                               ==>
+267                        end
+268                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   1   Covered 
+0   0   -   1   0   Covered 
+0   0   -   0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
+ 93.75 100.00 --      81.25 --     100.00 --     latency_counter 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
+ 99.78 --     --      99.78 --     --     --     gen_bank[2].u_bank 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
+
+             Line No.   Total   Covered  Percent
+TOTAL                       13       13   100.00
+ALWAYS            250       13       13   100.00
+
+249                         always @(posedge clk) begin
+250        1/1                  if (!rst_n) begin
+251        1/1                      cnt        <= {CNT_W{1'b0}};
+252        1/1                      done_pulse <= 1'b0;
+253                             end else begin
+254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255                     
+256        1/1                      if (start) begin
+257        1/1                          cnt <= {CNT_W{1'b0}};
+258                                     // Para LAT=1 el done sale inmediatamente
+259        1/1                          if (READ_LATENCY == 1)
+260        1/1                              done_pulse <= 1'b1;
+                        MISSING_ELSE
+261        1/1                      end else if (counting) begin
+262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+263        1/1                              done_pulse <= 1'b1;
+264        1/1                              cnt        <= {CNT_W{1'b0}};
+265                                     end else begin
+266        1/1                              cnt <= cnt + 1'b1;
+267                                     end
+268                                 end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
+                Total Covered Percent 
+Totals          6     4       66.67   
+Total Bits      16    13      81.25   
+Total Bits 0->1 8     7       87.50   
+Total Bits 1->0 8     6       75.00   
+
+                           
+Ports          5  4 80.00  
+Port Bits      10 9 90.00  
+Port Bits 0->1 5  5 100.00 
+Port Bits 1->0 5  4 80.00  
+
+                            
+Signals          1 0 0.00   
+Signal Bits      6 4 66.67  
+Signal Bits 0->1 3 2 66.67  
+Signal Bits 1->0 3 2 66.67  
+
+Port Details
+           Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk        Yes    Yes         Yes         INPUT     
+rst_n      No     No          Yes         INPUT     
+start      Yes    Yes         Yes         INPUT     
+counting   Yes    Yes         Yes         INPUT     
+done_pulse Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+         Toggle Toggle 1->0 Toggle 0->1 
+cnt[1:0] Yes    Yes         Yes         
+cnt[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : tb_top.dut.gen_bank[2].u_bank.u_lat_cnt
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       250      6     6       100.00  
+
+
+250                if (!rst_n) begin
+                   -1-  
+251                    cnt        <= {CNT_W{1'b0}};
+                       ==>
+252                    done_pulse <= 1'b0;
+253                end else begin
+254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255        
+256                    if (start) begin
+                       -2-  
+257                        cnt <= {CNT_W{1'b0}};
+258                        // Para LAT=1 el done sale inmediatamente
+259                        if (READ_LATENCY == 1)
+                           -3-  
+260                            done_pulse <= 1'b1;
+                               ==>
+                               MISSING_ELSE
+                               ==>
+261                    end else if (counting) begin
+                                -4-  
+262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+                           -5-  
+263                            done_pulse <= 1'b1;
+                               ==>
+264                            cnt        <= {CNT_W{1'b0}};
+265                        end else begin
+266                            cnt <= cnt + 1'b1;
+                               ==>
+267                        end
+268                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   1   Covered 
+0   0   -   1   0   Covered 
+0   0   -   0   -   Covered 
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 93.75 100.00 --      81.25 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME            
+ 93.75 100.00 --      81.25 --     100.00 --     latency_counter 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
+ 99.78 --     --      99.78 --     --     --     gen_bank[3].u_bank 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
+
+             Line No.   Total   Covered  Percent
+TOTAL                       13       13   100.00
+ALWAYS            250       13       13   100.00
+
+249                         always @(posedge clk) begin
+250        1/1                  if (!rst_n) begin
+251        1/1                      cnt        <= {CNT_W{1'b0}};
+252        1/1                      done_pulse <= 1'b0;
+253                             end else begin
+254        1/1                      done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255                     
+256        1/1                      if (start) begin
+257        1/1                          cnt <= {CNT_W{1'b0}};
+258                                     // Para LAT=1 el done sale inmediatamente
+259        1/1                          if (READ_LATENCY == 1)
+260        1/1                              done_pulse <= 1'b1;
+                        MISSING_ELSE
+261        1/1                      end else if (counting) begin
+262        1/1                          if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+263        1/1                              done_pulse <= 1'b1;
+264        1/1                              cnt        <= {CNT_W{1'b0}};
+265                                     end else begin
+266        1/1                              cnt <= cnt + 1'b1;
+267                                     end
+268                                 end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
+                Total Covered Percent 
+Totals          6     4       66.67   
+Total Bits      16    13      81.25   
+Total Bits 0->1 8     7       87.50   
+Total Bits 1->0 8     6       75.00   
+
+                           
+Ports          5  4 80.00  
+Port Bits      10 9 90.00  
+Port Bits 0->1 5  5 100.00 
+Port Bits 1->0 5  4 80.00  
+
+                            
+Signals          1 0 0.00   
+Signal Bits      6 4 66.67  
+Signal Bits 0->1 3 2 66.67  
+Signal Bits 1->0 3 2 66.67  
+
+Port Details
+           Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk        Yes    Yes         Yes         INPUT     
+rst_n      No     No          Yes         INPUT     
+start      Yes    Yes         Yes         INPUT     
+counting   Yes    Yes         Yes         INPUT     
+done_pulse Yes    Yes         Yes         OUTPUT    
+
+Signal Details
+         Toggle Toggle 1->0 Toggle 0->1 
+cnt[1:0] Yes    Yes         Yes         
+cnt[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+Branch Coverage for Instance : tb_top.dut.gen_bank[3].u_bank.u_lat_cnt
+         Line No. Total Covered Percent 
+Branches          6     6       100.00  
+IF       250      6     6       100.00  
+
+
+250                if (!rst_n) begin
+                   -1-  
+251                    cnt        <= {CNT_W{1'b0}};
+                       ==>
+252                    done_pulse <= 1'b0;
+253                end else begin
+254                    done_pulse <= 1'b0;  // pulso de 1 ciclo por defecto
+255        
+256                    if (start) begin
+                       -2-  
+257                        cnt <= {CNT_W{1'b0}};
+258                        // Para LAT=1 el done sale inmediatamente
+259                        if (READ_LATENCY == 1)
+                           -3-  
+260                            done_pulse <= 1'b1;
+                               ==>
+                               MISSING_ELSE
+                               ==>
+261                    end else if (counting) begin
+                                -4-  
+262                        if (cnt == CNT_W'(READ_LATENCY - 1)) begin
+                           -5-  
+263                            done_pulse <= 1'b1;
+                               ==>
+264                            cnt        <= {CNT_W{1'b0}};
+265                        end else begin
+266                            cnt <= cnt + 1'b1;
+                               ==>
+267                        end
+268                    end
+                       MISSING_ELSE
+                       ==>
+
+Branches:
+
+-1- -2- -3- -4- -5- Status  
+1   -   -   -   -   Covered 
+0   1   1   -   -   Covered 
+0   1   0   -   -   Covered 
+0   0   -   1   1   Covered 
+0   0   -   1   0   Covered 
+0   0   -   0   -   Covered 
+
+
 ===============================================================================
 Module : fifo_generic
 ===============================================================================
@@ -64330,7 +64331,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -64540,7 +64541,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -64750,7 +64751,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 97.73 --     --      97.73 --     --     --     u_rd_response_path 
+ 96.82 --     --      96.82 --     --     --     u_rd_response_path 
 
 
 Subtrees :
@@ -64933,6 +64934,105 @@ Branches:
 
 
 ===============================================================================
+Module : rd_response_path
+===============================================================================
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 96.82 --     --      96.82 --     --     --     
+
+Source File(s) : 
+
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/rd_response_path.sv
+
+Module self-instances :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                          
+ 96.82 --     --      96.82 --     --     --     tb_top.dut.u_rd_response_path 
+
+
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : rd_response_path
+                Total Covered Percent 
+Totals          14    11      78.57   
+Total Bits      220   213     96.82   
+Total Bits 0->1 110   107     97.27   
+Total Bits 1->0 110   106     96.36   
+
+                            
+Ports          8  6  75.00  
+Port Bits      84 79 94.05  
+Port Bits 0->1 42 40 95.24  
+Port Bits 1->0 42 39 92.86  
+
+                                
+Signals          6   5   83.33  
+Signal Bits      136 134 98.53  
+Signal Bits 0->1 68  67  98.53  
+Signal Bits 1->0 68  67  98.53  
+
+Port Details
+                  Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk               Yes    Yes         Yes         INPUT     
+rst_n             No     No          Yes         INPUT     
+wr_ptr_ext[2:0]   Yes    Yes         Yes         INPUT     
+rob_tag_free      Yes    Yes         Yes         OUTPUT    
+s_axi_rvalid      Yes    Yes         Yes         OUTPUT    
+s_axi_rdata[31:0] Yes    Yes         Yes         OUTPUT    
+s_axi_rresp[1:0]  No     No          No          OUTPUT    
+s_axi_rready      Yes    Yes         Yes         INPUT     
+
+Signal Details
+                   Toggle Toggle 1->0 Toggle 0->1 
+rob_push           Yes    Yes         Yes         
+rob_data_out[31:0] Yes    Yes         Yes         
+rd_resp_fifo_full  No     No          No          
+fifo_pndng         Yes    Yes         Yes         
+fifo_dout[31:0]    Yes    Yes         Yes         
+fifo_pop           Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : tb_top.dut.u_rd_response_path
+===============================================================================
+
+Instance :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 96.82 --     --      96.82 --     --     --     
+
+
+Instance's subtree :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
+ 94.43 100.00 100.00  97.15 --     100.00  75.00 
+
+
+Module : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME             
+ 96.82 --     --      96.82 --     --     --     rd_response_path 
+
+
+Parent : 
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
+ 70.17 --     --      70.17 --     --     --     dut  
+
+
+Subtrees :
+
+SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                   
+ 97.14 --     --      97.14 --     --     --     u_r_channel_logic      
+ 99.86 100.00 100.00  99.43 --     100.00 --     u_rd_resp_fifo         
+ 85.35 --     --      95.70 --     --      75.00 u_rd_response_path_sva 
+ 98.86 100.00 --      96.59 --     100.00 --     u_reorder_buffer       
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
 Module : r_channel_logic
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
@@ -65000,7 +65100,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 97.73 --     --      97.73 --     --     --     u_rd_response_path 
+ 96.82 --     --      96.82 --     --     --     u_rd_response_path 
 
 
 Subtrees :
@@ -65008,105 +65108,6 @@ Subtrees :
 
 no children
 ----------------
-
-
--------------------------------------------------------------------------------
-Since this is the module's only instance, the coverage report is the same as for the module.
-===============================================================================
-Module : rd_response_path
-===============================================================================
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 97.73 --     --      97.73 --     --     --     
-
-Source File(s) : 
-
-/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/RTL/rd_response_path.sv
-
-Module self-instances :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                          
- 97.73 --     --      97.73 --     --     --     tb_top.dut.u_rd_response_path 
-
-
-
--------------------------------------------------------------------------------
-Toggle Coverage for Module : rd_response_path
-                Total Covered Percent 
-Totals          14    12      85.71   
-Total Bits      220   215     97.73   
-Total Bits 0->1 110   108     98.18   
-Total Bits 1->0 110   107     97.27   
-
-                            
-Ports          8  6  75.00  
-Port Bits      84 79 94.05  
-Port Bits 0->1 42 40 95.24  
-Port Bits 1->0 42 39 92.86  
-
-                                
-Signals          6   6   100.00 
-Signal Bits      136 136 100.00 
-Signal Bits 0->1 68  68  100.00 
-Signal Bits 1->0 68  68  100.00 
-
-Port Details
-                  Toggle Toggle 1->0 Toggle 0->1 Direction 
-clk               Yes    Yes         Yes         INPUT     
-rst_n             No     No          Yes         INPUT     
-wr_ptr_ext[2:0]   Yes    Yes         Yes         INPUT     
-rob_tag_free      Yes    Yes         Yes         OUTPUT    
-s_axi_rvalid      Yes    Yes         Yes         OUTPUT    
-s_axi_rdata[31:0] Yes    Yes         Yes         OUTPUT    
-s_axi_rresp[1:0]  No     No          No          OUTPUT    
-s_axi_rready      Yes    Yes         Yes         INPUT     
-
-Signal Details
-                   Toggle Toggle 1->0 Toggle 0->1 
-rob_push           Yes    Yes         Yes         
-rob_data_out[31:0] Yes    Yes         Yes         
-rd_resp_fifo_full  Yes    Yes         Yes         
-fifo_pndng         Yes    Yes         Yes         
-fifo_dout[31:0]    Yes    Yes         Yes         
-fifo_pop           Yes    Yes         Yes         
-
-
--------------------------------------------------------------------------------
-===============================================================================
-Module Instance : tb_top.dut.u_rd_response_path
-===============================================================================
-
-Instance :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 97.73 --     --      97.73 --     --     --     
-
-
-Instance's subtree :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 94.58 100.00 100.00  97.90 --     100.00  75.00 
-
-
-Module : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME             
- 97.73 --     --      97.73 --     --     --     rd_response_path 
-
-
-Parent : 
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
-
-
-Subtrees :
-
-SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                   
- 97.14 --     --      97.14 --     --     --     u_r_channel_logic      
- 99.86 100.00 100.00  99.43 --     100.00 --     u_rd_resp_fifo         
- 85.89 --     --      96.77 --     --      75.00 u_rd_response_path_sva 
- 99.62 100.00 --      98.86 --     100.00 --     u_reorder_buffer       
-
 
 
 -------------------------------------------------------------------------------
@@ -65249,7 +65250,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -65410,7 +65411,7 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : reorder_buffer
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 99.62 100.00 --      98.86 --     100.00 --     
+ 98.86 100.00 --      96.59 --     100.00 --     
 
 Source File(s) : 
 
@@ -65419,7 +65420,7 @@ Source File(s) :
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME                                           
- 99.62 100.00 --      98.86 --     100.00 --     tb_top.dut.u_rd_response_path.u_reorder_buffer 
+ 98.86 100.00 --      96.59 --     100.00 --     tb_top.dut.u_rd_response_path.u_reorder_buffer 
 
 
 
@@ -65478,16 +65479,16 @@ ALWAYS            141        8        8   100.00
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : reorder_buffer
                 Total Covered Percent 
-Totals          10    9       90.00   
-Total Bits      88    87      98.86   
-Total Bits 0->1 44    44      100.00  
-Total Bits 1->0 44    43      97.73   
+Totals          10    8       80.00   
+Total Bits      88    85      96.59   
+Total Bits 0->1 44    43      97.73   
+Total Bits 1->0 44    42      95.45   
 
                             
-Ports          7  6  85.71  
-Port Bits      80 79 98.75  
-Port Bits 0->1 40 40 100.00 
-Port Bits 1->0 40 39 97.50  
+Ports          7  5  71.43  
+Port Bits      80 77 96.25  
+Port Bits 0->1 40 39 97.50  
+Port Bits 1->0 40 38 95.00  
 
                             
 Signals          3 3 100.00 
@@ -65500,7 +65501,7 @@ Port Details
 clk                Yes    Yes         Yes         INPUT     
 rst_n              No     No          Yes         INPUT     
 wr_ptr_ext[2:0]    Yes    Yes         Yes         INPUT     
-rd_resp_fifo_full  Yes    Yes         Yes         INPUT     
+rd_resp_fifo_full  No     No          No          INPUT     
 rob_push           Yes    Yes         Yes         OUTPUT    
 rob_data_out[31:0] Yes    Yes         Yes         OUTPUT    
 rob_tag_free       Yes    Yes         Yes         OUTPUT    
@@ -65585,25 +65586,25 @@ Module Instance : tb_top.dut.u_rd_response_path.u_reorder_buffer
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 99.62 100.00 --      98.86 --     100.00 --     
+ 98.86 100.00 --      96.59 --     100.00 --     
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 99.62 100.00 --      98.86 --     100.00 --     
+ 98.86 100.00 --      96.59 --     100.00 --     
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME           
- 99.62 100.00 --      98.86 --     100.00 --     reorder_buffer 
+ 98.86 100.00 --      96.59 --     100.00 --     reorder_buffer 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME               
- 97.73 --     --      97.73 --     --     --     u_rd_response_path 
+ 96.82 --     --      96.82 --     --     --     u_rd_response_path 
 
 
 Subtrees :
@@ -65705,7 +65706,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 
 
 
 Module : 
@@ -65717,7 +65718,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -65726,7 +65727,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  99.84 100.00 --      99.53 --     100.00 --     u_capture                  
 100.00 --     --     100.00 --     --     --     u_drive                    
  85.60  93.55 --      96.15  71.43  81.25 --     u_fsm                      
- 83.33 100.00 --      50.00 --     100.00 --     u_lat_cnt                  
+ 93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
 100.00 --     --     100.00 --     --     --     u_rd_resp                  
  99.84 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
 
@@ -65802,7 +65803,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 
 
 
 Module : 
@@ -65814,7 +65815,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -65823,7 +65824,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  99.84 100.00 --      99.53 --     100.00 --     u_capture                  
 100.00 --     --     100.00 --     --     --     u_drive                    
  85.60  93.55 --      96.15  71.43  81.25 --     u_fsm                      
- 83.33 100.00 --      50.00 --     100.00 --     u_lat_cnt                  
+ 93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
 100.00 --     --     100.00 --     --     --     u_rd_resp                  
  99.84 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
 
@@ -65899,7 +65900,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 
 
 
 Module : 
@@ -65911,7 +65912,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -65920,7 +65921,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  99.84 100.00 --      99.53 --     100.00 --     u_capture                  
 100.00 --     --     100.00 --     --     --     u_drive                    
  85.60  93.55 --      96.15  71.43  81.25 --     u_fsm                      
- 83.33 100.00 --      50.00 --     100.00 --     u_lat_cnt                  
+ 93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
 100.00 --     --     100.00 --     --     --     u_rd_resp                  
  99.84 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
 
@@ -65996,7 +65997,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT 
- 90.92  96.43 --      98.76  71.43  88.00 100.00 
+ 91.07  96.43 --      99.49  71.43  88.00 100.00 
 
 
 Module : 
@@ -66008,7 +66009,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -66017,7 +66018,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
  99.84 100.00 --      99.53 --     100.00 --     u_capture                  
 100.00 --     --     100.00 --     --     --     u_drive                    
  85.60  93.55 --      96.15  71.43  81.25 --     u_fsm                      
- 83.33 100.00 --      50.00 --     100.00 --     u_lat_cnt                  
+ 93.75 100.00 --      81.25 --     100.00 --     u_lat_cnt                  
 100.00 --     --     100.00 --     --     --     u_rd_resp                  
  99.84 --     --      99.69 --     --     100.00 u_sram_bank_controller_sva 
 
@@ -66311,10 +66312,10 @@ Total            4     4         100.00  4                 100.00
 Cover Directives for Properties: Details
 
 Name                  Attempts Matches Incomplete 
-cp_back_to_back       5757672  16141   0          
-cp_read_completes     5757672  21165   0          
-cp_wait_state_reached 5757672  61000   0          
-cp_write_completes    5757672  26415   0          
+cp_back_to_back       7290628  15885   0          
+cp_read_completes     7290628  23715   0          
+cp_wait_state_reached 7290628  56500   0          
+cp_write_completes    7290628  27615   0          
 
 
 -------------------------------------------------------------------------------
@@ -66413,10 +66414,10 @@ Total            4     4         100.00  4                 100.00
 Cover Directives for Properties: Details
 
 Name                  Attempts Matches Incomplete 
-cp_back_to_back       1178681  2609    0          
-cp_read_completes     1178681  2839    0          
-cp_wait_state_reached 1178681  8225    0          
-cp_write_completes    1178681  3374    0          
+cp_back_to_back       1259372  2541    0          
+cp_read_completes     1259372  2889    0          
+cp_wait_state_reached 1259372  7530    0          
+cp_write_completes    1259372  3279    0          
 
 
 -------------------------------------------------------------------------------
@@ -66515,10 +66516,10 @@ Total            4     4         100.00  4                 100.00
 Cover Directives for Properties: Details
 
 Name                  Attempts Matches Incomplete 
-cp_back_to_back       1178681  2325    0          
-cp_read_completes     1178681  2818    0          
-cp_wait_state_reached 1178681  8160    0          
-cp_write_completes    1178681  3570    0          
+cp_back_to_back       1259372  2276    0          
+cp_read_completes     1259372  2887    0          
+cp_wait_state_reached 1259372  7520    0          
+cp_write_completes    1259372  3438    0          
 
 
 -------------------------------------------------------------------------------
@@ -66617,10 +66618,10 @@ Total            4     4         100.00  4                 100.00
 Cover Directives for Properties: Details
 
 Name                  Attempts Matches Incomplete 
-cp_back_to_back       1178681  2370    0          
-cp_read_completes     1178681  2811    0          
-cp_wait_state_reached 1178681  8155    0          
-cp_write_completes    1178681  3685    0          
+cp_back_to_back       1259372  2320    0          
+cp_read_completes     1259372  2880    0          
+cp_wait_state_reached 1259372  7525    0          
+cp_write_completes    1259372  3472    0          
 
 
 -------------------------------------------------------------------------------
@@ -66719,10 +66720,10 @@ Total            4     4         100.00  4                 100.00
 Cover Directives for Properties: Details
 
 Name                  Attempts Matches Incomplete 
-cp_back_to_back       1178681  2268    0          
-cp_read_completes     1178681  2902    0          
-cp_wait_state_reached 1178681  8410    0          
-cp_write_completes    1178681  3613    0          
+cp_back_to_back       1259372  2202    0          
+cp_read_completes     1259372  2980    0          
+cp_wait_state_reached 1259372  7740    0          
+cp_write_completes    1259372  3479    0          
 
 
 ===============================================================================
@@ -67587,7 +67588,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -67765,7 +67766,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -67943,7 +67944,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -68121,7 +68122,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME 
- 70.55 --     --      70.55 --     --     --     dut  
+ 70.17 --     --      70.17 --     --     --     dut  
 
 
 Subtrees :
@@ -68415,7 +68416,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -68605,7 +68606,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -68681,7 +68682,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -69248,7 +69249,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -69630,7 +69631,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -69707,7 +69708,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
@@ -69786,7 +69787,7 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH ASSERT NAME        
- 80.59 --     --      80.59 --     --     --     u_scheduler 
+ 80.05 --     --      80.05 --     --     --     u_scheduler 
 
 
 Subtrees :
