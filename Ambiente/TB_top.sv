@@ -137,6 +137,40 @@ module tb_top;
         .rst_n(rst_n)
     );
 
+    // Monitor de ocupación (M4) — reconstruye la ocupación desde los puertos
+    // de cada FIFO (push/pop/full/pndng). No depende de señales internas.
+    // Solo lectura, va en el top del testbench. Ajustar 'dut' a tu instancia.
+    int wr_req_occ=0, wr_req_max=0;
+    int rd_req_occ=0, rd_req_max=0;
+    int rd_rsp_occ=0, rd_rsp_max=0;
+    int b_pend_occ=0, b_pend_max=0;
+    
+    always @(posedge clk) if (rst_n) begin
+      // WR REQ FIFO  (fifo_flops: usa pndng)
+      wr_req_occ += (dut.u_wr_req_fifo.push && !dut.u_wr_req_fifo.full)
+                  - (dut.u_wr_req_fifo.pop  &&  dut.u_wr_req_fifo.pndng);
+      if (wr_req_occ > wr_req_max) wr_req_max = wr_req_occ;
+    
+      // RD REQ FIFO
+      rd_req_occ += (dut.u_rd_req_fifo.push && !dut.u_rd_req_fifo.full)
+                  - (dut.u_rd_req_fifo.pop  &&  dut.u_rd_req_fifo.pndng);
+      if (rd_req_occ > rd_req_max) rd_req_max = rd_req_occ;
+    
+      // RD RESP FIFO
+      rd_rsp_occ += (dut.u_rd_response_path.u_rd_resp_fifo.push && !dut.u_rd_response_path.u_rd_resp_fifo.full)
+                  - (dut.u_rd_response_path.u_rd_resp_fifo.pop  &&  dut.u_rd_response_path.u_rd_resp_fifo.pndng);
+      if (rd_rsp_occ > rd_rsp_max) rd_rsp_max = rd_rsp_occ;
+    
+      // Contador de pendientes canal B  (pending_counter: usa empty, no pndng)
+      b_pend_occ += (dut.u_wr_response_path.u_counter.push && !dut.u_wr_response_path.u_counter.full)
+                  - (dut.u_wr_response_path.u_counter.pop  && !dut.u_wr_response_path.u_counter.empty);
+      if (b_pend_occ > b_pend_max) b_pend_max = b_pend_occ;
+    end
+    
+    final
+      $display("[M4] ocupacion max -- WR_REQ=%0d  RD_REQ=%0d  RD_RESP=%0d  B_PEND=%0d",
+               wr_req_max, rd_req_max, rd_rsp_max, b_pend_max);
+
     // ── Cross-hierarchical assigns al scheduler ──────────
     assign sched_probe.grant_wr     = dut.u_scheduler.grant_wr;
     assign sched_probe.grant_rd     = dut.u_scheduler.grant_rd;
