@@ -140,6 +140,7 @@ merge_coverage() {
 
     # Merge con urg + reporte HTML/text
     urg -dir ${vdb_list} \
+        -metric line+cond+fsm+tgl+branch+assert \
         -dbname ${RUN_DIR}/cov_merged \
         -report ${RUN_DIR}/cov_report \
         -format both \
