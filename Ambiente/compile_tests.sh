@@ -47,7 +47,7 @@ cd ${RUN_DIR}
 vcs -f ${TB_DIR}/mem_ctrl_uvm.f \
     -full64 \
     -ntb_opts uvm-1.2 \
-    -cm line+cond+fsm+tgl+branch \
+    -cm line+cond+fsm+tgl+branch+asserts \
     -cm_dir ${RUN_DIR}/${COV_DIR_NAME} \
     +define+TB_N_BANKS=${N_BANKS} \
     +define+TB_READ_LATENCY=${READ_LAT} \
