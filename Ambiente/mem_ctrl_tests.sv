@@ -135,20 +135,24 @@ class mem_full_test extends mem_base_test;
         m_rd = mem_master_rd_seq #(TEST_ADDR_W, TEST_DATA_W, TEST_N_BANKS, TEST_BANK_SIZE_BYTES)
                 ::type_id::create("m_rd");
 
+        m_wr.start(env.wr_agent.sequencer);
+        drain_responses(3000);
+        m_rd.start(env.rd_agent.sequencer);
+        drain_responses(3000);
 //        bp_start = uvm_event_pool::get_global("bp_start");
 //        bp_end   = uvm_event_pool::get_global("bp_end");
 
         // PARALELO: writes y reads compiten por el scheduler
-        fork
-            begin : write_master
-                m_wr.start(env.wr_agent.sequencer);
-            end
-
-
-            begin : read_master
-                m_rd.start(env.rd_agent.sequencer);
-            end
-
+//        fork
+//            begin : write_master
+//                m_wr.start(env.wr_agent.sequencer);
+//            end
+//
+//
+//            begin : read_master
+//                m_rd.start(env.rd_agent.sequencer);
+//            end
+//
 //            begin : bp_listener
 //                // Esperar a que ambas masters disparen bp_start
 //                bp_start.wait_trigger();
@@ -169,7 +173,7 @@ class mem_full_test extends mem_base_test;
 //                uvm_config_db#(int)::set(this, "env.rd_agent.driver",
 //                                         "r_backpressure_cycles", 0);
 //            end
-        join
+//        join
 
         // Drain final: deja que salgan las respuestas en vuelo
         drain_responses(2000);
