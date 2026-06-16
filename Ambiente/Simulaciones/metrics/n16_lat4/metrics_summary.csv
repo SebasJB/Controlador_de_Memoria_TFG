@@ -1,0 +1,2 @@
+test_name,n_banks,read_latency,b_bp,r_bp,writes,reads,b_resp,r_resp,data_mismatches,hazards_tolerated,order_violations,slverr,invalid_wr,invalid_rd,avg_lat_wr_cyc,min_lat_wr_cyc,max_lat_wr_cyc,avg_lat_rd_cyc,min_lat_rd_cyc,max_lat_rd_cyc,throughput_wr,throughput_rd,sim_time_cyc
+mem_full_test,16,4,0,0,3900,3450,3800,3350,0,0,0,0,100,100,4.11,4.00,8.00,40.55,11.00,73.00,0.081,0.072,46630

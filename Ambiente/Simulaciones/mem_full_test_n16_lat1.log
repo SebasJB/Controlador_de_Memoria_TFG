@@ -1,7 +1,7 @@
 Command: /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/./mem_handler_simv_n16_lat1 +UVM_TESTNAME=mem_full_test +UVM_VERBOSITY=UVM_LOW -cm line+cond+fsm+tgl+branch -cm_dir /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/cov_n16_lat1.vdb -cm_name mem_full_test_CFG-C1 +uvm_set_config_string=*,csv_dir,/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1 +uvm_set_config_int=*,read_latency_val,1 -l mem_full_test_n16_lat1.log
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version R-2020.12-SP2_Full64; Runtime version R-2020.12-SP2_Full64;  Jun 16 13:40 2026
+Compiler version R-2020.12-SP2_Full64; Runtime version R-2020.12-SP2_Full64;  Jun 16 14:36 2026
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -110,8 +110,32 @@ UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(422) @ 412015000: uvm_test_top.env.sb [SB_REPORT] Bank 13: WR=221 RD=218
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(422) @ 412015000: uvm_test_top.env.sb [SB_REPORT] Bank 14: WR=244 RD=210
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(422) @ 412015000: uvm_test_top.env.sb [SB_REPORT] Bank 15: WR=247 RD=210
+
+Warning-[STASKW_CO] Cannot open file
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv, 445
+  The file 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/metrics_summary.csv'
+  could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(467) @ 412015000: uvm_test_top.env.sb [SB_CSV] Summary written to /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/metrics_summary.csv
+
+Warning-[STASKW_CO] Cannot open file
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv, 477
+  The file 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/latencies_detail.csv'
+  could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(493) @ 412015000: uvm_test_top.env.sb [SB_CSV] Latencies written to /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/latencies_detail.csv (7150 entries)
+
+Warning-[STASKW_CO] Cannot open file
+/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv, 506
+  The file 
+  '/mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/bank_utilization.csv'
+  could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
 UVM_INFO /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/mem_ctrl_scoreboard.sv(527) @ 412015000: uvm_test_top.env.sb [SB_CSV] Bank util written to /mnt/vol_NFS_rh003/estudiantes/TFG_Sebastian_Barrantes_2026/Controlador_de_Memoria_TFG/Ambiente/Simulaciones/metrics/n16_lat1/bank_utilization.csv
 UVM_INFO /mnt/vol_NFS_rh003/tools/vcs/R-2020.12-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 412015000: reporter [UVM/REPORT/CATCHER] 
 --- UVM Report catcher Summary ---
@@ -227,5 +251,5 @@ VCS Coverage Metrics: during simulation line, cond, FSM, branch, tgl was monitor
 ---------------------------------------------------------------------------
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 412015000 ps
-CPU Time:     11.740 seconds;       Data structure size:   1.0Mb
-Tue Jun 16 13:40:54 2026
+CPU Time:     12.220 seconds;       Data structure size:   1.0Mb
+Tue Jun 16 14:36:46 2026
