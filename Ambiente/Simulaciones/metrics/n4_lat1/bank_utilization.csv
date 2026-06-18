@@ -1,5 +1,0 @@
-test_name,b_bp,r_bp,bank_id,writes_completed,reads_completed,total_completes,utilization_proxy_pct,sim_time_cyc
-mem_full_test,0,0,0,630,526,1156,23.35,30312
-mem_full_test,0,0,1,663,540,1203,24.30,30312
-mem_full_test,0,0,2,672,544,1216,24.57,30312
-mem_full_test,0,0,3,635,540,1175,23.74,30312
